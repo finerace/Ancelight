@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d46e2684db628f4896f1390284a7e53, type: 3}
+  m_Name: Fists
+  m_EditorClassIdentifier: 
+  name_: Fists
+  description: Is a fists.
+  icon: {fileID: 21300000, guid: 0568393ed585bb947ad51457c65ba3e7, type: 3}
+  id: 1
+  mainColor: {r: 0.85, g: 0.17083332, b: 0.1916667, a: 1}
+  damage: 20
+  bulletID: 0
+  raycast: 0
+  isMelee: 1
+  oneClick: 1
+  rateOfFire: 0.2
+  endTimeShoot: 0
+  shootingMode: 0
+  shootingEffects: {fileID: 0}
+  bulletPrefab: {fileID: 6571646158022850639, guid: 5e8a3287bcd70e24c95ad48701ddce53, type: 3}
+  weaponPrefab: {fileID: 0}

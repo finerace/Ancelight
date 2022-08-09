@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b2153f71ec95a4ca9e8026e9632b54, type: 3}
+  m_Name: SuperGunBullets
+  m_EditorClassIdentifier: 
+  maxBullets: 600
+  id: 5
+  icon: {fileID: 21300000, guid: 332995fe4a46b6148bf9d9ae7d42d3fd, type: 3}
