@@ -12,25 +12,26 @@ public class PlayerDashsService : MonoBehaviour
     [SerializeField] private float oneDashEnergySpend = 3f;
     [SerializeField] private float dashsRegenerationSpeed = 3f; 
 
-    public int DashsCount
-    { get { return dashsCount; } }
+    public int DashsCount => dashsCount;
 
+    public float OneDashEnergySpend => oneDashEnergySpend;
+    public float DashsRegenerationSpeed => dashsRegenerationSpeed;
+    
     [SerializeField] private float dashPower = 2f;
     [SerializeField] private float dashColdown = 0.5f;
     private float dashCurrentColdownTimer = 0;
+    
+    public float DashPower => dashPower;
 
-    [SerializeField] private int oneDashDeltaTimeTicks = 30;
+    [SerializeField] private int dashStopDeltaTimeTicks = 30;
     [SerializeField] private float flyDashResidualForceAmount = 0.2f;
-
+    
     private float dashCurrentEnergy;
     private float dashMaxEnergy;
 
-    public float DashCurrentEnergy 
-    { get { return dashCurrentEnergy; }}
-    public float DashMaxEnergy 
-    { get { return dashMaxEnergy; }}
+    public float DashCurrentEnergy => dashCurrentEnergy;
+    public float DashMaxEnergy => dashMaxEnergy;
 
-    
 
     private void Awake()
     {
@@ -129,7 +130,7 @@ public class PlayerDashsService : MonoBehaviour
 
         playerMovement.PlayerRb.velocity += resultDashForce;
 
-        for (int i = 0; i < oneDashDeltaTimeTicks; i++)
+        for (int i = 0; i < dashStopDeltaTimeTicks; i++)
         {
             FlyDeshForceAdjustment();
 
@@ -142,7 +143,7 @@ public class PlayerDashsService : MonoBehaviour
             if(playerMovement.isFlies)
             {
                 Vector3 adjustmentForce =
-                    (resultDashForce / oneDashDeltaTimeTicks) * (1f - flyDashResidualForceAmount);
+                    (resultDashForce / dashStopDeltaTimeTicks) * (1f - flyDashResidualForceAmount);
 
                 Vector3 playerVelocity = playerMovement.PlayerRb.velocity;
 

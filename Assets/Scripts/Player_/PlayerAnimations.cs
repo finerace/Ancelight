@@ -36,7 +36,7 @@ public class PlayerAnimations : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Инициализация вспомогательных переменных
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         float vertical = Axes.Vertical;
         float horizontal = Axes.Horizontal;
         float mousex = Axes.MouseX;
@@ -48,10 +48,10 @@ public class PlayerAnimations : MonoBehaviour
         int WeaponID = weaponsManager.SelectedWeaponID;
         bool fistsState = weaponsManager.WeaponSpecialState;
 
-        //Проверка на ходьбу и движение мышью
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         IsWalked = playerMovement.IsWalked;
 
-        //Назначение нужной скорости взависимости от состояния игрока
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         if (!IsAttacking && !isHandsColdown)
         {
             if (IsWalked)
@@ -61,7 +61,7 @@ public class PlayerAnimations : MonoBehaviour
         }
         else handsAnimator.speed = startHandsSpeed;
 
-        //Финальное назначения в аниматорах. Движение головы
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         head.localEulerAngles = camera_.localEulerAngles;
 
         bodyAnimator.SetBool(walkID, IsWalked);
@@ -76,12 +76,12 @@ public class PlayerAnimations : MonoBehaviour
 
         if(handsCurrentAnimTagHash == weaponCurrentSelectedIdHash && !handsAnimator.IsInTransition(0))
         {
-            weaponsManager.animatorWeaponСhangeAllowed = true;
+            weaponsManager.animatorWeaponChangeAllowed = true;
             weaponsManager.animatorAttackAllowed = true;
         }
         else
         {
-            //weaponsManager.animatorWeaponСhangeAllowed = false;
+            //weaponsManager.animatorWeaponпїЅhangeAllowed = false;
             weaponsManager.animatorAttackAllowed= false;
         }
 

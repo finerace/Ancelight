@@ -1,4 +1,4 @@
-Shader "WeaponsUIeffect"
+Shader "WeaponsUIeffectMask"
 {
     Properties
     {

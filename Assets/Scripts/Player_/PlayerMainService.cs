@@ -18,8 +18,11 @@ public class PlayerMainService : Health
     [SerializeField] internal PlayerWeaponsBulletsManager weaponsBulletsManager;
     [SerializeField] internal PlayerRotation playerRotation;
     [SerializeField] internal PlayerLookService playerLook;
-
-    [SerializeField] public event Action<float> getDamageEvent;
+    [SerializeField] internal PlayerHookService hookService;
+    [SerializeField] internal PlayerDashsService dashsService;
+    [SerializeField] internal PlayerImmediatelyProtectionService immediatelyProtectionService; 
+    
+    [SerializeField] public event Action<float> GetDamageEvent;
 
     private void Awake()
     {
@@ -49,8 +52,8 @@ public class PlayerMainService : Health
             armor = 0;
         }
 
-        if(getDamageEvent != null)
-            getDamageEvent.Invoke(damage);
+        if(GetDamageEvent != null)
+            GetDamageEvent.Invoke(damage);
 
         base.GetDamage(damage);
     }
@@ -81,16 +84,16 @@ public class PlayerMainService : Health
     {
         if (playerMovement == null)
             playerMovement = GetComponent<PlayerMovement>();
-
+        
         if (weaponsManager == null)
             weaponsManager = GetComponent<PlayerWeaponsManager>();
-
+        
         if (weaponsBulletsManager == null)
             weaponsBulletsManager = GetComponent<PlayerWeaponsBulletsManager>();
-
+        
         if (playerRotation == null)
             playerRotation = GetComponent<PlayerRotation>();
-
+        
         if (playerLook == null)
             playerRotation = GetComponent<PlayerRotation>();
     }

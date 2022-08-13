@@ -25,10 +25,15 @@ public class MenuSystem : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyUp(KeyCode.E))
+            OpenLocalMenu("SuitManageMenu");
+
 
         if (Input.GetKeyUp(KeyCode.Escape))
+        {
             Back();
-
+            return;
+        }
     }
 
     public void OpenLocalMenu(string menuID)

@@ -16,7 +16,7 @@ public class DamageScreenService : MonoBehaviour
     {
         SetDamageScreenIntensity(0);
 
-        playerMain.getDamageEvent += DamageScreenIntensityTrackerAndSetter;
+        playerMain.GetDamageEvent += DamageScreenIntensityTrackerAndSetter;
     }
 
     private void Update()

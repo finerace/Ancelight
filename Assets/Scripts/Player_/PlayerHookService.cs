@@ -19,29 +19,30 @@ public class PlayerHookService : MonoBehaviour
 
     public float HookMaxStrength { get { return hookMaxStrength; } }
     public float HookCurrentStrength { get { return hookCurrentStrength; } }
-
+    
     [SerializeField] private float hookStrengthUsePerSecond = 5f;
     [SerializeField] private float hookStrengthRegenerationPerSecond = 3.5f;
     [SerializeField] private float hookStrengthRegenerationAfterUseTime = 5f;
     private float hookAfterUseTimer = 0f;
     private bool isAfterUseTimerActive = true;
-    public bool IsAfterUseTimerActive 
-    { get { return isAfterUseTimerActive; } }
+    
+    public bool IsAfterUseTimerActive => isAfterUseTimerActive;
+    public float HookStrengthRegenerationPerSecond => hookStrengthRegenerationPerSecond;
 
     [Space]
     [SerializeField] private float hookForce = 15f;
-    [SerializeField] private float hookMaxLength = 30f;
+    [SerializeField] private float hookMaxActionRange = 30f;
     [SerializeField] private float hookDistanceDivider = 6f;
     [SerializeField] private float hookDamage = 15f;
     [SerializeField] private LayerMask hookUseSurfaceMask;
 
+    public float HookMaxActionRange => hookMaxActionRange;
+
     private bool isHookUsed = false;
-    public bool IsHookUsed 
-    { get { return isHookUsed; } }
+    public bool IsHookUsed => isHookUsed;
 
     private bool isHookStrengthRegenerationActive = false;
-    public bool IsHookStrengthRegenerationActive 
-    { get { return isHookStrengthRegenerationActive;} }
+    public bool IsHookStrengthRegenerationActive => isHookStrengthRegenerationActive;
 
     private Rigidbody hookRb;
     private FixedJoint hookFixedJoint;
@@ -193,7 +194,7 @@ public class PlayerHookService : MonoBehaviour
         
         float hookLength = Vector3.Distance(hookHitObj.point, hookStartPoint.position);
 
-        if (hookLength > hookMaxLength)
+        if (hookLength > hookMaxActionRange)
             return;
 
         isHookUsed = true;
@@ -250,7 +251,7 @@ public class PlayerHookService : MonoBehaviour
             hookCheckSurfaceRay = new Ray(hookRayOrigin, hookRayDirection);
 
             return
-                Physics.Raycast(hookCheckSurfaceRay, out hitObj, hookMaxLength, hookUseSurfaceMask);
+                Physics.Raycast(hookCheckSurfaceRay, out hitObj, hookMaxActionRange, hookUseSurfaceMask);
         }
 
         bool CheckHookHitObjectForRb(RaycastHit hitObj,out Rigidbody hitObjRb)

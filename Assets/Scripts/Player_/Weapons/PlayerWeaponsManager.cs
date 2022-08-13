@@ -47,7 +47,7 @@ public class PlayerWeaponsManager : MonoBehaviour
     private GameObject nowWeaponPrefab;
     private GameObject nowEffectsPrefab;
     internal bool animatorAttackAllowed = false;
-    internal bool animatorWeaponСhangeAllowed = false;
+    internal bool animatorWeaponChangeAllowed = false;
 
     [HideInInspector] public bool IsAttacking { get { return isAttacking; } }
     [HideInInspector] public int SelectedWeaponID { get { return selectedWeaponID; } }
@@ -57,7 +57,7 @@ public class PlayerWeaponsManager : MonoBehaviour
     [HideInInspector] public bool isBulletsHere { get { return 
                 bulletsManager.CheckBullets(selectedWeaponData.BulletsID); } }
 
-    private bool oneClickState = false; //Зажать или 1 раз клик
+    private bool oneClickState = false; //?????? ??? 1 ??? ????
     private bool adjustableAttackAllow = false;
     private bool isWeaponInCooldown = false;
     [SerializeField] private float weaponChangeCooldown = 0.20f;
@@ -204,7 +204,7 @@ public class PlayerWeaponsManager : MonoBehaviour
             }
         }
 
-        //Смена оружия
+        //????? ??????
         if (!isWeaponInCooldown && !IsAttacking)
         {
             if (mouseWheel < 0)
@@ -215,7 +215,7 @@ public class PlayerWeaponsManager : MonoBehaviour
         }
     }
 
-    private void InitializedWeaponsFields() //Инициализация полей при смене оружия
+    private void InitializedWeaponsFields() //????????????? ????? ??? ????? ??????
     {
         weaponsUnlockedIDs.Sort();
 
@@ -363,10 +363,10 @@ public class PlayerWeaponsManager : MonoBehaviour
                 return weaponsDatas[i];
         }
 
-        throw new Exception($"Оружие под айди {id} не найдено!");
+        throw new Exception($"?????? ??? ???? {id} ?? ???????!");
     }
 
-    private void InitializedAbilitysFields() //Инициализация полей при смене доп. способностей
+    private void InitializedAbilitysFields() //????????????? ????? ??? ????? ???. ????????????
     {
         abilityUnlockedIDs.Sort();
         Destroy(nowAbilityPrefab);
@@ -429,7 +429,7 @@ public class PlayerWeaponsManager : MonoBehaviour
                 return abilityDatas[i];
         }
 
-        throw new Exception($"Способность под айди {id} не найдена!");
+        throw new Exception($"??????????? ??? ???? {id} ?? ???????!");
     }
 
     private void AbilityDelay()
@@ -485,7 +485,7 @@ public class PlayerWeaponsManager : MonoBehaviour
 
         else if (fire1 > 0 && isThereAnyBullets)  
         {
-            //Чтобы изатаккинг никогда не был фэлс при атаке
+            //????? ?????????? ??????? ?? ??? ???? ??? ?????
             StartAttack();
         }
         else isAttacking = false;
