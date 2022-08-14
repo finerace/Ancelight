@@ -15,6 +15,8 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
     [SerializeField] private Image buttonTriangleEmissionEffect;
     [SerializeField] private Image buttonLinkEffect;
     [SerializeField] private bool isUnscaledDeltaTimeButtonShadersAnimationOn = true;
+    private static readonly int UnscaledTimeReferenceID = Shader.PropertyToID("_unscaledTime");
+    private static readonly int MainColorReferenceID = Shader.PropertyToID("_MainColor");
 
     private void Update()
     {
@@ -52,11 +54,11 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
         void SetNewImageMaterialColor(Image image,Color color,string materialAssetCreatePath)
         {
             
-            Color newColor = color * effectsIntensity;
+            var newColor = color * effectsIntensity;
             
-            Material newMaterial = new Material(image.material);
+            var newMaterial = new Material(image.material);
 
-            newMaterial.SetColor("_MainColor", newColor);
+            newMaterial.SetColor(MainColorReferenceID, newColor);
 
             AssetDatabase.CreateAsset(newMaterial, materialAssetCreatePath);
 
@@ -74,9 +76,9 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
 
         void SetMaterialUnscaledDeltaTime(Material mat)
         {
-            float effectSetTime = mat.GetFloat("_UnscaledTime") + Time.unscaledDeltaTime;
+            var effectSetTime = mat.GetFloat(UnscaledTimeReferenceID) + Time.unscaledDeltaTime;
 
-            mat.SetFloat("_UnscaledTime", effectSetTime);
+            mat.SetFloat(UnscaledTimeReferenceID, effectSetTime);
         }
     }
 
@@ -89,11 +91,11 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
 
         void ImageMaterialSetNewIntensity(Image item)
         {
-            Color newColor = buttonColor * effectsIntensity;
+            var newColor = buttonColor * effectsIntensity;
 
-            Material newMaterial = new Material(item.material);
+            var newMaterial = new Material(item.material);
 
-            newMaterial.SetColor("_MainColor", newColor);
+            newMaterial.SetColor(MainColorReferenceID, newColor);
 
             item.material = newMaterial;
         }
