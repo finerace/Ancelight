@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class MenuSystem : MonoBehaviour
@@ -9,7 +11,7 @@ public class MenuSystem : MonoBehaviour
     [SerializeField] private bool isMenusPresetCreate = false;
 
     private string menusPath;
-    private List<MenuData> menusDataPath = new List<MenuData>();
+    private readonly List<MenuData> menusDataPath = new List<MenuData>();
     [Space]
     private MenuData currentMenuData;
     private bool currentMenuIsParent = true;
@@ -32,7 +34,6 @@ public class MenuSystem : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             Back();
-            return;
         }
     }
 
@@ -40,33 +41,28 @@ public class MenuSystem : MonoBehaviour
     {
         if (!currentMenuIsParent)
         {
-            throw new Exception
-                ($"Open menu has failed! \n" +
-                $"Current menu {menuID} is not parent!");
+            print($"Open menu has failed! \n" + $"Current menu {menuID} is not parent!");
+            
+            return;
         }
 
+        var currentParentMenu = (ParentMenuData)currentMenuData;
 
-        ParentMenuData currentParentMenu = (ParentMenuData)currentMenuData;
-
-        ParentMenuData foundParentMenuData =
+        var foundParentMenuData =
             FindLocalParentMenu(currentParentMenu, menuID);
 
-        MenuData foundChildMenuData = 
+        var foundChildMenuData = 
             FindLocalChildMenu(currentParentMenu, menuID);
-
 
         if (foundChildMenuData != null && foundParentMenuData != null)
         {
-            throw new System.Exception($"Open menu has failed!\n" +
-                $"Menu ID {menuID} is repeated!");
+            throw new InvalidDataException($"Open menu has failed!\n" + $"Menu ID {menuID} is repeated!");
         }
         if(foundChildMenuData == null && foundParentMenuData == null)
         {
-            throw new Exception
-                ($"Open menu has failed! \n" +
-                $"The given ID {menuID} is not found!");
+            throw new InvalidDataException
+                ($"Open menu has failed! \n" + $"The given ID {menuID} is not found!");
         }
-
 
         if(foundParentMenuData != null)
         {
@@ -87,12 +83,12 @@ public class MenuSystem : MonoBehaviour
     {
         if (currentMenuData == startMenuData)
         {
-            OpenLocalMenu("InGameMenu");
+            OpenLocalMenu("PauseMenu");
 
             return;
         }
 
-        MenuData backMenu = menusDataPath[menusDataPath.Count - 2];
+        var backMenu = menusDataPath[menusDataPath.Count - 2];
 
         menusDataPath.Remove(currentMenuData);
         
@@ -117,7 +113,7 @@ public class MenuSystem : MonoBehaviour
         currentMenuData = menuData;
         menuData.menu.SetActive(true);
 
-        menusPath += $"/{menuData.MenuID}";
+        menusPath += $"/{menuData.menuID}";
         menusDataPath.Add(menuData);
 
         SetMenuSpecialSettings(menuData);
@@ -127,26 +123,12 @@ public class MenuSystem : MonoBehaviour
 
     private ParentMenuData FindLocalParentMenu(ParentMenuData parentMenu, string toFindMenuID)
     {
-
-        foreach (var item in parentMenu.childsParentsMenusData)
-        {
-            if (item.MenuID == toFindMenuID)
-                return item;
-        }
-
-        return null;
+        return parentMenu.childsParentsMenusData.FirstOrDefault(item => item.menuID == toFindMenuID);
     }
 
     private MenuData FindLocalChildMenu(ParentMenuData parentMenu,string toFindMenuID)
     {
-
-        foreach (var item in parentMenu.childsMenusData)
-        {
-            if(item.MenuID == toFindMenuID)
-                return item;
-        }
-
-        return null;
+        return parentMenu.childsMenusData.FirstOrDefault(item => item.menuID == toFindMenuID);
     }
 
     private void UpdateMenuPath()
@@ -155,7 +137,7 @@ public class MenuSystem : MonoBehaviour
 
         foreach (var item in menusDataPath)
         {
-            menusPath += $"{item.MenuID}/";
+            menusPath += $"{item.menuID}/";
         }
     }
 
@@ -168,7 +150,7 @@ public class MenuSystem : MonoBehaviour
 
         if (player != null)
         {
-            bool playerManageActive =
+            var playerManageActive =
                 !(menuData.isTimeNotActive || menuData.isCursorActive);
 
             IsPlayerManageActive(playerManageActive);
@@ -191,15 +173,7 @@ public class MenuSystem : MonoBehaviour
 
         void SetTimeScaleActive(bool state)
         {
-            if (state)
-            {
-                Time.timeScale = 0;
-            }
-            else
-            {
-
-                Time.timeScale = 1;
-            }
+            Time.timeScale = state ? 0 : 1;
         }
         
         void IsPlayerManageActive(bool state)
@@ -229,7 +203,7 @@ public class MenuSystem : MonoBehaviour
 [System.Serializable]
 public class MenuData
 {
-    public string MenuID;
+    public string menuID;
     public GameObject menu;
     public bool isCursorActive = true;
     public bool isTimeNotActive = true;
@@ -243,10 +217,9 @@ public class ParentMenuData : MenuData
 
     public void Disable()
     {
-        foreach (var item in childsMenusData)
+        foreach (var item in childsMenusData.Where(item => item.menu.activeSelf))
         {
-            if(item.menu.activeSelf)
-                item.menu.SetActive(false);
+            item.menu.SetActive(false);
         }
 
         foreach (var item in childsParentsMenusData)

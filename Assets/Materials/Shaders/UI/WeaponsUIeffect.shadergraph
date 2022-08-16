@@ -997,7 +997,7 @@
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "UnscaledTime",
     "m_DefaultReferenceName": "_UnscaledTime",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_unscaledTime",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",

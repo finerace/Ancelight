@@ -2,30 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class ButtonMainService : MonoBehaviour
+public class ButtonMainService : MonoBehaviour, IPointerUpHandler,IPointerDownHandler, 
+    IPointerEnterHandler, IPointerExitHandler
 {
 
     [SerializeField] private ButtonAnimations buttonAnimations;
     [Space]
-    [SerializeField] private UnityEvent onClickAction;
+    public UnityEvent onClickAction;
     private bool onMouseEnter = false;
     private bool isClicked = false;
 
-    protected void OnMouseUp()
+    public void OnPointerUp(PointerEventData data)
     {
         if (onMouseEnter)
         {
             onClickAction.Invoke();
         }
-
-        buttonAnimations.currentButtonAnimationState =
-            ButtonAnimations.ButtonState.Idle;
-
+        
+        buttonAnimations.currentButtonAnimationState = onMouseEnter ? ButtonAnimations.ButtonState.MouseEnter 
+            : ButtonAnimations.ButtonState.Idle;
+        
         isClicked = false;
     }
 
-    protected void OnMouseDown()
+    public void OnPointerDown(PointerEventData data)
     {
         buttonAnimations.currentButtonAnimationState =
             ButtonAnimations.ButtonState.Clicked;
@@ -33,7 +36,7 @@ public class ButtonMainService : MonoBehaviour
         isClicked = true;
     }
 
-    protected void OnMouseEnter()
+    public void OnPointerEnter(PointerEventData data)
     {
         buttonAnimations.currentButtonAnimationState =
             ButtonAnimations.ButtonState.MouseEnter;
@@ -41,7 +44,7 @@ public class ButtonMainService : MonoBehaviour
         onMouseEnter = true;
     }
 
-    protected void OnMouseExit()
+    public void OnPointerExit(PointerEventData data)
     {
 
         buttonAnimations.currentButtonAnimationState =
@@ -50,11 +53,11 @@ public class ButtonMainService : MonoBehaviour
         onMouseEnter = false;
     }
 
-    protected void OnMouseOver()
-    {
-        if(onMouseEnter && !isClicked)
-            buttonAnimations.currentButtonAnimationState =
-            ButtonAnimations.ButtonState.MouseEnter;
-    }
+    // public void OnMouseOver()
+    // {
+    //     if(onMouseEnter && !isClicked)
+    //         buttonAnimations.currentButtonAnimationState =
+    //         ButtonAnimations.ButtonState.MouseEnter;
+    // }
 
 }

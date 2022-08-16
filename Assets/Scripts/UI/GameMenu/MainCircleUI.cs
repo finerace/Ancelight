@@ -372,7 +372,7 @@ public class MainCircleUI : MonoBehaviour
         foreach (var item in weaponsManager.WeaponsUnlockedIDs)
         {
             
-            WeaponData nowWeaponData = weaponsManager.FindWeaponID(item);
+            WeaponData nowWeaponData = weaponsManager.FindWeaponData(item);
 
             Image newIcon = Instantiate(iconPrefab, weaponPoints[3])
                 .GetComponent<Image>();
@@ -401,7 +401,7 @@ public class MainCircleUI : MonoBehaviour
 
         for (int i = 0; i < iconMaterial.Count; i++)
         {
-            WeaponData data = weaponsManager.FindWeaponID(weaponsManager.WeaponsUnlockedIDs[i]);
+            WeaponData data = weaponsManager.FindWeaponData(weaponsManager.WeaponsUnlockedIDs[i]);
 
             bool bulletHere = weaponsManager.bulletsManager.CheckBullets(data.BulletsID);
 

@@ -301,7 +301,7 @@ public class PlayerWeaponsManager : MonoBehaviour
             if (selectedWeapon >= weaponsUnlockedIDs.Count) 
                 selectedWeapon = 0;
 
-            WeaponData nowWeaponData = FindWeaponID(weaponsUnlockedIDs[selectedWeapon]);
+            WeaponData nowWeaponData = FindWeaponData(weaponsUnlockedIDs[selectedWeapon]);
 
             selectedWeaponData = nowWeaponData;
             InitializedWeaponsFields();
@@ -320,7 +320,7 @@ public class PlayerWeaponsManager : MonoBehaviour
             if (selectedWeapon < 0)
                 selectedWeapon = weaponsUnlockedIDs.Count-1;
 
-            WeaponData nowWeaponData = FindWeaponID(weaponsUnlockedIDs[selectedWeapon]);
+            WeaponData nowWeaponData = FindWeaponData(weaponsUnlockedIDs[selectedWeapon]);
 
             selectedWeaponData = nowWeaponData;
             InitializedWeaponsFields();
@@ -349,13 +349,13 @@ public class PlayerWeaponsManager : MonoBehaviour
                 selectedAbilityNum = weaponsUnlockedIDs.Count-1;
 
             selectedWeaponData =
-                FindWeaponID(weaponsUnlockedIDs[selectedWeapon]);
+                FindWeaponData(weaponsUnlockedIDs[selectedWeapon]);
             InitializedWeaponsFields();
             if(WeaponChange != null) WeaponChange.Invoke();
         }
     }
 
-    public WeaponData FindWeaponID(int id)
+    public WeaponData FindWeaponData(int id)
     {
         for (int i = 0; i < weaponsDatas.Count; i++)
         {
@@ -529,12 +529,12 @@ public class PlayerWeaponsManager : MonoBehaviour
         {
             weaponsUnlockedIDs.Add(id);
             weaponsUnlockedIDs.Sort();
-            WeaponData newWeapon = FindWeaponID(id);
+            WeaponData newWeapon = FindWeaponData(id);
 
             if (newWeapon.BulletsID != 0)
-                bulletsManager.AddNewBullet(newWeapon.BulletsID);
+                bulletsManager.UnlockBullet(newWeapon.BulletsID);
 
-            newWeaponEvent.Invoke(FindWeaponID(id));
+            newWeaponEvent.Invoke(FindWeaponData(id));
             SetSelectedWeapon(id);
         }
     }

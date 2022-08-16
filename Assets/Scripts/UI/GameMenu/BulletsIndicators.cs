@@ -31,7 +31,7 @@ public class BulletsIndicators : MonoBehaviour
 
         void SetUseScale()
         {
-            int currentBulletID = weaponsManager.FindWeaponID
+            int currentBulletID = weaponsManager.FindWeaponData
                 (weaponsManager.SelectedWeaponID).BulletsID;
             
             if (currentBulletID != 0)

@@ -127,7 +127,7 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     - _speedDivider: 0.5
-    - _unscaledTime: 1754.6385
+    - _unscaledTime: 5180.091
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.08041606, g: 0.16915104, b: 0.5407287, a: 1}

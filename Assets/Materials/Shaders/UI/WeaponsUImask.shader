@@ -13,7 +13,7 @@ Shader "WeaponsUIeffectMask"
         _Brightness("Brightness", Float) = 1
         [ToggleUI]_Disturbance("Disturbance", Float) = 0
         [NoScaleOffset]_MainTex("_MainTex", 2D) = "white" {}
-        _UnscaledTime("UnscaledTime", Float) = 0
+        _unscaledTime("UnscaledTime", Float) = 0
         _Rotation("Rotation", Float) = 0
         [HideInInspector][NoScaleOffset]unity_Lightmaps("unity_Lightmaps", 2DArray) = "" {}
         [HideInInspector][NoScaleOffset]unity_LightmapsInd("unity_LightmapsInd", 2DArray) = "" {}
@@ -246,7 +246,7 @@ Shader "WeaponsUIeffectMask"
         float _Brightness;
         float _Disturbance;
         float4 _MainTex_TexelSize;
-        float _UnscaledTime;
+        float _unscaledTime;
         float _Rotation;
         float _IsTransparentTexture;
         CBUFFER_END
@@ -428,7 +428,7 @@ Shader "WeaponsUIeffectMask"
             float2 _Vector2_5caa6ab780d54dd099c9b36d34618d6f_Out_0 = float2(0, _Split_f615a84a71594c0fbccf5f1cd8ff52d2_G_2);
             float _Property_bfd4fac952864b44b810378fc1d799d2_Out_0 = _Speed;
             float2 _Vector2_9f3dd73887a641b9ac56504bf68ae5ba_Out_0 = float2(0, _Property_bfd4fac952864b44b810378fc1d799d2_Out_0);
-            float _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0 = _UnscaledTime;
+            float _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0 = _unscaledTime;
             float _Add_e624e733158949be9b27794d1bb13482_Out_2;
             Unity_Add_float(IN.TimeParameters.x, _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0, _Add_e624e733158949be9b27794d1bb13482_Out_2);
             float2 _Multiply_f8718557c7ca47b8b3fc39d36d09ed13_Out_2;
@@ -734,7 +734,7 @@ Shader "WeaponsUIeffectMask"
         float _Brightness;
         float _Disturbance;
         float4 _MainTex_TexelSize;
-        float _UnscaledTime;
+        float _unscaledTime;
         float _Rotation;
         float _IsTransparentTexture;
         CBUFFER_END
@@ -916,7 +916,7 @@ Shader "WeaponsUIeffectMask"
             float2 _Vector2_5caa6ab780d54dd099c9b36d34618d6f_Out_0 = float2(0, _Split_f615a84a71594c0fbccf5f1cd8ff52d2_G_2);
             float _Property_bfd4fac952864b44b810378fc1d799d2_Out_0 = _Speed;
             float2 _Vector2_9f3dd73887a641b9ac56504bf68ae5ba_Out_0 = float2(0, _Property_bfd4fac952864b44b810378fc1d799d2_Out_0);
-            float _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0 = _UnscaledTime;
+            float _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0 = _unscaledTime;
             float _Add_e624e733158949be9b27794d1bb13482_Out_2;
             Unity_Add_float(IN.TimeParameters.x, _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0, _Add_e624e733158949be9b27794d1bb13482_Out_2);
             float2 _Multiply_f8718557c7ca47b8b3fc39d36d09ed13_Out_2;
@@ -1209,7 +1209,7 @@ Shader "WeaponsUIeffectMask"
         float _Brightness;
         float _Disturbance;
         float4 _MainTex_TexelSize;
-        float _UnscaledTime;
+        float _unscaledTime;
         float _Rotation;
         float _IsTransparentTexture;
         CBUFFER_END
@@ -1389,7 +1389,7 @@ Shader "WeaponsUIeffectMask"
             float2 _Vector2_5caa6ab780d54dd099c9b36d34618d6f_Out_0 = float2(0, _Split_f615a84a71594c0fbccf5f1cd8ff52d2_G_2);
             float _Property_bfd4fac952864b44b810378fc1d799d2_Out_0 = _Speed;
             float2 _Vector2_9f3dd73887a641b9ac56504bf68ae5ba_Out_0 = float2(0, _Property_bfd4fac952864b44b810378fc1d799d2_Out_0);
-            float _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0 = _UnscaledTime;
+            float _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0 = _unscaledTime;
             float _Add_e624e733158949be9b27794d1bb13482_Out_2;
             Unity_Add_float(IN.TimeParameters.x, _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0, _Add_e624e733158949be9b27794d1bb13482_Out_2);
             float2 _Multiply_f8718557c7ca47b8b3fc39d36d09ed13_Out_2;
@@ -1673,7 +1673,7 @@ Shader "WeaponsUIeffectMask"
         float _Brightness;
         float _Disturbance;
         float4 _MainTex_TexelSize;
-        float _UnscaledTime;
+        float _unscaledTime;
         float _Rotation;
         float _IsTransparentTexture;
         CBUFFER_END
@@ -1853,7 +1853,7 @@ Shader "WeaponsUIeffectMask"
             float2 _Vector2_5caa6ab780d54dd099c9b36d34618d6f_Out_0 = float2(0, _Split_f615a84a71594c0fbccf5f1cd8ff52d2_G_2);
             float _Property_bfd4fac952864b44b810378fc1d799d2_Out_0 = _Speed;
             float2 _Vector2_9f3dd73887a641b9ac56504bf68ae5ba_Out_0 = float2(0, _Property_bfd4fac952864b44b810378fc1d799d2_Out_0);
-            float _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0 = _UnscaledTime;
+            float _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0 = _unscaledTime;
             float _Add_e624e733158949be9b27794d1bb13482_Out_2;
             Unity_Add_float(IN.TimeParameters.x, _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0, _Add_e624e733158949be9b27794d1bb13482_Out_2);
             float2 _Multiply_f8718557c7ca47b8b3fc39d36d09ed13_Out_2;
@@ -2145,7 +2145,7 @@ Shader "WeaponsUIeffectMask"
         float _Brightness;
         float _Disturbance;
         float4 _MainTex_TexelSize;
-        float _UnscaledTime;
+        float _unscaledTime;
         float _Rotation;
         float _IsTransparentTexture;
         CBUFFER_END
@@ -2327,7 +2327,7 @@ Shader "WeaponsUIeffectMask"
             float2 _Vector2_5caa6ab780d54dd099c9b36d34618d6f_Out_0 = float2(0, _Split_f615a84a71594c0fbccf5f1cd8ff52d2_G_2);
             float _Property_bfd4fac952864b44b810378fc1d799d2_Out_0 = _Speed;
             float2 _Vector2_9f3dd73887a641b9ac56504bf68ae5ba_Out_0 = float2(0, _Property_bfd4fac952864b44b810378fc1d799d2_Out_0);
-            float _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0 = _UnscaledTime;
+            float _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0 = _unscaledTime;
             float _Add_e624e733158949be9b27794d1bb13482_Out_2;
             Unity_Add_float(IN.TimeParameters.x, _Property_218ab6af02df441aa7e739c2142ea8f6_Out_0, _Add_e624e733158949be9b27794d1bb13482_Out_2);
             float2 _Multiply_f8718557c7ca47b8b3fc39d36d09ed13_Out_2;

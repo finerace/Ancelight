@@ -8,9 +8,22 @@ public class BulletData : ScriptableObject
 
     [SerializeField] private int maxBullets;
     [SerializeField] private int id;
-    [SerializeField] private Sprite icon;
-    public int MaxBullets { get { return maxBullets; } }
-    public int Id { get { return id; } }
-    public Sprite Icon { get { return icon; } }
 
+    [SerializeField] private float yellowPlasmaCreateCost;
+    [SerializeField] private float redPlasmaCreateCost;
+    [SerializeField] private float bluePlasmaCreateCost;
+    
+    [SerializeField] private Sprite icon;
+    
+    public int MaxBullets => maxBullets;
+    public int Id => id;
+
+    public float YellowPlasmaCreateCost => yellowPlasmaCreateCost;
+    public float RedPlasmaCreateCost => redPlasmaCreateCost;
+    public float BluePlasmaCreateCost => bluePlasmaCreateCost;
+    
+    public Sprite Icon => icon;
+    
+    
+    
 }

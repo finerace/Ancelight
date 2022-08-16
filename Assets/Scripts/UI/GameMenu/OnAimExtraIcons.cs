@@ -64,7 +64,7 @@ public class OnAimExtraIcons : MonoBehaviour
     {
         if (isOnweaponIcon)
         {
-            WeaponData nowWeaponData = weaponsManager.FindWeaponID(weaponsManager.SelectedWeaponID);
+            WeaponData nowWeaponData = weaponsManager.FindWeaponData(weaponsManager.SelectedWeaponID);
 
             weaponIcon.sprite = nowWeaponData.Icon;
 

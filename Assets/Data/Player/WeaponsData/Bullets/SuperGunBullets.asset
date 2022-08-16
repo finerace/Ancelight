@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxBullets: 600
   id: 5
+  yellowPlasmaCreateCost: 0.25
+  redPlasmaCreateCost: 0
+  bluePlasmaCreateCost: 0.025
   icon: {fileID: 21300000, guid: 332995fe4a46b6148bf9d9ae7d42d3fd, type: 3}
