@@ -308,5 +308,10 @@ public static class AuxiliaryFunc
     {
         return Vector3.Dot(pointDirection.normalized, targetLocalPos.normalized);
     }
-
+    
+    public static float ClampToTwoRemainingCharacters(this float target)
+    {
+        return (int)(target * 100f) / 100f;
+    }
+    
 }

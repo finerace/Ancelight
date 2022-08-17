@@ -79,7 +79,8 @@ public class SuitManageMenuIndicatorsSetService : MonoBehaviour
             var playerHealthPercentages = (int)(playerHealthAmount * 100f) / 100f * 100f;
                         
             healthProcentCount.text = $"{playerHealthPercentages}%";
-            healthNow_MaxCount.text = $"{(int)playerHealth}/{(int)playerMaxHealth}";
+            healthNow_MaxCount.text = 
+                $"{playerHealth.ClampToTwoRemainingCharacters()}/{playerMaxHealth.ClampToTwoRemainingCharacters()}";
 
             const float healthCircleReduceAmount = 0.26f;
 
@@ -96,7 +97,8 @@ public class SuitManageMenuIndicatorsSetService : MonoBehaviour
             var playerArmorPercentages = (int)(playerArmorAmount * 100) / 100f * 100f;
                         
             armorPercentagesCount.text = $"{playerArmorPercentages}%";
-            armorNowMaxCount.text = $"{(int)playerArmor}/{(int)playerMaxArmor}";
+            armorNowMaxCount.text = 
+                $"{playerArmor.ClampToTwoRemainingCharacters()}/{playerMaxArmor.ClampToTwoRemainingCharacters()}";
             
             const float armorCircleReduceAmount = 0.26f;
 

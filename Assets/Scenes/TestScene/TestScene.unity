@@ -25849,6 +25849,7 @@ GameObject:
   - component: {fileID: 644074914}
   - component: {fileID: 644074917}
   - component: {fileID: 644074918}
+  - component: {fileID: 644074919}
   m_Layer: 5
   m_Name: BulletsViewPanel
   m_TagString: Untagged
@@ -25966,6 +25967,21 @@ MonoBehaviour:
   spawnPoint: {fileID: 644074913}
   bulletViewPanelPrefab: {fileID: 2650584739983471409, guid: 4fce6a844fc5d104595e682531e42874, type: 3}
   viewPanelsScrollService: {fileID: 644074917}
+--- !u!114 &644074919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644074912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0f87795528ccc45942d9080adedd88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMainService: {fileID: 1213937023}
+  viewPanelCreator: {fileID: 644074918}
+  indicatorsSpeed: 15
 --- !u!1 &650249143
 GameObject:
   m_ObjectHideFlags: 0
@@ -31379,8 +31395,9 @@ GameObject:
   - component: {fileID: 887081596}
   - component: {fileID: 887081598}
   - component: {fileID: 887081597}
+  - component: {fileID: 887081599}
   m_Layer: 15
-  m_Name: PlamsaReserve
+  m_Name: PlamsaReserveIndicators
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31507,6 +31524,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887081595}
   m_CullTransparentMesh: 1
+--- !u!114 &887081599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887081595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efec1f934c5b17846ac4188bd880d7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMainService: {fileID: 1213937023}
+  fillSpeed: 25
+  yellowPlasmaEffect: {fileID: 884565979}
+  yellowPlasmaLinesEffect: {fileID: 294993194}
+  yellowPlasmaPercentageIndicator: {fileID: 380761455}
+  yellowPlasmaCurrentMaxIndicator: {fileID: 348196805}
+  redPlasmaEffect: {fileID: 223681089}
+  redPlasmaLinesEffect: {fileID: 682836740}
+  redPlasmaPercentageIndicator: {fileID: 1252629112}
+  redPlasmaCurrentMaxIndicator: {fileID: 210093287}
+  bluePlasmaEffect: {fileID: 1729581137}
+  bluePlasmaLinesEffect: {fileID: 2027385301}
+  bluePlasmaPercentageIndicator: {fileID: 721561696}
+  bluePlasmaCurrentMaxIndicator: {fileID: 1723716098}
 --- !u!1001 &895149833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37008,8 +37051,8 @@ RectTransform:
   m_Father: {fileID: 133929094}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.8}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -38552,7 +38595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1324363779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53535,8 +53578,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -17.252, y: 56.4}
-  m_SizeDelta: {x: 143.63, y: 50}
+  m_AnchoredPosition: {x: -15.472, y: 56.4}
+  m_SizeDelta: {x: 146.79, y: 50}
   m_Pivot: {x: 0.49000782, y: 0.5}
 --- !u!114 &2050513021
 MonoBehaviour:
@@ -53585,8 +53628,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -53621,7 +53664,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -0.26826474, w: -0.46921846}
+  m_margin: {x: 0, y: 0, z: -0.100792, w: -0.46921846}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
