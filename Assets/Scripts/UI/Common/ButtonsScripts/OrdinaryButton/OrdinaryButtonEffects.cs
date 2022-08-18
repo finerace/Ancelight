@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
@@ -28,8 +26,11 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
         DynamicEffectsIntensity();
     }
 
+    
+    
     public void SetButtonColor()
     {
+#if UNITY_EDITOR
         string newAssetFolderPath = "Assets/UI/DefaultButtonColors";
         string newAssetFolderName = $"Button_{gameObject.name}";
 
@@ -65,6 +66,7 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
             image.material = newMaterial;
             
         }
+#endif
     }
 
     private void UnscaledDeltaTimeButtonEffectsAnimation()
@@ -117,6 +119,4 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
 
         effectsIntensity = intensity;
     }
-
-
 }

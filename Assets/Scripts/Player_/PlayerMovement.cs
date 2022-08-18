@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float OnFlySpeedMultiply = 0.15f;
     [SerializeField] private float OnGroundMaxSpeed = 15f;
     [SerializeField] private float OnFlyMaxSpeed = 15f;
+    [SerializeField] private LayerMask groundLayerMask;
     [Space]
 
     [SerializeField] private float OnGroundRbDrag = 8f;
@@ -90,6 +91,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovementAlgorithm()
     {
+        if(!isFlies)
+            GroundNormalUpdate();
+        
         //»нициализаци€ вспомогательных переменных/полей
         float horizontal = Axes.Horizontal;
         float vertical = Axes.Vertical;
@@ -201,12 +205,12 @@ public class PlayerMovement : MonoBehaviour
         playerRb.drag = OnFlyRbDrag;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-
-        if(collision.contacts[0].normal.y > 0.25f && collision.gameObject.layer == 0)
-            GroundNormal = collision.contacts[0].normal;
-    }
+    // private void OnCollisionEnter(Collision collision)
+    // {
+    //
+    //     if(collision.contacts[0].normal.y > 0.25f && collision.gameObject.layer == 0)
+    //         GroundNormal = collision.contacts[0].normal;
+    // }
 
     private void OnCollisionExit(Collision collision)
     {
@@ -218,6 +222,25 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void GroundNormalUpdate()
+    {
+        var resultNormal = Vector3.up;
+            
+        var rayOriginPoint = playerT.position;
+        var ratDirection = Vector3.down;
+        
+        var rayCheckLength = 1.25f; 
+        
+        var checkNormalRay = new Ray(rayOriginPoint, ratDirection);
+
+        var isRayHit = Physics.Raycast(checkNormalRay, out RaycastHit hitInfo, rayCheckLength, groundLayerMask);
+
+        if (isRayHit)
+            resultNormal = hitInfo.normal;
+
+        GroundNormal = resultNormal;
+    }
+    
     /*private Vector3 MultiplyXZ(Vector3 vec,float mult)
     {
         vec = new Vector3(vec.x * mult, vec.y, vec.z * mult);

@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEngine;
-using UnityEditor.UIElements;
-using UnityEngine.UIElements;
 using UnityEditor;
 
 [CustomEditor(typeof(MenuSystem))]
@@ -32,3 +29,4 @@ public class MenuSystemEditor : Editor
     }
 
 }
+#endif
