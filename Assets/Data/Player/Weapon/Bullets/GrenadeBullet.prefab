@@ -9777,7 +9777,7 @@ MonoBehaviour:
     m_Bits: 1
   forceLayerMask:
     serializedVersion: 2
-    m_Bits: 778
+    m_Bits: 1802
   damageLayerMask:
     serializedVersion: 2
     m_Bits: 522

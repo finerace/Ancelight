@@ -5044,7 +5044,7 @@ MonoBehaviour:
   inCollisionAddForce: 0
   collisionForce: 0
   speed: 60
-  explosionForce: 75
+  explosionForce: 50
   explosionRadius: 8
   detectBoom: 0
   wallsLayerMask:
@@ -5052,7 +5052,7 @@ MonoBehaviour:
     m_Bits: 1
   forceLayerMask:
     serializedVersion: 2
-    m_Bits: 778
+    m_Bits: 1802
   damageLayerMask:
     serializedVersion: 2
     m_Bits: 522

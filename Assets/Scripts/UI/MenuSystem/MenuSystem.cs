@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,6 +7,12 @@ public class MenuSystem : MonoBehaviour
 {
     [SerializeField] private ParentMenuData startMenuData;
     [SerializeField] private bool isMenusPresetCreate = false;
+
+    [Space]
+    
+    [SerializeField] private Animator menusChangeAnimation;
+    [SerializeField] private float menusChangeAnimationTime = 0.5f;
+
 
     private string menusPath;
     private readonly List<MenuData> menusDataPath = new List<MenuData>();
@@ -100,6 +104,8 @@ public class MenuSystem : MonoBehaviour
 
         UpdateMenuPath();
         SetMenuSpecialSettings(currentMenuData);
+        
+        PlayMenuChangeAnimation();
     }
 
     private void OpenStartMenu()
@@ -119,6 +125,8 @@ public class MenuSystem : MonoBehaviour
         SetMenuSpecialSettings(menuData);
 
         UpdateMenuPath();
+        
+        PlayMenuChangeAnimation();
     }
 
     private ParentMenuData FindLocalParentMenu(ParentMenuData parentMenu, string toFindMenuID)
@@ -187,7 +195,11 @@ public class MenuSystem : MonoBehaviour
         startMenuData.Disable();
     }
 
-
+    private void PlayMenuChangeAnimation()
+    {
+        menusChangeAnimation.Play("MenuChange");
+    }
+    
     public void InitializeMenusPreset()
     {
         isMenusPresetCreate = true;
