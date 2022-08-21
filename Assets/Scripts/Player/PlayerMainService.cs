@@ -29,6 +29,26 @@ public class PlayerMainService : Health
         CheckPlayerComponents();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        CheckObjectHasPlayerItem(collision.gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        CheckObjectHasPlayerItem(other.gameObject);
+    }
+
+    private void CheckObjectHasPlayerItem(GameObject checkObject)
+    {
+        IPlayerItem playerItem;
+
+        if (checkObject.TryGetComponent(out playerItem))
+        {
+            playerItem.PickUp(this);
+        }
+    }
+    
     public void AddWeapon(int id)
     {
         weaponsManager.UnlockWeapon(id);
@@ -99,3 +119,9 @@ public class PlayerMainService : Health
     }
 
 }
+
+public interface IPlayerItem
+{
+    public void PickUp(PlayerMainService playerMainService);
+}
+

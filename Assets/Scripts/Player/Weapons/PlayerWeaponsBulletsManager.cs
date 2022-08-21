@@ -154,6 +154,8 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
             unlockedBulletsID.Add(bulletID);
             bulletsCount.Add(bulletID, 0);
             bulletsMax.Add(bulletID, data.MaxBullets);
+            
+            return;
         }
 
         throw new System.Exception($"BulletID {bulletID} does not exist!");

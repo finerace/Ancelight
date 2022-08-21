@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,10 +11,10 @@ public class StaticImageUnscaledTimeSetter : MonoBehaviour
     {
         foreach (var localImage in images)
         {
-            var newMat = new Material(localImage.material);
+            var newMat = localImage.material;
 
             newMat.SetFloat(unscaledTimeReferenceName,Time.unscaledTime);
-
+            
             localImage.material = newMat;
         }
     }
