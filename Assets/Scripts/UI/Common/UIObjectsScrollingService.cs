@@ -89,9 +89,9 @@ public class UIObjectsScrollingService : MonoBehaviour
         scrollingObjects.Add(objT);
     }
 
-    public void RemoveScrollingObject(Transform objT)
+    public void RemoveAllScrollingObjects()
     {
-        scrollingObjects.Remove(objT);
+        scrollingObjects.Clear();
     }
     
 }

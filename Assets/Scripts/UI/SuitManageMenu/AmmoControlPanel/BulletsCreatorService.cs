@@ -28,6 +28,9 @@ public class BulletsCreatorService : MonoBehaviour
 
     private void OnEnable()
     {
+        if(selectedBulletId == 0)
+            return;
+            
         InitializeNewSelectedBullet(selectedBulletId);
         
         BulletsCurrentMaxIndicatorUpdate();

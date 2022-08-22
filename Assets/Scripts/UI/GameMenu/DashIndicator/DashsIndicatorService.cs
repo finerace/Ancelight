@@ -67,7 +67,7 @@ public class DashsIndicatorService : MonoBehaviour
             firstIndicator1.transform.position = startPoint.position;
 
             firstIndicator1.transform.localPosition += 
-                -startPoint.right * firstDashIndicatorDistance;
+                -Vector3.right * firstDashIndicatorDistance;
 
             dashIndicators.Add(firstIndicator1);
 
@@ -78,7 +78,7 @@ public class DashsIndicatorService : MonoBehaviour
             firstIndicator2.transform.position = startPoint.position;
 
             firstIndicator2.transform.localPosition +=
-                startPoint.right * firstDashIndicatorDistance;
+                Vector3.right * firstDashIndicatorDistance;
 
             firstIndicator2.transform.localEulerAngles += new Vector3 (0, 180, 0);
 
@@ -94,10 +94,10 @@ public class DashsIndicatorService : MonoBehaviour
                 dashIndicators[count - 2].transform.position;
 
             firstIndicator1.transform.localPosition +=
-                -startPoint.right * dashsIndicatorsHightDistance;
+                -Vector3.right * dashsIndicatorsHightDistance;
 
             firstIndicator1.transform.localPosition +=
-                -startPoint.up * dashsIndicatorsHightDistance;
+                -Vector3.up * dashsIndicatorsHightDistance;
 
             dashIndicators.Add(firstIndicator1);
 
@@ -109,10 +109,10 @@ public class DashsIndicatorService : MonoBehaviour
                 dashIndicators[count - 1].transform.position;
 
             firstIndicator2.transform.localPosition +=
-                startPoint.right * dashsIndicatorsHightDistance;
+                Vector3.right * dashsIndicatorsHightDistance;
 
             firstIndicator2.transform.localPosition +=
-                -startPoint.up * dashsIndicatorsHightDistance;
+                -Vector3.up * dashsIndicatorsHightDistance;
 
             firstIndicator2.transform.localEulerAngles += new Vector3(0, 180, 0);
 

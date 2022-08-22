@@ -65,7 +65,7 @@ public class BulletsIndicators : MonoBehaviour
 
         for (int i = 0; i < bulletsManager.BulletDatas.Length; i++)
         {
-            Vector3 newPos = startPoint.right * indicatorHeight * i;
+            Vector3 newPos = Vector3.right * (indicatorHeight * i);
 
             GameObject newIndicator = Instantiate(indicatorPrefab, startPoint);
             newIndicator.transform.localPosition = newPos;

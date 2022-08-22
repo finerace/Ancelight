@@ -34,7 +34,6 @@ public class MenuSystem : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.E))
             OpenLocalMenu("SuitManageMenu");
 
-
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             Back();
