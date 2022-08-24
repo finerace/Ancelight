@@ -24,16 +24,16 @@ public class HookCircle : MonoBehaviour
         hookService.IsHookStrengthRegenerationActive || 
         hookService.IsHookUsed || hookService.IsAfterUseTimerActive;
 
-    private void Awake()
+    private void Start()
     {
-        if (!isVanish)
-            return;
-
-        SetAllCircleImagesStartAlpha();
-
         SetStartColor();
         
         CopyImagesMaterials();
+        
+        if (!isVanish)
+            return;
+        
+        SetAllCircleImagesStartAlpha();
         
         void SetAllCircleImagesStartAlpha()
         {
@@ -115,7 +115,7 @@ public class HookCircle : MonoBehaviour
         {
             bool isStrengthTooSmall = realFillAmount < hookService.MinStrengthAmountToUse;
 
-            var targetColor = !isStrengthTooSmall ? startIndicatorColor : new Color(0.73f, 0.11f, 0f,1);
+            var targetColor = !isStrengthTooSmall ? startIndicatorColor : new Color(0.85f, 0f, 0.02f,1);
 
             SetCircleColorSmoothness(allColorChangeAllowCircleImages,targetColor);
 
