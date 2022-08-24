@@ -161,9 +161,13 @@ public class SuitManageMenuIndicatorsSetService : MonoBehaviour
             imidProtectionAttackDamage.text = $"{playerImmProtectionAttackDamage}";
             imidProtectionAttackRange.text = $"{playerImmProtectionAttackRange}m";
                         
-            // const float dashCircleReduceAmount = 0.26f;
-            //
-            // dashCircle.fillAmount = ReduceCircleAmount(playerDashEnergyAmount,dashCircleReduceAmount);
+            const float imedProtectionCircleReduceAmount = 0.26f;
+
+            var imedProtectionPowerAmount = 1 -
+                immediatelyProtectionService.CooldownTimer / immediatelyProtectionService.CooldownTime;
+            
+            imidProtectionCircle.fillAmount = 
+                ReduceCircleAmount(imedProtectionPowerAmount,imedProtectionCircleReduceAmount);
         }
     }
 

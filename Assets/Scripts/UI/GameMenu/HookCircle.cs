@@ -115,7 +115,7 @@ public class HookCircle : MonoBehaviour
         {
             bool isStrengthTooSmall = realFillAmount < hookService.MinStrengthAmountToUse;
 
-            var targetColor = !isStrengthTooSmall ? startIndicatorColor : new Color(0.85f, 0f, 0.02f,1);
+            var targetColor = !isStrengthTooSmall ? startIndicatorColor : new Color(0.85f, 0f, 0.02f, 1f);
 
             SetCircleColorSmoothness(allColorChangeAllowCircleImages,targetColor);
 
