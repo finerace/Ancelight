@@ -28,6 +28,8 @@ public class PlayerDashsService : MonoBehaviour
     
     private float dashCurrentEnergy;
     private float dashMaxEnergy;
+    
+    private bool isManageBlocked;
 
     public float DashCurrentEnergy => dashCurrentEnergy;
     public float DashMaxEnergy => dashMaxEnergy;
@@ -41,14 +43,18 @@ public class PlayerDashsService : MonoBehaviour
 
     private void Update()
     {
-
         DashUpdateAlgorithm();
-
     }
 
+    public void SetManageActive(bool state)
+    {
+        isManageBlocked = !state;
+    }
+    
     private void DashUpdateAlgorithm()
     {
-        DashsManageAlgorithm();
+        if(!isManageBlocked)
+            DashsManageAlgorithm();
 
         DashsEnergyRegeneration();
 

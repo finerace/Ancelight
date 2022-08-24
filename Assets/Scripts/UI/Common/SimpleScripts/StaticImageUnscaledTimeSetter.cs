@@ -11,7 +11,7 @@ public class StaticImageUnscaledTimeSetter : MonoBehaviour
     {
         foreach (var localImage in images)
         {
-            var newMat = localImage.material;
+            var newMat = new Material(localImage.material);
 
             newMat.SetFloat(unscaledTimeReferenceName,Time.unscaledTime);
             

@@ -93,6 +93,9 @@ public class PlayerMainService : Health
         playerMovement.SetManageActive(state);
         weaponsManager.SetManageActive(state);
         playerRotation.SetManageActive(state);
+        hookService.SetManageActive(state);
+        dashsService.SetManageActive(state);
+        immediatelyProtectionService.SetManageActive(state);
     }
 
     public override void Died()

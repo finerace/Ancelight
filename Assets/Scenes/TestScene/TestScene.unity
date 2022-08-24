@@ -1122,7 +1122,12 @@ MonoBehaviour:
   - {fileID: 1682766468}
   - {fileID: 1373672624}
   - {fileID: 1075387709}
-  transparencyAmount: 1
+  allColorChangeAllowCircleImages:
+  - {fileID: 1561788004}
+  - {fileID: 1682766468}
+  - {fileID: 1373672624}
+  - {fileID: 1075387709}
+  colorChangeSpeed: 15
 --- !u!1 &59502937
 GameObject:
   m_ObjectHideFlags: 0
@@ -27274,8 +27279,18 @@ MonoBehaviour:
   hookService: {fileID: 6349391767854675751}
   hookStrengthCircle: {fileID: 1349846243}
   isVanish: 0
-  allCircleImages: []
-  transparencyAmount: 1
+  allCircleImages:
+  - {fileID: 1789354973}
+  - {fileID: 622700533}
+  - {fileID: 1349846243}
+  - {fileID: 1764051225}
+  - {fileID: 702338352}
+  allColorChangeAllowCircleImages:
+  - {fileID: 622700533}
+  - {fileID: 1349846243}
+  - {fileID: 1764051225}
+  - {fileID: 702338352}
+  colorChangeSpeed: 25
 --- !u!21 &695050972
 Material:
   serializedVersion: 8
@@ -62049,6 +62064,7 @@ MonoBehaviour:
   hookUseSurfaceMask:
     serializedVersion: 2
     m_Bits: 515
+  minStrengthAmountToUse: 0.1
 --- !u!1 &6412227415977778939
 GameObject:
   m_ObjectHideFlags: 0
@@ -62900,9 +62916,8 @@ MonoBehaviour:
   explosionRadius: 25
   cooldownTime: 5
   minDot: 0
-  explosionDamage: 0
+  explosionDamage: 50
   dotScale: 0
-  isCooldownOut: 1
 --- !u!198 &8464806757316455674
 ParticleSystem:
   m_ObjectHideFlags: 0

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -7,18 +5,18 @@ public class PlayerHookService : MonoBehaviour
 {
     [SerializeField] private Transform hookT;
     [SerializeField] private Transform hookMeshT;
-
+    
     [SerializeField] private LineRenderer hookLineRenderer;
     [SerializeField] private PlayerMainService player;
     [SerializeField] private Transform hookStartPoint;
     [SerializeField] private SpringJoint playerJoint;
     [Space]
-
+    
     [SerializeField] private float hookMaxStrength = 25f;
     private float hookCurrentStrength = 0;
-
-    public float HookMaxStrength { get { return hookMaxStrength; } }
-    public float HookCurrentStrength { get { return hookCurrentStrength; } }
+    
+    public float HookMaxStrength => hookMaxStrength;
+    public float HookCurrentStrength => hookCurrentStrength;
     
     [SerializeField] private float hookStrengthUsePerSecond = 5f;
     [SerializeField] private float hookStrengthRegenerationPerSecond = 3.5f;
@@ -36,6 +34,10 @@ public class PlayerHookService : MonoBehaviour
     [SerializeField] private float hookDamage = 15f;
     [SerializeField] private LayerMask hookUseSurfaceMask;
 
+    [SerializeField] private float minStrengthAmountToUse = 0.1f;
+
+
+    public float MinStrengthAmountToUse => minStrengthAmountToUse;
     public float HookMaxActionRange => hookMaxActionRange;
 
     private bool isHookUsed = false;
@@ -54,6 +56,8 @@ public class PlayerHookService : MonoBehaviour
 
     private Vector3 lastHookRbPos;
     private Transform lastHookHitObjT;
+    
+    private bool hookManageIsBlocked = false;
 
     private void Awake()
     {
@@ -74,29 +78,32 @@ public class PlayerHookService : MonoBehaviour
 
     private void Update()
     {
-
+        if(hookManageIsBlocked)
+            return;
+        
         UpdateHookAlgorithm();
 
     }
 
+    public void SetManageActive(bool state)
+    {
+        hookManageIsBlocked = !state;
+    }
+    
     private void UpdateHookAlgorithm()
     {
         float fire2 = Axes.Fire2;
 
         if (!isHookUsed)
         {
-            float minStrengthAmountToStartUse = 0.1f;
-
 
             float hookCurrentStrengthAmount = hookCurrentStrength / hookMaxStrength;
             const float minDrawHookAmountToStartUse = 0.02f;
 
             bool isHookCanUse =
                 fire2 > 0 &&
-                hookCurrentStrengthAmount >= minStrengthAmountToStartUse &&
+                hookCurrentStrengthAmount >= minStrengthAmountToUse &&
                 currentDrawHookAmount <= minDrawHookAmountToStartUse;
-
-
 
             if (isHookCanUse)
                 StartUseHook();
@@ -171,12 +178,12 @@ public class PlayerHookService : MonoBehaviour
 
         void DrawHookSmoothAmount(float targetAmount)
         {
-            const float amountChangeSpeed = 15f;
+            const float amountChangeSpeed = 5f;
 
-            float timeStep = Time.deltaTime * amountChangeSpeed;
-
+            var timeStep = Time.deltaTime * amountChangeSpeed;
+            
             currentDrawHookAmount = 
-                Mathf.Lerp(currentDrawHookAmount, targetAmount, timeStep);
+                Mathf.MoveTowards(currentDrawHookAmount, targetAmount, timeStep);
 
             DrawHookRenderer(currentDrawHookAmount);
         }
@@ -290,18 +297,20 @@ public class PlayerHookService : MonoBehaviour
 
     private void DrawHookRenderer(float amount)
     {
-        Vector3[] hookRendererPositions = new Vector3[2];
+        var hookRendererPositions = new Vector3[2];
 
-        hookRendererPositions[0] = hookStartPoint.position;
+        var hookStartPos = hookStartPoint.position;
+        
+        hookRendererPositions[0] = hookStartPos;
 
-        Vector3 toHookPosDirection =
-            (lastHookRbPos - hookStartPoint.position).normalized;
+        var toHookPosDirection =
+            (lastHookRbPos - hookStartPos).normalized;
 
-        float hookStart_hookDistance = 
-            Vector3.Distance(hookStartPoint.position, lastHookRbPos);
+        var hookStartHookDistance = 
+            Vector3.Distance(hookStartPos, lastHookRbPos);
 
-        hookRendererPositions[1] = hookStartPoint.position +
-            (toHookPosDirection * hookStart_hookDistance) * amount;
+        hookRendererPositions[1] = hookStartPos +
+            toHookPosDirection * hookStartHookDistance * amount;
 
         hookLineRenderer.SetPositions(hookRendererPositions);
 

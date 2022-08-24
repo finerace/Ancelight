@@ -11,6 +11,7 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour
     [SerializeField] private ParticleSystem shockWaveParticls;
     [SerializeField] private float shockEffectSpeed;
     [SerializeField] private float shockEffectTime;
+    
     private Material shockEffectMaterial;
     private float shockEffectFresnelEffectNow;
 
@@ -22,13 +23,18 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour
     [SerializeField] private float explosionDamage;
     [SerializeField] private bool dotScale = true;
     private bool isShockEffectOn;
-    [SerializeField] private bool isCooldownOut = true;
+    private bool isCooldownOut = true;
     private static readonly int FresnelEffectShaderID = Shader.PropertyToID("FresnelEffect");
+
+    private float cooldownTimer = 0;
+    
+    private bool isManageBlocked = false;
 
     public float ExplosionDamage => explosionDamage;
     public float ExplosionRadius => explosionRadius;
     public float CooldownTime => cooldownTime;
-
+    public float CooldownTimer => cooldownTimer;
+    
     private void Start()
     {
         if (playerT == null)
@@ -45,7 +51,7 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour
     private void StartProtection()
     {
         //Technical
-        StartCoroutine(StartColdownTimer()); 
+        StartCooldownTimer(); 
         
         Explousions.DirectedExplosion(shockPosition.position, shockPosition.forward, 
             minDot, explosionForce, explosionRadius, explosionDamage, dotScale);
@@ -56,10 +62,24 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour
         shockEffectFresnelEffectNow = shockEffectStartFresnelEffect;
         
         StartCoroutine(ShockEffectTimer(shockEffectTime));
+        
+        void StartCooldownTimer()
+        {
+            isCooldownOut = false;
+
+            cooldownTimer = cooldownTime;
+        }
+        
     }
 
     private void Update()
     {
+        if(!isCooldownOut)
+            CooldownTimerSet();
+            
+        if(isManageBlocked)
+            return;
+        
         if(Input.GetKeyUp(KeyCode.F) && isCooldownOut)
             StartProtection();
         
@@ -73,13 +93,24 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour
         shockEffectMaterial.SetFloat(FresnelEffectShaderID, shockEffectFresnelEffectNow);
     }
 
-    private IEnumerator StartColdownTimer()
+    public void SetManageActive(bool state)
     {
-        isCooldownOut = false;
-        yield return new WaitForSeconds(cooldownTime);
-        isCooldownOut = true;
+        isManageBlocked = !state;
     }
-    
+
+    private void CooldownTimerSet()
+    {
+        if (!isCooldownOut)
+            cooldownTimer -= Time.deltaTime;
+
+        if(cooldownTimer <= 0)
+            EndCooldown();
+        
+        void EndCooldown()
+        {
+            isCooldownOut = true;
+        }
+    }
     
     private IEnumerator ShockEffectTimer(float time)
     {

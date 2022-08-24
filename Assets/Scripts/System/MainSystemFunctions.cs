@@ -15,7 +15,7 @@ public class MainSystemFunctions : MonoBehaviour
 
     private void StartRamCleaner()
     {
-        const float cleanCooldown = 20f;
+        const float cleanCooldown = 10f;
 
         var waitCooldown = new WaitForSecondsRealtime(cleanCooldown);
 

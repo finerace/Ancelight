@@ -11,16 +11,18 @@ public class HookCircle : MonoBehaviour
     [SerializeField] private bool isVanish = false;
     [Space]
     [SerializeField] private Image[] allCircleImages = new Image[0];
+
+    [SerializeField] private Image[] allColorChangeAllowCircleImages;
+    
     private float[] allCircleImagesStartTransparency;
-    [SerializeField] private float transparencyAmount = 0;
+    [SerializeField] private float colorChangeSpeed = 15f;
     private float currentCircleTransparency = 1f;
 
-    private bool circleIsActive 
-    { 
-        get => 
-            hookService.IsHookStrengthRegenerationActive || 
-            hookService.IsHookUsed || hookService.IsAfterUseTimerActive; 
-    }
+    private Color startIndicatorColor;
+    
+    private bool circleIsActive =>
+        hookService.IsHookStrengthRegenerationActive || 
+        hookService.IsHookUsed || hookService.IsAfterUseTimerActive;
 
     private void Awake()
     {
@@ -29,6 +31,10 @@ public class HookCircle : MonoBehaviour
 
         SetAllCircleImagesStartAlpha();
 
+        SetStartColor();
+        
+        CopyImagesMaterials();
+        
         void SetAllCircleImagesStartAlpha()
         {
             allCircleImagesStartTransparency = new float[allCircleImages.Length];
@@ -42,7 +48,26 @@ public class HookCircle : MonoBehaviour
             }
 
         }
+
+        void SetStartColor()
+        {
+            startIndicatorColor = allColorChangeAllowCircleImages[0].material.GetColor(MainColorShadeId);
+        }
+
+        void CopyImagesMaterials()
+        {
+            foreach (var localImage in allColorChangeAllowCircleImages)
+            {
+                var newMat = localImage.material;
+
+                localImage.material = new Material(newMat);
+            }
+        }
     }
+
+    private bool hookManageIsBlocked = false;
+    
+    private static readonly int MainColorShadeId = Shader.PropertyToID("_MainColor");
 
     private void Update()
     {
@@ -68,15 +93,45 @@ public class HookCircle : MonoBehaviour
 
     private void UpdateHookCircle()
     {
-
-        float timeStep = 15f * Time.deltaTime;
         float realFillAmount = hookService.HookCurrentStrength / hookService.HookMaxStrength;
-        float smoothneess = 0.25f * (realFillAmount - 0.5f);
+        
+        UpdateFillAmount();
+        
+        UpdateColor();
+        
+        void UpdateFillAmount()
+        {
+            float timeStep = 15f * Time.deltaTime;
+            realFillAmount = hookService.HookCurrentStrength / hookService.HookMaxStrength;
+            float smoothneess = 0.25f * (realFillAmount - 0.5f);
 
-        float nowFillAmount = hookStrengthCircle.fillAmount;
-        nowFillAmount = Mathf.Lerp(nowFillAmount, realFillAmount - smoothneess, timeStep);
+            float nowFillAmount = hookStrengthCircle.fillAmount;
+            nowFillAmount = Mathf.Lerp(nowFillAmount, realFillAmount - smoothneess, timeStep);
 
-        hookStrengthCircle.fillAmount = nowFillAmount;
+            hookStrengthCircle.fillAmount = nowFillAmount;
+        }
+
+        void UpdateColor()
+        {
+            bool isStrengthTooSmall = realFillAmount < hookService.MinStrengthAmountToUse;
+
+            var targetColor = !isStrengthTooSmall ? startIndicatorColor : new Color(0.73f, 0.11f, 0f,1);
+
+            SetCircleColorSmoothness(allColorChangeAllowCircleImages,targetColor);
+
+            void SetCircleColorSmoothness(Image[] images,Color targetColor)
+            {
+                var newColor = images[0].material.GetColor(MainColorShadeId);
+
+                var timeStep = Time.deltaTime * colorChangeSpeed;
+                newColor = Color.Lerp(newColor, targetColor, timeStep);                
+                
+                foreach (var localImage in images)
+                {
+                    localImage.material.SetColor(MainColorShadeId,newColor);
+                }
+            }
+        }
     }
 
     private void SmoothnesSetImagesTransparency(float transparencyAmount)
@@ -93,23 +148,19 @@ public class HookCircle : MonoBehaviour
 
     private void SetImagesTransparency(float transparencyAmount)
     {
-
-
-
         for (int i = 0; i < allCircleImages.Length; i++)
         {
             var item = allCircleImages[i];
 
-            Color newItemColor = item.color;
+            var newItemColor = item.color;
 
-            float newItemTransparency = 
+            var newItemTransparency = 
                 allCircleImagesStartTransparency[i] * transparencyAmount;
 
             newItemColor.a = newItemTransparency;
 
             allCircleImages[i].color = newItemColor;
         }
-
     }
 
 }
