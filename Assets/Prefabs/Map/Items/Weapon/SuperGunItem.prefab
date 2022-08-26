@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5986348150850158362}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SuperGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 5986348151964130825}
   - component: {fileID: 5986348151964130824}
   - component: {fileID: 5986348151964130827}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 5986348152238588704}
   - component: {fileID: 5986348152238588707}
   - component: {fileID: 5986348152238588706}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 8675686934233493983}
   - component: {fileID: 8675686934233493982}
   - component: {fileID: 8675686934233493981}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SuperGunItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,6 +264,7 @@ MonoBehaviour:
   getWeaponId: 7
   bonusBullets: 75
   stand: {fileID: 8675686936100716820}
+  isPickUpped: 0
 --- !u!95 &8675686934233493981
 Animator:
   serializedVersion: 4
@@ -295,7 +296,7 @@ GameObject:
   - component: {fileID: 8675686934333937873}
   - component: {fileID: 8675686934333937875}
   - component: {fileID: 8675686934333937874}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SphereEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5115,7 +5116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8675686934387119546}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5150,7 +5151,7 @@ GameObject:
   - component: {fileID: 8675686934643386148}
   - component: {fileID: 8675686934643386150}
   - component: {fileID: 8675686934643386149}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5265,7 +5266,7 @@ GameObject:
   - component: {fileID: 8675686934914690103}
   - component: {fileID: 8675686934914690097}
   - component: {fileID: 8675686934914690096}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: DownEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10084,7 +10085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8675686935514756960}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10119,7 +10120,7 @@ GameObject:
   - component: {fileID: 8675686936100716820}
   - component: {fileID: 8675686936100716822}
   - component: {fileID: 8675686936100716821}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

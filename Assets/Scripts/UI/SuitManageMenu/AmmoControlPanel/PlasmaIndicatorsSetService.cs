@@ -10,6 +10,7 @@ public class PlasmaIndicatorsSetService : MonoBehaviour
 
     [SerializeField] private PlayerMainService playerMainService;
     [SerializeField] private float fillSpeed = 25f;
+    [SerializeField] private bool isTextUpdate = true;
     
     [Space] 
     
@@ -66,6 +67,9 @@ public class PlasmaIndicatorsSetService : MonoBehaviour
             plasmaEffect.fillAmount = Mathf.Lerp(plasmaEffect.fillAmount,plasmaAmount,timeStep) ;
             plasmaLinesEffect.fillAmount = Mathf.Lerp(plasmaLinesEffect.fillAmount,plasmaAmount,timeStep);
 
+            if(!isTextUpdate)
+                return;
+                
             percentageIndicator.text = (plasmaAmount.ClampToTwoRemainingCharacters() * 100f) + "%";
 
             currentMaxIndicator.text = 

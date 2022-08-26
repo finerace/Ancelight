@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2615108821022163128}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 2615108821930746877}
   - component: {fileID: 2615108821930746879}
   - component: {fileID: 2615108821930746878}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: DownEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4865,7 +4865,7 @@ GameObject:
   - component: {fileID: 2615108821961535056}
   - component: {fileID: 2615108821961535058}
   - component: {fileID: 2615108821961535057}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SphereEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9688,7 +9688,7 @@ GameObject:
   - component: {fileID: 2615108821974630843}
   - component: {fileID: 2615108821974630842}
   - component: {fileID: 2615108821974630841}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: BpjCollapserItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9741,6 +9741,7 @@ MonoBehaviour:
   getWeaponId: 9
   bonusBullets: 3
   stand: {fileID: 2615108822476017172}
+  isPickUpped: 0
 --- !u!95 &2615108821974630841
 Animator:
   serializedVersion: 4
@@ -9772,7 +9773,7 @@ GameObject:
   - component: {fileID: 2615108822110281096}
   - component: {fileID: 2615108822110281098}
   - component: {fileID: 2615108822110281097}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9887,7 +9888,7 @@ GameObject:
   - component: {fileID: 2615108822476017172}
   - component: {fileID: 2615108822476017174}
   - component: {fileID: 2615108822476017173}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9968,7 +9969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2615108822584879741}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10001,7 +10002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7634676184016496001}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: vorotiki_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10033,7 +10034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7634676184029128987}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: vorotiki_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10065,7 +10066,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7634676184199585889}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: vorotiki_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10097,7 +10098,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7634676184451460773}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: vorotiki
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10131,7 +10132,7 @@ GameObject:
   - component: {fileID: 7634676184620259459}
   - component: {fileID: 7634676184620259469}
   - component: {fileID: 7634676184620259458}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: vorotikiMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10212,7 +10213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7634676184865294742}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: BPJ-CollapsatorHandsPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10246,7 +10247,7 @@ GameObject:
   - component: {fileID: 7634676185678890686}
   - component: {fileID: 7634676185678890680}
   - component: {fileID: 7634676185678890681}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: vorotikiMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10329,7 +10330,7 @@ GameObject:
   - component: {fileID: 7634676185806539700}
   - component: {fileID: 7634676185806539701}
   - component: {fileID: 7634676185806539338}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: vorotikiMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10412,7 +10413,7 @@ GameObject:
   - component: {fileID: 7634676185824081453}
   - component: {fileID: 7634676185824081455}
   - component: {fileID: 7634676185824081452}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: vorotikiMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10495,7 +10496,7 @@ GameObject:
   - component: {fileID: 7634676185838930869}
   - component: {fileID: 7634676185838930506}
   - component: {fileID: 7634676185838930507}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: CollapsatorMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

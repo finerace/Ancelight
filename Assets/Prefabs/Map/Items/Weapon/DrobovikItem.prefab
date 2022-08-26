@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 116106807129431643}
   - component: {fileID: 116106807129431641}
   - component: {fileID: 116106807129431640}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 116106807768950957}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: DecorateObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 116106807872991018}
   - component: {fileID: 116106807872991016}
   - component: {fileID: 116106807872991019}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: default2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 116106807889758513}
   - component: {fileID: 116106807889758519}
   - component: {fileID: 116106807889758518}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: mainMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7199192957599407171}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 8883805142836271080}
   - component: {fileID: 8883805142836271081}
   - component: {fileID: 8883805142836271078}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: DrobovikItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,6 +381,7 @@ MonoBehaviour:
   getWeaponId: 3
   bonusBullets: 25
   stand: {fileID: 8883805143880010233}
+  isPickUpped: 0
 --- !u!95 &8883805142836271078
 Animator:
   serializedVersion: 4
@@ -410,7 +411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8883805143790450426}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +446,7 @@ GameObject:
   - component: {fileID: 8883805143880010233}
   - component: {fileID: 8883805143880010228}
   - component: {fileID: 8883805143880010231}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +529,7 @@ GameObject:
   - component: {fileID: 8883805144062394671}
   - component: {fileID: 8883805144062394669}
   - component: {fileID: 8883805144062394668}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SphereEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5350,7 +5351,7 @@ GameObject:
   - component: {fileID: 8883805144653349470}
   - component: {fileID: 8883805144653349468}
   - component: {fileID: 8883805144653349471}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: DownEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10171,7 +10172,7 @@ GameObject:
   - component: {fileID: 8883805144730948186}
   - component: {fileID: 8883805144730948184}
   - component: {fileID: 8883805144730948187}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

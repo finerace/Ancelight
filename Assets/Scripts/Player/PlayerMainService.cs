@@ -29,27 +29,35 @@ public class PlayerMainService : Health
         CheckPlayerComponents();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void FixedUpdate()
     {
-        CheckObjectHasPlayerItem(collision.gameObject);
-    }
+        CheckItems();
+        
+        void CheckItems()
+        {
+            var playerT = transform;
+            var playerScale = new Vector3(0.5f,1.5f,0.5f);
+            const int layerMask = 1 << 16;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        CheckObjectHasPlayerItem(other.gameObject);
+            var colliders =
+                Physics.OverlapBox(playerT.position, playerScale, Quaternion.identity, layerMask);
+
+            foreach (var localCollider in colliders)
+            {
+                CheckObjectHasPlayerItem(localCollider.gameObject);
+            }
+        }
     }
 
     private void CheckObjectHasPlayerItem(GameObject checkObject)
     {
-        IPlayerItem playerItem;
-
-        if (checkObject.TryGetComponent(out playerItem))
+        if (checkObject.TryGetComponent(out IPlayerItem playerItem))
         {
             playerItem.PickUp(this);
         }
     }
     
-    public void AddWeapon(int id)
+    public void UnlockWeapon(int id)
     {
         weaponsManager.UnlockWeapon(id);
     }
@@ -59,6 +67,11 @@ public class PlayerMainService : Health
         weaponsBulletsManager.AddBullets(id, count);
     }
 
+    public void AddPlasma(string id, float count)
+    {
+        weaponsBulletsManager.AddPlasma(id,count);
+    }
+    
     public override void GetDamage(float damage,Transform source)
     {
         if(armor >= damage)

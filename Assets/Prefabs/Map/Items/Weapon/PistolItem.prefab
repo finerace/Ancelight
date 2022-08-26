@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2676442410279646487}
   - component: {fileID: 2676442410279646569}
   - component: {fileID: 2676442410279646568}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: DownEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4832,7 +4832,7 @@ GameObject:
   - component: {fileID: 2676442410329538755}
   - component: {fileID: 2676442410329538757}
   - component: {fileID: 2676442410329538756}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4915,7 +4915,7 @@ GameObject:
   - component: {fileID: 2676442410708292555}
   - component: {fileID: 2676442410708292557}
   - component: {fileID: 2676442410708292556}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5028,7 +5028,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2676442410772044576}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5064,7 +5064,7 @@ GameObject:
   - component: {fileID: 2676442411140993549}
   - component: {fileID: 2676442411140993548}
   - component: {fileID: 2676442411140993547}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: PistolItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5147,7 +5147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2676442411803001287}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5182,7 +5182,7 @@ GameObject:
   - component: {fileID: 2676442411889878391}
   - component: {fileID: 2676442411889878345}
   - component: {fileID: 2676442411889878344}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SphereEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10004,7 +10004,7 @@ GameObject:
   - component: {fileID: 3532099272388233988}
   - component: {fileID: 3532099272388233989}
   - component: {fileID: 3532099272388233986}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10085,7 +10085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3532099273992315375}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}

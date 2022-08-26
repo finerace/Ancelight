@@ -15,7 +15,7 @@ public class WeaponGetItem : MonoBehaviour, IPlayerItem
             
         isPickUpped = true;
         
-        playerMainService.AddWeapon(getWeaponId);
+        playerMainService.UnlockWeapon(getWeaponId);
         
         AddBonusBullets();
 

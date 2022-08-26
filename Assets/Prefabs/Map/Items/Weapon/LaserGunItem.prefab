@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5627372829801257126}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: RightDec
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3499703539384859494}
   - component: {fileID: 3499703539384859497}
   - component: {fileID: 3499703539384859496}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3499703539746359099}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: LazerGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 3499703540076858077}
   - component: {fileID: 3499703540076858076}
   - component: {fileID: 3499703540076858079}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: lazermesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 3499703540634366354}
   - component: {fileID: 3499703540634366357}
   - component: {fileID: 3499703540634366356}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5668401619444202503}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 5668401620187974234}
   - component: {fileID: 5668401620187974228}
   - component: {fileID: 5668401620187974229}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SphereEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5182,7 +5182,7 @@ GameObject:
   - component: {fileID: 5668401620481840061}
   - component: {fileID: 5668401620481840063}
   - component: {fileID: 5668401620481840060}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5298,7 +5298,7 @@ GameObject:
   - component: {fileID: 5668401620534165346}
   - component: {fileID: 5668401620534165347}
   - component: {fileID: 5668401620534165344}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: LaserGunItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5351,6 +5351,7 @@ MonoBehaviour:
   getWeaponId: 8
   bonusBullets: 250
   stand: {fileID: 5668401620907849836}
+  isPickUpped: 0
 --- !u!95 &5668401620534165344
 Animator:
   serializedVersion: 4
@@ -5380,7 +5381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5668401620633391196}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5415,7 +5416,7 @@ GameObject:
   - component: {fileID: 5668401620907849836}
   - component: {fileID: 5668401620907849838}
   - component: {fileID: 5668401620907849839}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5498,7 +5499,7 @@ GameObject:
   - component: {fileID: 5668401621012286528}
   - component: {fileID: 5668401621012286530}
   - component: {fileID: 5668401621012286531}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: DownEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10319,7 +10320,7 @@ GameObject:
   - component: {fileID: 7455031417532079150}
   - component: {fileID: 2150297188050640900}
   - component: {fileID: 6384944593392140427}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10400,7 +10401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5957767374891396256}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: UpDec
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10432,7 +10433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7244557982796215755}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: LeftDec
   m_TagString: Untagged
   m_Icon: {fileID: 0}

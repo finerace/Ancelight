@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2616998954677352331}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 2616998954985923918}
   - component: {fileID: 2616998954985923904}
   - component: {fileID: 2616998954985923919}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SphereEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4866,7 +4866,7 @@ GameObject:
   - component: {fileID: 2616998955011339232}
   - component: {fileID: 2616998955011339234}
   - component: {fileID: 2616998955011339233}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4949,7 +4949,7 @@ GameObject:
   - component: {fileID: 2616998955131483800}
   - component: {fileID: 2616998955131483802}
   - component: {fileID: 2616998955131483801}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: DownEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9770,7 +9770,7 @@ GameObject:
   - component: {fileID: 2616998955155039620}
   - component: {fileID: 2616998955155039622}
   - component: {fileID: 2616998955155039621}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9886,7 +9886,7 @@ GameObject:
   - component: {fileID: 2616998955376363644}
   - component: {fileID: 2616998955376363643}
   - component: {fileID: 2616998955376363642}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: GrenadeLauncherItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9939,6 +9939,7 @@ MonoBehaviour:
   getWeaponId: 5
   bonusBullets: 5
   stand: {fileID: 2616998955011339232}
+  isPickUpped: 0
 --- !u!95 &2616998955376363642
 Animator:
   serializedVersion: 4
@@ -9968,7 +9969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2616998955716437265}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10003,7 +10004,7 @@ GameObject:
   - component: {fileID: 4412560039251897766}
   - component: {fileID: 4412560039251897764}
   - component: {fileID: 4412560039251897765}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: pushka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10084,7 +10085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4412560039331764118}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: GranadeLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10119,7 +10120,7 @@ GameObject:
   - component: {fileID: 4412560040350055932}
   - component: {fileID: 4412560040350055930}
   - component: {fileID: 4412560040350055931}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

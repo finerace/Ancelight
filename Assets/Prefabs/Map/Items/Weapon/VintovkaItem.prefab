@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4763667312248068768}
   - component: {fileID: 4763667312248068769}
   - component: {fileID: 4763667312248068770}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4763667312307974409}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 6537753594910519060}
   - component: {fileID: 6537753594910519062}
   - component: {fileID: 6537753594910519061}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: DownEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4948,7 +4948,7 @@ GameObject:
   - component: {fileID: 6537753594950369040}
   - component: {fileID: 6537753594950369042}
   - component: {fileID: 6537753594950369041}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5063,7 +5063,7 @@ GameObject:
   - component: {fileID: 6537753595366206565}
   - component: {fileID: 6537753595366206567}
   - component: {fileID: 6537753595366206566}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SphereEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9883,7 +9883,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6537753596159564720}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9918,7 +9918,7 @@ GameObject:
   - component: {fileID: 6537753596286788787}
   - component: {fileID: 6537753596286788798}
   - component: {fileID: 6537753596286788797}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10002,7 +10002,7 @@ GameObject:
   - component: {fileID: 6537753596325149346}
   - component: {fileID: 6537753596325149347}
   - component: {fileID: 6537753596325149356}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: VintovkaItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10055,6 +10055,7 @@ MonoBehaviour:
   getWeaponId: 4
   bonusBullets: 50
   stand: {fileID: 6537753596286788787}
+  isPickUpped: 0
 --- !u!95 &6537753596325149356
 Animator:
   serializedVersion: 4
