@@ -65,7 +65,7 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
             void InitializePlasma(string plasmaId,float plasmaMaxReserve)
             {
                 plasmaMaxReserves.Add(plasmaId,plasmaMaxReserve);
-                plasmaReserves.Add(plasmaId,plasmaMaxReserves[plasmaId]);
+                plasmaReserves.Add(plasmaId,0);
             }
         }
     }

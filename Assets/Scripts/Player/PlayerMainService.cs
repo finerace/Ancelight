@@ -31,6 +31,7 @@ public class PlayerMainService : Health
 
     private void FixedUpdate()
     {
+        // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
         CheckItems();
         
         void CheckItems()
@@ -40,10 +41,12 @@ public class PlayerMainService : Health
             const int layerMask = 1 << 16;
 
             var colliders =
+                // ReSharper disable once Unity.PreferNonAllocApi
                 Physics.OverlapBox(playerT.position, playerScale, Quaternion.identity, layerMask);
 
             foreach (var localCollider in colliders)
             {
+                // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
                 CheckObjectHasPlayerItem(localCollider.gameObject);
             }
         }
@@ -135,9 +138,3 @@ public class PlayerMainService : Health
     }
 
 }
-
-public interface IPlayerItem
-{
-    public void PickUp(PlayerMainService playerMainService);
-}
-

@@ -106,7 +106,7 @@ Material:
     - Boolean_b49a16a55efd4938afb56b1606ffecab: 0
     - Vector1_40fa341f37614c98a4ca6a4187ec694b: 1
     - Vector1_a7367d30b27f48a88898d8a2773cb578: 3
-    - Vector1_cdea67384fbe4b94baa4476968e9f762: 1.86
+    - Vector1_cdea67384fbe4b94baa4476968e9f762: 0.75
     - _AlphaClip: 0
     - _Blend: 0
     - _Brightness: 0.05
@@ -123,7 +123,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Intensity: 0.68
+    - _Intensity: 1.27
     - _IsTransparentTexture: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
@@ -143,7 +143,7 @@ Material:
     - _ZWrite: 1
     - _unscaledTime: 46.046516
     m_Colors:
-    - Vector2_b8d33165554f47859715f268ca93d9dd: {r: 0, g: 0.88, b: 0, a: 0}
+    - Vector2_b8d33165554f47859715f268ca93d9dd: {r: 0, g: 2.17, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

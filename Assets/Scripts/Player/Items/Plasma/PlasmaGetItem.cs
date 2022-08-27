@@ -1,21 +1,18 @@
 using UnityEngine;
 
-public class PlasmaGetItem : MonoBehaviour,IPlayerItem
+public class PlasmaGetItem : OrdinaryPlayerItem
 {
     [SerializeField] private string plasmaId = "yellow";
     [SerializeField] private float plasmaCount = 0;
-    private bool isPickUpped = false;
-    
-    public void PickUp(PlayerMainService player)
+
+    protected override void PickUpItemAlgorithm(PlayerMainService player)
     {
-        if(IsPlasmaMax() || isPickUpped)
+        if(IsPlasmaMax())
             return;
 
-        isPickUpped = true;
-        
         player.AddPlasma(plasmaId,plasmaCount);
         
-        Destroy(gameObject);
+        DestroyItem();
         
         bool IsPlasmaMax()
         {

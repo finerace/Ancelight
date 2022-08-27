@@ -1,28 +1,23 @@
 using UnityEngine;
 
-public class WeaponGetItem : MonoBehaviour, IPlayerItem
+public class WeaponGetItem : OrdinaryPlayerItem
 {
+    [Space]
     [SerializeField] private int getWeaponId;
     [SerializeField] private int bonusBullets = 0;
     [SerializeField] private Transform stand;
 
-    [SerializeField] private bool isPickUpped = false;
-    
-    public void PickUp(PlayerMainService playerMainService)
+    // ReSharper disable Unity.PerformanceAnalysis
+    protected override void PickUpItemAlgorithm(PlayerMainService playerMainService)
     {
-        if(isPickUpped)
+        if(!IsWeaponNotUseless())
             return;
-            
-        isPickUpped = true;
         
         playerMainService.UnlockWeapon(getWeaponId);
         
         AddBonusBullets();
-
-        if (stand != null)
-            stand.parent = null;
-        
-        Destroy(gameObject);
+    
+        DestroyItem();
         
         void AddBonusBullets()
         {
@@ -34,7 +29,38 @@ public class WeaponGetItem : MonoBehaviour, IPlayerItem
             
             playerMainService.weaponsBulletsManager.AddBullets(bulletId,bonusBullets);
         }
+
+        bool IsWeaponNotUseless()
+        {
+            var isGetWeaponUnlocked = playerMainService.weaponsManager.CheckIsUnlockedID(getWeaponId);
+
+            var isBonusBulletsNotMax = true;
+
+            // ReSharper disable once InvertIf
+            if (bonusBullets > 0 && isGetWeaponUnlocked)
+            {
+                var bulletId = playerMainService.weaponsManager.FindWeaponData(getWeaponId).BulletsID;
+
+                var bulletCount = playerMainService.weaponsBulletsManager.BulletsCount[bulletId];
+                var bulletMaxCount = playerMainService.weaponsBulletsManager.BulletsMax[bulletId];
+
+                isBonusBulletsNotMax = bulletCount < bulletMaxCount;
+            }
+
+            return !isGetWeaponUnlocked || isBonusBulletsNotMax;
+        }
     }
 
-    
+    protected override void DestroyItem()
+    {
+        SaveWeaponStand();
+        
+        base.DestroyItem();
+        
+        void SaveWeaponStand()
+        {
+            if (stand != null)
+                stand.parent = null;
+        }
+    }
 }
