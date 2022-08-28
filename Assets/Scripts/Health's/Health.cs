@@ -9,15 +9,9 @@ public abstract class Health : MonoBehaviour
     [SerializeField] internal bool isDie;
     public event Action OnDie;
 
-    public float Health_
-    { 
-        get {return health_; } 
-    }
+    public float Health_ => health_;
 
-    public float MaxHealth_ 
-    { 
-        get { return maxHealth_; } 
-    }
+    public float MaxHealth_ => maxHealth_;
 
     public virtual void GetDamage(float damage,Transform source = null)
     {

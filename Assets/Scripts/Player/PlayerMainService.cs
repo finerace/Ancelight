@@ -9,8 +9,8 @@ public class PlayerMainService : Health
     [SerializeField] private float maxArmor;
     [SerializeField] private float armor;
 
-    public float MaxArmor { get { return maxArmor; }}
-    public float Armor { get { return armor; }}
+    public float MaxArmor => maxArmor;
+    public float Armor => armor;
 
     [Space]
     [SerializeField] internal PlayerMovement playerMovement;
@@ -97,9 +97,9 @@ public class PlayerMainService : Health
     public void AddArmor(float armor)
     {
         if(this.armor + armor >= maxArmor)
-            this.armor = armor;
-        else if(this.armor + armor <= 0)
-            this.armor = 0;
+            this.armor = MaxArmor;
+        else if (this.armor + armor <= 0)
+            throw new ArgumentException("Armor value is less of zero!");
         else
             this.armor += armor;
     }
