@@ -81,7 +81,7 @@ Material:
     m_Floats:
     - Brightness: -2
     - Brightness2: 20
-    - FresnelEffect: 1.1
+    - FresnelEffect: 10
     - GradientNoiseScale: 3
     - Posterize: 8
     - TimeScale: -8.07

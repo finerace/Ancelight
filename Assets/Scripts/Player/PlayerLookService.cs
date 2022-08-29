@@ -8,9 +8,9 @@ public class PlayerLookService : MonoBehaviour
     private Transform mainCameraT;
     private Transform shootT;
 
-    public Transform MainCameraT { get { return mainCameraT; } }
+    public Transform MainCameraT => mainCameraT;
 
-    public Transform ShootingPoint { get { return shootT; } }
+    public Transform ShootingPoint => shootT;
 
     public Camera mainCamera;
     private RaycastHit cameraHit;
