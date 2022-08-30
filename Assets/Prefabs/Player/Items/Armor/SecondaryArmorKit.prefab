@@ -9768,7 +9768,7 @@ MonoBehaviour:
   itemDestroyTime: 5
   isOneUsesItem: 1
   getHealth: 0
-  getArmor: 25
+  getArmor: 15
 --- !u!95 &5015135352627622956
 Animator:
   serializedVersion: 4
@@ -9818,6 +9818,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5015135352034419706}
+  - {fileID: 4226663940391358792}
   m_Father: {fileID: 5015135352627622958}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10020,3 +10021,67 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7254119079683263857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4226663940391358792}
+  - component: {fileID: 368491803593915520}
+  - component: {fileID: 3786267823388647886}
+  m_Layer: 17
+  m_Name: ArmorKitsInformationData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4226663940391358792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254119079683263857}
+  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.14384, y: 0.14384, z: 0.14384}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5015135352969508190}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &368491803593915520
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254119079683263857}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3786267823388647886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254119079683263857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff302e36ba25c441992e124b284fb36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  informedObjectT: {fileID: 4226663940391358792}
+  informedObjectHight: 0.6
+  informedObjectHealth: {fileID: 0}
+  informationName: Armor Kit
+  informationDescription: +15 Secondary Armor Kit
+  informedObjectMainColor: {r: 0.2946235, g: 0.7051177, b: 0.92941177, a: 1}

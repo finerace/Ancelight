@@ -113,6 +113,7 @@ Transform:
   m_Children:
   - {fileID: 2113921308325898370}
   - {fileID: 7164502243515251716}
+  - {fileID: 8288292197385686016}
   m_Father: {fileID: 2113921308375548962}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -10, y: 0, z: 0}
@@ -10429,6 +10430,70 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7799028855759787887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8288292197385686016}
+  - component: {fileID: 3053889980733168845}
+  - component: {fileID: 4144989674390805}
+  m_Layer: 17
+  m_Name: WeaponInformationData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8288292197385686016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7799028855759787887}
+  m_LocalRotation: {x: 0.08715578, y: -0, z: -0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.09589334, y: 0.09589334, z: 0.09589334}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2113921307284145976}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &3053889980733168845
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7799028855759787887}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4144989674390805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7799028855759787887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff302e36ba25c441992e124b284fb36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  informedObjectT: {fileID: 8288292197385686016}
+  informedObjectHight: 0.75
+  informedObjectHealth: {fileID: 0}
+  informationName: BG-LG-2 ex.
+  informationDescription: Experimental Blue-Green plasma laser gun 2 gen.
+  informedObjectMainColor: {r: 0, g: 0.92941177, b: 0.74861664, a: 1}
 --- !u!1 &8803273609986339527
 GameObject:
   m_ObjectHideFlags: 0

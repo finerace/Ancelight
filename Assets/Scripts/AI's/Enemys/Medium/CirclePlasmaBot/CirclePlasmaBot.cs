@@ -25,7 +25,6 @@ public class CirclePlasmaBot : DefaultBot
             circlePlasmaMainPivotRotationTimeStep,
             circlePlasmaMainAllowedRotationAngles);
 
-        ///
         
         Vector3 circlePlasmaAroundRotationEuler =
             circlePlasmaSimpleAroundRotationDirection * Time.deltaTime;

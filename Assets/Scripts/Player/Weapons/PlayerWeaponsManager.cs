@@ -203,8 +203,7 @@ public class PlayerWeaponsManager : MonoBehaviour
                 PreviousAbility();
             }
         }
-
-        //????? ??????
+        
         if (!isWeaponInCooldown && !IsAttacking)
         {
             if (mouseWheel < 0)
@@ -215,7 +214,7 @@ public class PlayerWeaponsManager : MonoBehaviour
         }
     }
 
-    private void InitializedWeaponsFields() //????????????? ????? ??? ????? ??????
+    private void InitializedWeaponsFields()
     {
         weaponsUnlockedIDs.Sort();
 
@@ -535,7 +534,17 @@ public class PlayerWeaponsManager : MonoBehaviour
                 bulletsManager.UnlockBullet(newWeapon.BulletsID);
 
             newWeaponEvent.Invoke(FindWeaponData(id));
-            SetSelectedWeapon(id);
+
+            if (!isAttacking)
+            {
+                SetSelectedWeapon(id);
+            }
+            else
+            {
+                if (id < selectedWeaponID)
+                    selectedWeapon++;
+            }
+            
         }
     }
 

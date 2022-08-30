@@ -5083,6 +5083,7 @@ Transform:
   m_Children:
   - {fileID: 937307254988086817}
   - {fileID: 937307253859483964}
+  - {fileID: 2455610163686566118}
   m_Father: {fileID: 937307254675038759}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10136,3 +10137,67 @@ LODGroup:
     renderers:
     - renderer: {fileID: 937307254362721009}
   m_Enabled: 1
+--- !u!1 &8115979341795069759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2455610163686566118}
+  - component: {fileID: 522038830241526563}
+  - component: {fileID: 6463926990107381713}
+  m_Layer: 17
+  m_Name: MedicalKitsInformationData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2455610163686566118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8115979341795069759}
+  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.14384, y: 0.14384, z: 0.14384}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 937307254449433046}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &522038830241526563
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8115979341795069759}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6463926990107381713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8115979341795069759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff302e36ba25c441992e124b284fb36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  informedObjectT: {fileID: 2455610163686566118}
+  informedObjectHight: 0.75
+  informedObjectHealth: {fileID: 0}
+  informationName: Medical Kit
+  informationDescription: +100 Very Large Medical Kit
+  informedObjectMainColor: {r: 0.92941177, g: 0.317972, b: 0.237, a: 1}

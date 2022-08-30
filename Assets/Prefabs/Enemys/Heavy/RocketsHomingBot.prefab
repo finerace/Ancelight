@@ -24924,6 +24924,7 @@ Transform:
   - {fileID: 1612392535114092209}
   - {fileID: 1612392534718543729}
   - {fileID: 1612392534377305342}
+  - {fileID: 1296035112409058077}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24969,8 +24970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dafbb70a81b26947a4619a699436dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health_: 200
-  maxHealth_: 200
+  health_: 125
+  maxHealth_: 125
   isDie: 0
   agent: {fileID: 1612392535615284278}
   agentT: {fileID: 1612392535615284277}
@@ -39967,3 +39968,67 @@ MonoBehaviour:
   isDie: 0
   importer: {fileID: 1612392535287401842}
   damageMultiply: 0.5
+--- !u!1 &7304163414941558602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296035112409058077}
+  - component: {fileID: 7063937194963720911}
+  - component: {fileID: 2845656525014807001}
+  m_Layer: 17
+  m_Name: BotInformationData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1296035112409058077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7304163414941558602}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.07192, y: 0.07192, z: 0.07192}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1612392535287401847}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7063937194963720911
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7304163414941558602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2845656525014807001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7304163414941558602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff302e36ba25c441992e124b284fb36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  informedObjectT: {fileID: 1296035112409058077}
+  informedObjectHight: 2.2
+  informedObjectHealth: {fileID: 1612392535287401842}
+  informationName: R-H Bot
+  informationDescription: 
+  informedObjectMainColor: {r: 1, g: 0, b: 0.34120464, a: 1}

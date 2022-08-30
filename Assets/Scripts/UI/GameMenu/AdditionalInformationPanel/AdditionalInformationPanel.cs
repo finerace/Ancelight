@@ -15,6 +15,7 @@ public class AdditionalInformationPanel : MonoBehaviour
     
     [SerializeField] private float searchDistance = 45f;
 
+    [SerializeField] private float hightScaleCoof = 10f;
     [SerializeField] private float toMinScaleDistance = 15f;
     
     [SerializeField] private float maxPanelScale = 1;
@@ -27,12 +28,16 @@ public class AdditionalInformationPanel : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI panelName;
     [SerializeField] private TextMeshProUGUI panelDescription;
-
+    [SerializeField] private float descriptionOnlyHealthTextScale = 20;
+    private float oldDescriptionTextScale = 0;
+    
     private float toInformedObjectDistance = 0;
     
     private void Awake()
     {
         CopyColorImageMaterial();
+
+        oldDescriptionTextScale = panelDescription.fontSize;
     }
 
     private void Update()
@@ -44,7 +49,7 @@ public class AdditionalInformationPanel : MonoBehaviour
             if(!panelT.gameObject.activeSelf)
                 panelT.gameObject.SetActive(true);
 
-            SetNewAdditionalInformationPanel(informationData);
+            SetNewInformationData(informationData);
             
             SetPanelPosition(informationData);
             
@@ -65,8 +70,9 @@ public class AdditionalInformationPanel : MonoBehaviour
         var playerCamera = playerLookService.mainCamera;
         
         var informedObjectPos = data.InformedObjectT.position;
-        
-        var informedObjectPosHightScaled = informedObjectPos + (Vector3.up * data.InformedObjectHight);
+
+        var informedObjectScaledHight = data.InformedObjectHight + (toInformedObjectDistance / hightScaleCoof);
+        var informedObjectPosHightScaled = informedObjectPos + (Vector3.up * informedObjectScaledHight);
 
         Vector2 panelPos = playerCamera.WorldToScreenPoint(informedObjectPosHightScaled);
 
@@ -133,7 +139,7 @@ public class AdditionalInformationPanel : MonoBehaviour
         return true;
     }
     
-    private void SetNewAdditionalInformationPanel(AdditionalInformationData data)
+    private void SetNewInformationData(AdditionalInformationData data)
     {
         SetNewTexts();
         
@@ -144,7 +150,31 @@ public class AdditionalInformationPanel : MonoBehaviour
         void SetNewTexts()
         {
             panelName.text = data.InformationName;
-            panelDescription.text = data.InformationDescription;
+            
+            var isDescriptionUseless = data.InformationDescription == String.Empty;
+
+            if (!isDescriptionUseless)
+            {
+                panelDescription.text = data.InformationDescription;
+
+                if (panelDescription.fontSize != oldDescriptionTextScale) {
+                    panelDescription.fontSize = oldDescriptionTextScale;
+                }                
+
+                return;
+            }
+
+            if (data.InformedObjectHealth == null) 
+                return;
+
+            var health = data.InformedObjectHealth.Health_.ClampToTwoRemainingCharacters();
+            var maxHealth = data.InformedObjectHealth.MaxHealth_.ClampToTwoRemainingCharacters();
+            
+            if (panelDescription.fontSize != descriptionOnlyHealthTextScale) {
+                panelDescription.fontSize = descriptionOnlyHealthTextScale;
+            }                
+
+            panelDescription.text = $"{health}/{maxHealth}";
         }
 
         void SetNewColor()

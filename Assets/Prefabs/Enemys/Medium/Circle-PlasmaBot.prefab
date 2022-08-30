@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8810049108395800924
+--- !u!1 &1088803088454659362
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,28 +8,91 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8810049108395800925}
-  m_Layer: 8
-  m_Name: CirclePlasmaMainPivot
+  - component: {fileID: 1729326698223051475}
+  - component: {fileID: 5942694157436145289}
+  - component: {fileID: 6897475190129969594}
+  m_Layer: 17
+  m_Name: BotInformationData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8810049108395800925
+--- !u!4 &1729326698223051475
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8810049108395800924}
+  m_GameObject: {fileID: 1088803088454659362}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.07700002, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.07192, y: 0.07192, z: 0.07192}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8810049108534697800}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5942694157436145289
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088803088454659362}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6897475190129969594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088803088454659362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff302e36ba25c441992e124b284fb36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  informedObjectT: {fileID: 1729326698223051475}
+  informedObjectHight: 1.4
+  informedObjectHealth: {fileID: 8810049108534697803}
+  informationName: Circle-Plasma Bot
+  informationDescription: 
+  informedObjectMainColor: {r: 0, g: 1, b: 0.946259, a: 1}
+--- !u!1 &4074175202491919375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3160013899716349391}
+  m_Layer: 8
+  m_Name: CircleMainPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3160013899716349391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4074175202491919375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8810049109208050256}
-  - {fileID: 8810049109427538814}
   m_Father: {fileID: 8810049109980858557}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -102,6 +165,7 @@ Transform:
   - {fileID: 8810049109808797975}
   - {fileID: 8810049110361365339}
   - {fileID: 8810049108631827180}
+  - {fileID: 1729326698223051475}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -180,7 +244,7 @@ MonoBehaviour:
   botEffects: {fileID: 8810049108631827181}
   botAttack: {fileID: 8810049108534697796}
   botAnimations: {fileID: 0}
-  circlePlasmaMainPivot: {fileID: 8810049108395800925}
+  circlePlasmaMainPivot: {fileID: 3160013899716349391}
   circlePlasmaSimplePivot: {fileID: 8810049109208050256}
   circlePlasmaMainAllowedRotationAngles: {x: 30, y: 360, z: 360}
   circlePlasmaSimpleAroundRotationDirection: {x: 0, y: -360, z: 0}
@@ -5412,8 +5476,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8810049109208050263}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.07700002, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8810049109464094749}
@@ -5423,7 +5487,8 @@ Transform:
   - {fileID: 8810049108512853991}
   - {fileID: 8810049110341855575}
   - {fileID: 8810049108719085344}
-  m_Father: {fileID: 8810049108395800925}
+  - {fileID: 8810049109427538814}
+  m_Father: {fileID: 3160013899716349391}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8810049109208050257
@@ -10397,8 +10462,8 @@ Transform:
   m_LocalScale: {x: 3.110175, y: 5.8406253, z: 4.282325}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8810049108395800925}
-  m_RootOrder: 1
+  m_Father: {fileID: 8810049109208050256}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &8810049109427538808
 ParticleSystem:
@@ -20343,7 +20408,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8810049108395800925}
+  - {fileID: 3160013899716349391}
   - {fileID: 8810049109970702567}
   - {fileID: 8810049109647476396}
   m_Father: {fileID: 8810049108534697800}
