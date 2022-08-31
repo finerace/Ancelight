@@ -9,7 +9,7 @@ public class PlayerWeaponsManager : MonoBehaviour
     [SerializeField] private List<WeaponData> weaponsDatas = new List<WeaponData>();
     [SerializeField] private List<int> weaponsUnlockedIDs = new List<int>();
     [SerializeField] internal PlayerWeaponsBulletsManager bulletsManager;
-    public event Action<WeaponData> newWeaponEvent;
+    public event Action<WeaponData> NewWeaponEvent;
     public int currentBulletsCount;
 
     [Space]
@@ -533,7 +533,7 @@ public class PlayerWeaponsManager : MonoBehaviour
             if (newWeapon.BulletsID != 0)
                 bulletsManager.UnlockBullet(newWeapon.BulletsID);
 
-            newWeaponEvent.Invoke(FindWeaponData(id));
+            NewWeaponEvent.Invoke(FindWeaponData(id));
 
             if (!isAttacking)
             {

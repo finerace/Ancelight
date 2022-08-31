@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -20,13 +18,25 @@ public class PlayerMainService : Health
     [SerializeField] internal PlayerLookService playerLook;
     [SerializeField] internal PlayerHookService hookService;
     [SerializeField] internal PlayerDashsService dashsService;
-    [SerializeField] internal PlayerImmediatelyProtectionService immediatelyProtectionService; 
-    
-    [SerializeField] public event Action<float> GetDamageEvent;
+    [SerializeField] internal PlayerImmediatelyProtectionService immediatelyProtectionService;
 
+    private bool isManageActive = true;
+
+    public bool IsManageActive => isManageActive;
+    
+    public event Action<float> GetDamageEvent;
+    public event Action<float> AddHealthEvent;
+    public event Action<float> AddArmorEvent;
+    public event Action<WeaponData> UnlockWeaponEvent; 
+    public event Action<(string,float)> AddPlasmaEvent;
+
+    
     private void Awake()
     {
         CheckPlayerComponents();
+
+        weaponsManager.NewWeaponEvent += 
+            (WeaponData weaponData) => {UnlockWeaponEvent?.Invoke(weaponData);};
     }
 
     private void FixedUpdate()
@@ -73,6 +83,9 @@ public class PlayerMainService : Health
     public void AddPlasma(string id, float count)
     {
         weaponsBulletsManager.AddPlasma(id,count);
+
+        AddPlasmaEvent?.Invoke((id,count));
+
     }
     
     public override void GetDamage(float damage,Transform source)
@@ -102,10 +115,21 @@ public class PlayerMainService : Health
             throw new ArgumentException("Armor value is less of zero!");
         else
             this.armor += armor;
+        
+        AddArmorEvent?.Invoke(armor);
     }
 
+    public override void AddHealth(float health)
+    {
+        base.AddHealth(health);
+        
+        AddHealthEvent?.Invoke(health);
+    }
+    
     public void SetManageActive(bool state)
     {
+        isManageActive = state;
+        
         playerMovement.SetManageActive(state);
         weaponsManager.SetManageActive(state);
         playerRotation.SetManageActive(state);

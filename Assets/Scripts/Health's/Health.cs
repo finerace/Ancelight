@@ -43,7 +43,7 @@ public abstract class Health : MonoBehaviour
         if (maxHealth > 0)
             maxHealth_ = maxHealth;
         else 
-            throw new Exception("«адано неверное максимальное здоровье!");
+            throw new Exception("?????? ???????? ???????????? ????????!");
     }
 
     public virtual void AddHealth(float health)

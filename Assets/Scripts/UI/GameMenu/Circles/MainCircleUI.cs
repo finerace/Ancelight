@@ -58,7 +58,7 @@ public class MainCircleUI : MonoBehaviour
 
         startHealthIconScale = healthIconT.localScale;
 
-        weaponsManager.newWeaponEvent += GetWeapon;
+        weaponsManager.NewWeaponEvent += GetWeapon;
 
         InstantIconsSort();
 
