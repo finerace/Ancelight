@@ -8364,9 +8364,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e46f32281224cc04aa1862e253e45215, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4c89b9d3299eca74983ab0cca3dcd26f, type: 2}
@@ -56540,6 +56538,7 @@ MonoBehaviour:
   playerMainService: {fileID: 1213937023}
   additionalInformationText: {fileID: 212817442}
   textVanishTime: 5
+  textVanishSpeed: 5
 --- !u!1001 &2061666290
 PrefabInstance:
   m_ObjectHideFlags: 0

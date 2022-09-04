@@ -10,9 +10,12 @@ public class TextAdditionalInformation : MonoBehaviour
     [Space] 
     
     [SerializeField] private float textVanishTime;
+    [SerializeField] private float textVanishSpeed = 5f;
+    
     private float textVanishTimer = 0;
     private bool timerIsEnd = true;
-
+    
+    
     private void Start()
     {
         playerMainService.AddHealthEvent += ShowAddHealthText;
@@ -48,14 +51,13 @@ public class TextAdditionalInformation : MonoBehaviour
             ShowText(newInformation);
         }
     }
-    
 
     private void Update()
     {
         VanishTimerSet();
         
         if(timerIsEnd)
-            VanishText();
+            VanishTextSmooth();
     }
 
     private void VanishTimerSet()
@@ -77,15 +79,26 @@ public class TextAdditionalInformation : MonoBehaviour
         textVanishTimer = textVanishTime;
         
         additionalInformationText.text = text;
+        SetMainTextTransparency(1);
     }
 
-    private void VanishText()
+    private void VanishTextSmooth()
     {
-        if(additionalInformationText.text != String.Empty)
-            additionalInformationText.text = String.Empty;
+        var timeStep = Time.deltaTime * textVanishSpeed;
+        var newTextColor = additionalInformationText.color;
+
+        var newTextTransparency = Mathf.Lerp(newTextColor.a,0,timeStep);
+        
+        SetMainTextTransparency(newTextTransparency);
     }
-    
-    
+
+    private void SetMainTextTransparency(float newTransparency)
+    {
+        var newTextColor = additionalInformationText.color;
+        newTextColor.a = newTransparency;
+
+        additionalInformationText.color = newTextColor;
+    }
     
     
 }
