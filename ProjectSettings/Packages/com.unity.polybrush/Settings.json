@@ -44,7 +44,7 @@
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "Scattering.UsePivotForPlacement",
-                "value": "{\"m_Value\":false}"
+                "value": "{\"m_Value\":true}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
@@ -64,7 +64,7 @@
             {
                 "type": "UnityEngine.Polybrush.MirrorCoordinateSpace, Unity.Polybrush, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "Brush.MirrorSpace",
-                "value": "{\"m_Value\":1}"
+                "value": "{\"m_Value\":0}"
             },
             {
                 "type": "UnityEngine.Polybrush.PolyDirection, Unity.Polybrush, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -104,12 +104,12 @@
             {
                 "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "ScatteringEditor.PreviewThumSize",
-                "value": "{\"m_Value\":64}"
+                "value": "{\"m_Value\":60}"
             },
             {
                 "type": "UnityEditor.Polybrush.PrefabLoadout, Unity.Polybrush.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ScatteringEditor.userLoadout",
-                "value": "{\"m_Value\":{\"infos\":[]}}"
+                "value": "{\"m_Value\":{\"infos\":[{\"palette\":{\"fileID\":11400000,\"guid\":\"24430343de9322d4bbeca08a3bc66273\",\"type\":2},\"prefab\":{\"fileID\":3680106194255077053,\"guid\":\"e026329310829f24ea87bc68dde9da75\",\"type\":3}},{\"palette\":{\"fileID\":11400000,\"guid\":\"24430343de9322d4bbeca08a3bc66273\",\"type\":2},\"prefab\":{\"fileID\":5853210063626040926,\"guid\":\"f177c950c7dcb484485a58841312fc89\",\"type\":3}},{\"palette\":{\"fileID\":11400000,\"guid\":\"24430343de9322d4bbeca08a3bc66273\",\"type\":2},\"prefab\":{\"fileID\":1694081997026761439,\"guid\":\"800a91b650eb2da48bd2f0bb869738bd\",\"type\":3}}]}}"
             }
         ]
     }
