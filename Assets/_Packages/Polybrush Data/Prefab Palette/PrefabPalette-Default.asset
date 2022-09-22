@@ -61,14 +61,14 @@ MonoBehaviour:
       m_YScaleBool: 0
       m_ZScaleBool: 0
     name: SmallRock3
-  - gameObject: {fileID: 6856016405831943431, guid: a9d8b5e56b8a4e944968ebe64d011abd, type: 3}
+  - gameObject: {fileID: 4036789350820621420, guid: a9d8b5e56b8a4e944968ebe64d011abd, type: 3}
     settings:
-      m_Strength: 100
-      m_RotationRangeMin: {x: 0, y: 0, z: 0}
-      m_RotationRangeMax: {x: 15, y: 15, z: 15}
+      m_Strength: 50
+      m_RotationRangeMin: {x: -5, y: 0, z: -5}
+      m_RotationRangeMax: {x: 5, y: 360, z: 5}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
       m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 0.8648649, y: 1}
+      m_UniformScale: {x: 0.75, y: 1}
       m_UniformBool: 1
       m_XRotationBool: 1
       m_YRotationBool: 1
@@ -77,3 +77,115 @@ MonoBehaviour:
       m_YScaleBool: 0
       m_ZScaleBool: 0
     name: SmallFlower1
+  - gameObject: {fileID: 2441720043832833868, guid: 066754178af789d4ebb1bfb3d74b1529, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: -5, y: 0, z: -5}
+      m_RotationRangeMax: {x: 5, y: 360, z: 5}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.75, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: SmallFlower2
+  - gameObject: {fileID: 4967473044698404861, guid: 897cc9677dd891442923b931b035c6bf, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: -5, y: 0, z: -5}
+      m_RotationRangeMax: {x: 5, y: 360, z: 5}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.75, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: SmallFlower3
+  - gameObject: {fileID: 5879378114917907216, guid: e06aa23843d391a4f97de82cfae98df8, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: -5, y: 0, z: -5}
+      m_RotationRangeMax: {x: 5, y: 360, z: 5}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.75, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: SmallFlower4
+  - gameObject: {fileID: 2977415376381757700, guid: 09c73b9946aa47b458b2e15bd1aeeea6, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: -5, y: 0, z: -5}
+      m_RotationRangeMax: {x: 5, y: 360, z: 5}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.75, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: SmallFlower5
+  - gameObject: {fileID: 3539900984250097900, guid: 90494183bc91c954f96629b908222927, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 15, y: 360, z: 15}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.5, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: MediumRock1
+  - gameObject: {fileID: 5573140606621113186, guid: 19bbf4dbf9404234189448d7e8596f3a, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 15, y: 360, z: 15}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.5, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: MediumRock2
+  - gameObject: {fileID: 9174983917810395390, guid: 168f766ff097d064992bdad7488e6dbf, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 15, y: 360, z: 15}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.5, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: MediumRock3

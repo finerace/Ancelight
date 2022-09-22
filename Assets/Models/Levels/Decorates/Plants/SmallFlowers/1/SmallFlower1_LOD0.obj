@@ -4,7 +4,7 @@
 o 
 
 # material
-mtllib SmallFlower1.mtl
+mtllib SmallFlower1_LOD0.mtl
 usemtl palette
 
 # normals
