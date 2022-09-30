@@ -98,8 +98,8 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _DepthDistance: 1.29
-    - _DepthStength: 0.1
+    - _DepthDistance: 3.68
+    - _DepthStength: 3.21
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -113,6 +113,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _ReflectionPixelizePower: 16
     - _ReflectionScale: 64
     - _ReflectionStrength: 0
     - _Smoothness: 0.5
@@ -135,11 +136,13 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DepthColor: {r: 0, g: 0.08627451, b: 0.7490196, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ReflectionTiling: {r: 1, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Vector2: {r: 1, g: 1, b: 0, a: 0}
     - _Vector2_1: {r: 0, g: 0.51, b: 0, a: 0}
     - _WaterColor: {r: 0.617, g: 0.79901975, b: 1, a: 1}
     - _WaterDepthColor: {r: 0, g: 0.62745094, b: 1, a: 1}
     - _WavesColor: {r: 0, g: 0.66821074, b: 1, a: 1}
+    - _WavesTwoColor: {r: 1, g: 1, b: 1, a: 0}
     - _ff: {r: -0.58, g: -0.66, b: 0, a: 0}
   m_BuildTextureStacks: []
