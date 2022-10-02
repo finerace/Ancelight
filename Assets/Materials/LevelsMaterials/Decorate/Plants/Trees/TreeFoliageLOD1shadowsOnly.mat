@@ -26,7 +26,7 @@ Material:
   - _RECEIVE_SHADOWS_OFF
   m_InvalidKeywords: []
   m_LightmapFlags: 0
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2008
   stringTagMap:
@@ -134,9 +134,9 @@ Material:
     - _SrcBlend: 1
     - _Surface: 0
     - _WindActive: 0
-    - _WindScale: 0
-    - _WindSpeed: 0
-    - _WindStrength: 0
+    - _WindScale: 25
+    - _WindSpeed: 0.25
+    - _WindStrength: 2
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1

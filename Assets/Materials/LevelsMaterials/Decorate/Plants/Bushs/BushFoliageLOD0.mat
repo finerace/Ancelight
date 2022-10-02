@@ -24,10 +24,9 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 4dda0bf003ee29e47801f15786244560, type: 3}
   m_ValidKeywords:
   - _ALPHATEST_ON
-  - _RECEIVE_SHADOWS_OFF
   m_InvalidKeywords: []
   m_LightmapFlags: 0
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2458
   stringTagMap:
@@ -115,7 +114,7 @@ Material:
     - _FoliagePixelPower: 64
     - _FoliageScale: 10.5
     - _FoliageScale2: -0.59
-    - _FoliageStrength: 0.5
+    - _FoliageStrength: 0.54
     - _FoliageWindScale: 0.87
     - _FoliageWindSpeed: 6.18
     - _GlossMapScale: 0
@@ -127,7 +126,7 @@ Material:
     - _PixelEffectStrength: 2
     - _QueueControl: 0
     - _QueueOffset: 8
-    - _ReceiveShadows: 0
+    - _ReceiveShadows: 1
     - _ShaderAmount: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0

@@ -27,7 +27,7 @@ Material:
   - _RECEIVE_SHADOWS_OFF
   m_InvalidKeywords: []
   m_LightmapFlags: 0
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2458
   stringTagMap:
@@ -115,7 +115,7 @@ Material:
     - _FoliagePixelPower: 82
     - _FoliageScale: 20
     - _FoliageScale2: -0.66
-    - _FoliageStrength: 0.5
+    - _FoliageStrength: 0.54
     - _FoliageWindScale: 0.87
     - _FoliageWindSpeed: 6.18
     - _GlossMapScale: 0
