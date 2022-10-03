@@ -124,7 +124,7 @@ Material:
     - _Transparency: -0.25
     - _WaveSpeed: 1
     - _WavesEmissionIntensity: 0.05
-    - _WavesHeight: 0.5
+    - _WavesHeight: 0.2
     - _WavesIntensity: 0.6
     - _WavesIntensityCoof: 0.2
     - _WavesTransparencyIntensity: 0.1

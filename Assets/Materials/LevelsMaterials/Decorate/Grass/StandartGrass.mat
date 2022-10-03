@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SnowHeightMap
+  m_Name: StandartGrass
   m_Shader: {fileID: 4800000, guid: 9e06c1a995030814fa06140f5f0c4a3d, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -95,7 +95,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AmbientStrength: 0
-    - _BladeCurve: 3
+    - _BladeCurve: 4
     - _BladeForward: 0.43
     - _Blend: 0
     - _BumpScale: 1
@@ -110,18 +110,18 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _GrassHeight: 0.56
-    - _GrassWidth: 0.12
-    - _MaxDist: 256
+    - _GrassHeight: 1.33
+    - _GrassWidth: 0.21
+    - _MaxDist: 80
     - _Metallic: 0
     - _MinDist: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
-    - _Rad: 0.185
+    - _Rad: 0.428
     - _Radius: 0.3
-    - _RandomHeight: 0
+    - _RandomHeight: 0.5
     - _ReceiveShadows: 1
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
@@ -136,9 +136,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BottomColor: {r: 0.34820864, g: 0.4245283, b: 0, a: 1}
+    - _BottomColor: {r: 0.38475442, g: 0.482, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TopColor: {r: 0.43205157, g: 0.4811321, b: 0, a: 1}
+    - _TopColor: {r: 0.591459, g: 0.7647059, b: 0, a: 1}
   m_BuildTextureStacks: []
