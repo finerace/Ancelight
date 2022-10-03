@@ -17,7 +17,7 @@ QualitySettings:
     shadowNearPlaneOffset: 3
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.08300436, y: 0.24006605, z: 0.46190143}
-    shadowmaskMode: 0
+    shadowmaskMode: 1
     skinWeights: 4
     textureQuality: 0
     anisotropicTextures: 2
@@ -35,7 +35,7 @@ QualitySettings:
     streamingMipmapsRenderersPerFrame: 512
     streamingMipmapsMaxLevelReduction: 2
     streamingMipmapsMaxFileIORequests: 1024
-    particleRaycastBudget: 4096
+    particleRaycastBudget: 2048
     asyncUploadTimeSlice: 2
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
