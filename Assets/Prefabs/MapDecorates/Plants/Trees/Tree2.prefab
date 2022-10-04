@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 105
   m_IsActive: 1
 --- !u!4 &8773085138734232552
 Transform:
@@ -100,7 +100,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 105
   m_IsActive: 1
 --- !u!4 &6186204703706378756
 Transform:
@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 7422247458124307445}
   - component: {fileID: 7422247458124307447}
   - component: {fileID: 7422247458124307446}
+  - component: {fileID: -3122201983056155613}
   m_Layer: 0
   m_Name: Tree2
   m_TagString: Tree
@@ -264,6 +265,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 2.4522614, z: 2.4950695}
   m_Center: {x: 0, y: -0.7261313, z: -0.002465248}
+--- !u!114 &-3122201983056155613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7422247458124307450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388236e65ae009f4ea3d1bbdfe1ac976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomRotationPower: 2
 --- !u!1 &7422247458793723734
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +543,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 105
   m_IsActive: 1
 --- !u!4 &2340459201602858330
 Transform:

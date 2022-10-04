@@ -15,7 +15,7 @@ MonoBehaviour:
   prefabs:
   - gameObject: {fileID: 3680106194255077053, guid: e026329310829f24ea87bc68dde9da75, type: 3}
     settings:
-      m_Strength: 100
+      m_Strength: 1
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 360, y: 25, z: 25}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -31,7 +31,7 @@ MonoBehaviour:
     name: SmallRock1
   - gameObject: {fileID: 5853210063626040926, guid: f177c950c7dcb484485a58841312fc89, type: 3}
     settings:
-      m_Strength: 50.5
+      m_Strength: 1
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 360, y: 25, z: 25}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -47,7 +47,7 @@ MonoBehaviour:
     name: SmallRock2
   - gameObject: {fileID: 1694081997026761439, guid: 800a91b650eb2da48bd2f0bb869738bd, type: 3}
     settings:
-      m_Strength: 50.5
+      m_Strength: 1
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 360, y: 25, z: 25}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -63,7 +63,7 @@ MonoBehaviour:
     name: SmallRock3
   - gameObject: {fileID: 4036789350820621420, guid: a9d8b5e56b8a4e944968ebe64d011abd, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 19
       m_RotationRangeMin: {x: -5, y: 0, z: -5}
       m_RotationRangeMax: {x: 5, y: 360, z: 5}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -79,7 +79,7 @@ MonoBehaviour:
     name: SmallFlower1
   - gameObject: {fileID: 2441720043832833868, guid: 066754178af789d4ebb1bfb3d74b1529, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 5.5
       m_RotationRangeMin: {x: -5, y: 0, z: -5}
       m_RotationRangeMax: {x: 5, y: 360, z: 5}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -95,7 +95,7 @@ MonoBehaviour:
     name: SmallFlower2
   - gameObject: {fileID: 4967473044698404861, guid: 897cc9677dd891442923b931b035c6bf, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 30.25
       m_RotationRangeMin: {x: -5, y: 0, z: -5}
       m_RotationRangeMax: {x: 5, y: 360, z: 5}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -111,7 +111,7 @@ MonoBehaviour:
     name: SmallFlower3
   - gameObject: {fileID: 5879378114917907216, guid: e06aa23843d391a4f97de82cfae98df8, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 14.5
       m_RotationRangeMin: {x: -5, y: 0, z: -5}
       m_RotationRangeMax: {x: 5, y: 360, z: 5}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -127,7 +127,7 @@ MonoBehaviour:
     name: SmallFlower4
   - gameObject: {fileID: 2977415376381757700, guid: 09c73b9946aa47b458b2e15bd1aeeea6, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 16.75
       m_RotationRangeMin: {x: -5, y: 0, z: -5}
       m_RotationRangeMax: {x: 5, y: 360, z: 5}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -237,3 +237,51 @@ MonoBehaviour:
       m_YScaleBool: 0
       m_ZScaleBool: 0
     name: BigRock3
+  - gameObject: {fileID: 6760297278623228496, guid: 70c4cd51352d6274e8ae083418d3dec4, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 360, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.85294116, y: 1.2941177}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Bush
+  - gameObject: {fileID: 3416499211045986264, guid: d9ca6ddc60a35d2449a2c45e281a0d91, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 360, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1.25}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Tree1
+  - gameObject: {fileID: 7422247458124307450, guid: 88e7e70041d02d349897325f9fddcf12, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 360, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1.25}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Tree2

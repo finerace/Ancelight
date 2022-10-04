@@ -134,13 +134,13 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DepthColor: {r: 0, g: 0.03613567, b: 0.40981403, a: 1}
+    - _DepthColor: {r: 0, g: 0.18845539, b: 0.4117647, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectionTiling: {r: 0.4, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Vector2: {r: 1, g: 1, b: 0, a: 0}
     - _Vector2_1: {r: 0, g: 0.51, b: 0, a: 0}
-    - _WaterColor: {r: 0.617, g: 0.79901975, b: 1, a: 1}
+    - _WaterColor: {r: 0.35832945, g: 0.4656, b: 0.582, a: 1}
     - _WaterDepthColor: {r: 0, g: 0.62901044, b: 1, a: 1}
     - _WavesColor: {r: 0.4198113, g: 0.845811, b: 1, a: 1}
     - _WavesTwoColor: {r: 0, g: 0.45538104, b: 0.65882355, a: 1}

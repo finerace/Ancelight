@@ -112,7 +112,7 @@ Material:
     - _GlossyReflections: 0
     - _GrassHeight: 1.33
     - _GrassWidth: 0.21
-    - _MaxDist: 80
+    - _MaxDist: 85
     - _Metallic: 0
     - _MinDist: 0
     - _Mode: 0
@@ -136,9 +136,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BottomColor: {r: 0.38475442, g: 0.482, b: 0, a: 1}
+    - _BottomColor: {r: 0.27558115, g: 0.41799998, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TopColor: {r: 0.591459, g: 0.7647059, b: 0, a: 1}
+    - _TopColor: {r: 0.616117, g: 0.7647059, b: 0, a: 1}
   m_BuildTextureStacks: []
