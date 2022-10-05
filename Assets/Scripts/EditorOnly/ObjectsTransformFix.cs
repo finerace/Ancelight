@@ -7,6 +7,8 @@ public class ObjectsTransformFix : MonoBehaviour
     [SerializeField]
     private float randomRotationPower = 5;
 
+    [SerializeField] private float posLimit = 250;
+    
     // [SerializeField]
     // private ObjectsFixList currentFixObj; 
 
@@ -17,7 +19,6 @@ public class ObjectsTransformFix : MonoBehaviour
     
 #if UNITY_EDITOR
     [ContextMenu("Fix object Rotation")]
-    
     public void FixRotation()
     {
         Undo.RecordObject(transform,"Fix object rotation");
@@ -29,6 +30,32 @@ public class ObjectsTransformFix : MonoBehaviour
         var yRot = Random.Range(0, 360);
         
         targetObjectT.rotation = Quaternion.identity * Quaternion.Euler(xRot,yRot,zRot);
+    }
+    
+    [ContextMenu("Fix object Position")]
+    public void FixPosition()
+    {
+        Undo.RecordObject(transform,"Fix object position");
+        
+        var targetObjectT = transform;
+        var targetPos = targetObjectT.position;
+        
+        bool IsCoordExceedsLimit(float coord, float limit)
+        {
+            return coord > limit || coord < -limit;
+        }
+
+        var isLimitExceeds = IsCoordExceedsLimit(targetPos.x, posLimit) || 
+                             IsCoordExceedsLimit(targetPos.y, posLimit) ||
+                             IsCoordExceedsLimit(targetPos.z, posLimit);
+
+        if (isLimitExceeds)
+        {
+            Undo.RecordObject(transform,"Fix object position");
+            
+            targetObjectT.position = Vector3.zero;
+        }
+
     }
     
 #endif
