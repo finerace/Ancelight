@@ -71,10 +71,14 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
 
     private void UnscaledDeltaTimeButtonEffectsAnimation()
     {
-
-        SetMaterialUnscaledDeltaTime(buttonBodyEmissionEffect.material);
-        SetMaterialUnscaledDeltaTime(buttonTriangleEmissionEffect.material);
-        SetMaterialUnscaledDeltaTime(buttonLinkEffect.material);
+        if(buttonBodyEmissionEffect != null)
+            SetMaterialUnscaledDeltaTime(buttonBodyEmissionEffect.material);
+        
+        if(buttonTriangleEmissionEffect != null)
+            SetMaterialUnscaledDeltaTime(buttonTriangleEmissionEffect.material);
+        
+        if(buttonLinkEffect != null)
+            SetMaterialUnscaledDeltaTime(buttonLinkEffect.material);
 
         void SetMaterialUnscaledDeltaTime(Material mat)
         {
@@ -93,6 +97,9 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
 
         void ImageMaterialSetNewIntensity(Image item)
         {
+            if(item == null)
+                return;
+            
             var newColor = buttonColor * effectsIntensity;
 
             var newMaterial = new Material(item.material);

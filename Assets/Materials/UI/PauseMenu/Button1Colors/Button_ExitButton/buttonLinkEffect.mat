@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7687271449515828663
+--- !u!114 &-8931917166086407449
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: buttonBodyEmissionEffect
+  m_Name: buttonLinkEffect
   m_Shader: {fileID: -6465566751694194690, guid: 20325d6481541cc468b3ced0243b2a08, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -78,7 +78,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TargetTexture:
-        m_Texture: {fileID: 2800000, guid: 5ae92fa345c8d3f4990f43124ff02b25, type: 3}
+        m_Texture: {fileID: 2800000, guid: def85ba2398843b4c9e96346d01c335a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TargetTexture2:
@@ -99,11 +99,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_a7367d30b27f48a88898d8a2773cb578: 2
-    - Vector1_cdea67384fbe4b94baa4476968e9f762: 0.3
+    - Vector1_a7367d30b27f48a88898d8a2773cb578: 0.15
+    - Vector1_cdea67384fbe4b94baa4476968e9f762: 0.51
     - _AlphaClip: 0
     - _Blend: 0
-    - _Brightness: 2.69
+    - _Brightness: 2
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -117,7 +117,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Intensity: 1.5
+    - _Intensity: 0.5
     - _IsTransparentTexture: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
@@ -129,18 +129,18 @@ Material:
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 0.1
+    - _Speed: 0.075
     - _SrcBlend: 1
     - _Surface: 0
     - _UnscaledTime: 0.0106776
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _unscaledTime: 20.918169
+    - _unscaledTime: 73.25047
     m_Colors:
-    - Vector2_b8d33165554f47859715f268ca93d9dd: {r: 0, g: 0.25, b: 0, a: 0}
+    - Vector2_b8d33165554f47859715f268ca93d9dd: {r: 0, g: 1.5, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.75294113, g: 1.7882395, b: 3, a: 3}
+    - _MainColor: {r: 3, g: 1.2221568, b: 0.75294113, a: 3}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
