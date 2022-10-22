@@ -18,9 +18,9 @@ QualitySettings:
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.08300436, y: 0.24006605, z: 0.46190143}
     shadowmaskMode: 0
-    skinWeights: 2
+    skinWeights: 1
     textureQuality: 0
-    anisotropicTextures: 2
+    anisotropicTextures: 0
     antiAliasing: 8
     softParticles: 0
     softVegetation: 1
@@ -36,8 +36,8 @@ QualitySettings:
     streamingMipmapsMaxLevelReduction: 2
     streamingMipmapsMaxFileIORequests: 1024
     particleRaycastBudget: 1024
-    asyncUploadTimeSlice: 2
-    asyncUploadBufferSize: 16
+    asyncUploadTimeSlice: 1
+    asyncUploadBufferSize: 8
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
     customRenderPipeline: {fileID: 11400000, guid: 69486abd55cf1f44daf8ebd2b8dce01f, type: 2}

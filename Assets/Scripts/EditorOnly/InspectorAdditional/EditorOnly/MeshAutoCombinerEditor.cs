@@ -1,4 +1,4 @@
-using System;
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 
@@ -36,3 +36,4 @@ public class MeshAutoCombinerEditor : Editor
     }
     
 }
+#endif
