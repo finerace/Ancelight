@@ -27,7 +27,7 @@ public class MeshAutoCombiner : MonoBehaviour
 
         isMeshsAutoCombineStarted = true;
         
-        var toCombineDecorations = GameObject.FindGameObjectsWithTag("StaticDecorations");
+        var toCombineDecorations = GameObject.FindGameObjectsWithTag("StaticDecoration");
         var toCombineDecorationsNames = 
             GetGameObjectsNames(toCombineDecorations);
         
@@ -329,10 +329,10 @@ public class MeshAutoCombiner : MonoBehaviour
             var xPos = 0f;
             var zPos = 0f;
 
+            var startPosition = meshCombinerT.position;
+            
             var oneXshift = meshCombineArea.x * 2 / meshCombineZonesX;
             var oneZshift = meshCombineArea.z * 2 / meshCombineZonesZ;
-
-            var startPosition = meshCombinerT.position;
 
             var simpleTimer = 0;
 
@@ -350,7 +350,7 @@ public class MeshAutoCombiner : MonoBehaviour
 
                     zPos += oneZshift * j;
 
-                    var resultPos = new Vector3(xPos / 2, startPosition.y, zPos / 2);
+                    var resultPos = new Vector3(xPos / 2, startPosition.y, zPos / 2) + startPosition / 2;
                     var resultScale = new Vector3(oneXshift / 2, meshCombineArea.y, oneZshift / 2);
 
                     resultPoss[simpleTimer] = resultPos;
