@@ -58,6 +58,21 @@ public class ObjectsTransformFix : MonoBehaviour
 
     }
     
+    [ContextMenu("Delete object 50% chance")]
+    public void MaybeDeleteObject()
+    {
+        var rand = Random.Range(0, 2);
+
+        if (rand == 0)
+        {
+            Undo.RecordObject(gameObject,"Rename to destroy obj");
+
+            gameObject.name = "ToDestroy";
+        }
+
+    }
+
+    
 #endif
 
     // private enum ObjectsFixList
