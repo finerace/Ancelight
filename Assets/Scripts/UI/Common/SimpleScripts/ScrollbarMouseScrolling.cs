@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,12 +10,17 @@ public class ScrollbarMouseScrolling : MonoBehaviour,IScrollHandler
     [Space] 
     [SerializeField] private float scrollPower = 1;
     [SerializeField] private bool invertScrollPower = true;
-    
+    [SerializeField] private bool scrollbarMayBeOff = false;
     
     public void OnScroll(PointerEventData eventData)
     {
-        if(targetScrollbar.gameObject.activeSelf == false)
+        if (targetScrollbar.gameObject.activeSelf == false)
+        {
+            if(!scrollbarMayBeOff)
+                throw new Exception("Scrollbar is off!");
+            
             return;
+        }
         
         var realScrollPower = eventData.scrollDelta.y;
         var scrollPowerSmoothing = 100 / scrollPower;

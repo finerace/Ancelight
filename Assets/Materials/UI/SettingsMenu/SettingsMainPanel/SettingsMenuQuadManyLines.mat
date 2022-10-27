@@ -106,10 +106,10 @@ Material:
     - Boolean_b49a16a55efd4938afb56b1606ffecab: 0
     - Vector1_40fa341f37614c98a4ca6a4187ec694b: 1
     - Vector1_a7367d30b27f48a88898d8a2773cb578: 3
-    - Vector1_cdea67384fbe4b94baa4476968e9f762: 0.55
+    - Vector1_cdea67384fbe4b94baa4476968e9f762: 1.3
     - _AlphaClip: 0
     - _Blend: 0
-    - _Brightness: 0.05
+    - _Brightness: 1
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -124,7 +124,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Intensity: 9.9
+    - _Intensity: 0.07
     - _IsTransparentTexture: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
@@ -149,11 +149,11 @@ Material:
     - _ZWrite: 1
     - _unscaledTime: 81.36278
     m_Colors:
-    - Vector2_b8d33165554f47859715f268ca93d9dd: {r: 0, g: 0.45, b: 0, a: 0}
+    - Vector2_b8d33165554f47859715f268ca93d9dd: {r: 0, g: 0.2, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0, g: 33.631374, b: 47.937256, a: 1}
+    - _MainColor: {r: 1.3803922, g: 6.6509805, b: 11.984314, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &746199492815016537
