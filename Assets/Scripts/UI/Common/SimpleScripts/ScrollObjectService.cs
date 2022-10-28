@@ -37,7 +37,10 @@ public class ScrollObjectService : MonoBehaviour
     public void ReloadScrollSystem(float newScrollDistance)
     {
         scrollDistance = newScrollDistance;
-
+        var startPointPos = startPoint.localPosition;
+        
+        endPoint = startPointPos + (scrollDirection.normalized * scrollDistance);
+        
         scrollbar.gameObject.SetActive(scrollDistance > 0);
         scrollbar.value = 0;
     }
