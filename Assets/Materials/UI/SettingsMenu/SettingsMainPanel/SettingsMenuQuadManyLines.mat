@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SettingsMenuQuadManyLines
-  m_Shader: {fileID: 4800000, guid: 2c787f2f4aaa331468aa3c45bb7f9b88, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 20325d6481541cc468b3ced0243b2a08, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - ETC1_EXTERNAL_ALPHA
@@ -82,11 +82,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TargetTexture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 36eea6c6524a16f428650b9ac1cb4da3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TargetTexture2:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8d10e5d7987a187499c7c584f1585d20, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -147,7 +147,7 @@ Material:
     - _UnscaledTime: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _unscaledTime: 81.36278
+    - _unscaledTime: 103.7484
     m_Colors:
     - Vector2_b8d33165554f47859715f268ca93d9dd: {r: 0, g: 0.2, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
