@@ -37,9 +37,9 @@ public class PlayerAnimations : MonoBehaviour
     private void FixedUpdate()
     {
         //������������� ��������������� ����������
-        float vertical = Axes.Vertical;
-        float horizontal = Axes.Horizontal;
-        float mousex = Axes.MouseX;
+        float vertical = Axis.Vertical;
+        float horizontal = Axis.Horizontal;
+        float mousex = Axis.MouseX;
 
         bool IsWalked;
         bool IsFlies = playerMovement.isFlies;

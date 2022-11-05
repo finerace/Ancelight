@@ -105,8 +105,8 @@ public class PlayerWeaponsManager : MonoBehaviour
         if (!isManageActive)
             return;
 
-        float mouseWheel = Axes.MouseWheel;
-        float fire1 = Axes.Fire1;
+        float mouseWheel = Axis.MouseWheel;
+        float fire1 = Axis.Fire1;
         bool useAbility = Input.GetKeyDown(KeyCode.Q);
 
         isThereAnyBullets = bulletsManager.CheckBullets(selectedWeaponData.BulletsID);
@@ -477,7 +477,7 @@ public class PlayerWeaponsManager : MonoBehaviour
             Shot();
         }
 
-        float fire1 = Axes.Fire1;
+        float fire1 = Axis.Fire1;
 
         if (shootingMode != WeaponData.ShootingMode.Lazer) 
             isAttacking = false;

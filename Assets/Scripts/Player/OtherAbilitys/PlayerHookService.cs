@@ -92,7 +92,7 @@ public class PlayerHookService : MonoBehaviour
     
     private void UpdateHookAlgorithm()
     {
-        float fire2 = Axes.Fire2;
+        float fire2 = Axis.Fire2;
 
         if (!isHookUsed)
         {
