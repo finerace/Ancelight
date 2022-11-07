@@ -6,29 +6,32 @@ using UnityEngine.UI;
 
 public class InputButtonField : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private TextMeshProUGUI selectedButtonLabel;
-    [SerializeField] private Image background;
-
+    [SerializeField] private TextMeshProUGUI assignedButtonLabel;
+    [SerializeField] private KeyCode assignedButtonKeyCode;
     private bool isButtonWaitAssigned = false;
+
+    [Space]
+    [SerializeField] private Image background;
+    [SerializeField] private float waitNewButtonColorAlphaValue;
+    private float defaultColorAlphaValue;
 
     [Space] 
     [SerializeField] private bool onClickMouseCursorDisabled = true;
 
+    private void Awake()
+    {
+        defaultColorAlphaValue = background.color.a;
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!isButtonWaitAssigned)
-        {
-            StartButtonAssigned();
+        if (isButtonWaitAssigned) return;
+        
+        StartButtonAssigned();
 
-            if (onClickMouseCursorDisabled)
-            {
-                SetCursorState(false);
-            }
-        }
-
-        void StartButtonAssigned()
+        if (onClickMouseCursorDisabled)
         {
-            isButtonWaitAssigned = true;
+            SetCursorState(false);
         }
     }
 
@@ -38,16 +41,18 @@ public class InputButtonField : MonoBehaviour, IPointerClickHandler
 
         if (isButtonAssigned)
         {
-            SetNewButtonAssigned();
+            EndButtonAssigned();
         }
 
-        void SetNewButtonAssigned()
+        void EndButtonAssigned()
         {
             var nowInputKeyCode = GetAnyPressedKeyCode();
 
             SetAssignedButtonName();
+            assignedButtonKeyCode = nowInputKeyCode;
             
             isButtonWaitAssigned = false;
+            SetBackgroundColorAlphaValue(defaultColorAlphaValue);
             
             if (onClickMouseCursorDisabled)
                 SetCursorState(true);
@@ -56,7 +61,7 @@ public class InputButtonField : MonoBehaviour, IPointerClickHandler
             {
                 if (nowInputKeyCode != 0)
                 {
-                    selectedButtonLabel.text = nowInputKeyCode.ToString();
+                    assignedButtonLabel.text = nowInputKeyCode.ToString();
                 }
                 else
                 {
@@ -68,7 +73,7 @@ public class InputButtonField : MonoBehaviour, IPointerClickHandler
                     else
                         mouseStateName += "Down";
 
-                    selectedButtonLabel.text = mouseStateName;
+                    assignedButtonLabel.text = mouseStateName;
                 }
             }
         }
@@ -90,9 +95,23 @@ public class InputButtonField : MonoBehaviour, IPointerClickHandler
         return KeyCode.None;
     }
 
+    void StartButtonAssigned()
+    {
+        isButtonWaitAssigned = true;
+
+        SetBackgroundColorAlphaValue(waitNewButtonColorAlphaValue);
+    }
+    
     void SetCursorState(bool state)
     {
         Cursor.visible = state;
         Cursor.lockState = state ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+
+    void SetBackgroundColorAlphaValue(float alphaValue)
+    {
+        var newColor = background.color;
+        newColor.a = alphaValue;
+        background.color = newColor;
     }
 }

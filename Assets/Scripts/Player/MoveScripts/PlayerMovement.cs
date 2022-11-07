@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -48,9 +47,25 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private bool IsFlies = false;
     [SerializeField] private bool isSprint = false;
-    [Space]
+    
+    [Space] 
+    [SerializeField] private Transform cameraT;
+    private float defaultCameraYpos;
+    [SerializeField] private float cameraHeight;
+    [SerializeField] private CapsuleCollider MainCollider;
+    [SerializeField] private CapsuleCollider LegsCollider;
 
-    private Collider PlayerCollider;
+    private float defaultMainColliderHeight;
+    private float defaultLegsColliderHeight;
+
+    private float defaultMainColliderYcenterValue;
+    private float defaultLegsColliderYcenterValue;
+    
+    [Range(0.05f,1f)] [SerializeField] private float crouchPlayerHeight = 0.65f;
+    [SerializeField] private float crouchSpeedMultiplier = 0.4f;
+    [SerializeField] private bool isPlayerCrouch = false;
+    
+    [Space]
     [SerializeField] private Vector3 GroundNormal;
     private bool IsJumpingButtonPressed = false;
 
@@ -63,16 +78,26 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 CurrentMovementDirection
         { get { return currentMovementDirection; } }
     
-
     private void Start()
     {
         //?????????? ??????????? ?????
-        if (PlayerCollider == null) PlayerCollider = GetComponent<Collider>();
+        SetCollidersParams();
+        defaultCameraYpos = cameraT.localPosition.y;
+        
         playerRb = GetComponent<Rigidbody>();
         playerT = transform;
 
         float flyTestTime = 0.1f;
         IsFlyTest(flyTestTime);
+
+        void SetCollidersParams()
+        {
+            defaultMainColliderHeight = MainCollider.height;
+            defaultMainColliderYcenterValue = MainCollider.center.y;
+
+            defaultLegsColliderHeight = LegsCollider.height;
+            defaultLegsColliderYcenterValue = LegsCollider.center.y;
+        }
     }
 
     private void FixedUpdate()
@@ -83,6 +108,11 @@ public class PlayerMovement : MonoBehaviour
         MovementAlgorithm();
     }
 
+    private void Update()
+    {
+        CrouchAlgorithm();
+    }
+    
     void OnGUI()
     {
         float fps = 1.0f / Time.unscaledDeltaTime;
@@ -94,12 +124,11 @@ public class PlayerMovement : MonoBehaviour
         if(!isFlies)
             GroundNormalUpdate();
         
-        //????????????? ??????????????? ??????????/?????
         float horizontal = Axis.Horizontal;
         float vertical = Axis.Vertical;
         float jump = Axis.Jump;
         float maxSpeedTemp;
-        isSprint = false; //Input.GetKey(KeyCode.LeftShift);
+        isSprint = false;
 
         Vector3 resultDirection = Vector3.zero;
 
@@ -127,6 +156,9 @@ public class PlayerMovement : MonoBehaviour
         //????????? ?????????? ??????? ?? ????????? ???????
         if (isSprint)
             resultDirection *= SprintSpeedMultiply;
+
+        if (isPlayerCrouch)
+            resultDirection *= crouchSpeedMultiplier;
 
         //?????????? ??????? ? ?????? ??????????? ??????? ???????? ????? ???????????
         if (IsFlies)
@@ -212,6 +244,69 @@ public class PlayerMovement : MonoBehaviour
     //         GroundNormal = collision.contacts[0].normal;
     // }
 
+    private void CrouchAlgorithm()
+    {
+        var crouchActive = Input.GetKey(KeyCode.C);
+
+        if (crouchActive && !isPlayerCrouch)
+        {
+            StartCrouch();            
+        }
+        else if (!crouchActive && isPlayerCrouch)
+        {
+            EndCrouch();
+        }
+
+        void StartCrouch()
+        {
+            isPlayerCrouch = true;
+
+            var newCameraLocalPos = cameraT.localPosition;
+            newCameraLocalPos.y = defaultCameraYpos - (cameraHeight * crouchPlayerHeight);
+            cameraT.localPosition = newCameraLocalPos;
+            
+            SetCapsuleColliderToCrouch(ref MainCollider,defaultMainColliderHeight,defaultMainColliderYcenterValue);
+            SetCapsuleColliderToCrouch(ref LegsCollider,defaultLegsColliderHeight,defaultLegsColliderYcenterValue);
+            
+            void SetCapsuleColliderToCrouch(ref CapsuleCollider targetCollider, float defaultCollideHeight
+                ,float defaultColliderYcenterValue)
+            {
+                var resultColliderHeight = defaultCollideHeight * crouchPlayerHeight;
+                var resultColliderYcenterValue = 
+                    -((defaultCollideHeight - resultColliderHeight) / 2) + defaultColliderYcenterValue;
+
+                targetCollider.height = resultColliderHeight;
+
+                var newCenter = targetCollider.center;
+                newCenter.y = resultColliderYcenterValue;
+                targetCollider.center = newCenter;
+            }
+        }
+
+        void EndCrouch()
+        {
+            isPlayerCrouch = false;
+            
+            var newCameraLocalPos = cameraT.localPosition;
+            newCameraLocalPos.y = defaultCameraYpos;
+            cameraT.localPosition = newCameraLocalPos;
+            
+            SetCapsuleColliderToDefault(ref MainCollider,defaultMainColliderHeight,defaultMainColliderYcenterValue);
+            SetCapsuleColliderToDefault(ref LegsCollider,defaultLegsColliderHeight,defaultLegsColliderYcenterValue);
+            
+            void SetCapsuleColliderToDefault(ref CapsuleCollider targetCollider, float defaultCollideHeight
+                ,float defaultColliderYcenterValue)
+            {
+                targetCollider.height = defaultCollideHeight;
+
+                var newCenter = targetCollider.center;
+                newCenter.y = defaultColliderYcenterValue;
+                targetCollider.center = newCenter;
+            }
+
+        }
+    }
+
     private void OnCollisionExit(Collision collision)
     {
         //Vector3 defaultNormal = new Vector3(0f,1f,0f);
@@ -240,7 +335,7 @@ public class PlayerMovement : MonoBehaviour
 
         GroundNormal = resultNormal;
     }
-    
+
     /*private Vector3 MultiplyXZ(Vector3 vec,float mult)
     {
         vec = new Vector3(vec.x * mult, vec.y, vec.z * mult);
@@ -248,6 +343,7 @@ public class PlayerMovement : MonoBehaviour
         return vec;
     }
     */
+
 
     private void IsFlyTest(float time)
     {
@@ -264,12 +360,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    
+
     public void SetManageActive(bool state)
     {
         isManageActive = state;
     }
-
 }
 
 public static class AuxiliaryFunc
