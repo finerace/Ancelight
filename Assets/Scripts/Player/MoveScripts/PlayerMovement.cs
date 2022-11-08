@@ -110,6 +110,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!isManageActive)
+            return;
+
         CrouchAlgorithm();
     }
     
@@ -285,6 +288,9 @@ public class PlayerMovement : MonoBehaviour
 
         void EndCrouch()
         {
+            if(EndCrouchIsPossible() == false)
+                return;
+                
             isPlayerCrouch = false;
             
             var newCameraLocalPos = cameraT.localPosition;
@@ -304,6 +310,18 @@ public class PlayerMovement : MonoBehaviour
                 targetCollider.center = newCenter;
             }
 
+            bool EndCrouchIsPossible()
+            {
+                const float rayDistanceSmooth = 0.25f;
+                
+                var checkRayDirection = Vector3.up;
+                var checkRayOrigin = cameraT.position;
+                var checkRayDistance = Mathf.Abs(cameraT.localPosition.y - defaultCameraYpos) + rayDistanceSmooth;
+
+                var checkRoofRay = new Ray(checkRayOrigin, checkRayDirection);
+
+                return !Physics.Raycast(checkRoofRay, checkRayDistance, groundLayerMask);
+            }
         }
     }
 
