@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class ScrollObjectService : MonoBehaviour
 {
-    [SerializeField] private Transform scrollPoint;
+    [SerializeField] private Transform scrollObjectT;
     
     [Space]
     [SerializeField] private Transform startPoint;
     [SerializeField] private Vector3 scrollDirection;
     [SerializeField] private float scrollDistance = 0;
+    [SerializeField] private float scrollSmoothCof = 1f;
+    private Vector3 currentScrollObjectPos = Vector3.zero;
     private Vector3 endPoint;
 
     [Space] 
@@ -19,21 +21,34 @@ public class ScrollObjectService : MonoBehaviour
     private void Awake()
     {
         var startPointPos = startPoint.localPosition;
-        scrollPoint.localPosition = startPointPos;
+        scrollObjectT.localPosition = startPointPos;
 
-        var moveScrollPointAction = new UnityAction<float>(MoveScrollPoint);
+        var moveScrollPointAction = new UnityAction<float>(MoveScrollObject);
         scrollbar.onValueChanged.AddListener(moveScrollPointAction);
 
         endPoint = startPointPos + (scrollDirection.normalized * scrollDistance);
         
         ReloadScrollSystem(scrollDistance);
     }
-    
-    private void MoveScrollPoint(float scrollbarValue)
+
+    private void Update()
     {
-        scrollPoint.localPosition = Vector3.Lerp(startPoint.localPosition, endPoint,scrollbarValue);
+        SmoothMoveScrollObject();
     }
-    
+
+    private void MoveScrollObject(float scrollbarValue)
+    {
+        currentScrollObjectPos = Vector3.Lerp(startPoint.localPosition, endPoint,scrollbarValue);
+    }
+
+    private void SmoothMoveScrollObject()
+    {
+        var scrollObjectMoveSpeed = Time.unscaledDeltaTime * scrollSmoothCof;
+        
+        scrollObjectT.localPosition = 
+            Vector3.Lerp(scrollObjectT.localPosition, currentScrollObjectPos,scrollObjectMoveSpeed);
+    }
+
     public void ReloadScrollSystem(float newScrollDistance)
     {
         scrollDistance = newScrollDistance;
@@ -43,5 +58,8 @@ public class ScrollObjectService : MonoBehaviour
         
         scrollbar.gameObject.SetActive(scrollDistance > 0);
         scrollbar.value = 0;
+
+        scrollObjectT.localPosition = startPointPos;
+        currentScrollObjectPos = startPointPos;
     }
 }

@@ -12,25 +12,25 @@ public class PlayerMovement : MonoBehaviour
     {
         get { return speed; }
     }
-
+    
     [HideInInspector]
     public bool isFlies
     {
         get { return IsFlies; }
     }
-
+    
     [HideInInspector]
     public bool IsSprint
     {
         get { return isSprint; }
     }
-
+    
     [SerializeField] private float jumpForce = 1f;
     private Rigidbody playerRb;
     public Rigidbody PlayerRb { get { return playerRb; } }
-
+    
     private Transform playerT;
-
+    
     public Transform Body { get { return playerT ; } }
 
     [Space]
@@ -312,7 +312,7 @@ public class PlayerMovement : MonoBehaviour
 
             bool EndCrouchIsPossible()
             {
-                const float rayDistanceSmooth = 0.25f;
+                const float rayDistanceSmooth = 0.4f;
                 
                 var checkRayDirection = Vector3.up;
                 var checkRayOrigin = cameraT.position;
