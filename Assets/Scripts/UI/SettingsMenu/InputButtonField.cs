@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,15 +7,47 @@ public class InputButtonField : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private TextMeshProUGUI assignedButtonLabel;
     [SerializeField] private KeyCode assignedButtonKeyCode;
+
+    private bool assignedButtonMouseWheelMove;
+
     private bool isButtonWaitAssigned = false;
 
     [Space]
     [SerializeField] private Image background;
+
     [SerializeField] private float waitNewButtonColorAlphaValue;
+
     private float defaultColorAlphaValue;
 
     [Space] 
     [SerializeField] private bool onClickMouseCursorDisabled = true;
+
+    public KeyCode AssignedButtonKeyCode
+    {
+        get => assignedButtonKeyCode;
+
+        set
+        {
+            assignedButtonKeyCode = value;
+            assignedButtonLabel.text = value.ToString();
+        }
+    }
+
+    public bool AssignedButtonMouseWheelMove
+    {
+        get => assignedButtonMouseWheelMove;
+
+        set
+        {
+            assignedButtonMouseWheelMove = value;
+
+            var resultText = "";
+
+            resultText = value ? "MouseWheelUp" : "MouseWheelDown";
+
+            assignedButtonLabel.text = resultText;
+        }
+    }
 
     private void Awake()
     {
@@ -91,24 +122,28 @@ public class InputButtonField : MonoBehaviour, IPointerClickHandler
                 return currentCheckKeyCode;
             }
         }
+        
+        var mouseWheelValue = Axis.MouseWheel;
 
+        assignedButtonMouseWheelMove = mouseWheelValue > 0;
+        
         return KeyCode.None;
     }
 
-    void StartButtonAssigned()
+    private void StartButtonAssigned()
     {
         isButtonWaitAssigned = true;
 
         SetBackgroundColorAlphaValue(waitNewButtonColorAlphaValue);
     }
     
-    void SetCursorState(bool state)
+    private void SetCursorState(bool state)
     {
         Cursor.visible = state;
         Cursor.lockState = state ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
-    void SetBackgroundColorAlphaValue(float alphaValue)
+    private void SetBackgroundColorAlphaValue(float alphaValue)
     {
         var newColor = background.color;
         newColor.a = alphaValue;
