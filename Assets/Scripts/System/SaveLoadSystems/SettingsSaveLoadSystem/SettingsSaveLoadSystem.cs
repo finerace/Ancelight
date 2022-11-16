@@ -21,7 +21,8 @@ public class SettingsSaveLoadSystem : MonoBehaviour
 
     [SerializeField] private TMP_Dropdown shadowsResolutionQuality;
     [SerializeField] private Slider shadowDistance;
-
+    [SerializeField] private Toggle softShadows;
+    
     [SerializeField] private TMP_Dropdown msaaQuality;
     [SerializeField] private TMP_Dropdown antiAliasingQuality;
 
@@ -122,6 +123,7 @@ public class SettingsSaveLoadSystem : MonoBehaviour
                     anisotropicTextureQuality.value,
                     shadowsResolutionQuality.value,
                     shadowDistance.value,
+                    softShadows.isOn,
                     msaaQuality.value,
                     antiAliasingQuality.value,
                     grassQuality.value,
@@ -185,8 +187,9 @@ public class SettingsSaveLoadSystem : MonoBehaviour
 
             shadowsResolutionQuality.value = settingsData.GraphicsSettingsData.ShadowsResolutionQuality;
             shadowDistance.value = settingsData.GraphicsSettingsData.ShadowDistance;
-
-            msaaQuality.value = settingsData.GraphicsSettingsData.MsaAquality;
+            softShadows.isOn = settingsData.GraphicsSettingsData.SoftShadows;
+            
+            msaaQuality.value = settingsData.GraphicsSettingsData.MSAAQuality;
             antiAliasingQuality.value = settingsData.GraphicsSettingsData.AntiAliasingQuality;
 
             grassQuality.value = settingsData.GraphicsSettingsData.GrassQuality;
@@ -382,8 +385,9 @@ public class SettingsData
 
         private int shadowsResolutionQuality;
         private float shadowDistance;
+        private bool softShadows;
 
-        private int MSAAquality;
+        private int msaaQuality;
         private int antiAliasingQuality;
 
         private int grassQuality;
@@ -403,8 +407,10 @@ public class SettingsData
         public int ShadowsResolutionQuality => shadowsResolutionQuality;
 
         public float ShadowDistance => shadowDistance;
-
-        public int MsaAquality => MSAAquality;
+        
+        public bool SoftShadows => softShadows;
+        
+        public int MSAAQuality => msaaQuality;
 
         public int AntiAliasingQuality => antiAliasingQuality;
 
@@ -422,26 +428,14 @@ public class SettingsData
 
         public bool Vsync => vsync;
 
-        public SettingsGraphicsData(
-            int texturesQuality, 
-            int anisotropicTexturesQuality, 
-            int shadowsResolutionQuality,
-            float shadowDistance,
-            int msaAquality,
-            int antiAliasingQuality,
-            int grassQuality,
-            float grassDrawingDistance,
-            int plantsQuality,
-            int enemyPartsQuality,
-            float timeOfDestructionOfParts,
-            float drawingDistanceCoof,
-            bool vsync)
+        public SettingsGraphicsData(int texturesQuality, int anisotropicTexturesQuality, int shadowsResolutionQuality, float shadowDistance, bool softShadows, int msaaQuality, int antiAliasingQuality, int grassQuality, float grassDrawingDistance, int plantsQuality, int enemyPartsQuality, float timeOfDestructionOfParts, float drawingDistanceCoof, bool vsync)
         {
             this.texturesQuality = texturesQuality;
             this.anisotropicTexturesQuality = anisotropicTexturesQuality;
             this.shadowsResolutionQuality = shadowsResolutionQuality;
             this.shadowDistance = shadowDistance;
-            MSAAquality = msaAquality;
+            this.softShadows = softShadows;
+            this.msaaQuality = msaaQuality;
             this.antiAliasingQuality = antiAliasingQuality;
             this.grassQuality = grassQuality;
             this.grassDrawingDistance = grassDrawingDistance;
