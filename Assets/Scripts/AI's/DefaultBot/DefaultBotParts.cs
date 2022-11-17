@@ -50,7 +50,8 @@ public class DefaultBotParts : MonoBehaviour
 
             foreach (var part in botPartsRb)
             {
-                part.gameObject.layer = 10;
+                if(part != null)
+                    part.gameObject.layer = 10;
             }
 
             yield return new WaitForSeconds(frozeTime);

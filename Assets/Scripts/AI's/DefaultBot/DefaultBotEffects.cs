@@ -9,8 +9,12 @@ public class DefaultBotEffects : MonoBehaviour
     [SerializeField] internal ParticleSystem[] botParticlsAttack = new ParticleSystem[0];
     [SerializeField] protected ParticleSystem[] botParticlsMeleeAttack = new ParticleSystem[0];
     [SerializeField] protected MeshRenderer[] botMeshRenderers = new MeshRenderer[0];
-    [SerializeField] protected MeshRenderer[] botMeshDeleteRenderers;
+    [SerializeField] protected MeshRenderer[] botMeshLOD0;
+    [SerializeField] protected MeshRenderer[] botMeshLOD1;
+    [SerializeField] protected MeshRenderer[] botMeshLOD2;
+    
     [Space]
+    
     [SerializeField] private ParticleSystem hitParticle;
 
     protected Material mainMaterial;
@@ -122,13 +126,70 @@ public class DefaultBotEffects : MonoBehaviour
             item.receiveShadows = false;
         }
 
-        foreach (var item in botMeshDeleteRenderers)
+        
+        var partsDestroyTime = SettingsSetSystem.enemyPartsDestroyTime;
+        switch (SettingsSetSystem.enemyPartsQuality)
         {
-            Destroy(item.gameObject);
+            case 0:
+            {
+                foreach (var item in botMeshLOD0)
+                {
+                    Destroy(item.gameObject);
+                }
+                
+                foreach (var item in botMeshLOD1)
+                {
+                    Destroy(item.gameObject);
+                }
+                
+                foreach (var item in botMeshLOD2)
+                {
+                    Destroy(item.gameObject,partsDestroyTime);
+                }
+                break;
+            }
+            
+            case 1:
+            {
+                foreach (var item in botMeshLOD0)
+                {
+                    Destroy(item.gameObject);
+                }
+                
+                foreach (var item in botMeshLOD1)
+                {
+                    Destroy(item.gameObject,partsDestroyTime);
+                }
+                
+                foreach (var item in botMeshLOD2)
+                {
+                    Destroy(item.gameObject);
+                }
+                break;
+            }
+            
+            case 2:
+            {
+                foreach (var item in botMeshLOD0)
+                {
+                    Destroy(item.gameObject,partsDestroyTime);
+                }
+                
+                foreach (var item in botMeshLOD1)
+                {
+                    Destroy(item.gameObject);
+                }
+                
+                foreach (var item in botMeshLOD2)
+                {
+                    Destroy(item.gameObject);
+                }
+                break;
+            }
+
         }
 
         Destroy(gameObject, 10f);
-
     }
 
 

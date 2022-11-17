@@ -23,7 +23,7 @@ public class MiniKamikazeEffects : DefaultBotEffects
             Destroy(item.gameObject, 5f);
         }
 
-        foreach (var item in botMeshDeleteRenderers)
+        foreach (var item in botMeshRenderers)
         {
             Destroy(item.gameObject);
         }

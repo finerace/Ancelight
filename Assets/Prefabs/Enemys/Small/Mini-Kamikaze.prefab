@@ -145,9 +145,11 @@ MonoBehaviour:
   - {fileID: 1539869910769806998}
   - {fileID: 1539869909315289690}
   - {fileID: 1539869908810711437}
-  botMeshDeleteRenderers:
+  botMeshLOD0:
   - {fileID: 1539869910769806998}
+  botMeshLOD1:
   - {fileID: 1539869909315289690}
+  botMeshLOD2:
   - {fileID: 1539869908810711437}
   hitParticle: {fileID: 1539869909460325952}
   botBrightSpeed: 1
