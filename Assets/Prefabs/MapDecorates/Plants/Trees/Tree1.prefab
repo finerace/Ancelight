@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 3416499210288112314}
   m_Layer: 0
   m_Name: meshLOD0
-  m_TagString: Untagged
+  m_TagString: StaticDecoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 3416499210475424532}
   m_Layer: 0
   m_Name: meshLOD1
-  m_TagString: Untagged
+  m_TagString: StaticDecoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 3416499211170337651}
   m_Layer: 0
   m_Name: meshLOD2
-  m_TagString: Untagged
+  m_TagString: StaticDecoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126

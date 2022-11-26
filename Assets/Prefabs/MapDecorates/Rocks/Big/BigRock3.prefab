@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1247558344944006519}
   m_Layer: 0
   m_Name: BigRock3
-  m_TagString: Untagged
+  m_TagString: StaticDecoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 4169535107779331081}
   m_Layer: 0
   m_Name: meshLOD1
-  m_TagString: Untagged
+  m_TagString: StaticDecoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 691303244794887293}
   m_Layer: 0
   m_Name: meshLOD0
-  m_TagString: Untagged
+  m_TagString: StaticDecoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

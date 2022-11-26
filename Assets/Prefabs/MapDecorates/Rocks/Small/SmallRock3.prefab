@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 958113859679710435}
   m_Layer: 0
   m_Name: SmallRock3MeshLOD0
-  m_TagString: Untagged
+  m_TagString: StaticDecoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 124
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 5545831959186044022}
   m_Layer: 0
   m_Name: SmallRockMeshLOD1
-  m_TagString: Untagged
+  m_TagString: StaticDecoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 124

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestLevel/TestLevel.unity
+    path: Assets/Scenes/TestMeshCombine/TestMeshCombine.unity
     guid: cd2e80153cf06cc41aef0c32cf542938
   - enabled: 1
     path: Assets/Scenes/TestScene/TestScene.unity

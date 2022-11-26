@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7322121408580869826}
   m_Layer: 0
   m_Name: meshLOD0
-  m_TagString: Untagged
+  m_TagString: StaticDecoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 117
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4458511194280334762}
   m_Layer: 0
   m_Name: meshLOD1
-  m_TagString: Untagged
+  m_TagString: StaticDecoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 117

@@ -11,9 +11,12 @@ public class MeshAutoCombiner : MonoBehaviour
     
     [Space] [SerializeField] private int meshCombineZonesX = 1;
     [SerializeField] private int meshCombineZonesZ = 1;
-
+    
     [Space] 
     [SerializeField] private string combineMeshesFolderPath;
+
+    [Space] 
+    [SerializeField] private bool destroyOldMeshes;
     
     private bool isMeshsAutoCombineStarted = false;
     public bool IsMeshsAutoCombineStarted => isMeshsAutoCombineStarted;
@@ -37,7 +40,6 @@ public class MeshAutoCombiner : MonoBehaviour
         var toCombineDecorationsLOD0 = GetGameObjectsNamesEndWith(toCombineDecorationsNames, LODnames[0]);
         var toCombineDecorationsLOD1 = GetGameObjectsNamesEndWith(toCombineDecorationsNames, LODnames[1]);
         var toCombineDecorationsLOD2 = GetGameObjectsNamesEndWith(toCombineDecorationsNames, LODnames[2]);
-        
         
         (Vector3[] combineAreasPoss, Vector3[] combineAreasScaless) = GetCombinerAreasData();
         var combineAreasCount = combineAreasPoss.Length;
@@ -79,10 +81,18 @@ public class MeshAutoCombiner : MonoBehaviour
             
             //AddAndSetLODgroup();
             
-            //DestroyCombiners();
+            DestroyCombiners();
             
+            meshLOD1.SetActive(false);
+            meshLOD2.SetActive(false);
+
+            if (destroyOldMeshes)
+            {
+                
+            }
+
             isMeshsAutoCombineStarted = false;
-            
+
             void RecordItemsInAreaToMeshsObjects()
             {
                 foreach (var item in toCombineDecorationsNotLOD)
@@ -134,7 +144,7 @@ public class MeshAutoCombiner : MonoBehaviour
                 }
                 
             }
-        
+
             void RecordCombineObjectsForUndoOperation()
             {
                 Undo.RecordObjects(toCombineDecorations,"Mesh Auto Combine");
@@ -187,15 +197,16 @@ public class MeshAutoCombiner : MonoBehaviour
                 
                 LODgroup.SetLODs(lodArray);*/
             }
-            
+
             void DestroyCombiners()
             {
-                Destroy(meshNotLODcombiner);
-                Destroy(meshLOD0combiner);
-                Destroy(meshLOD1combiner);
-                Destroy(meshLOD2combiner);
+                DestroyImmediate(meshNotLODcombiner);
+                DestroyImmediate(meshLOD0combiner);
+                DestroyImmediate(meshLOD1combiner);
+                DestroyImmediate(meshLOD2combiner);
             }
-
+            
+            
         }
         
         string[] GetGameObjectsNames(GameObject[] gameObjects)
@@ -273,8 +284,8 @@ public class MeshAutoCombiner : MonoBehaviour
             var inXpos = pos.x <= areaPos.x + areaScale.x && pos.x >= areaPos.x + -areaScale.x;
             var inYpos = pos.y <= areaPos.y + areaScale.y && pos.y >= areaPos.y + -areaScale.y;
             var inZpos = pos.z <= areaPos.z + areaScale.z && pos.z >= areaPos.z + -areaScale.z;
-
-            return inXpos && inYpos && inZpos;
+            
+            return (inXpos && inYpos && inZpos);
         }
     }
 
