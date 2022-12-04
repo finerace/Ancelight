@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 240bf6443c05f0145a8ec979df4f712d, type: 2}
+  - {fileID: 2100000, guid: fcd80db3cafc914458908ccabb5d1fd1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -227,7 +227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 240bf6443c05f0145a8ec979df4f712d, type: 2}
+  - {fileID: 2100000, guid: fcd80db3cafc914458908ccabb5d1fd1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -310,7 +310,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 240bf6443c05f0145a8ec979df4f712d, type: 2}
+  - {fileID: 2100000, guid: a001505c40f19b04cb23c9c4ac8f509d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -476,7 +476,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 240bf6443c05f0145a8ec979df4f712d, type: 2}
+  - {fileID: 2100000, guid: a001505c40f19b04cb23c9c4ac8f509d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -559,7 +559,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 240bf6443c05f0145a8ec979df4f712d, type: 2}
+  - {fileID: 2100000, guid: a001505c40f19b04cb23c9c4ac8f509d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -642,7 +642,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 240bf6443c05f0145a8ec979df4f712d, type: 2}
+  - {fileID: 2100000, guid: fcd80db3cafc914458908ccabb5d1fd1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -689,7 +689,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25185924129187861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -136.65, y: 0.17, z: 122.25}
+  m_LocalPosition: {x: -137.3, y: 0.1, z: 122.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -718,7 +718,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.028478742
+  - screenRelativeHeight: 0.03091736
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 25185923877301039}
