@@ -61,6 +61,7 @@ public class MenuSystem : MonoBehaviour
         {
             throw new InvalidDataException($"Open menu has failed!\n" + $"Menu ID {menuID} is repeated!");
         }
+        
         if(foundChildMenuData == null && foundParentMenuData == null)
         {
             throw new InvalidDataException
