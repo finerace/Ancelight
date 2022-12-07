@@ -119,6 +119,8 @@ public abstract class DefaultBot : Health
         StartCoroutine(LookingChecker(lookingUpdateTime));
         StartCoroutine(AgentDestinationUpdater(agentDestinationUpdateTime));
         StartCoroutine(IsAttacksAllowChecker(attackCheckerUpdateTime));
+        
+        SetWayPoint(Vector3.back*25,5);
     }
 
     protected void Update()
@@ -307,7 +309,7 @@ public abstract class DefaultBot : Health
     internal virtual bool CheckIsLookingTarget()
     {
 
-        //В поле ли зрения цель
+        //? ???? ?? ?????? ????
         Vector3 localObjPos = (target.position - head.position);
         float dot = Vector3.Dot(head.forward, localObjPos.normalized);
         float botTargetDistance = Vector3.Distance(target.position,body.position);
@@ -324,10 +326,10 @@ public abstract class DefaultBot : Health
         if (dot >= fovDot && botTargetDistance <= lookingRadius)
         {
 
-            //Проверка на наличие стен между объектами
+            //???????? ?? ??????? ???? ????? ?????????
             if(wallsCheck)
             {
-                //близко ли цель
+                //?????? ?? ????
                 if (botTargetDistance <= targetCloselyRadius)
                     isTargetClosely = true;
                 else 
@@ -377,6 +379,12 @@ public abstract class DefaultBot : Health
     internal virtual void GetAannoyed()
     {
         aannoyedTimer = aannoyedTime;
+    }
+
+    public void SetWayPoint(Vector3 wayDirection,float wayTime)
+    {
+        SetDestination(body.position+wayDirection);
+        GetAannoyed();
     }
 
     ///////
