@@ -78,9 +78,12 @@ public class AIManager : MonoBehaviour
 
                     if (distance > linkDistance)
                         continue;
-
+                    
                     if (firstBot.TargetOldLookTimer < secondBot.TargetOldLookTimer)
                     {
+                        if(secondBot.isBotGoToWayPoints)
+                            continue;
+                        
                         secondBot.SetDestination(firstBot.Destination);
                         secondBot.nowSetTargetPosHiddenTimer = 2.5f;
 

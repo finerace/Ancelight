@@ -80,7 +80,7 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour
         if(isManageBlocked)
             return;
         
-        if(Input.GetKeyUp(KeyCode.F) && isCooldownOut)
+        if(Input.GetKeyUp(KeyCode.V) && isCooldownOut)
             StartProtection();
         
         if (!isShockEffectOn) return;

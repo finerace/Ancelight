@@ -68,6 +68,9 @@ public abstract class DefaultBot : Health
     [SerializeField] internal bool isTargetClosely;
     [SerializeField] internal bool isTargetVeryClosely;
     
+    [SerializeField] internal bool isBotGoToWayPoints = false;
+    [SerializeField] private Vector3 currentWayPoint;
+    
     [SerializeField] internal bool isSmart;
     [Space]
 
@@ -119,8 +122,6 @@ public abstract class DefaultBot : Health
         StartCoroutine(LookingChecker(lookingUpdateTime));
         StartCoroutine(AgentDestinationUpdater(agentDestinationUpdateTime));
         StartCoroutine(IsAttacksAllowChecker(attackCheckerUpdateTime));
-        
-        SetWayPoint(Vector3.back*25,5);
     }
 
     protected void Update()
@@ -258,10 +259,11 @@ public abstract class DefaultBot : Health
             if(isLookingTarget)
             {
                 targetOldLookTimer = 0;
+                isBotGoToWayPoints = false;
                 GetAannoyed();
             }
 
-            if (isLookingTarget && isSetTargetPosOnHiddenTarget)
+            if (isLookingTarget && isSetTargetPosOnHiddenTarget && !isBotGoToWayPoints)
                 nowSetTargetPosHiddenTimer = setTargetPosTime;
 
             if (botEffects != null)
@@ -283,9 +285,13 @@ public abstract class DefaultBot : Health
 
             if (isLookingTarget && PathLegth(agent.path.corners) > isPathLong)
                 agent.speed = 0;
+            else if(isBotGoToWayPoints)
+                SetDestination(currentWayPoint);
             else
                 agent.speed = startAgentSpeed;
-
+            
+            
+            
             yield return new WaitForSeconds(time);
         }
     }
@@ -381,10 +387,13 @@ public abstract class DefaultBot : Health
         aannoyedTimer = aannoyedTime;
     }
 
-    public void SetWayPoint(Vector3 wayDirection,float wayTime)
+    public void SetWayPoint(Vector3 wayPoint,float wayTime)
     {
-        SetDestination(body.position+wayDirection);
-        GetAannoyed();
+        currentWayPoint = wayPoint;
+        
+        SetDestination(wayPoint);
+        isBotGoToWayPoints = true;
+        aannoyedTimer = wayTime;
     }
 
     ///////
@@ -450,7 +459,7 @@ public abstract class DefaultBot : Health
         Quaternion targetRot = Quaternion.identity;
         float timeStep = Time.deltaTime * speed;
 
-        if (isLookingTarget || isAannoyed)
+        if (!isBotGoToWayPoints && (isLookingTarget || isAannoyed ))
         {
             targetRot = Quaternion.LookRotation(targetPos - item.position);
 
@@ -473,7 +482,7 @@ public abstract class DefaultBot : Health
         Quaternion targetRot = Quaternion.identity;
         float timeStep = Time.deltaTime * speed;
 
-        if (isLookingTarget || isAannoyed)
+        if (!isBotGoToWayPoints && (isLookingTarget || isAannoyed))
         {
             targetRot = Quaternion.LookRotation(targetPos - itemChild.position);
 

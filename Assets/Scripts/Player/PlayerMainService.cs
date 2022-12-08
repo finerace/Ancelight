@@ -19,7 +19,8 @@ public class PlayerMainService : Health
     [SerializeField] internal PlayerHookService hookService;
     [SerializeField] internal PlayerDashsService dashsService;
     [SerializeField] internal PlayerImmediatelyProtectionService immediatelyProtectionService;
-
+    [SerializeField] internal PlayerUseService playerUseService;
+    
     private bool isManageActive = true;
 
     public bool IsManageActive => isManageActive;
@@ -136,6 +137,7 @@ public class PlayerMainService : Health
         hookService.SetManageActive(state);
         dashsService.SetManageActive(state);
         immediatelyProtectionService.SetManageActive(state);
+        playerUseService.SetManageActive(state);
     }
 
     public override void Died()
