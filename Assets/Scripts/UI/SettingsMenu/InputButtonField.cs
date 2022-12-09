@@ -6,40 +6,41 @@ using UnityEngine.UI;
 public class InputButtonField : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private TextMeshProUGUI assignedButtonLabel;
-    [SerializeField] private KeyCode assignedButtonKeyCode;
 
-    private bool assignedButtonMouseWheelMove;
+    [SerializeField] private KeyCode defaultAssignedButton;
+    [SerializeField] private bool defaultAssignedMouseWheelMove;
+    
+    private DeviceButton assignedButton;
 
     private bool isButtonWaitAssigned = false;
 
     [Space]
     [SerializeField] private Image background;
-
     [SerializeField] private float waitNewButtonColorAlphaValue;
 
     private float defaultColorAlphaValue;
 
     [Space] 
     [SerializeField] private bool onClickMouseCursorDisabled = true;
-
+    
     public KeyCode AssignedButtonKeyCode
     {
-        get => assignedButtonKeyCode;
+        get => assignedButton.AssignedButtonKeyCode;
 
         set
         {
-            assignedButtonKeyCode = value;
+            assignedButton.AssignedButtonKeyCode = value;
             assignedButtonLabel.text = value.ToString();
         }
     }
 
     public bool AssignedButtonMouseWheelMove
     {
-        get => assignedButtonMouseWheelMove;
+        get => assignedButton.AssignedButtonMouseWheelMove;
 
         set
         {
-            assignedButtonMouseWheelMove = value;
+            assignedButton.AssignedButtonMouseWheelMove = value;
 
             var resultText = "";
 
@@ -52,6 +53,19 @@ public class InputButtonField : MonoBehaviour, IPointerClickHandler
     private void Awake()
     {
         defaultColorAlphaValue = background.color.a;
+        
+        SetDefaultSettings();
+
+        void SetDefaultSettings()
+        {
+            if (assignedButton == null)
+                assignedButton = new DeviceButton();
+            else
+                return;
+            
+            assignedButton.AssignedButtonKeyCode = defaultAssignedButton;
+            assignedButton.AssignedButtonMouseWheelMove = defaultAssignedMouseWheelMove;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -80,7 +94,7 @@ public class InputButtonField : MonoBehaviour, IPointerClickHandler
             var nowInputKeyCode = GetAnyPressedKeyCode();
 
             SetAssignedButtonName();
-            assignedButtonKeyCode = nowInputKeyCode;
+            assignedButton.AssignedButtonKeyCode = nowInputKeyCode;
             
             isButtonWaitAssigned = false;
             SetBackgroundColorAlphaValue(defaultColorAlphaValue);
@@ -125,7 +139,7 @@ public class InputButtonField : MonoBehaviour, IPointerClickHandler
         
         var mouseWheelValue = Axis.MouseWheel;
 
-        assignedButtonMouseWheelMove = mouseWheelValue > 0;
+        assignedButton.AssignedButtonMouseWheelMove = mouseWheelValue > 0;
         
         return KeyCode.None;
     }
@@ -149,4 +163,65 @@ public class InputButtonField : MonoBehaviour, IPointerClickHandler
         newColor.a = alphaValue;
         background.color = newColor;
     }
+}
+
+public class DeviceButton
+{
+    public KeyCode AssignedButtonKeyCode;
+    public bool AssignedButtonMouseWheelMove;
+    
+    public void AssignNewKeyCodeButton(KeyCode newButton)
+    {
+        AssignedButtonKeyCode = newButton;
+    }
+                
+    public void AssignedNewMouseWheelMove(bool isForwardWheelMove)
+    {
+        AssignedButtonKeyCode = KeyCode.None;
+        AssignedButtonMouseWheelMove = isForwardWheelMove;
+    }
+
+    public bool IsGetButton()
+    {
+        if (AssignedButtonKeyCode != KeyCode.None)
+            return Input.GetKey(AssignedButtonKeyCode);
+        else 
+            return IsMouseWheelUse();
+    }
+
+    public bool IsGetButtonUp()
+    {
+        if (AssignedButtonKeyCode != KeyCode.None)
+            return Input.GetKeyUp(AssignedButtonKeyCode);
+        else 
+            return IsMouseWheelUse();
+    }
+
+    public bool IsGetButtonDown()
+    {
+        if (AssignedButtonKeyCode != KeyCode.None)
+            return Input.GetKeyDown(AssignedButtonKeyCode);
+        else 
+            return IsMouseWheelUse();
+    }
+
+    private bool IsMouseWheelUse()
+    {
+        if(AssignedButtonMouseWheelMove)
+            return  (Axis.MouseWheel > 0);
+        else
+            return  (Axis.MouseWheel < 0);
+    }
+
+    public void AssignedNewDeviceButton(KeyCode newKeyCode, bool newMouseWheelMove)
+    {
+        AssignedButtonKeyCode = newKeyCode;
+        AssignedButtonMouseWheelMove = newMouseWheelMove;
+    }
+    
+}
+
+public interface IUsePlayerDevicesButtons
+{
+    public DeviceButton[] GetUsesDevicesButtons();
 }

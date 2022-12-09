@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 
-public class PlayerWeaponsManager : MonoBehaviour
+public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
 {
     [SerializeField] private List<WeaponData> weaponsDatas = new List<WeaponData>();
     [SerializeField] private List<int> weaponsUnlockedIDs = new List<int>();
@@ -88,6 +88,14 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     private bool isManageActive = true;
 
+    private DeviceButton fireButton = new DeviceButton();
+    private DeviceButton nextWeaponButton = new DeviceButton();
+    private DeviceButton previousWeaponButton = new DeviceButton();
+
+    private DeviceButton useAbilityButton = new DeviceButton();
+    private DeviceButton nextAbilityButton = new DeviceButton();
+    private DeviceButton previousAbilityButton = new DeviceButton();
+    
     private void Start()
     {
         abilityUnlockedIDs.Sort();
@@ -105,9 +113,22 @@ public class PlayerWeaponsManager : MonoBehaviour
         if (!isManageActive)
             return;
 
-        float mouseWheel = Axis.MouseWheel;
-        float fire1 = Axis.Fire1;
-        bool useAbility = Input.GetKeyDown(KeyCode.Q);
+        float mouseWheel = 0;
+        float fire1 = 0;
+
+        if (nextWeaponButton.IsGetButton())
+            mouseWheel = 1;
+        else if (previousWeaponButton.IsGetButton())
+            mouseWheel = -1;
+        else
+            mouseWheel = 0;
+
+        if (fireButton.IsGetButton())
+            fire1 = 1;
+        else
+            fire1 = 0;
+            
+        bool useAbility = useAbilityButton.IsGetButtonDown();
 
         isThereAnyBullets = bulletsManager.CheckBullets(selectedWeaponData.BulletsID);
 
@@ -193,12 +214,12 @@ public class PlayerWeaponsManager : MonoBehaviour
 
         if (!selectedAbility.isAttack)
         {
-            if (Input.GetKeyDown(KeyCode.V))
+            if (nextAbilityButton.IsGetButtonDown())
             {
                 NextAbility();
             }
 
-            if (Input.GetKeyDown(KeyCode.C))
+            if (previousAbilityButton.IsGetButtonDown())
             {
                 PreviousAbility();
             }
@@ -659,4 +680,11 @@ public class PlayerWeaponsManager : MonoBehaviour
         isManageActive = state;
     }
 
+    public DeviceButton[] GetUsesDevicesButtons()
+    {
+        var getButtons = new[]
+            { fireButton, nextWeaponButton, previousWeaponButton,useAbilityButton,nextAbilityButton,previousAbilityButton};
+
+        return getButtons;
+    }
 }

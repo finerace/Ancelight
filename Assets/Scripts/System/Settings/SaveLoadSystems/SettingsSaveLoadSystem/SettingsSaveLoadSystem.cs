@@ -46,9 +46,15 @@ public class SettingsSaveLoadSystem : MonoBehaviour
     [SerializeField] private InputButtonField dashButton;
     
     [SerializeField] private InputButtonField shootingButton;
-    [SerializeField] private InputButtonField useHookButton;
+    [SerializeField] private InputButtonField useProtection;
     [SerializeField] private InputButtonField nextWeaponButton;
     [SerializeField] private InputButtonField previousButton;
+    [SerializeField] private InputButtonField useHookButton;
+    [SerializeField] private InputButtonField useItemButton;
+    [SerializeField] private InputButtonField nextAbilityButton;
+    [SerializeField] private InputButtonField previousAbilityButton;
+    [SerializeField] private InputButtonField useAbilityButton;
+    [SerializeField] private Slider mouseSensitivity;
 
     private const string saveFileName = "SettingsSabe.bob";
     private string saveFilePath;
@@ -83,7 +89,7 @@ public class SettingsSaveLoadSystem : MonoBehaviour
 
     public void LoadSettings()
     {
-        SetInputElementsNewValue(GetSavedSettings());
+        LoadInputElementsNewValue(GetSavedSettings());
     }
 
     public SettingsData GetSavedSettings()
@@ -135,42 +141,53 @@ public class SettingsSaveLoadSystem : MonoBehaviour
                     vsync.isOn);
 
             var controlsSettingsData =
-            new SettingsData.SettingsControlsData(
-                forwardButton.AssignedButtonKeyCode,
-                forwardButton.AssignedButtonMouseWheelMove,
-                backButton.AssignedButtonKeyCode,
-                backButton.AssignedButtonMouseWheelMove,
-                leftButton.AssignedButtonKeyCode,
-                leftButton.AssignedButtonMouseWheelMove,
-                rightButton.AssignedButtonKeyCode,
-                rightButton.AssignedButtonMouseWheelMove,
-                jumpButton.AssignedButtonKeyCode,
-                jumpButton.AssignedButtonMouseWheelMove,
-                crouchButton.AssignedButtonKeyCode,
-                crouchButton.AssignedButtonMouseWheelMove,
-                dashButton.AssignedButtonKeyCode,
-                dashButton.AssignedButtonMouseWheelMove,
-                shootingButton.AssignedButtonKeyCode,
-                shootingButton.AssignedButtonMouseWheelMove,
-                useHookButton.AssignedButtonKeyCode,
-                useHookButton.AssignedButtonMouseWheelMove,
-                nextWeaponButton.AssignedButtonKeyCode,
-                nextWeaponButton.AssignedButtonMouseWheelMove,
-                previousButton.AssignedButtonKeyCode,
-                previousButton.AssignedButtonMouseWheelMove);
+                new SettingsData.SettingsControlsData(
+                    forwardButton.AssignedButtonKeyCode,
+                    forwardButton.AssignedButtonMouseWheelMove,
+                    backButton.AssignedButtonKeyCode,
+                    backButton.AssignedButtonMouseWheelMove,
+                    leftButton.AssignedButtonKeyCode,
+                    leftButton.AssignedButtonMouseWheelMove,
+                    rightButton.AssignedButtonKeyCode,
+                    rightButton.AssignedButtonMouseWheelMove,
+                    jumpButton.AssignedButtonKeyCode,
+                    jumpButton.AssignedButtonMouseWheelMove,
+                    crouchButton.AssignedButtonKeyCode,
+                    crouchButton.AssignedButtonMouseWheelMove,
+                    dashButton.AssignedButtonKeyCode,
+                    dashButton.AssignedButtonMouseWheelMove,
+                    shootingButton.AssignedButtonKeyCode,
+                    shootingButton.AssignedButtonMouseWheelMove,
+                    useProtection.AssignedButtonKeyCode,
+                    useProtection.AssignedButtonMouseWheelMove,
+                    nextWeaponButton.AssignedButtonKeyCode,
+                    nextWeaponButton.AssignedButtonMouseWheelMove,
+                    previousButton.AssignedButtonKeyCode,
+                    previousButton.AssignedButtonMouseWheelMove,
+                    useHookButton.AssignedButtonKeyCode,
+                    useHookButton.AssignedButtonMouseWheelMove,
+                    useItemButton.AssignedButtonKeyCode,
+                    useItemButton.AssignedButtonMouseWheelMove,
+                    nextAbilityButton.AssignedButtonKeyCode,
+                    nextAbilityButton.AssignedButtonMouseWheelMove,
+                    previousAbilityButton.AssignedButtonKeyCode,
+                    previousAbilityButton.AssignedButtonMouseWheelMove,
+                    useAbilityButton.AssignedButtonKeyCode,
+                    useAbilityButton.AssignedButtonMouseWheelMove,
+                    mouseSensitivity.value);
             
             return (soundsSettingsData,graphicsSettingsData,controlsSettingsData);
         }
 
-    private void SetInputElementsNewValue(SettingsData settingsData)
+    private void LoadInputElementsNewValue(SettingsData settingsData)
     {
-        SetSoundsSettings();
+        LoadSoundsSettings();
 
-        SetGraphicsSettings();
+        LoadGraphicsSettings();
         
-        SetControlsSettings();
+        LoadControlsSettings();
         
-        void SetSoundsSettings()
+        void LoadSoundsSettings()
         {
             soundsMasterVolume.value = settingsData.SoundsSettingsData.MasterVolumeValue;
             soundsMusicVolume.value = settingsData.SoundsSettingsData.MusicVolumeValue;
@@ -180,7 +197,7 @@ public class SettingsSaveLoadSystem : MonoBehaviour
             soundsMaxSoundsCount.value = settingsData.SoundsSettingsData.MaxSoundsCountValue;
         }
 
-        void SetGraphicsSettings()
+        void LoadGraphicsSettings()
         {
             textureQuality.value = settingsData.GraphicsSettingsData.TexturesQuality;
             anisotropicTextureQuality.value = settingsData.GraphicsSettingsData.AnisotropicTexturesQuality;
@@ -203,7 +220,7 @@ public class SettingsSaveLoadSystem : MonoBehaviour
             vsync.isOn = settingsData.GraphicsSettingsData.Vsync;
         }
 
-        void SetControlsSettings()
+        void LoadControlsSettings()
         {
             if (settingsData.ControlsSettingsData.ForwardButton != KeyCode.None)
             {
@@ -276,7 +293,6 @@ public class SettingsSaveLoadSystem : MonoBehaviour
             }
 
             
-            
             if (settingsData.ControlsSettingsData.ShootingButton != KeyCode.None)
             {
                 shootingButton.AssignedButtonKeyCode = settingsData.ControlsSettingsData.ShootingButton;
@@ -286,17 +302,17 @@ public class SettingsSaveLoadSystem : MonoBehaviour
                 shootingButton.AssignedButtonKeyCode = KeyCode.None;
                 shootingButton.AssignedButtonMouseWheelMove = settingsData.ControlsSettingsData.ShootingButtonMouseWheelMove;
             }
-
-            if (settingsData.ControlsSettingsData.UseHookButton != KeyCode.None)
+            
+            if (settingsData.ControlsSettingsData.UseProtectionButton != KeyCode.None)
             {
-                useHookButton.AssignedButtonKeyCode = settingsData.ControlsSettingsData.UseHookButton;
+                useProtection.AssignedButtonKeyCode = settingsData.ControlsSettingsData.UseProtectionButton;
             }
             else
             {
-                useHookButton.AssignedButtonKeyCode = KeyCode.None;
-                useHookButton.AssignedButtonMouseWheelMove = settingsData.ControlsSettingsData.UseHookButtonMouseWheelMove;
+                useProtection.AssignedButtonKeyCode = KeyCode.None;
+                useProtection.AssignedButtonMouseWheelMove = settingsData.ControlsSettingsData.UseProtectionButtonMouseWheelMove;
             }
-
+            
             if (settingsData.ControlsSettingsData.NextWeaponButton != KeyCode.None)
             {
                 nextWeaponButton.AssignedButtonKeyCode = settingsData.ControlsSettingsData.NextWeaponButton;
@@ -317,6 +333,57 @@ public class SettingsSaveLoadSystem : MonoBehaviour
                 previousButton.AssignedButtonMouseWheelMove = settingsData.ControlsSettingsData.PreviousButtonMouseWheelMove;
             }
 
+            if (settingsData.ControlsSettingsData.UseHookButton != KeyCode.None)
+            {
+                useHookButton.AssignedButtonKeyCode = settingsData.ControlsSettingsData.UseHookButton;
+            }
+            else
+            {
+                useHookButton.AssignedButtonKeyCode = KeyCode.None;
+                useHookButton.AssignedButtonMouseWheelMove = settingsData.ControlsSettingsData.UseHookButtonMouseWheelMove;
+            }
+            
+            if (settingsData.ControlsSettingsData.UseItemButton != KeyCode.None)
+            {
+                useItemButton.AssignedButtonKeyCode = settingsData.ControlsSettingsData.UseItemButton;
+            }
+            else
+            {
+                useItemButton.AssignedButtonKeyCode = KeyCode.None;
+                useItemButton.AssignedButtonMouseWheelMove = settingsData.ControlsSettingsData.UseItemButtonMouseWheelMove;
+            }
+            
+            if (settingsData.ControlsSettingsData.NextAbilityButton != KeyCode.None)
+            {
+                nextAbilityButton.AssignedButtonKeyCode = settingsData.ControlsSettingsData.NextAbilityButton;
+            }
+            else
+            {
+                nextAbilityButton.AssignedButtonKeyCode = KeyCode.None;
+                nextAbilityButton.AssignedButtonMouseWheelMove = settingsData.ControlsSettingsData.NextAbilityButtonMouseWheelMove;
+            }
+            
+            if (settingsData.ControlsSettingsData.PreviousAbilityButton != KeyCode.None)
+            {
+                previousAbilityButton.AssignedButtonKeyCode = settingsData.ControlsSettingsData.PreviousAbilityButton;
+            }
+            else
+            {
+                previousAbilityButton.AssignedButtonKeyCode = KeyCode.None;
+                previousAbilityButton.AssignedButtonMouseWheelMove = settingsData.ControlsSettingsData.PreviousAbilityButtonMouseWheelMove;
+            }
+            
+            if (settingsData.ControlsSettingsData.UseAbilityButton != KeyCode.None)
+            {
+                useAbilityButton.AssignedButtonKeyCode = settingsData.ControlsSettingsData.UseAbilityButton;
+            }
+            else
+            {
+                useAbilityButton.AssignedButtonKeyCode = KeyCode.None;
+                useAbilityButton.AssignedButtonMouseWheelMove = settingsData.ControlsSettingsData.UseAbilityButtonMouseWheelMove;
+            }
+
+            mouseSensitivity.value = settingsData.ControlsSettingsData.MouseSensitivity;
         }
     }
     
@@ -472,15 +539,32 @@ public class SettingsData
 
         private KeyCode shootingButton;
         private bool shootingButtonMouseWheelMove;
-
-        private KeyCode useHookButton;
-        private bool useHookButtonMouseWheelMove;
-
+        
+        private KeyCode useProtectionButton;
+        private bool useProtectionButtonMouseWheelMove;
+        
         private KeyCode nextWeaponButton;
         private bool nextButtonMouseWheelMove;
 
         private KeyCode previousWeaponButton;
         private bool previousButtonMouseWheelMove;
+        
+        private KeyCode useHookButton;
+        private bool useHookButtonMouseWheelMove;
+
+        private KeyCode useItemButton;
+        private bool useItemButtonMouseWheelMove;
+        
+        private KeyCode nextAbilityButton;
+        private bool nextAbilityButtonMouseWheelMove;
+        
+        private KeyCode previousAbilityButton;
+        private bool previousAbilityButtonMouseWheelMove;
+        
+        private KeyCode useAbilityButton;
+        private bool useAbilityButtonMouseWheelMove;
+
+        private float mouseSensitivity;
 
         public KeyCode ForwardButton => forwardButton;
 
@@ -514,9 +598,9 @@ public class SettingsData
 
         public bool ShootingButtonMouseWheelMove => shootingButtonMouseWheelMove;
 
-        public KeyCode UseHookButton => useHookButton;
+        public KeyCode UseProtectionButton => useProtectionButton;
 
-        public bool UseHookButtonMouseWheelMove => useHookButtonMouseWheelMove;
+        public bool UseProtectionButtonMouseWheelMove => useProtectionButtonMouseWheelMove;
 
         public KeyCode NextWeaponButton => nextWeaponButton;
 
@@ -526,7 +610,29 @@ public class SettingsData
 
         public bool PreviousButtonMouseWheelMove => previousButtonMouseWheelMove;
 
-        public SettingsControlsData(KeyCode forwardButton, bool forwardButtonMouseWheelMove, KeyCode backButton, bool backButtonMouseWheelMove, KeyCode leftButton, bool leftButtonMouseWheelMove, KeyCode rightButton, bool rightButtonMouseWheelMove, KeyCode jumpButton, bool jumpButtonMouseWheelMove, KeyCode crouchButton, bool crouchButtonMouseWheelMove, KeyCode dashButton, bool dashButtonMouseWheelMove, KeyCode shootingButton, bool shootingButtonMouseWheelMove, KeyCode useHookButton, bool useHookButtonMouseWheelMove, KeyCode nextWeaponButton, bool nextButtonMouseWheelMove, KeyCode previousWeaponButton, bool previousButtonMouseWheelMove)
+        public KeyCode UseHookButton => useHookButton;
+
+        public bool UseHookButtonMouseWheelMove => useHookButtonMouseWheelMove;
+
+        public KeyCode UseItemButton => useItemButton;
+
+        public bool UseItemButtonMouseWheelMove => useItemButtonMouseWheelMove;
+
+        public KeyCode NextAbilityButton => nextAbilityButton;
+
+        public bool NextAbilityButtonMouseWheelMove => nextAbilityButtonMouseWheelMove;
+
+        public KeyCode PreviousAbilityButton => previousAbilityButton;
+
+        public bool PreviousAbilityButtonMouseWheelMove => previousAbilityButtonMouseWheelMove;
+
+        public KeyCode UseAbilityButton => useAbilityButton;
+
+        public bool UseAbilityButtonMouseWheelMove => useAbilityButtonMouseWheelMove;
+
+        public float MouseSensitivity => mouseSensitivity;
+        
+        public SettingsControlsData(KeyCode forwardButton, bool forwardButtonMouseWheelMove, KeyCode backButton, bool backButtonMouseWheelMove, KeyCode leftButton, bool leftButtonMouseWheelMove, KeyCode rightButton, bool rightButtonMouseWheelMove, KeyCode jumpButton, bool jumpButtonMouseWheelMove, KeyCode crouchButton, bool crouchButtonMouseWheelMove, KeyCode dashButton, bool dashButtonMouseWheelMove, KeyCode shootingButton, bool shootingButtonMouseWheelMove, KeyCode useProtectionButton, bool useProtectionButtonMouseWheelMove, KeyCode nextWeaponButton, bool nextButtonMouseWheelMove, KeyCode previousWeaponButton, bool previousButtonMouseWheelMove, KeyCode useHookButton, bool useHookButtonMouseWheelMove, KeyCode useItemButton, bool useItemButtonMouseWheelMove, KeyCode nextAbilityButton, bool nextAbilityButtonMouseWheelMove, KeyCode previousAbilityButton, bool previousAbilityButtonMouseWheelMove, KeyCode useAbilityButton, bool useAbilityButtonMouseWheelMove, float mouseSensitivity)
         {
             this.forwardButton = forwardButton;
             this.forwardButtonMouseWheelMove = forwardButtonMouseWheelMove;
@@ -544,12 +650,23 @@ public class SettingsData
             this.dashButtonMouseWheelMove = dashButtonMouseWheelMove;
             this.shootingButton = shootingButton;
             this.shootingButtonMouseWheelMove = shootingButtonMouseWheelMove;
-            this.useHookButton = useHookButton;
-            this.useHookButtonMouseWheelMove = useHookButtonMouseWheelMove;
+            this.useProtectionButton = useProtectionButton;
+            this.useProtectionButtonMouseWheelMove = useProtectionButtonMouseWheelMove;
             this.nextWeaponButton = nextWeaponButton;
             this.nextButtonMouseWheelMove = nextButtonMouseWheelMove;
             this.previousWeaponButton = previousWeaponButton;
             this.previousButtonMouseWheelMove = previousButtonMouseWheelMove;
+            this.useHookButton = useHookButton;
+            this.useHookButtonMouseWheelMove = useHookButtonMouseWheelMove;
+            this.useItemButton = useItemButton;
+            this.useItemButtonMouseWheelMove = useItemButtonMouseWheelMove;
+            this.nextAbilityButton = nextAbilityButton;
+            this.nextAbilityButtonMouseWheelMove = nextAbilityButtonMouseWheelMove;
+            this.previousAbilityButton = previousAbilityButton;
+            this.previousAbilityButtonMouseWheelMove = previousAbilityButtonMouseWheelMove;
+            this.useAbilityButton = useAbilityButton;
+            this.useAbilityButtonMouseWheelMove = useAbilityButtonMouseWheelMove;
+            this.mouseSensitivity = mouseSensitivity;
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.ParticleSystemJobs;
 using Unity.Burst;
 
-public class PlayerCleaner : MonoBehaviour
+public class PlayerCleaner : MonoBehaviour,IUsePlayerDevicesButtons
 {
 
     [SerializeField] private float garbageAnimationSpeed = 1f;
@@ -28,17 +28,15 @@ public class PlayerCleaner : MonoBehaviour
 
     [SerializeField] private Animator cleaningAnimator;
 
+    private DeviceButton useCleanerButton = new DeviceButton();
 
     private void Update()
     {
-        isWork = Input.GetKey(KeyCode.Mouse2);
+        isWork = useCleanerButton.IsGetButton();
 
         if (isWork && !isGarbageCollectorActive)
         {
             CollectGarbage();
-
-
-
         }
 
         CorrectParticleDirectionToTarget(cleanerPoint.position, particlsToPointVelocitySpeed);
@@ -226,4 +224,11 @@ public class PlayerCleaner : MonoBehaviour
 
     }
 
+    public DeviceButton[] GetUsesDevicesButtons()
+    {
+        var getButtons = new[]
+            {useCleanerButton};
+
+        return getButtons;
+    }
 }

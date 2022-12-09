@@ -3,7 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
 {
 
     [SerializeField] private float speed = 1f;
@@ -77,6 +77,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 currentMovementDirection;
     public Vector3 CurrentMovementDirection
         { get { return currentMovementDirection; } }
+
+    private DeviceButton forwardButton = new DeviceButton();
+    private DeviceButton backButton = new DeviceButton();
+    private DeviceButton leftButton = new DeviceButton();
+    private DeviceButton rightButton = new DeviceButton();
+
+    private DeviceButton jumpButton = new DeviceButton();
+    private DeviceButton crouchButton = new DeviceButton();
     
     private void Start()
     {
@@ -127,9 +135,25 @@ public class PlayerMovement : MonoBehaviour
         if(!isFlies)
             GroundNormalUpdate();
         
-        float horizontal = Axis.Horizontal;
-        float vertical = Axis.Vertical;
-        float jump = Axis.Jump;
+        float horizontal = 0;
+        float vertical = 0;
+        bool isJumping = jumpButton.IsGetButton();
+
+        if (forwardButton.IsGetButton())
+            vertical = 1;
+        else if (backButton.IsGetButton())
+            vertical = -1;
+        else
+            vertical = 0;
+        
+        if (leftButton.IsGetButton())
+            horizontal = -1;
+        else if (rightButton.IsGetButton())
+            horizontal = 1;
+        else
+            horizontal = 0;
+        
+        
         float maxSpeedTemp;
         isSprint = false;
 
@@ -187,7 +211,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //?????????? ??????
-        if (!IsFlies && jump > 0 && IsJumpingButtonPressed == false)
+        if (!IsFlies && isJumping && IsJumpingButtonPressed == false)
         {
             float additionalJumpBoost = 750f;
             resultDirection += playerT.up * jumpForce * additionalJumpBoost;
@@ -202,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
             IsJumpingButtonPressed = true;
             
         }
-        else if (jump == 0 && !IsFlies)
+        else if (!isJumping && !IsFlies)
             IsJumpingButtonPressed = false;
         
         //???????? ??????????? ???????? ? ?????????? ????
@@ -249,7 +273,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CrouchAlgorithm()
     {
-        var crouchActive = Input.GetKey(KeyCode.C);
+        var crouchActive = crouchButton.IsGetButton();
 
         if (crouchActive && !isPlayerCrouch)
         {
@@ -382,6 +406,14 @@ public class PlayerMovement : MonoBehaviour
     public void SetManageActive(bool state)
     {
         isManageActive = state;
+    }
+
+    public DeviceButton[] GetUsesDevicesButtons()
+    {
+        var getButtons = new[]
+            { forwardButton, backButton, leftButton, rightButton, crouchButton, jumpButton };
+
+        return getButtons;
     }
 }
 

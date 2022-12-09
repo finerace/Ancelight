@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDashsService : MonoBehaviour
+public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
 {
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerLookService playerLook;
@@ -10,8 +10,10 @@ public class PlayerDashsService : MonoBehaviour
     [Space]
     [SerializeField] private int dashsCount = 3;
     [SerializeField] private float oneDashEnergySpend = 3f;
-    [SerializeField] private float dashsRegenerationSpeed = 3f; 
+    [SerializeField] private float dashsRegenerationSpeed = 3f;
 
+    private DeviceButton useDashButton  = new DeviceButton();
+    
     public int DashsCount => dashsCount;
 
     public float OneDashEnergySpend => oneDashEnergySpend;
@@ -64,7 +66,7 @@ public class PlayerDashsService : MonoBehaviour
     private void DashsManageAlgorithm()
     {
         bool dashIsReady =
-            Input.GetKeyDown(KeyCode.LeftShift) &&
+            useDashButton.IsGetButtonDown() &&
             dashCurrentColdownTimer <= 0 &&
             dashCurrentEnergy >= oneDashEnergySpend;
 
@@ -187,4 +189,11 @@ public class PlayerDashsService : MonoBehaviour
 
     }
 
+    public DeviceButton[] GetUsesDevicesButtons()
+    {
+        var getButtons = new[]
+            {useDashButton};
+
+        return getButtons;
+    }
 }

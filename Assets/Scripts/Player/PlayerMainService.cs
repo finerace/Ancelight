@@ -107,7 +107,7 @@ public class PlayerMainService : Health
 
         base.GetDamage(damage);
     }
-
+    
     public void AddArmor(float armor)
     {
         if(this.armor + armor >= maxArmor)
@@ -119,7 +119,7 @@ public class PlayerMainService : Health
         
         AddArmorEvent?.Invoke(armor);
     }
-
+    
     public override void AddHealth(float health)
     {
         base.AddHealth(health);

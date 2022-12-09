@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class PlayerHookService : MonoBehaviour
+public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
 {
     [SerializeField] private Transform hookT;
     [SerializeField] private Transform hookMeshT;
@@ -59,6 +59,8 @@ public class PlayerHookService : MonoBehaviour
     
     private bool hookManageIsBlocked = false;
 
+    private DeviceButton useHookButton = new DeviceButton();
+    
     private void Awake()
     {
         //playerRB = GetComponent<Rigidbody>();
@@ -92,8 +94,13 @@ public class PlayerHookService : MonoBehaviour
     
     private void UpdateHookAlgorithm()
     {
-        float fire2 = Axis.Fire2;
+        float fire2 = 0;
 
+        if (useHookButton.IsGetButton())
+            fire2 = 1;
+        else
+            fire2 = 0;
+        
         if (!isHookUsed)
         {
 
@@ -349,4 +356,9 @@ public class PlayerHookService : MonoBehaviour
 
     }
 
+    public DeviceButton[] GetUsesDevicesButtons()
+    {
+        return
+            new[] {useHookButton};
+    }
 }

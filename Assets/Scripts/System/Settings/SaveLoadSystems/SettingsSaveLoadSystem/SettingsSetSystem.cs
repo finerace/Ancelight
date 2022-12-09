@@ -11,14 +11,22 @@ public class SettingsSetSystem : MonoBehaviour
 {
     [SerializeField] private SettingsSaveLoadSystem settingsSaveLoadSystem;
     [SerializeField] private UniversalRenderPipelineAsset urpAsset;
-
+    [SerializeField] private PlayerMainService playerMainService;
+    
     [Space] 
     
     [SerializeField] private SettingsLevelGrassData grassOnLevelData;
 
     public static int enemyPartsQuality = 0;
     public static float enemyPartsDestroyTime = 90;
-    
+
+
+    private void Awake()
+    {
+        settingsSaveLoadSystem.LoadSettings();
+        SetNewSettings();
+    }
+
     public void SetNewSettings()
     {
         var settingsData = settingsSaveLoadSystem.GetSavedSettings();
@@ -26,6 +34,8 @@ public class SettingsSetSystem : MonoBehaviour
         SetBuildInSettings();
         
         SetUrpAssetSettings();
+        
+        SetControlsSettings();
         
         SetOtherSettings();
         
@@ -262,6 +272,83 @@ public class SettingsSetSystem : MonoBehaviour
             }
         }
 
+        void SetControlsSettings()
+        {
+            var playerMovement = playerMainService.playerMovement;
+            var playerWeapon = playerMainService.weaponsManager;
+            var playerHook = playerMainService.hookService;
+            var playerDash = playerMainService.dashsService;
+            var playerProtection = playerMainService.immediatelyProtectionService;
+            var playerUseItem = playerMainService.playerUseService;
+
+            var controlsSettings = settingsData.ControlsSettingsData;
+            
+            var movementButtons = 
+                playerMovement.GetUsesDevicesButtons();
+            
+            movementButtons[0].
+                AssignedNewDeviceButton(controlsSettings.ForwardButton,controlsSettings.ForwardButtonMouseWheelMove);
+            
+            movementButtons[1].
+                AssignedNewDeviceButton(controlsSettings.BackButton,controlsSettings.BackButtonMouseWheelMove);
+
+            movementButtons[2].
+                AssignedNewDeviceButton(controlsSettings.LeftButton,controlsSettings.LeftButtonMouseWheelMove);
+
+            movementButtons[3].
+                AssignedNewDeviceButton(controlsSettings.RightButton,controlsSettings.RightButtonMouseWheelMove);
+
+            movementButtons[4].
+                AssignedNewDeviceButton(controlsSettings.CrouchButton,controlsSettings.CrouchButtonMouseWheelMove);
+
+            movementButtons[5].
+                AssignedNewDeviceButton(controlsSettings.JumpButton,controlsSettings.JumpButtonMouseWheelMove);
+
+            var weaponButtons 
+                = playerWeapon.GetUsesDevicesButtons();
+            
+            weaponButtons[0]
+                .AssignedNewDeviceButton(controlsSettings.ShootingButton,controlsSettings.ShootingButtonMouseWheelMove);
+            
+            weaponButtons[1]
+                .AssignedNewDeviceButton(controlsSettings.NextWeaponButton,controlsSettings.NextButtonMouseWheelMove);
+
+            weaponButtons[2]
+                .AssignedNewDeviceButton(controlsSettings.PreviousWeaponButton,controlsSettings.PreviousButtonMouseWheelMove);
+
+            weaponButtons[3]
+                .AssignedNewDeviceButton(controlsSettings.UseAbilityButton,controlsSettings.UseAbilityButtonMouseWheelMove);
+
+            weaponButtons[4]
+                .AssignedNewDeviceButton(controlsSettings.NextAbilityButton,controlsSettings.NextAbilityButtonMouseWheelMove);
+
+            weaponButtons[5]
+                .AssignedNewDeviceButton(controlsSettings.PreviousAbilityButton,controlsSettings.PreviousAbilityButtonMouseWheelMove);
+
+            var hookButtons
+                = playerHook.GetUsesDevicesButtons();
+            
+            hookButtons[0].AssignedNewDeviceButton(controlsSettings.UseHookButton,controlsSettings.UseHookButtonMouseWheelMove);
+
+            var dashButtons
+                = playerDash.GetUsesDevicesButtons();
+            
+            dashButtons[0].AssignedNewDeviceButton(controlsSettings.DashButton, controlsSettings.DashButtonMouseWheelMove);
+
+            var protectionButtons
+                = playerProtection.GetUsesDevicesButtons();
+            
+            protectionButtons[0].AssignedNewDeviceButton(controlsSettings.UseProtectionButton,controlsSettings.UseProtectionButtonMouseWheelMove);
+
+            var playerUseButtons
+                = playerUseItem.GetUsesDevicesButtons();
+            
+            playerUseButtons[0].AssignedNewDeviceButton(controlsSettings.UseItemButton,controlsSettings.UseItemButtonMouseWheelMove);
+
+            playerMainService.playerRotation.mouseSensivity = controlsSettings.MouseSensitivity;
+
+        }
+        
         void SetOtherSettings()
         {
             SetGrassSettings();
@@ -319,6 +406,7 @@ public class SettingsSetSystem : MonoBehaviour
                 enemyPartsDestroyTime = settingsData.GraphicsSettingsData.TimeOfDestructionOfParts;
             }
         }
+        
     }
 
 }

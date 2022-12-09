@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerImmediatelyProtectionService : MonoBehaviour
+public class PlayerImmediatelyProtectionService : MonoBehaviour,IUsePlayerDevicesButtons
 {
     [SerializeField] private Transform playerT;
     [SerializeField] private Transform shockPosition;
@@ -34,6 +34,8 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour
     public float ExplosionRadius => explosionRadius;
     public float CooldownTime => cooldownTime;
     public float CooldownTimer => cooldownTimer;
+
+    private DeviceButton useProtectionButton = new DeviceButton();
     
     private void Start()
     {
@@ -80,7 +82,7 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour
         if(isManageBlocked)
             return;
         
-        if(Input.GetKeyUp(KeyCode.V) && isCooldownOut)
+        if(useProtectionButton.IsGetButtonUp() && isCooldownOut)
             StartProtection();
         
         if (!isShockEffectOn) return;
@@ -118,5 +120,13 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour
         yield return new WaitForSeconds(time);
         shockEffectRenderer.enabled = false;
         isShockEffectOn = false;
+    }
+
+    public DeviceButton[] GetUsesDevicesButtons()
+    {
+        var getButtons = new[]
+            {useProtectionButton};
+
+        return getButtons;
     }
 }
