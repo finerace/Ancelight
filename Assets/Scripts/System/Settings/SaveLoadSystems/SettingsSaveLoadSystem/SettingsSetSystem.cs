@@ -12,6 +12,7 @@ public class SettingsSetSystem : MonoBehaviour
     [SerializeField] private SettingsSaveLoadSystem settingsSaveLoadSystem;
     [SerializeField] private UniversalRenderPipelineAsset urpAsset;
     [SerializeField] private PlayerMainService playerMainService;
+    [SerializeField] private bool isSetSystemInMainMenu = false;
     
     [Space] 
     
@@ -274,6 +275,9 @@ public class SettingsSetSystem : MonoBehaviour
 
         void SetControlsSettings()
         {
+            if(isSetSystemInMainMenu)
+                return;
+            
             var playerMovement = playerMainService.playerMovement;
             var playerWeapon = playerMainService.weaponsManager;
             var playerHook = playerMainService.hookService;
@@ -357,6 +361,9 @@ public class SettingsSetSystem : MonoBehaviour
             
             void SetGrassSettings()
             {
+                if(isSetSystemInMainMenu)
+                    return;
+                    
                 var levelGrassData = grassOnLevelData;
                 
                 if(levelGrassData == null)

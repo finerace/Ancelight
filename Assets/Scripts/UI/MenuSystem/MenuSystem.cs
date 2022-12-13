@@ -186,7 +186,8 @@ public class MenuSystem : MonoBehaviour
         
         void IsPlayerManageActive(bool state)
         {
-            player.SetManageActive(state);
+            if(player != null)
+                player.SetManageActive(state);
         }
     }
 
