@@ -26,10 +26,10 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
     }
     
     [SerializeField] private float jumpForce = 1f;
-    private Rigidbody playerRb;
+    [HideInInspector] [SerializeField]  private Rigidbody playerRb;
     public Rigidbody PlayerRb { get { return playerRb; } }
     
-    private Transform playerT;
+    [HideInInspector] [SerializeField]  private Transform playerT;
     
     public Transform Body { get { return playerT ; } }
 
@@ -50,16 +50,16 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
     
     [Space] 
     [SerializeField] private Transform cameraT;
-    private float defaultCameraYpos;
+    [HideInInspector] [SerializeField] private float defaultCameraYpos;
     [SerializeField] private float cameraHeight;
     [SerializeField] private CapsuleCollider MainCollider;
     [SerializeField] private CapsuleCollider LegsCollider;
 
-    private float defaultMainColliderHeight;
-    private float defaultLegsColliderHeight;
+    [HideInInspector] [SerializeField] private float defaultMainColliderHeight;
+    [HideInInspector] [SerializeField] private float defaultLegsColliderHeight;
 
-    private float defaultMainColliderYcenterValue;
-    private float defaultLegsColliderYcenterValue;
+    [HideInInspector] [SerializeField] private float defaultMainColliderYcenterValue;
+    [HideInInspector] [SerializeField] private float defaultLegsColliderYcenterValue;
     
     [Range(0.05f,1f)] [SerializeField] private float crouchPlayerHeight = 0.65f;
     [SerializeField] private float crouchSpeedMultiplier = 0.4f;
@@ -67,14 +67,14 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
     
     [Space]
     [SerializeField] private Vector3 GroundNormal;
-    private bool IsJumpingButtonPressed = false;
+    [HideInInspector] [SerializeField] private bool IsJumpingButtonPressed = false;
 
-    private bool isManageActive = true;
+    [HideInInspector] [SerializeField] private bool isManageActive = true;
 
-    private bool isWalked = false;
+    [HideInInspector] [SerializeField] private bool isWalked = false;
     public bool IsWalked { get { return isWalked; } }
 
-    private Vector3 currentMovementDirection;
+    [HideInInspector] [SerializeField] private Vector3 currentMovementDirection;
     public Vector3 CurrentMovementDirection
         { get { return currentMovementDirection; } }
 

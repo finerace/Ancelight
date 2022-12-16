@@ -37,6 +37,8 @@ public class AIManager : MonoBehaviour
     public static void RemoveAI(DefaultBot AI_T)
     {
         if (AI_T != null) Bots.Remove(AI_T);
+        
+        
     }
 
     private IEnumerator AI_LinksCheckUpdate()
