@@ -1186,6 +1186,8 @@ MonoBehaviour:
   isLookingTarget: 0
   isTargetClosely: 0
   isTargetVeryClosely: 0
+  isBotGoToWayPoints: 0
+  currentWayPoint: {x: 0, y: 0, z: 0}
   isSmart: 1
   botParts: {fileID: 2849246817572765792}
   botEffects: {fileID: 6952869915765509753}
@@ -1213,7 +1215,10 @@ MonoBehaviour:
   isShoot: 0
   isMeleeAttack: 0
   botEffects: {fileID: 6952869915765509753}
-  bot: {fileID: 0}
+  bot: {fileID: 3979485308292194834}
+  onAttackTime: 0
+  currentWaitTime: 0
+  attackPhase: 0
   meleeAttackDamage: 25
   heavyBot: {fileID: 3979485308292194834}
 --- !u!114 &122936149319088809

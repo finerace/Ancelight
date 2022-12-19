@@ -15,54 +15,64 @@ public class MiniBotDoubleAttack : DefaultBotAttack
 
         IEnumerator StandartAttack()
         {
-            isAttack = true;
-
             int doubleAttackCount = 3;
-
-            yield return new WaitForSeconds(0.5f);
-
-            for (int i = 0; i < doubleAttackCount; i++)
+            
+            if (attackPhase == 0)
             {
-                Shot(shotPoints[0]);
-                botEffects.botParticlsAttack[0].Play();
-                yield return new WaitForSeconds(0.1f);
+                isAttack = true;
 
-                Shot(shotPoints[1]);
-                botEffects.botParticlsAttack[1].Play();
-                yield return new WaitForSeconds(0.1f);
+                yield return WaitTime(0.5f);
+
+                attackPhase = 1;
             }
 
-            yield return new WaitForSeconds(2f);
-            isAttack = false;
+            if (attackPhase == 1)
+            {
+                for (int i = 1; i < doubleAttackCount+1; i++)
+                {
+                    if (isRecentlyLoad)
+                        i = attackPhase;
+
+                    if (attackPhase % 2 == 1)
+                    {
+                        if (!isRecentlyLoad)
+                        {
+                            Shot(shotPoints[0]);
+                            botEffects.botParticlsAttack[0].Play();
+                        }
+                        
+                        yield return WaitTime(0.1f);
+                        attackPhase++;
+                    }
+
+                    if (attackPhase % 2 == 0)
+                    {
+                        if(!isRecentlyLoad)
+                            Shot(shotPoints[1]);
+                        
+                        botEffects.botParticlsAttack[1].Play();
+                        yield return WaitTime(0.1f);;
+                        attackPhase++;
+                    }
+
+                    isRecentlyLoad = false;
+                }
+
+                attackPhase = 0;
+            }
+
+            if (attackPhase >= doubleAttackCount * 2)
+            {
+                yield return WaitTime(2);
+                isAttack = false;
+            }
         }
 
     }
 
     public override void StartMeleeAttack(Transform target)
     {
-        Health health;
-
-        if (target.gameObject.TryGetComponent<Health>(out health))
-            StartCoroutine(meleeAttack());
-
-        IEnumerator meleeAttack()
-        {
-            isMeleeAttack = true;
-
-            yield return new WaitForSeconds(0.5f);
-
-            if (miniBot.isTargetVeryClosely)
-            {
-                health.GetDamage(meleeAttackDamage);
-            }
-
-            botEffects.PlayMeleeAttackParticls();
-
-            yield return new WaitForSeconds(0.5f);
-
-            isMeleeAttack = false;
-        }
-
+        StartMeleeAttack(target);
     }
 
 }

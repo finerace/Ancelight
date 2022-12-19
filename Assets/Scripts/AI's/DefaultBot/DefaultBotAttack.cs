@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class DefaultBotAttack : MonoBehaviour
@@ -11,6 +11,17 @@ public abstract class DefaultBotAttack : MonoBehaviour
     [SerializeField] internal bool isMeleeAttack = false;
     [SerializeField] internal DefaultBotEffects botEffects;
     [SerializeField] internal DefaultBot bot;
+
+    [SerializeField] internal float onAttackTime;
+    [SerializeField] internal float currentWaitTime;
+    [SerializeField] internal int attackPhase;
+    protected bool isRecentlyLoad;
+
+    private void Awake()
+    {
+        if (onAttackTime > 0)
+            isRecentlyLoad = true;
+    }
 
     public abstract void StartAttack();
 
@@ -24,7 +35,11 @@ public abstract class DefaultBotAttack : MonoBehaviour
         return Instantiate(bullet, point.position, point.rotation);
     }
 
-   
+    public void Update()
+    {
+        if (bot.isAannoyed)
+            onAttackTime += Time.deltaTime;
+    }
 
     protected void SimpleMeleeAttack(Transform target,float damage)
     {
@@ -37,18 +52,42 @@ public abstract class DefaultBotAttack : MonoBehaviour
         {
             isMeleeAttack = true;
 
-            yield return new WaitForSeconds(0.5f);
-
-            if (bot.isTargetVeryClosely)
+            if (attackPhase == 0)
             {
-                health.GetDamage(damage);
+                yield return WaitTime(0.5f);
+
+                if (bot.isTargetVeryClosely)
+                {
+                    health.GetDamage(damage);
+                }
+                
+                attackPhase = 1;
+                botEffects.PlayMeleeAttackParticls();
             }
 
-            botEffects.PlayMeleeAttackParticls();
-
-            yield return new WaitForSeconds(0.5f);
-
+            if (attackPhase == 1)
+            {
+                yield return WaitTime(0.5f);
+                attackPhase = 0;
+            }
+            
             isMeleeAttack = false;
+            isRecentlyLoad = false;
         }
     }
+
+    protected IEnumerator WaitTime(float time)
+    {
+        if(!isRecentlyLoad)
+            currentWaitTime = onAttackTime + time;
+
+        while (true)
+        {
+            if(onAttackTime >= currentWaitTime)
+                break;
+
+            yield return null;
+        }
+    }
+    
 }

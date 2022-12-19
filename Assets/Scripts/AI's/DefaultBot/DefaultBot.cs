@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -78,11 +79,21 @@ public abstract class DefaultBot : Health
     [SerializeField] internal DefaultBotEffects botEffects;
     [SerializeField] internal DefaultBotAttack botAttack;
     [SerializeField] internal DefaultBotAnimations botAnimations;
-
+    
     internal float startAgentSpeed;
+    
+    public DefaultBotParts BotParts => botParts;
+
+    public DefaultBotEffects BotEffects => botEffects;
+
+    public DefaultBotAttack BotAttack => botAttack;
+
+    public DefaultBotAnimations BotAnimations => botAnimations;
 
     internal void Start()
     {
+        ToSaveData.mainSaveData.AddToSaveData(this);
+        
         float agentSpeedSmoothness = 2f;
 
         agent.speed = botSpeed * agentSpeedSmoothness;
@@ -430,6 +441,8 @@ public abstract class DefaultBot : Health
 
     public override void Died()
     {
+        ToSaveData.mainSaveData.RemoveFromSaveData(this);
+        
         if(botParts != null)
             botParts.DestructParts(bodyRB);
 

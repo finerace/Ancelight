@@ -14,54 +14,49 @@ public class MiniBotWizardAttack : DefaultBotAttack
 
         IEnumerator Attack()
         {
-            isAttack = true;
+            if (attackPhase == 0)
+            {
+                isAttack = true;
+                
+                if(!isRecentlyLoad)
+                    effects.PlayPreShootParticls();
+                
+                yield return WaitTime(1);
 
-            effects.PlayPreShootParticls();
-            yield return new WaitForSeconds(1f);
+                attackPhase = 1;
+            }
 
-            isShoot = true;
+            if (attackPhase == 1)
+            {
+                if (!isRecentlyLoad)
+                {
+                    isShoot = true;
 
-            if(bot.isLookingTarget)
-                effects.PlayAttackParticls();
+                    if (bot.isLookingTarget)
+                        effects.PlayAttackParticls();
 
-            BulletHoming bulletHoming = 
-                Shot(shotPoints[0]).GetComponent<BulletHoming>();
+                    BulletHoming bulletHoming =
+                        Shot(shotPoints[0]).GetComponent<BulletHoming>();
 
-            bulletHoming.target = bot.target;
+                    bulletHoming.target = bot.target;
+                }
+                
+                yield return WaitTime(2);
 
-            yield return new WaitForSeconds(2f);
+                attackPhase = 0;
+            }
 
             isShoot = false;
             isAttack = false;
+
+            isRecentlyLoad = false;
         }
 
     }
 
     public override void StartMeleeAttack(Transform target)
     {
-        Health health;
-
-        if (target.gameObject.TryGetComponent<Health>(out health))
-            StartCoroutine(meleeAttack());
-
-        IEnumerator meleeAttack()
-        {
-            isMeleeAttack = true;
-
-            yield return new WaitForSeconds(0.5f);
-
-            if (botWizard.isTargetVeryClosely)
-            {
-                health.GetDamage(meleeAttackDamage);
-            }
-
-            botEffects.PlayMeleeAttackParticls();
-
-            yield return new WaitForSeconds(0.5f);
-
-            isMeleeAttack = false;
-        }
-
+        SimpleMeleeAttack(target,meleeAttackDamage);
     }
 
 }

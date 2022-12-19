@@ -21,73 +21,80 @@ public class BotRunnerAttack : DefaultBotAttack
 
         IEnumerator Attack()
         {
-            
-            isJerk = true;
-            isAttack = true;
-            isJerkingToTarget = false;
-
-            botRunner.moveState = BotRunner.MoveState.Jerk;
-
-            Vector3 direction = (botRunner.target.position - botRunner.body.position).normalized;
-            botRunner.bodyRB.velocity = direction * jerkForce;
-
-            YieldInstruction wait = new WaitForSeconds(0.01f);
-
-            float jerkTime = 1.5f;
-
-            StartCoroutine(JerkTimer(jerkTime));
-
-            botEffects.botParticlsAttack[1].Play();
-
-            while (!isJerkingToTarget)
+            if (attackPhase == 0)
             {
-                
-                float distance = Vector3.Distance(botRunner.body.position, botRunner.target.position);
+                isJerk = true;
+                isAttack = true;
+                isJerkingToTarget = false;
 
-                if (distance <= getDamageDistance)
+                botRunner.moveState = BotRunner.MoveState.Jerk;
+
+                float jerkTime = 1.5f;
+
+                StartCoroutine(JerkTimer(jerkTime));
+
+                Vector3 direction = (botRunner.target.position - botRunner.body.position).normalized;
+                botRunner.bodyRB.velocity = direction * jerkForce;
+            
+            
+                botEffects.botParticlsAttack[1].Play();
+
+                while (!isJerkingToTarget)
                 {
-                    bool dotCheck = Vector3.Dot(botRunner.body.forward,direction) >= hammerDot;
-                    
-                    if (dotCheck)
+                
+                    float distance = Vector3.Distance(botRunner.body.position, botRunner.target.position);
+
+                    if (distance <= getDamageDistance)
                     {
+                        bool dotCheck = Vector3.Dot(botRunner.body.forward,direction) >= hammerDot;
+                    
+                        if (dotCheck)
+                        {
                         
-                        isJerkingToTarget = true;
+                            isJerkingToTarget = true;
 
-                        botEffects.botParticlsAttack[0].Play();
+                            botEffects.botParticlsAttack[0].Play();
 
-                        if (botRunner.target.TryGetComponent<Rigidbody>(out Rigidbody targetRB))
-                        {
-                            float velocitySmoothness = (targetRB.drag + 1f) / 2f;
+                            if (botRunner.target.TryGetComponent<Rigidbody>(out Rigidbody targetRB))
+                            {
+                                float velocitySmoothness = (targetRB.drag + 1f) / 2f;
 
-                            targetRB.AddForce(Vector3.up * velocitySmoothness,ForceMode.Acceleration);
+                                targetRB.AddForce(Vector3.up * velocitySmoothness,ForceMode.Acceleration);
                             
-                            targetRB.velocity += botRunner.bodyRB.velocity * velocitySmoothness;
-                        }
+                                targetRB.velocity += botRunner.bodyRB.velocity * velocitySmoothness;
+                            }
 
-                        if (botRunner.target.TryGetComponent<Health>(out Health targetHealth))
-                        {
-                            targetHealth.GetDamage(damage);
+                            if (botRunner.target.TryGetComponent<Health>(out Health targetHealth))
+                            {
+                                targetHealth.GetDamage(damage);
+                            }
                         }
-
                     }
 
+                    yield return null;
                 }
 
-                yield return wait;
-
+                attackPhase = 1;
             }
 
-            isJerk = false;
-            botRunner.moveState = BotRunner.MoveState.Idle;
+            if (attackPhase == 1)
+            {
+                isJerk = false;
+                botRunner.moveState = BotRunner.MoveState.Idle;
 
-            yield return new WaitForSeconds(idleTime);
-            botRunner.moveState = BotRunner.MoveState.Walk;
-            isAttack = false;
+                yield return WaitTime(idleTime);
+            
+                botRunner.moveState = BotRunner.MoveState.Walk;
+                isAttack = false;
+
+                attackPhase = 0;
+            }
+            
         }
 
         IEnumerator JerkTimer(float time)
         {
-            yield return new WaitForSeconds(time);
+            yield return WaitTime(time);
             isJerkingToTarget = true;
         }
 
@@ -104,29 +111,36 @@ public class BotRunnerAttack : DefaultBotAttack
 
         IEnumerator MeleeAttack(float time)
         {
-            isMeleeAttack = true;
-
-            YieldInstruction wait = new WaitForSeconds(time/2f); 
-
-            yield return wait;
-
-            if (botRunner.isTargetVeryClosely)
+            if (attackPhase == 0)
             {
-                
+                isMeleeAttack = true;
 
-                if (botRunner.target.TryGetComponent<Rigidbody>(out Rigidbody targetRB))
+                yield return WaitTime(time / 2);
+
+                if (botRunner.isTargetVeryClosely)
                 {
-                    //float velocitySmoothness = 5f;
-                    targetRB.velocity += botRunner.body.forward;
+                    if (botRunner.target.TryGetComponent<Rigidbody>(out Rigidbody targetRB))
+                    {
+                        //float velocitySmoothness = 5f;
+                        targetRB.velocity += botRunner.body.forward;
+                    }
+
+                    if (botRunner.target.TryGetComponent<Health>(out Health targetHealth))
+                        targetHealth.GetDamage(damage);
                 }
 
-                if (botRunner.target.TryGetComponent<Health>(out Health targetHealth))
-                    targetHealth.GetDamage(damage);
+                attackPhase = 1;
             }
 
-            yield return wait;
+            if (attackPhase == 1)
+            {
+                yield return WaitTime(time /2);
 
-            isMeleeAttack = false;
+                isMeleeAttack = false;
+
+
+                attackPhase = 0;
+            }
         }
 
     }

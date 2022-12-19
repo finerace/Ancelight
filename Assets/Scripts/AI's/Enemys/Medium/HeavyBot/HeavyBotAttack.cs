@@ -10,24 +10,43 @@ public class HeavyBotAttack : DefaultBotAttack
 
     public override void StartAttack()
     {
-
         StartCoroutine(StartAttack());
 
         IEnumerator StartAttack()
         {
             isAttack = true;
-
-            yield return new WaitForSeconds(0.15f);
-
-            for (int i = 0; i <= 3; i++)
+            attackPhase = 0;
+            
+            if (attackPhase == 0)
             {
-                yield return new WaitForSeconds(0.35f);
-                if(!isMeleeAttack) Shot(shotPoints[0]);
-                botEffects.PlayAttackParticls();
+                yield return WaitTime(0.15f);
+                attackPhase = 1;
             }
 
-            yield return new WaitForSeconds(1.5f);
+            if (attackPhase >= 1 && attackPhase <= 4)
+            {
+                for (int i = 1; i <= 4; i++)
+                {
+                    if (isRecentlyLoad)
+                        i = attackPhase;
+                    
+                    yield return WaitTime(0.35f);
 
+                    if (!isMeleeAttack)
+                        Shot(shotPoints[0]);
+                    
+                    isRecentlyLoad = false;
+                    botEffects.PlayAttackParticls();
+                }
+
+                attackPhase = 5;
+            }
+
+            if (attackPhase == 5)
+            {
+                yield return new WaitForSeconds(1.5f);
+            }
+            
             isAttack = false;
         }
 
@@ -35,25 +54,7 @@ public class HeavyBotAttack : DefaultBotAttack
 
     public override void StartMeleeAttack(Transform target)
     {
-        Health health;
-
-        if (target.gameObject.TryGetComponent<Health>(out health))
-            StartCoroutine(meleeAttack());
-
-        IEnumerator meleeAttack()
-        {
-            isMeleeAttack = true;
-
-            yield return new WaitForSeconds(0.5f);
-
-            if (heavyBot.isTargetVeryClosely)
-                health.GetDamage(meleeAttackDamage);
-
-            yield return new WaitForSeconds(0.5f);
-
-            isMeleeAttack = false;
-        }
-
+        SimpleMeleeAttack(target,meleeAttackDamage);
     }
 
 }

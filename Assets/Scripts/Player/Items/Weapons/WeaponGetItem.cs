@@ -6,7 +6,7 @@ public class WeaponGetItem : OrdinaryPlayerItem
     [SerializeField] private int getWeaponId;
     [SerializeField] private int bonusBullets = 0;
     [SerializeField] private Transform stand;
-
+    
     // ReSharper disable Unity.PerformanceAnalysis
     protected override void PickUpItemAlgorithm(PlayerMainService playerMainService)
     {

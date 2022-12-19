@@ -27,19 +27,32 @@ public class ParentElementAttack : DefaultBotAttack
 
             isAttack = true;
 
-            YieldInstruction waitSpawnTime = new WaitForSeconds(localSpawnTimeLoop);
-
-            yield return new WaitForSeconds(startAttackColdown);
-
-            for (int i = 0; i < spawnLoopCount; i++)
+            if (attackPhase == 0)
             {
-                SpawnChildBot(shotPoints[0]);
-                botEffects.botParticlsAttack[0].Play();
+                yield return WaitTime(startAttackColdown);
 
-                yield return waitSpawnTime;
+                attackPhase = 1;
+            }
 
-                SpawnChildBot(shotPoints[1]);
-                botEffects.botParticlsAttack[1].Play();
+            if (attackPhase == 1)
+            {
+                for (int i = 1; i < spawnLoopCount+1; i++)
+                {
+                    if (isRecentlyLoad)
+                        i = attackPhase;
+                    
+                    SpawnChildBot(shotPoints[0]);
+                    botEffects.botParticlsAttack[0].Play();
+
+                    yield return WaitTime(localSpawnTimeLoop);
+                        
+                    SpawnChildBot(shotPoints[1]);
+                    botEffects.botParticlsAttack[1].Play();
+
+                    attackPhase++;
+                }
+
+                attackPhase = 0;
             }
 
             effects.ResetChargeTimer();
@@ -49,28 +62,7 @@ public class ParentElementAttack : DefaultBotAttack
 
     public override void StartMeleeAttack(Transform target)
     {
-        Health health;
-
-        if (target.gameObject.TryGetComponent<Health>(out health))
-            StartCoroutine(meleeAttack());
-
-        IEnumerator meleeAttack()
-        {
-            isMeleeAttack = true;
-
-            yield return new WaitForSeconds(0.5f);
-
-            if (bot.isTargetVeryClosely)
-            {
-                health.GetDamage(meleeAttackDamage);
-            }
-
-            botEffects.PlayMeleeAttackParticls();
-
-            yield return new WaitForSeconds(0.5f);
-
-            isMeleeAttack = false;
-        }
+        SimpleMeleeAttack(target,meleeAttackDamage);
     }
 
     private void SpawnChildBot(Transform shotPoint)

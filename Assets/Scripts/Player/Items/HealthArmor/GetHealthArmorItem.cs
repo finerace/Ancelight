@@ -9,6 +9,8 @@ public class GetHealthArmorItem : OrdinaryPlayerItem
     private bool isValuesInvalid = false;
     private void Awake()
     {
+        ToSaveData.mainSaveData.AddToSaveData(this);
+        
         CheckValuesForInvalid();
     }
 
@@ -30,7 +32,9 @@ public class GetHealthArmorItem : OrdinaryPlayerItem
         
         if(isArmorGetNotUseless)
             player.AddArmor(getArmor);
-
+        
+        ToSaveData.mainSaveData.RemoveFromSaveData(this);
+        
         DestroyItem();
         
         bool IsHealthGetNotUseless()
