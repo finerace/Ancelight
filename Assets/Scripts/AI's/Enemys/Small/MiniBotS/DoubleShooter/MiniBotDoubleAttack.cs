@@ -10,7 +10,6 @@ public class MiniBotDoubleAttack : DefaultBotAttack
 
     public override void StartAttack()
     {
-
         StartCoroutine(StandartAttack());
 
         IEnumerator StandartAttack()
@@ -22,7 +21,7 @@ public class MiniBotDoubleAttack : DefaultBotAttack
                 isAttack = true;
 
                 yield return WaitTime(0.5f);
-
+                
                 attackPhase = 1;
             }
 
@@ -57,8 +56,6 @@ public class MiniBotDoubleAttack : DefaultBotAttack
 
                     isRecentlyLoad = false;
                 }
-
-                attackPhase = 0;
             }
 
             if (attackPhase >= doubleAttackCount * 2)
@@ -66,13 +63,16 @@ public class MiniBotDoubleAttack : DefaultBotAttack
                 yield return WaitTime(2);
                 isAttack = false;
             }
+            
+            attackPhase = 0;
+            
         }
 
     }
 
     public override void StartMeleeAttack(Transform target)
     {
-        StartMeleeAttack(target);
+        SimpleMeleeAttack(target,meleeAttackDamage);
     }
 
 }

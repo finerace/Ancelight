@@ -312,13 +312,13 @@ public abstract class DefaultBot : Health
         while (true)
         {
             yield return new WaitForSeconds(time);
-            if (isLookingTarget && !botAttack.isAttack)
+            if (isTargetVeryClosely && !botAttack.isMeleeAttack && !botAttack.isAttack)
+                botAttack.StartMeleeAttack(target);
+            
+            if (isLookingTarget && !botAttack.isAttack && !botAttack.isMeleeAttack)
             {
                 botAttack.StartAttack();
             }
-
-            if (isTargetVeryClosely && !botAttack.isMeleeAttack)
-                botAttack.StartMeleeAttack(target);
 
         }
     }

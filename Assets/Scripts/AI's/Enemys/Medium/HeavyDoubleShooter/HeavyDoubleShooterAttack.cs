@@ -15,13 +15,33 @@ public class HeavyDoubleShooterAttack : DefaultBotAttack
         {
             isAttack = true;
 
-            yield return new WaitForSeconds(1);
+            if (attackPhase == 0)
+            {
+                yield return WaitTime(1);
 
-            Shot(shotPoints[0]);
-            Shot(shotPoints[1]);
-            bot.botEffects.PlayAttackParticls();
+                attackPhase = 1;
+                
+                if (isRecentlyLoad)
+                    isRecentlyLoad = false;
+            }
 
-            yield return new WaitForSeconds(3);
+            if (attackPhase == 1)
+            {
+
+                if (!isRecentlyLoad)
+                {
+                    Shot(shotPoints[0]);
+                    Shot(shotPoints[1]);
+                    bot.botEffects.PlayAttackParticls();   
+                }
+
+                yield return WaitTime(3);
+
+                if (isRecentlyLoad)
+                    isRecentlyLoad = false;
+
+                attackPhase = 0;
+            }
 
             isAttack = false;
         }

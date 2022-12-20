@@ -46,22 +46,54 @@ public class LaserOrientatorAttack : DefaultBotAttack
         {
             isAttack = true;
 
-            effects2.SetGunBrightState(true);
+            if (attackPhase == 0)
+            {
+                if(!isRecentlyLoad)
+                    effects2.SetGunBrightState(true);
 
-            yield return new WaitForSeconds(startAttackColdownTime * 0.9f);
+                yield return WaitTime(startAttackColdownTime * 0.9f);
+                
+                attackPhase = 1;
 
-            effects2.SetLazerState(LaserOrientatorBotEffects.LaserState.Prepare);
-            yield return new WaitForSeconds(startAttackColdownTime * 0.1f);
-            effects2.SetLazerState(LaserOrientatorBotEffects.LaserState.On);
+                if (isRecentlyLoad)
+                    isRecentlyLoad = false;
+            }
 
-            isShoot = true;
+            if (attackPhase == 1)
+            {
+                if(!isRecentlyLoad)
+                    effects2.SetLazerState(LaserOrientatorBotEffects.LaserState.Prepare);
+             
+                yield return WaitTime(startAttackColdownTime * 0.1f);
 
-            yield return new WaitForSeconds(attackTime);
+                if (isRecentlyLoad)
+                    isRecentlyLoad = false;
+
+                attackPhase = 2;
+            }
+
+            if (attackPhase == 2)
+            {
+                if (!isRecentlyLoad)
+                {
+                    effects2.SetLazerState(LaserOrientatorBotEffects.LaserState.On);
+
+                    isShoot = true;
+                }
+
+                yield return WaitTime(attackTime);
+                
+                if (isRecentlyLoad)
+                    isRecentlyLoad = false;
+                
+            }
+
             effects2.SetLazerState(LaserOrientatorBotEffects.LaserState.Off);
             isShoot = false;
 
             effects2.SetGunBrightState(false);
 
+            attackPhase = 0;
             isAttack = false;
         }
 
@@ -69,6 +101,6 @@ public class LaserOrientatorAttack : DefaultBotAttack
 
     public override void StartMeleeAttack(Transform target)
     {
-
+        
     }
 }

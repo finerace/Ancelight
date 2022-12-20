@@ -44,12 +44,15 @@ public class ParentElementAttack : DefaultBotAttack
                     SpawnChildBot(shotPoints[0]);
                     botEffects.botParticlsAttack[0].Play();
 
-                    yield return WaitTime(localSpawnTimeLoop);
-                        
                     SpawnChildBot(shotPoints[1]);
                     botEffects.botParticlsAttack[1].Play();
+                    
+                    yield return WaitTime(localSpawnTimeLoop);
 
                     attackPhase++;
+
+                    if (isRecentlyLoad)
+                        isRecentlyLoad = false;
                 }
 
                 attackPhase = 0;

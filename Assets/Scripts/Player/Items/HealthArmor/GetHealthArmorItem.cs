@@ -7,7 +7,7 @@ public class GetHealthArmorItem : OrdinaryPlayerItem
     [SerializeField] private float getHealth;
     [SerializeField] private float getArmor;
     private bool isValuesInvalid = false;
-    private void Awake()
+    private void Start()
     {
         ToSaveData.mainSaveData.AddToSaveData(this);
         

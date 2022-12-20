@@ -14,17 +14,34 @@ public class FlyingDroneBotAttack : DefaultBotAttack
         IEnumerator AttackAlgorithm()
         {
             isAttack = true;
-
-            float randomWaitShotTime = Random.Range(0f,1f);
+            float randomWaitShotTime = Random.Range(0f, 1f);
             float attackEndWaitTime = 1 - randomWaitShotTime;
+            
+            if (attackPhase == 0)
+            {
+                yield return WaitTime(attackTime*randomWaitShotTime);
 
-            yield return new WaitForSeconds(attackTime * randomWaitShotTime);
-            Shot(shotPoints[0]);
-            botEffects.PlayAttackParticls();
-            yield return new WaitForSeconds(attackTime * attackEndWaitTime);
+                attackPhase = 1;
+            }
 
-            isAttack = false;
+            if (attackPhase == 1)
+            {
+                if (!isRecentlyLoad)
+                {
+                    Shot(shotPoints[0]);
+                    botEffects.PlayAttackParticls();
+                }
 
+                yield return WaitTime(attackTime*randomWaitShotTime);
+
+                isAttack = false;
+
+                attackPhase = 0;
+
+                if (isRecentlyLoad)
+                    isRecentlyLoad = false;
+            }
+            
         }
 
     }

@@ -17,36 +17,72 @@ public class HeavyTripleShooterAttack : DefaultBotAttack
         IEnumerator AttackProcess()
         {
             isAttack = true;
-
-            yield return new WaitForSeconds(attackTime * 0.2f);
-
-            botEffects.botParticlsAttack[2].Play();
-            botEffects.botParticlsAttack[3].Play();
-
+            
             int secondAttackCount = 2;
             float secondAttackTimeMultiplier = (attackTime * 0.3f) / secondAttackCount;
-
-            isShoot = true;
-
-            for (int i = 0; i < secondAttackCount; i++)
+            
+            if (attackPhase == 0)
             {
-                Shot(shotPoints[0], secondBullet);
-                botEffects.botParticlsAttack[0].Play();
-
-                yield return new WaitForSeconds(secondAttackTimeMultiplier);
-
-                Shot(shotPoints[1], secondBullet);
-                botEffects.botParticlsAttack[1].Play();
+                yield return WaitTime(attackTime * 0.2f);
+                attackPhase = 1;
+                
+                if (isRecentlyLoad)
+                    isRecentlyLoad = false;
             }
 
-            yield return new WaitForSeconds(attackTime * 0.2f);
+            if (attackPhase >= 1 && attackPhase < (secondAttackCount+1))
+            {
+                botEffects.botParticlsAttack[2].Play();
+                botEffects.botParticlsAttack[3].Play();
 
-            Shot(shotPoints[2], bullet)
-                .GetComponent<BulletHoming>().target = bot.target;
+                isShoot = true;
 
-            isShoot = false;
+                for (int i = 1; i < secondAttackCount+1; i++)
+                {
+                    if (isRecentlyLoad)
+                        i = attackPhase;
 
-            yield return new WaitForSeconds(attackTime * 0.3f);
+                    attackPhase = i;
+
+                    if (!isRecentlyLoad)
+                    {
+                        Shot(shotPoints[0], secondBullet);
+                        botEffects.botParticlsAttack[0].Play();
+                    }
+
+                    yield return WaitTime(secondAttackTimeMultiplier);
+
+                    Shot(shotPoints[1], secondBullet);
+                    botEffects.botParticlsAttack[1].Play();
+
+                    attackPhase++;
+                }
+            }
+
+            if (attackPhase == (secondAttackCount + 1))
+            {
+                yield return WaitTime(attackTime * 0.2f);
+
+                Shot(shotPoints[2], bullet)
+                    .GetComponent<BulletHoming>().target = bot.target;
+                
+                isShoot = false;
+                
+                if (isRecentlyLoad)
+                    isRecentlyLoad = false;
+
+                attackPhase++;
+            }
+
+            if (attackPhase == (secondAttackCount + 2))
+            {
+                yield return WaitTime(attackTime * 0.3f);
+                
+                if (isRecentlyLoad)
+                    isRecentlyLoad = false;
+
+                attackPhase = 0;
+            }
 
             isAttack = false;
         }

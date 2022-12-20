@@ -19,13 +19,31 @@ public class CirclePlasmaBotAttack : DefaultBotAttack
         {
             isAttack = true;
             isShoot = true;
-            yield return new WaitForSeconds(attackColdown);
 
-
-            foreach (var item in shotPoints)
+            if (attackPhase == 0)
             {
-                yield return new WaitToVisiblePoint(item,bot.target, visibleRange);
-                Shot(item);
+                yield return WaitTime(attackColdown);
+                attackPhase = 1;
+            }
+
+            if (attackPhase >= 1)
+            {
+                for (var i = 1; i < shotPoints.Length + 1; i++)
+                {
+                    if (isRecentlyLoad)
+                        i = attackPhase;
+                    
+                    attackPhase = i;
+
+                    var item = shotPoints[i-1];
+                    yield return new WaitToVisiblePoint(item, bot.target, visibleRange);
+                    Shot(item);
+
+                    if (isRecentlyLoad)
+                        isRecentlyLoad = false;
+                }
+
+                attackPhase = 0;
             }
 
             isShoot = false;

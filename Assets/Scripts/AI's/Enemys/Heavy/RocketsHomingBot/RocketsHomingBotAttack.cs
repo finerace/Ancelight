@@ -15,26 +15,49 @@ public class RocketsHomingBotAttack : DefaultBotAttack
         {
             isAttack = true;
 
-            yield return new WaitForSeconds(attackTime*0.3f);
-            isShoot = true;
+            if (attackPhase == 0)
+            {
+                yield return WaitTime(attackTime * 0.3f);
+                isShoot = true;
+
+                attackPhase = 1;
+                
+                if (isRecentlyLoad)
+                    isRecentlyLoad = false;
+            }
 
             int shotCount = 1;
             float shotTime = 0.3f / shotCount;
 
-            for (int i = 0; i < shotCount; i++)
+            if (attackPhase >= 1 && attackPhase < (shotCount*2) + 1) ;
             {
-                BulletHomingExplousion bullet = 
-                    Shot(shotPoints[0]).GetComponent<BulletHomingExplousion>();
-                bullet.target = bot.target;
+                for (int i = 1; i < shotCount+1; i++)
+                {
+                    if (isRecentlyLoad)
+                        i = attackPhase;
 
-                bot.botEffects.PlayAttackParticls();
+                    attackPhase = i;
+                    
+                    BulletHomingExplousion bullet =
+                        Shot(shotPoints[0]).GetComponent<BulletHomingExplousion>();
+                    bullet.target = bot.target;
 
-                yield return new WaitForSeconds(shotTime);
+                    bot.botEffects.PlayAttackParticls();
+
+                    yield return WaitTime(shotTime);
+
+                    if (isRecentlyLoad)
+                        isRecentlyLoad = false;
+                }
             }
 
-            isShoot = false;
-            yield return new WaitForSeconds(attackTime * 0.4f);
+            if (attackPhase == (shotCount * 2) + 1)
+            {
+                isShoot = false;
+                yield return WaitTime(attackTime * 0.4f);
+            }
 
+            attackPhase = 0;
             isAttack = false;
         }
 

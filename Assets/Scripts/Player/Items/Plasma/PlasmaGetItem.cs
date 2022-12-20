@@ -6,7 +6,7 @@ public class PlasmaGetItem : OrdinaryPlayerItem
     [SerializeField] private string plasmaId = "yellow";
     [SerializeField] private float plasmaCount = 0;
 
-    private void Awake()
+    private void Start()
     {
         ToSaveData.mainSaveData.AddToSaveData(this);
     }

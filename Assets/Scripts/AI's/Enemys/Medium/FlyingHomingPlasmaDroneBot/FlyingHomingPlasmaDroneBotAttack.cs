@@ -15,12 +15,23 @@ public class FlyingHomingPlasmaDroneBotAttack : DefaultBotAttack
         {
             isAttack = true;
 
-            yield return new WaitForSeconds(attackTime * 0.333f);
-            botEffects.PlayAttackParticls();
-            yield return new WaitForSeconds(attackTime * 0.666f);
+            if (attackPhase == 0)
+            {
+                yield return WaitTime(attackTime * 0.333f);
+                botEffects.PlayAttackParticls();
 
-            Shot(shotPoints[0])
-                .GetComponent<BulletHoming>().target = bot.target;
+                attackPhase = 1;
+            }
+
+            if (attackPhase == 1)
+            {
+                yield return WaitTime(attackTime * 0.666f);
+
+                Shot(shotPoints[0])
+                    .GetComponent<BulletHoming>().target = bot.target;
+
+                attackPhase = 0;
+            }
 
             isAttack = false;
         }

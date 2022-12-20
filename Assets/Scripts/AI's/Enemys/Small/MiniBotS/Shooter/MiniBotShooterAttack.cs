@@ -9,37 +9,34 @@ public class MiniBotShooterAttack : DefaultBotAttack
 
     public override void StartAttack()
     {
-        int random = Random.Range(0, 6);
-
-        if (random < 4)
-            StartCoroutine(StandartAttack());
-        else
-            StartCoroutine(DoubleAttack());
+        StartCoroutine(StandartAttack());
 
         IEnumerator StandartAttack()
         {
             isAttack = true;
-            yield return new WaitForSeconds(0.5f);
-            Shot(shotPoints[0]);
-            botEffects.PlayAttackParticls();
-            yield return new WaitForSeconds(1f);
+
+            if (attackPhase == 0)
+            {
+                yield return WaitTime(0.5f);
+                attackPhase = 1;
+            }
+
+            if (attackPhase == 1)
+            {
+                if (!isRecentlyLoad)
+                {
+                    Shot(shotPoints[0]);
+                    botEffects.PlayAttackParticls();
+                }
+
+                yield return WaitTime(1f);
+
+                if (isRecentlyLoad)
+                    isRecentlyLoad = false;
+            }
+
             isAttack = false;
         }
-
-        IEnumerator DoubleAttack()
-        {
-            isAttack = true;
-            yield return new WaitForSeconds(0.25f);
-            Shot(shotPoints[0]);
-            botEffects.PlayAttackParticls();
-            yield return new WaitForSeconds(0.25f);
-            Shot(shotPoints[0]);
-            botEffects.PlayAttackParticls();
-            yield return new WaitForSeconds(1f);
-            isAttack = false;
-
-        }
-
     }
 
     public override void StartMeleeAttack(Transform target)
