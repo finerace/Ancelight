@@ -1,9 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-
 public class Bullet : MonoBehaviour
 {
     [SerializeField] internal BulletEffects effects;
@@ -12,23 +12,26 @@ public class Bullet : MonoBehaviour
     [SerializeField] private GameObject colliders;
 
     [Space]
-    private float destructionTime = 2;
+    [HideInInspector] [SerializeField] private float destructionTime = 2;
+    [HideInInspector] [SerializeField] private float currentTime;
+    
     [SerializeField] private float lifeTime;
-
-    internal bool isDestruction = false;
+    
+    [HideInInspector] [SerializeField] internal bool isDestruction = false;
     [SerializeField] private bool isFly = true;
 
     [SerializeField] internal float damage;
 
     [Space]
     [SerializeField] private bool inCollisionAddForce = true;
-    [SerializeField] private float collisionForce = 2f;
+    [SerializeField] private float collisionForce = 2f; 
     protected float startRBPower = 1f;
     [Range(0, 1000)] [SerializeField] private float speed;
 
     protected void Start()
     {
-        //Подготовка всего и вся
+        ToSaveData.mainSaveData.AddToSaveData(this);
+        
         body_ = transform;
 
         if(rigidbody_ != null) 
@@ -38,23 +41,21 @@ public class Bullet : MonoBehaviour
 
     }
 
-    //Полёт пули (если разрешён)
     protected void Update()
     {
-      
+        currentTime += Time.deltaTime;
+        
         if (!isDestruction && isFly)
         {
             body_.position += body_.forward * Time.deltaTime * speed;
         }
     }
 
-    //Сталкивание пули с коллайдером
 
     private void DestroyProcess(Transform colliderT)
     {
         if (isDestruction != true)
         {
-            //Если есть здоровье, нанести ему урон
             if (colliderT.gameObject.TryGetComponent<Health>(out Health health))
             {
                 health.GetDamage(damage,body_);
@@ -91,7 +92,6 @@ public class Bullet : MonoBehaviour
         DestroyProcess(other.transform);
     }
 
-    //Функция уничтожения
     virtual internal void Destruction(Transform collisionObj)
     {
         if (!isDestruction)
@@ -122,10 +122,17 @@ public class Bullet : MonoBehaviour
         startRBPower = power;
     }
 
-    //Корутин авто-разрушения
     private IEnumerator AutoDestruction(float time)
     {
-        yield return new WaitForSeconds(time);
+
+        while (true)
+        {
+            if(time <= currentTime)
+                break;
+
+            yield return null;
+        }
+        
         Destruction(null);
     }
 

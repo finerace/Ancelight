@@ -10,7 +10,7 @@ public class ExplousionBullet : Bullet
     [SerializeField] private LayerMask wallsLayerMask;
     [SerializeField] private LayerMask forceLayerMask;
     [SerializeField] private LayerMask damageLayerMask;
-    //Разрушение пули
+    //?????????? ????
 
     /*private new void Start()
     {
@@ -30,24 +30,24 @@ public class ExplousionBullet : Bullet
         base.Destruction(collisionObj);
     }
 
-    //Рисовка радиуса взрыва в редакторе
+    //??????? ??????? ?????? ? ?????????
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(body_.position,explosionRadius);
     }
 
-    //Что делать при столкновении с коллайдером
+    //??? ?????? ??? ???????????? ? ???????????
     private void OnCollisionEnter(Collision collision)
     {
         switch(detectBoom)
         {
-            //Всегда взрыв
+            //?????? ?????
             case CollisionDetectBoom.Always:
                 Destruction(collision.transform);
                 break;
 
-            //Взрыв если есть здоровье
+            //????? ???? ???? ????????
             case CollisionDetectBoom.IfHealth:
                 if(collision.gameObject.GetComponent<Health>())
                 {
@@ -79,7 +79,7 @@ public static class Explousions
         float resultExplousionForce = explosionForce * explousionForceSmoothness;
         float upModify = 0.25f;
 
-        //Определение коллайдеров в зоне поражения
+        //??????????? ??????????? ? ???? ?????????
         Collider[] explousionColliders = Physics.OverlapSphere(explousionPos, explosionRadius);
 
         foreach (var collider in explousionColliders)
@@ -95,7 +95,7 @@ public static class Explousions
             Rigidbody bodie;
             Health health;
 
-            //Начало проверки на наличие стен
+            //?????? ???????? ?? ??????? ????
             Vector3 trueBulletPos = explousionPos;
 
             RaycastHit hitInfo;
@@ -116,18 +116,18 @@ public static class Explousions
                 raycastTest = (hitObjHash == colliderObjHash);
             }
             else raycastTest = true;
-            //Конец проверки на стены
+            //????? ???????? ?? ?????
 
 
-            //Если проверка успешная тооо..
+            //???? ???????? ???????? ????..
             if (raycastTest)
             {
 
-                //При наличии здоровья нанести урон
+                //??? ??????? ???????? ??????? ????
                 if (damageAllow)
                     if (collider.gameObject.TryGetComponent<Health>(out health))
                     {
-                        //Расчёт урона
+                        //?????? ?????
                         Vector3 healthPos = health.transform.position;
 
                         float distance = Vector3.Distance(explousionPos, healthPos);
@@ -136,7 +136,7 @@ public static class Explousions
                         health.GetDamage(resultDamage);
                     }
 
-                //При наличии рбшки добавить силы
+                //??? ??????? ????? ???????? ????
                 if (forceAllow)
                     if (collider.gameObject.TryGetComponent<Rigidbody>(out bodie) && forceAllow)
                     {
@@ -154,7 +154,7 @@ public static class Explousions
         float resultExplousionForce = explosionForce * explousionForceSmoothness;
         float upModify = 0.25f;
 
-        //Определение коллайдеров в зоне поражения
+        //??????????? ??????????? ? ???? ?????????
         Collider[] explousionColliders = Physics.OverlapSphere(explousionPos, explosionRadius);
 
         foreach (var collider in explousionColliders)
@@ -162,7 +162,7 @@ public static class Explousions
             Rigidbody body;
             Health health;
 
-            //Начало проверки на наличие стен
+            //?????? ???????? ?? ??????? ????
             Vector3 trueBulletPos = explousionPos;
 
             RaycastHit hitInfo;
@@ -186,12 +186,12 @@ public static class Explousions
                 raycastTest = (hitObjHash == colliderObjHash);
             }
             else raycastTest = true;
-            //Конец проверки на стены
+            //????? ???????? ?? ?????
 
-            //Если проверка успешная тооо..
+            //???? ???????? ???????? ????..
             if (raycastTest)
             {
-                //Начало проверки на соответствие направлению взрыва
+                //?????? ???????? ?? ???????????? ??????????? ??????
                 bool explousionDirectedTest = false;
 
                 Vector3 localObjPos = (collider.transform.position - explousionPos).normalized;
@@ -200,12 +200,12 @@ public static class Explousions
                 if (dot >= minDot)
                     explousionDirectedTest = true;
 
-                //Конец проверки на соответствие направлению взрыва
+                //????? ???????? ?? ???????????? ??????????? ??????
 
                 if (explousionDirectedTest)
                 {
 
-                    //При наличии рбшки добавить силы
+                    //??? ??????? ????? ???????? ????
                     if (collider.gameObject.TryGetComponent<Rigidbody>(out body))
                     {
                         if (DotScale)
@@ -217,10 +217,10 @@ public static class Explousions
                         body.AddExplosionForce(resultExplousionForce, explousionPos, explosionRadius, upModify);
                     }
 
-                    //При наличии здоровья нанести урон
+                    //??? ??????? ???????? ??????? ????
                     if (collider.gameObject.TryGetComponent<Health>(out health))
                     {
-                        //Расчёт урона
+                        //?????? ?????
                         Vector3 healthPos = health.transform.position;
 
                         float distance = Vector3.Distance(explousionPos, healthPos);
