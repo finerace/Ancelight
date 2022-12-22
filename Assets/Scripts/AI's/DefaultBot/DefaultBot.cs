@@ -92,7 +92,7 @@ public abstract class DefaultBot : Health
 
     internal void Start()
     {
-        ToSaveData.mainSaveData.AddToSaveData(this);
+        LevelSaveData.mainLevelSaveData.AddToSaveData(this);
         
         float agentSpeedSmoothness = 2f;
 
@@ -441,7 +441,7 @@ public abstract class DefaultBot : Health
 
     public override void Died()
     {
-        ToSaveData.mainSaveData.RemoveFromSaveData(this);
+        LevelSaveData.mainLevelSaveData.RemoveFromSaveData(this);
         
         if(botParts != null)
             botParts.DestructParts(bodyRB);

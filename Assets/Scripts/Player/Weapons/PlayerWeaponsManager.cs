@@ -30,11 +30,11 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     [Space]
     [SerializeField] private int selectedWeaponID = 0;
     [SerializeField] private float damage;
-    private bool isRaycastShot;
-    private bool isMelee;
-    private bool OneClick;
-    private float attackTime;
-    private bool endTimeShoot;
+    [HideInInspector] [SerializeField] private bool isRaycastShot;
+    [HideInInspector] [SerializeField] private bool isMelee;
+    [HideInInspector] [SerializeField] private bool OneClick;
+    [HideInInspector] [SerializeField] private float attackTime;
+    [HideInInspector] [SerializeField] private bool endTimeShoot;
     [SerializeField] private WeaponData.ShootingMode shootingMode;
     [SerializeField] private bool isAttacking = false;
 
@@ -53,18 +53,18 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     [HideInInspector] public int SelectedWeaponID { get { return selectedWeaponID; } }
     [HideInInspector] public bool WeaponSpecialState { get { return weaponSpecialState; } }
 
-    private bool weaponSpecialState = false; //false = right true = left fist;
+    [HideInInspector] [SerializeField] private bool weaponSpecialState = false; //false = right true = left fist;
     [HideInInspector] public bool isBulletsHere { get { return 
                 bulletsManager.CheckBullets(selectedWeaponData.BulletsID); } }
 
-    private bool oneClickState = false; //?????? ??? 1 ??? ????
-    private bool adjustableAttackAllow = false;
-    private bool isWeaponInCooldown = false;
+    [HideInInspector] [SerializeField] private bool oneClickState = false; //?????? ??? 1 ??? ????
+    [HideInInspector] [SerializeField] private bool adjustableAttackAllow = false;
+    [HideInInspector] [SerializeField] private bool isWeaponInCooldown = false;
     [SerializeField] private float weaponChangeCooldown = 0.20f;
-    private float adjustableAttackStartPower = 0.2f;
+    [HideInInspector] [SerializeField] private float adjustableAttackStartPower = 0.2f;
 
-    private event Action ShotEvent;
-    private event Action WeaponChange;
+    [HideInInspector] [SerializeField] private event Action ShotEvent;
+    [HideInInspector] [SerializeField]private event Action WeaponChange;
 
     [Space]
     [HideInInspector] public UnityEvent extraAbilityUseEvent;
@@ -75,15 +75,15 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     [SerializeField] private List<int> abilityUnlockedIDs = new List<int>(32);
     [SerializeField] private List<int> abilityInDelayIDs = new List<int>(16);
     [SerializeField] private ExtraAbilityData selectedAbilityData;
-    private ExtraAbility selectedAbility;
+    [HideInInspector] [SerializeField] private ExtraAbility selectedAbility;
     public ExtraAbility SelectedAbility { get { return selectedAbility; } }
 
     public ExtraAbilityData SelectedAbilityData { get { return selectedAbilityData; } }
 
-    private int selectedAbilityNum;
-    private GameObject nowAbilityPrefab;
+    [HideInInspector] [SerializeField] private int selectedAbilityNum;
+    [HideInInspector] [SerializeField] private GameObject nowAbilityPrefab;
 
-    private bool extraAbilityOneClickState = false;
+    [HideInInspector] [SerializeField] private bool extraAbilityOneClickState = false;
     [SerializeField] private bool isThereAnyBullets;
 
     private bool isManageActive = true;
@@ -104,8 +104,8 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
         layerMaskRayCastMode = 
             GameObject.Find("LayerMasks").GetComponent<LayerMasks>().PlayerShootingLayerMask;
 
-        SetSelectedWeapon(0);
-        SetSelectedAbility(0);
+        SetSelectedWeapon(selectedWeaponID);
+        SetSelectedAbility(selectedAbilityNum);
     }
     
     private void Update()

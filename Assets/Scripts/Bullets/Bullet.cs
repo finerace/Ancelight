@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
 
     protected void Start()
     {
-        ToSaveData.mainSaveData.AddToSaveData(this);
+        LevelSaveData.mainLevelSaveData.AddToSaveData(this);
         
         body_ = transform;
 
@@ -94,6 +94,7 @@ public class Bullet : MonoBehaviour
 
     virtual internal void Destruction(Transform collisionObj)
     {
+        LevelSaveData.mainLevelSaveData.RemoveFromSaveData(this);
         if (!isDestruction)
         {
             isDestruction = true;

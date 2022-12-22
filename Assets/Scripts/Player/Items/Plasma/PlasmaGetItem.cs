@@ -8,7 +8,7 @@ public class PlasmaGetItem : OrdinaryPlayerItem
 
     private void Start()
     {
-        ToSaveData.mainSaveData.AddToSaveData(this);
+        LevelSaveData.mainLevelSaveData.AddToSaveData(this);
     }
 
     protected override void PickUpItemAlgorithm(PlayerMainService player)
@@ -18,7 +18,7 @@ public class PlasmaGetItem : OrdinaryPlayerItem
 
         player.AddPlasma(plasmaId,plasmaCount);
 
-        ToSaveData.mainSaveData.RemoveFromSaveData(this);
+        LevelSaveData.mainLevelSaveData.RemoveFromSaveData(this);
         
         DestroyItem();
         

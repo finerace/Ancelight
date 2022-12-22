@@ -40,6 +40,11 @@ public class PlayerMainService : Health
             (WeaponData weaponData) => {UnlockWeaponEvent?.Invoke(weaponData);};
     }
 
+    private void Start()
+    {
+        LevelSaveData.mainLevelSaveData.AddToSaveData(this);
+    }
+
     private void FixedUpdate()
     {
         // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
