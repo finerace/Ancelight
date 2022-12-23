@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
 {
 
     [SerializeField] private float speed = 1f;
-
+    
     [HideInInspector] public float Speed
     {
         get { return speed; }
@@ -415,6 +415,13 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
 
         return getButtons;
     }
+    
+    public void LoadPlayerMovement(PlayerMovement savedPlayerMovement)
+    {
+        speed = savedPlayerMovement.speed;
+        IsFlies = savedPlayerMovement.isFlies;
+    }
+    
 }
 
 public static class AuxiliaryFunc

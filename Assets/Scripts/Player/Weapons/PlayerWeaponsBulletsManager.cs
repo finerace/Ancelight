@@ -13,17 +13,17 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
     public BulletData[] BulletDatas { get { return bulletDatas; } }
     public List<int> UnlockedBulletsID { get { return unlockedBulletsID; } }
 
-    private readonly Dictionary<int, int> bulletsCount = new Dictionary<int, int>(); //1-id,2-bullets count
-    private readonly Dictionary<int, int> bulletsMax = new Dictionary<int, int>(); //1-id,2-max bullets
+    [SerializeField] private readonly Dictionary<int, int> bulletsCount = new Dictionary<int, int>(); //1-id,2-bullets count
+    [SerializeField] private readonly Dictionary<int, int> bulletsMax = new Dictionary<int, int>(); //1-id,2-max bullets
 
     public IDictionary<int, int> BulletsCount => bulletsCount;
     public IDictionary<int, int> BulletsMax => bulletsMax;
 
     [Space]
     
-    private Dictionary<string, float> plasmaReserves = new Dictionary<string, float>();
+    [SerializeField] private Dictionary<string, float> plasmaReserves = new Dictionary<string, float>();
 
-    private Dictionary<string, float> plasmaMaxReserves = new Dictionary<string, float>();
+    [SerializeField] private Dictionary<string, float> plasmaMaxReserves = new Dictionary<string, float>();
 
     public IDictionary<string, float> PlasmaReserves => plasmaReserves;
     public IDictionary<string, float> PlasmaMaxReserves => plasmaMaxReserves;
@@ -36,7 +36,7 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
     [SerializeField] private float bluePlasmaMaxReserve;
 
 
-    private void Awake()
+    private void Start()
     {
         InitializeUnlockedBullets();
         

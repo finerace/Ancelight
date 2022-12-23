@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class WeaponGetItem : OrdinaryPlayerItem
@@ -6,7 +7,12 @@ public class WeaponGetItem : OrdinaryPlayerItem
     [SerializeField] private int getWeaponId;
     [SerializeField] private int bonusBullets = 0;
     [SerializeField] private Transform stand;
-    
+
+    private void Start()
+    {
+        LevelSaveData.mainLevelSaveData.AddToSaveData(this);
+    }
+
     // ReSharper disable Unity.PerformanceAnalysis
     protected override void PickUpItemAlgorithm(PlayerMainService playerMainService)
     {
@@ -17,6 +23,8 @@ public class WeaponGetItem : OrdinaryPlayerItem
         
         AddBonusBullets();
     
+        LevelSaveData.mainLevelSaveData.RemoveFromSaveData(this);
+        
         DestroyItem();
         
         void AddBonusBullets()
