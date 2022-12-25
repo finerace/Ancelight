@@ -13,11 +13,11 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
     public BulletData[] BulletDatas { get { return bulletDatas; } }
     public List<int> UnlockedBulletsID { get { return unlockedBulletsID; } }
 
-    [SerializeField] private readonly Dictionary<int, int> bulletsCount = new Dictionary<int, int>(); //1-id,2-bullets count
-    [SerializeField] private readonly Dictionary<int, int> bulletsMax = new Dictionary<int, int>(); //1-id,2-max bullets
+    [SerializeField] private Dictionary<int, int> bulletsCount = new Dictionary<int, int>(); //1-id,2-bullets count
+    [SerializeField] private Dictionary<int, int> bulletsMax = new Dictionary<int, int>(); //1-id,2-max bullets
 
-    public IDictionary<int, int> BulletsCount => bulletsCount;
-    public IDictionary<int, int> BulletsMax => bulletsMax;
+    public Dictionary<int, int> BulletsCount => bulletsCount;
+    public Dictionary<int, int> BulletsMax => bulletsMax;
 
     [Space]
     
@@ -25,8 +25,8 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
 
     [SerializeField] private Dictionary<string, float> plasmaMaxReserves = new Dictionary<string, float>();
 
-    public IDictionary<string, float> PlasmaReserves => plasmaReserves;
-    public IDictionary<string, float> PlasmaMaxReserves => plasmaMaxReserves;
+    public Dictionary<string, float> PlasmaReserves => plasmaReserves;
+    public Dictionary<string, float> PlasmaMaxReserves => plasmaMaxReserves;
 
     [Space] 
     [SerializeField] private float yellowPlasmaMaxReserve;
@@ -35,9 +35,24 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
 
     [SerializeField] private float bluePlasmaMaxReserve;
 
+    private bool isLoaded;
+    
+    public void Load(LevelSaveData.SavePlayerData playerData)
+    {
+        FixedJsonUtilityFunc.JsonToNormal(playerData.bulletsCount, bulletsCount);
+        FixedJsonUtilityFunc.JsonToNormal(playerData.bulletsMax, bulletsMax);
+        
+        FixedJsonUtilityFunc.JsonToNormal(playerData.plasmaReserves, plasmaReserves);
+        FixedJsonUtilityFunc.JsonToNormal(playerData.plasmaMaxReserves, plasmaMaxReserves);
+
+        isLoaded = true;
+    }
 
     private void Start()
     {
+        if(isLoaded)
+            return;
+            
         InitializeUnlockedBullets();
         
         InitializePlasmaReserves();
@@ -48,8 +63,8 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
             {
                 if (!IsIdUnlocked(item.Id)) 
                     continue;
-            
-                bulletsCount.Add(item.Id, item.MaxBullets);
+                
+                bulletsCount.Add(item.Id, 0);
                 bulletsMax.Add(item.Id, item.MaxBullets);
             }
         }

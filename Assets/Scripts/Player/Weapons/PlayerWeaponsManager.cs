@@ -63,8 +63,8 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     [SerializeField] private float weaponChangeCooldown = 0.20f;
     [HideInInspector] [SerializeField] private float adjustableAttackStartPower = 0.2f;
 
-    [HideInInspector] [SerializeField] private event Action ShotEvent;
-    [HideInInspector] [SerializeField]private event Action WeaponChange;
+    [SerializeField] private event Action ShotEvent;
+    [HideInInspector] [SerializeField] private event Action WeaponChange;
 
     [Space]
     [HideInInspector] public UnityEvent extraAbilityUseEvent;
@@ -95,6 +95,14 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     private DeviceButton useAbilityButton = new DeviceButton();
     private DeviceButton nextAbilityButton = new DeviceButton();
     private DeviceButton previousAbilityButton = new DeviceButton();
+
+
+    public void Load(PlayerMainService playerMainService)
+    {
+        shootingPoint = playerMainService.ShootingPoint;
+        meleeShootingPoint = playerMainService.MeleeAttackPoint;
+        weaponPoint = playerMainService.WeaponPoint;
+    }
     
     private void Start()
     {
@@ -107,6 +115,7 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
         SetSelectedWeapon(selectedWeaponID);
         SetSelectedAbility(selectedAbilityNum);
     }
+    
     
     private void Update()
     {

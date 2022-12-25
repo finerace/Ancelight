@@ -21,28 +21,39 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
     
     [SerializeField] private float dashPower = 2f;
     [SerializeField] private float dashColdown = 0.5f;
-    private float dashCurrentColdownTimer = 0;
+    [HideInInspector] [SerializeField] private float dashCurrentColdownTimer = 0;
     
     public float DashPower => dashPower;
 
     [SerializeField] private int dashStopDeltaTimeTicks = 30;
     [SerializeField] private float flyDashResidualForceAmount = 0.2f;
     
-    private float dashCurrentEnergy;
+    [HideInInspector] [SerializeField] private float dashCurrentEnergy;
     private float dashMaxEnergy;
-    
+
     private bool isManageBlocked;
 
     public float DashCurrentEnergy => dashCurrentEnergy;
     public float DashMaxEnergy => dashMaxEnergy;
 
+    private bool isLoad;
 
-    private void Awake()
+    public void Load(float savedDashCurrentEnergy,int savedDashCount)
     {
-        dashCurrentEnergy = dashsCount * oneDashEnergySpend;
+        dashCurrentEnergy = savedDashCurrentEnergy;
+        dashsCount = savedDashCount;
+        
+        isLoad = true;
+    }
+    
+    private void Start()
+    {
+        if(!isLoad)
+            dashCurrentEnergy = dashsCount * oneDashEnergySpend;
+        
         dashMaxEnergy = dashsCount * oneDashEnergySpend;
     }
-
+    
     private void Update()
     {
         DashUpdateAlgorithm();

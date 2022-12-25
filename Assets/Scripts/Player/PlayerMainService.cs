@@ -20,6 +20,19 @@ public class PlayerMainService : Health
     [SerializeField] internal PlayerDashsService dashsService;
     [SerializeField] internal PlayerImmediatelyProtectionService immediatelyProtectionService;
     [SerializeField] internal PlayerUseService playerUseService;
+
+    [Space]
+
+    [SerializeField] private Transform shootingPoint;
+    [SerializeField] private Transform weaponPoint;
+    [SerializeField] private Transform meleeAttackPoint;
+
+    public Transform ShootingPoint => shootingPoint;
+
+    public Transform WeaponPoint => weaponPoint;
+
+    public Transform MeleeAttackPoint => meleeAttackPoint;
+
     
     private bool isManageActive = true;
 
@@ -31,17 +44,18 @@ public class PlayerMainService : Health
     public event Action<WeaponData> UnlockWeaponEvent; 
     public event Action<(string,float)> AddPlasmaEvent;
 
-    
     private void Awake()
+    {
+        weaponsManager.Load(this);
+    }
+
+    private void Start()
     {
         CheckPlayerComponents();
 
         weaponsManager.NewWeaponEvent += 
             (WeaponData weaponData) => {UnlockWeaponEvent?.Invoke(weaponData);};
-    }
-
-    private void Start()
-    {
+        
         LevelSaveData.mainLevelSaveData.AddToSaveData(this);
     }
 

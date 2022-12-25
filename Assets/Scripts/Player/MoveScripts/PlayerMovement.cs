@@ -26,10 +26,10 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
     }
     
     [SerializeField] private float jumpForce = 1f;
-    [HideInInspector] [SerializeField]  private Rigidbody playerRb;
+    [SerializeField]  private Rigidbody playerRb;
     public Rigidbody PlayerRb { get { return playerRb; } }
     
-    [HideInInspector] [SerializeField]  private Transform playerT;
+    [SerializeField]  private Transform playerT;
     
     public Transform Body { get { return playerT ; } }
 
