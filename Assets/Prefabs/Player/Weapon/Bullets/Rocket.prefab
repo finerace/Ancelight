@@ -5038,12 +5038,16 @@ MonoBehaviour:
   rigidbody_: {fileID: 6571646158022850672}
   body_: {fileID: 6571646158022850636}
   colliders: {fileID: 6571646158332862438}
+  destructionTime: 2
+  currentTime: 0
   lifeTime: 12
+  isDestruction: 0
   isFly: 0
   damage: 20
   inCollisionAddForce: 0
   collisionForce: 0
   speed: 60
+  bulletId: 6
   explosionForce: 50
   explosionRadius: 8
   detectBoom: 0

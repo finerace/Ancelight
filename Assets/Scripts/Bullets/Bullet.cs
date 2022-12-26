@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour
     [Space]
     [HideInInspector] [SerializeField] private float destructionTime = 2;
     [HideInInspector] [SerializeField] private float currentTime;
+
+    public float CurrentTime => currentTime;
     
     [SerializeField] private float lifeTime;
     
@@ -27,8 +29,15 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float collisionForce = 2f; 
     protected float startRBPower = 1f;
     [Range(0, 1000)] [SerializeField] private float speed;
+    [SerializeField] private int bulletId;
+    public int BulletId => bulletId;
 
-    protected void Start()
+    public void Load(float currentTime)
+    {
+        this.currentTime = currentTime;
+    }
+    
+    protected virtual void Start()
     {
         LevelSaveData.mainLevelSaveData.AddToSaveData(this);
         

@@ -22,11 +22,11 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour,IUsePlayerDevice
     [SerializeField] private float minDot;
     [SerializeField] private float explosionDamage;
     [SerializeField] private bool dotScale = true;
-    private bool isShockEffectOn;
-    private bool isCooldownOut = true;
+    [HideInInspector] [SerializeField] private bool isShockEffectOn;
+    [HideInInspector] [SerializeField] private bool isCooldownOut = true;
     private static readonly int FresnelEffectShaderID = Shader.PropertyToID("FresnelEffect");
 
-    private float cooldownTimer = 0;
+    [HideInInspector] [SerializeField] private float cooldownTimer = 0;
     
     private bool isManageBlocked = false;
 
@@ -35,7 +35,31 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour,IUsePlayerDevice
     public float CooldownTime => cooldownTime;
     public float CooldownTimer => cooldownTimer;
 
+    public float ExplosionForce => explosionForce;
+
+    public float MinDot => minDot;
+
+    public bool IsShockEffectOn => isShockEffectOn;
+
+    public bool IsCooldownOut => isCooldownOut;
+
     private DeviceButton useProtectionButton = new DeviceButton();
+
+    public void Load(float cooldownTime,float cooldownTimer,float explosionDamage, float explosionRadius,float minDot,float explosionForce, bool isCooldownOut)
+    {
+        this.cooldownTime = cooldownTime;
+        this.cooldownTimer = cooldownTimer;
+
+        this.explosionDamage = explosionDamage;
+        this.explosionRadius = explosionRadius;
+
+        this.minDot = minDot;
+
+        this.explosionForce = explosionForce;
+
+        this.isCooldownOut = isCooldownOut;
+
+    }
     
     private void Start()
     {

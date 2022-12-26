@@ -6,11 +6,19 @@ public class BulletHoming : Bullet
 {
     [SerializeField] private float homingSpeed = 3.5f;
     [SerializeField] internal Transform target;
+    [SerializeField] private bool isEnemyBullet = true;
 
+    protected override void Start()
+    {
+        base.Start();
+
+        if (isEnemyBullet && target == null)
+            target = GameObject.Find("Player").transform;
+    }
+    
     private void FixedUpdate()
     {
-        if(target != null)
-            Homing(target,homingSpeed);
+        Homing(target,homingSpeed);
     }
 
     protected virtual void Homing(Transform target,float homingSpeed)

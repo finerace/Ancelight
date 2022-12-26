@@ -35,8 +35,8 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     [HideInInspector] [SerializeField] private bool OneClick;
     [HideInInspector] [SerializeField] private float attackTime;
     [HideInInspector] [SerializeField] private bool endTimeShoot;
-    [SerializeField] private WeaponData.ShootingMode shootingMode;
-    [SerializeField] private bool isAttacking = false;
+    private WeaponData.ShootingMode shootingMode;
+    private bool isAttacking = false;
 
     [Space]
     private GameObject weaponPrefab;
@@ -84,14 +84,14 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     [HideInInspector] [SerializeField] private GameObject nowAbilityPrefab;
 
     [HideInInspector] [SerializeField] private bool extraAbilityOneClickState = false;
-    [SerializeField] private bool isThereAnyBullets;
+    private bool isThereAnyBullets;
 
     private bool isManageActive = true;
 
     private DeviceButton fireButton = new DeviceButton();
     private DeviceButton nextWeaponButton = new DeviceButton();
     private DeviceButton previousWeaponButton = new DeviceButton();
-
+    
     private DeviceButton useAbilityButton = new DeviceButton();
     private DeviceButton nextAbilityButton = new DeviceButton();
     private DeviceButton previousAbilityButton = new DeviceButton();

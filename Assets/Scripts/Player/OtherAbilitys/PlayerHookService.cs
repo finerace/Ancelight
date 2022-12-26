@@ -13,7 +13,7 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
     [Space]
     
     [SerializeField] private float hookMaxStrength = 25f;
-    private float hookCurrentStrength = 0;
+    [SerializeField] private float hookCurrentStrength = 0;
     
     public float HookMaxStrength => hookMaxStrength;
     public float HookCurrentStrength => hookCurrentStrength;
@@ -21,7 +21,7 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
     [SerializeField] private float hookStrengthUsePerSecond = 5f;
     [SerializeField] private float hookStrengthRegenerationPerSecond = 3.5f;
     [SerializeField] private float hookStrengthRegenerationAfterUseTime = 5f;
-    private float hookAfterUseTimer = 0f;
+    [SerializeField] private float hookAfterUseTimer = 0f;
     private bool isAfterUseTimerActive = true;
     
     public bool IsAfterUseTimerActive => isAfterUseTimerActive;
@@ -40,6 +40,20 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
     public float MinStrengthAmountToUse => minStrengthAmountToUse;
     public float HookMaxActionRange => hookMaxActionRange;
 
+    public float HookStrengthUsePerSecond => hookStrengthUsePerSecond;
+
+    public float HookStrengthRegenerationAfterUseTime => hookStrengthRegenerationAfterUseTime;
+
+    public float HookAfterUseTimer => hookAfterUseTimer;
+
+    public float HookForce => hookForce;
+
+    public float HookDamage => hookDamage;
+
+    public float StartDamper => startDamper;
+
+    
+    
     private bool isHookUsed = false;
     public bool IsHookUsed => isHookUsed;
 
@@ -60,6 +74,29 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
     private bool hookManageIsBlocked = false;
 
     private DeviceButton useHookButton = new DeviceButton();
+
+    private bool isLoaded = false;
+    
+    public void Load(float hookCurrentStrength, float hookMaxStrength, float hookStrengthRegenerationPerSecond,
+        float minStrengthAmountToUse, float hookMaxActionRange, float hookStrengthUsePerSecond,
+        float hookStrengthRegenerationAfterUseTime,
+        float hookForce, float hookDamage)
+    {
+        this.hookCurrentStrength = hookCurrentStrength;
+        this.hookMaxStrength = hookMaxStrength;
+
+        this.hookStrengthRegenerationPerSecond = hookStrengthRegenerationPerSecond;
+        this.hookStrengthUsePerSecond = hookStrengthUsePerSecond;
+        this.hookStrengthRegenerationAfterUseTime = hookStrengthRegenerationAfterUseTime;
+
+        this.minStrengthAmountToUse = minStrengthAmountToUse;
+        this.hookMaxActionRange = hookMaxActionRange;
+
+        this.hookForce = hookForce;
+        this.hookDamage = hookDamage;
+
+        isLoaded = true;
+    }
     
     private void Awake()
     {
@@ -72,7 +109,10 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
 
         startDamper = playerJoint.damper;
         playerJoint.damper = 0;
-        hookCurrentStrength = hookMaxStrength;
+        
+        if(!isLoaded)
+            hookCurrentStrength = hookMaxStrength;
+        
         hookLineRenderer.transform.parent = null;
 
         lastHookRbPos = Vector3.forward;

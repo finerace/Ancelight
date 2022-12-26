@@ -7,11 +7,20 @@ public class BulletHomingExplousion : ExplousionBullet
 
     [SerializeField] private float homingSpeed = 3.5f;
     [SerializeField] internal Transform target;
+    [SerializeField] private bool isEnemyBullet = true;
 
+    protected override void Start()
+    {
+        base.Start();
+
+        if (isEnemyBullet && target == null)
+            target = GameObject.Find("Player").transform;
+    }
+    
+    
     private void FixedUpdate()
     {
         Homing(target,homingSpeed);
-
     }
 
     protected virtual void Homing(Transform target, float homingSpeed)

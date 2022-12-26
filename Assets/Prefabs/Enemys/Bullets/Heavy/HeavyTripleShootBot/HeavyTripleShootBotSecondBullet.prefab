@@ -9737,12 +9737,16 @@ MonoBehaviour:
   rigidbody_: {fileID: 0}
   body_: {fileID: 6571646158022850636}
   colliders: {fileID: 6571646158332862438}
+  destructionTime: 2
+  currentTime: 0
   lifeTime: 5
+  isDestruction: 0
   isFly: 1
   damage: 5
   inCollisionAddForce: 1
   collisionForce: 1
   speed: 35
+  bulletId: 12
 --- !u!54 &7399644231182480711
 Rigidbody:
   m_ObjectHideFlags: 0
