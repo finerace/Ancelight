@@ -4952,6 +4952,7 @@ MonoBehaviour:
   itemMeshObject: {fileID: 5998482187895173747}
   itemDestroyTime: 5
   isOneUsesItem: 1
+  itemId: 24
   getHealth: 15
   getArmor: 0
 --- !u!95 &5998482187169114532

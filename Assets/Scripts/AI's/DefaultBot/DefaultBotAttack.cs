@@ -17,12 +17,19 @@ public abstract class DefaultBotAttack : MonoBehaviour
     [SerializeField] internal int attackPhase;
     protected bool isRecentlyLoad;
 
+    public void Load(DefaultBotAttack attack)
+    {
+        onAttackTime = attack.onAttackTime;
+        currentWaitTime = attack.currentWaitTime;
+        attackPhase = attack.attackPhase;
+    }
+
     private void Awake()
     {
         if (onAttackTime > 0)
             isRecentlyLoad = true;
     }
-
+    
     public abstract void StartAttack();
 
     public abstract void StartMeleeAttack(Transform target);

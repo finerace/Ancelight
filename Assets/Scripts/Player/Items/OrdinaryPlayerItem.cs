@@ -7,7 +7,10 @@ public abstract class OrdinaryPlayerItem : MonoBehaviour, IPlayerItem
     [SerializeField] protected GameObject itemMeshObject;
     [SerializeField] protected float itemDestroyTime = 5;
     [SerializeField] protected bool isOneUsesItem = true;
+    [SerializeField] protected int itemId = 0;
     private bool itemIsDestroyed = false;
+
+    public int ItemId => itemId;
 
     public void PickUp(PlayerMainService player)
     {

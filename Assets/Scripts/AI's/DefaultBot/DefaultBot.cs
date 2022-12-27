@@ -21,7 +21,7 @@ public abstract class DefaultBot : Health
     [SerializeField] internal float targetVeryCloselyRadius = 3f;
     [SerializeField] protected float damageImpulse = 3f;
 
-    private Vector3 destination;
+    [SerializeField] private Vector3 destination;
 
     internal Vector3 Destination
     {
@@ -44,7 +44,7 @@ public abstract class DefaultBot : Health
 
     [SerializeField] internal bool isStaticBot = false;
 
-    private float targetOldLookTimer = 1024f;
+    [SerializeField] private float targetOldLookTimer = 1024f;
     public float TargetOldLookTimer { get { return targetOldLookTimer; }}
 
     [SerializeField] [Range(-1f,1f)] internal float fovDot = 0.7f;
@@ -61,8 +61,8 @@ public abstract class DefaultBot : Health
 
     [Space]
     [SerializeField] internal bool isAannoyed;
-    internal const float aannoyedTime = 5f;
-    internal float aannoyedTimer = 0f;
+    [SerializeField] internal const float aannoyedTime = 5f;
+    [SerializeField] internal float aannoyedTimer = 0f;
 
     [Space]
     [SerializeField] internal bool isLookingTarget;
@@ -70,7 +70,7 @@ public abstract class DefaultBot : Health
     [SerializeField] internal bool isTargetVeryClosely;
     
     [SerializeField] internal bool isBotGoToWayPoints = false;
-    [SerializeField] private Vector3 currentWayPoint;
+    [SerializeField] internal Vector3 currentWayPoint;
     
     [SerializeField] internal bool isSmart;
     [Space]
@@ -80,7 +80,7 @@ public abstract class DefaultBot : Health
     [SerializeField] internal DefaultBotAttack botAttack;
     [SerializeField] internal DefaultBotAnimations botAnimations;
     
-    internal float startAgentSpeed;
+    [SerializeField] internal float startAgentSpeed;
     
     public DefaultBotParts BotParts => botParts;
 
@@ -90,6 +90,51 @@ public abstract class DefaultBot : Health
 
     public DefaultBotAnimations BotAnimations => botAnimations;
 
+    public void Load(DefaultBot savedBot)
+    {
+         SetHealth(savedBot.Health_);
+         SetMaxHealth(savedBot.MaxHealth_);
+
+         botSpeed = savedBot.botSpeed;
+         lookingRadius = savedBot.lookingRadius;
+         isPathLong = savedBot.isPathLong;
+
+         targetCloselyRadius = savedBot.targetCloselyRadius;
+         targetVeryCloselyRadius = savedBot.targetVeryCloselyRadius;
+
+         damageImpulse = savedBot.damageImpulse;
+
+         destination = savedBot.destination;
+
+         isStaticBot = savedBot.isStaticBot;
+
+         targetOldLookTimer = savedBot.targetOldLookTimer;
+
+         fovDot = savedBot.fovDot;
+         lookingLayerMask = savedBot.lookingLayerMask;
+
+         isSetTargetPosOnHiddenTarget = savedBot.isSetTargetPosOnHiddenTarget;
+         setTargetPosTime = savedBot.setTargetPosTime;
+         nowSetTargetPosHiddenTimer = savedBot.nowSetTargetPosHiddenTimer;
+         nowSettesTargetPos = savedBot.nowSettesTargetPos;
+
+         isRbVelocityToNavAgnStrict = savedBot.isRbVelocityToNavAgnStrict;
+
+         isAannoyed = savedBot.isAannoyed;
+         aannoyedTimer = savedBot.aannoyedTimer;
+
+         isLookingTarget = savedBot.isLookingTarget;
+         isTargetClosely = savedBot.isTargetClosely;
+         isTargetVeryClosely = savedBot.isTargetVeryClosely;
+
+         isBotGoToWayPoints = savedBot.isBotGoToWayPoints;
+         currentWayPoint = savedBot.currentWayPoint;
+
+         isSmart = savedBot.isSmart;
+
+         startAgentSpeed = savedBot.startAgentSpeed;
+    }
+    
     internal void Start()
     {
         LevelSaveData.mainLevelSaveData.AddToSaveData(this);

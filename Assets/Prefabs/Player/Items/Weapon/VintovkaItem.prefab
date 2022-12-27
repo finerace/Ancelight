@@ -10007,6 +10007,7 @@ MonoBehaviour:
   itemMeshObject: {fileID: 7215117842760713178}
   itemDestroyTime: 5
   isOneUsesItem: 1
+  itemId: 17
   getWeaponId: 4
   bonusBullets: 50
   stand: {fileID: 8971180477807367779}

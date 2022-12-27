@@ -10085,6 +10085,7 @@ MonoBehaviour:
   itemMeshObject: {fileID: 9005370536235968207}
   itemDestroyTime: 5
   isOneUsesItem: 1
+  itemId: 8
   plasmaId: red
   plasmaCount: 5
 --- !u!95 &9005370536926214340
