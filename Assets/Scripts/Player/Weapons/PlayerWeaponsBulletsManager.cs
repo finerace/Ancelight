@@ -212,8 +212,6 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
         if (plasmaReserves[plasmaId] + count > plasmaMaxReserves[plasmaId])
         {
             plasmaReserves[plasmaId] = plasmaMaxReserves[plasmaId];
-
-            print($"{plasmaId} plasma added count is to many! this plasma set to max value.");
         }
         else
             plasmaReserves[plasmaId] += count;
