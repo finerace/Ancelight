@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MainSystemFunctions : MonoBehaviour
+public class SystemFunctions : MonoBehaviour
 {
     private void Awake()
     {
@@ -13,6 +14,12 @@ public class MainSystemFunctions : MonoBehaviour
         Application.Quit();
     }
 
+    public static void LoadScene(int sceneId)
+    {
+        SceneManager.LoadScene(sceneId);
+    }
+    
+    
     private void StartRamCleaner()
     {
         const float cleanCooldown = 10f;

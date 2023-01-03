@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,14 +20,30 @@ public class MenuSystem : MonoBehaviour
     [Space]
     private MenuData currentMenuData;
     private bool currentMenuIsParent = true;
+    
     private PlayerMainService player;
-
-
+    private bool isPlayerExist;
+    
     private void Awake()
     {
         OpenStartMenu();
+        
+        FindPlayer();
+        
+        void FindPlayer()
+        {
+            try
+            {
+                player = GameObject.Find("Player").GetComponent<PlayerMainService>();
+                isPlayerExist = true;
+            }
+            catch (Exception)
+            {
+                print("Menu System not found Player!");
+                isPlayerExist = false;
+            }
+        }
 
-        player = GameObject.Find("Player").GetComponent<PlayerMainService>();
     }
 
     private void Update()
@@ -156,7 +173,7 @@ public class MenuSystem : MonoBehaviour
 
         SetTimeScaleActive(menuData.isTimeNotActive);
 
-        if (player != null)
+        if (isPlayerExist)
         {
             var playerManageActive =
                 !(menuData.isTimeNotActive || menuData.isCursorActive);
@@ -186,7 +203,7 @@ public class MenuSystem : MonoBehaviour
         
         void IsPlayerManageActive(bool state)
         {
-            if(player != null)
+            if(isPlayerExist)
                 player.SetManageActive(state);
         }
     }

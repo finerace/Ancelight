@@ -489,4 +489,16 @@ public static class AuxiliaryFunc
         return (int)(target * 100f) / 100f;
     }
     
+    public static string ConvertNumCharacters(int charactersCount)
+    {
+        var resultString = charactersCount.ToString();
+
+        if (resultString.Length == 1)
+        {
+            resultString = "0" + resultString;
+        }
+
+        return resultString;
+    }
+    
 }

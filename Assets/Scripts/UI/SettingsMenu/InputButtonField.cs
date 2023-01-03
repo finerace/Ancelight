@@ -10,7 +10,7 @@ public class InputButtonField : MonoBehaviour, IPointerClickHandler
     [SerializeField] private KeyCode defaultAssignedButton;
     [SerializeField] private bool defaultAssignedMouseWheelMove;
     
-    private DeviceButton assignedButton;
+    private DeviceButton assignedButton = new DeviceButton();
 
     private bool isButtonWaitAssigned = false;
 

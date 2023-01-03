@@ -9,6 +9,7 @@ public class ButtonMainService : MonoBehaviour, IPointerUpHandler,IPointerDownHa
     IPointerEnterHandler, IPointerExitHandler
 {
 
+    [SerializeField] private bool enabledAnimations = true;
     [SerializeField] private ButtonAnimations buttonAnimations;
     [Space]
     public UnityEvent onClickAction;
@@ -22,6 +23,9 @@ public class ButtonMainService : MonoBehaviour, IPointerUpHandler,IPointerDownHa
             onClickAction.Invoke();
         }
         
+        if(!enabledAnimations)
+            return;
+            
         buttonAnimations.currentButtonAnimationState = onMouseEnter ? ButtonAnimations.ButtonState.MouseEnter 
             : ButtonAnimations.ButtonState.Idle;
         
@@ -30,6 +34,9 @@ public class ButtonMainService : MonoBehaviour, IPointerUpHandler,IPointerDownHa
 
     public void OnPointerDown(PointerEventData data)
     {
+        if(!enabledAnimations)
+            return;
+        
         buttonAnimations.currentButtonAnimationState =
             ButtonAnimations.ButtonState.Clicked;
 
@@ -38,6 +45,9 @@ public class ButtonMainService : MonoBehaviour, IPointerUpHandler,IPointerDownHa
 
     public void OnPointerEnter(PointerEventData data)
     {
+        if(!enabledAnimations)
+            return;
+        
         buttonAnimations.currentButtonAnimationState =
             ButtonAnimations.ButtonState.MouseEnter;
 
@@ -46,7 +56,9 @@ public class ButtonMainService : MonoBehaviour, IPointerUpHandler,IPointerDownHa
 
     public void OnPointerExit(PointerEventData data)
     {
-
+        if(!enabledAnimations)
+            return;
+        
         buttonAnimations.currentButtonAnimationState =
             ButtonAnimations.ButtonState.Idle;
 
