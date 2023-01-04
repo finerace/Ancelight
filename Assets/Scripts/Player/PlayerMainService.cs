@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class PlayerMainService : Health
+public class PlayerMainService : Health,IUsePlayerDevicesButtons
 {
     [Space]
     [SerializeField] private float maxArmor;
@@ -21,8 +21,10 @@ public class PlayerMainService : Health
     [SerializeField] internal PlayerImmediatelyProtectionService immediatelyProtectionService;
     [SerializeField] internal PlayerUseService playerUseService;
 
-    [Space]
-
+    [Space] 
+    
+    [SerializeField] private MenuSystem menuSystem;
+    
     [SerializeField] private Transform shootingPoint;
     [SerializeField] private Transform weaponPoint;
     [SerializeField] private Transform meleeAttackPoint;
@@ -32,7 +34,6 @@ public class PlayerMainService : Health
     public Transform WeaponPoint => weaponPoint;
 
     public Transform MeleeAttackPoint => meleeAttackPoint;
-
     
     private bool isManageActive = true;
 
@@ -44,6 +45,8 @@ public class PlayerMainService : Health
     public event Action<WeaponData> UnlockWeaponEvent; 
     public event Action<(string,float)> AddPlasmaEvent;
 
+    private DeviceButton openSuitManageMenuButton;
+    
     private void Awake()
     {
         weaponsManager.Load(this);
@@ -80,6 +83,12 @@ public class PlayerMainService : Health
                 CheckObjectHasPlayerItem(localCollider.gameObject);
             }
         }
+    }
+
+    private void Update()
+    {
+        if (openSuitManageMenuButton.IsGetButtonDown())
+            menuSystem.OpenLocalMenu("SuitManageMenu");
     }
 
     private void CheckObjectHasPlayerItem(GameObject checkObject)
@@ -182,4 +191,8 @@ public class PlayerMainService : Health
             playerRotation = GetComponent<PlayerRotation>();
     }
 
+    public DeviceButton[] GetUsesDevicesButtons()
+    {
+        return new DeviceButton[] {openSuitManageMenuButton} ;
+    }
 }

@@ -24,7 +24,7 @@ public class MenuSystem : MonoBehaviour
     private PlayerMainService player;
     private bool isPlayerExist;
     
-    private void Awake()
+    private void Start()
     {
         OpenStartMenu();
         
@@ -48,9 +48,6 @@ public class MenuSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.E))
-            OpenLocalMenu("SuitManageMenu");
-
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             Back();
