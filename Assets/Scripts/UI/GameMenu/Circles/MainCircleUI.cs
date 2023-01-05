@@ -45,6 +45,9 @@ public class MainCircleUI : MonoBehaviour
 
     private void Start()
     {
+        playerManager = FindObjectOfType<PlayerMainService>();
+        weaponsManager = playerManager.weaponsManager;
+        
         selectedWeapon = weaponsManager.SelectedWeapon;
 
         weaponsManager.WeaponsUnlockedIDs.Sort();

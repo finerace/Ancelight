@@ -36,6 +36,11 @@ public class PlasmaIndicatorsSetService : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bluePlasmaPercentageIndicator;
     [SerializeField] private TextMeshProUGUI bluePlasmaCurrentMaxIndicator;
 
+    private void Awake()
+    {
+        playerMainService = FindObjectOfType<PlayerMainService>();
+    }
+
     private void Update()
     {
         UpdatePlasmaIndicators();

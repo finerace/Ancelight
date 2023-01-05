@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
@@ -40,6 +41,11 @@ public class SuitManageMenuIndicatorsSetService : MonoBehaviour
     [SerializeField] private TextMeshProUGUI imidProtectionAttackRange;
     [SerializeField] private TextMeshProUGUI imidProtectionAttackDamage;
     [SerializeField] private Image imidProtectionCircle;
+
+    private void Awake()
+    {
+        playerMain = FindObjectOfType<PlayerMainService>();
+    }
 
     private void OnEnable()
     {

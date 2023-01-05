@@ -26,6 +26,8 @@ public class HookCircle : MonoBehaviour
 
     private void Start()
     {
+        hookService = FindObjectOfType<PlayerHookService>();
+        
         SetStartColor();
         
         CopyImagesMaterials();

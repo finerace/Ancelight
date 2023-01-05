@@ -9,7 +9,12 @@ public class BulletViewPanelsUpdateCountIndicators : MonoBehaviour
     [SerializeField] private BulletsViewPanelCreator viewPanelCreator;
 
     [SerializeField] private float indicatorsSpeed = 15f;
-    
+
+    private void Awake()
+    {
+        playerMainService = FindObjectOfType<PlayerMainService>();
+    }
+
     private void Update()
     {
         IndicatorsUpdate();        

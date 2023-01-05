@@ -21,12 +21,17 @@ public class BulletsViewPanelCreator : MonoBehaviour
     private readonly Dictionary<int, Image> bulletCountIndicators = new Dictionary<int, Image>();
 
     public IDictionary<int, Image> BulletCountIndicators => bulletCountIndicators;
-    
+
+    private void Awake()
+    {
+        playerMainService = FindObjectOfType<PlayerMainService>();
+    }
+
     private void OnEnable()
     {
         if(IsPlayerHasNewWeapon())
             CreateNewViewPanels();
-    }
+    }  
 
     private void CreateNewViewPanels()
     {

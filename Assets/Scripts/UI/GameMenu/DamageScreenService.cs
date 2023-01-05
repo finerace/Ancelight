@@ -14,6 +14,8 @@ public class DamageScreenService : MonoBehaviour
 
     private void Awake()
     {
+        playerMain = FindObjectOfType<PlayerMainService>();
+        
         SetDamageScreenIntensity(0);
 
         playerMain.GetDamageEvent += DamageScreenIntensityTrackerAndSetter;

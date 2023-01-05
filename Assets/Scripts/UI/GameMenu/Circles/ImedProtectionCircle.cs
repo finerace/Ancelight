@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,11 @@ public class ImedProtectionCircle : MonoBehaviour
 
     [SerializeField] private Image icon;
     [SerializeField] private Image dynamicCircle;
+
+    private void Awake()
+    {
+        immedProtectionService = FindObjectOfType<PlayerImmediatelyProtectionService>();
+    }
 
     private void Update()
     { 

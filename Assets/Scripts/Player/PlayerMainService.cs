@@ -20,7 +20,8 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     [SerializeField] internal PlayerDashsService dashsService;
     [SerializeField] internal PlayerImmediatelyProtectionService immediatelyProtectionService;
     [SerializeField] internal PlayerUseService playerUseService;
-
+    [SerializeField] internal PlayerCleaner playerCleaner;
+    
     [Space] 
     
     [SerializeField] private MenuSystem menuSystem;
@@ -45,7 +46,7 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     public event Action<WeaponData> UnlockWeaponEvent; 
     public event Action<(string,float)> AddPlasmaEvent;
 
-    private DeviceButton openSuitManageMenuButton;
+    private DeviceButton openSuitManageMenuButton = new DeviceButton();
     
     private void Awake()
     {
@@ -87,8 +88,8 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
 
     private void Update()
     {
-        if (openSuitManageMenuButton.IsGetButtonDown())
-            menuSystem.OpenLocalMenu("SuitManageMenu");
+       if (openSuitManageMenuButton.IsGetButtonDown())
+          menuSystem.OpenLocalMenu("SuitManageMenu");
     }
 
     private void CheckObjectHasPlayerItem(GameObject checkObject)

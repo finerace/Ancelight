@@ -35,6 +35,9 @@ public class AdditionalInformationPanel : MonoBehaviour
     
     private void Awake()
     {
+        playerLookService = FindObjectOfType<PlayerLookService>();
+        searchRayPoint = playerLookService.mainCamera.transform;
+        
         CopyColorImageMaterial();
 
         oldDescriptionTextScale = panelDescription.fontSize;
@@ -43,7 +46,7 @@ public class AdditionalInformationPanel : MonoBehaviour
     private void Update()
     {
         // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
-
+        
         if (SearchInformationObjects(out var informationData))
         {
             if(!panelT.gameObject.activeSelf)

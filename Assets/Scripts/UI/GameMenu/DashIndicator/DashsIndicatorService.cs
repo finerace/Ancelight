@@ -25,6 +25,7 @@ public class DashsIndicatorService : MonoBehaviour
     private void Awake()
     {
         startPoint = transform;
+        dashsService = FindObjectOfType<PlayerDashsService>();
 
         ReCreateIndicators();
     }

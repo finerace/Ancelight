@@ -18,6 +18,8 @@ public class TextAdditionalInformation : MonoBehaviour
     
     private void Start()
     {
+        playerMainService = FindObjectOfType<PlayerMainService>();
+        
         playerMainService.AddHealthEvent += ShowAddHealthText;
         playerMainService.AddArmorEvent += ShowAddArmorText;
         playerMainService.AddPlasmaEvent += ShowAddPlasmaText;

@@ -7,23 +7,31 @@ using UnityEngine;
 public class MenuSystem : MonoBehaviour
 {
     [SerializeField] private ParentMenuData startMenuData;
-    [SerializeField] private bool isMenusPresetCreate = false;
 
     [Space]
     
     [SerializeField] private Animator menusChangeAnimation;
     [SerializeField] private float menusChangeAnimationTime = 0.5f;
 
-
     private string menusPath;
     private readonly List<MenuData> menusDataPath = new List<MenuData>();
+    
     [Space]
     private MenuData currentMenuData;
+
     private bool currentMenuIsParent = true;
-    
+
+    private Camera mainCamera;
     private PlayerMainService player;
     private bool isPlayerExist;
-    
+
+    private void Awake()
+    {
+        mainCamera = Camera.main;
+        
+        InitMenusData();
+    }
+
     private void Start()
     {
         OpenStartMenu();
@@ -54,6 +62,49 @@ public class MenuSystem : MonoBehaviour
         }
     }
 
+    private void InitMenusData()
+    {
+        InitMenu(startMenuData);
+        
+        void InitMenu(MenuData menuData)
+        {
+            var spawnedMenu = Instantiate(menuData.menuPrefab);
+            spawnedMenu.GetComponent<Canvas>().worldCamera = mainCamera;
+            SetMenuSystemRef();
+            
+            menuData.menu = spawnedMenu;
+            
+            
+            if(!IsMenuDataParent(menuData))
+                return;
+
+            var parentMenuData = (ParentMenuData)menuData;
+            
+            InitChildMenusData(parentMenuData);
+            
+
+            void InitChildMenusData(ParentMenuData parentMenuData)
+            {
+                foreach (var menuChildData in parentMenuData.childsMenusData)
+                    InitMenu(menuChildData);
+
+                foreach (var parentChildMenuData in parentMenuData.childsParentsMenusData)
+                    InitMenu(parentChildMenuData);
+            }
+
+            void SetMenuSystemRef()
+            {
+                if (spawnedMenu.TryGetComponent(out MenuSystemReference menuSystemReference))
+                    menuSystemReference.SetMenuSystemReference(this);
+            }
+        }
+
+        bool IsMenuDataParent(MenuData menuData)
+        {
+            return menuData.GetType() == typeof(ParentMenuData);
+        }
+    }
+    
     public void OpenLocalMenu(string menuID)
     {
         if (!currentMenuIsParent)
@@ -214,23 +265,14 @@ public class MenuSystem : MonoBehaviour
     {
         menusChangeAnimation.Play("MenuChange");
     }
-    
-    public void InitializeMenusPreset()
-    {
-        isMenusPresetCreate = true;
-    }
 
-    public bool IsMenusPresetInitialize()
-    { 
-        return isMenusPresetCreate; 
-    }
-    
 }
 
 [System.Serializable]
 public class MenuData
 {
     public string menuID;
+    public GameObject menuPrefab;
     public GameObject menu;
     public bool isCursorActive = true;
     public bool isTimeNotActive = true;

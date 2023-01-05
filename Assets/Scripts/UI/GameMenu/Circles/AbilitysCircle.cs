@@ -24,6 +24,8 @@ public class AbilitysCircle : MonoBehaviour
 
     private void Start()
     {
+        weaponsManager = FindObjectOfType<PlayerWeaponsManager>();
+        
         mainCircleMaterial = new Material(mainCircle.material);
         mainCircle.material = mainCircleMaterial;
 

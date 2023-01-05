@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,11 @@ public class SmartAim : MonoBehaviour
     [SerializeField] private RectTransform aimRT;
     [SerializeField] private float smoothneess = 2;
 
+
+    private void Awake()
+    {
+        playerLook = FindObjectOfType<PlayerLookService>();
+    }
 
     private void FixedUpdate()
     {
