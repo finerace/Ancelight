@@ -22,6 +22,8 @@ public class BulletsCreatorService : MonoBehaviour
 
     private void Start()
     {
+        playerMainService = FindObjectOfType<PlayerMainService>();
+        
         bulletCountInputField.onValueChanged.AddListener(BulletsCostUpdate);
     }
 

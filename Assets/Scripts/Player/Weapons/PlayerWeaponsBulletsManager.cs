@@ -36,6 +36,8 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
     [SerializeField] private float bluePlasmaMaxReserve;
 
     private bool isLoaded;
+
+    [SerializeField] private bool infinityAmmoMode;
     
     public void Load(LevelSaveData.SavePlayerData playerData)
     {
@@ -98,6 +100,9 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
 
     public bool CheckBullets(int bulletID)
     {
+        if (infinityAmmoMode)
+            return true;
+        
         if (bulletID != 0)
         {
             if (bulletsCount.ContainsKey(bulletID))
@@ -127,6 +132,9 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
 
     public void SubtractBullets(int bulletID, int count)
     {
+        if(infinityAmmoMode)
+            return;
+        
         if (!bulletsCount.ContainsKey(bulletID)) 
             return;
         
@@ -142,6 +150,9 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
 
     public void SubtractOneBullet(int bulletID)
     {
+        if(infinityAmmoMode)
+            return;
+        
         if (!bulletsCount.ContainsKey(bulletID)) 
             return;
         

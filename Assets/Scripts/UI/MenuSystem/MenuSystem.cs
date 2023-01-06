@@ -25,6 +25,8 @@ public class MenuSystem : MonoBehaviour
     private PlayerMainService player;
     private bool isPlayerExist;
 
+    public MenuData CurrentMenuData => currentMenuData;
+    
     private void Awake()
     {
         mainCamera = Camera.main;

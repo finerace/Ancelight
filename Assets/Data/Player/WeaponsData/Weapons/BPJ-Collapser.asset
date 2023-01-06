@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d46e2684db628f4896f1390284a7e53, type: 3}
   m_Name: BPJ-Collapser
   m_EditorClassIdentifier: 
-  name_: BPJ-Collapser
+  name_: BPJ-Collapsator
   description: Collaps the energy.
   icon: {fileID: 21300000, guid: a016d50cc167f9445a255089f4f7011f, type: 3}
   id: 9

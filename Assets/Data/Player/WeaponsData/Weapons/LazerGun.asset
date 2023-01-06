@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d46e2684db628f4896f1390284a7e53, type: 3}
   m_Name: LazerGun
   m_EditorClassIdentifier: 
-  name_: AA LAZER GUN!!!
+  name_: Lazer Gun
   description: Its a magick 0_0!!!!!
   icon: {fileID: 21300000, guid: 06b7da5bb818fa745acf635246a41944, type: 3}
   id: 8

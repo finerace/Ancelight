@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d46e2684db628f4896f1390284a7e53, type: 3}
   m_Name: Drobovik
   m_EditorClassIdentifier: 
-  name_: drob OVIK =)
+  name_: Shotgun
   description: Its a magick =)!!!!!
   icon: {fileID: 21300000, guid: 19861cd67cb48864cb46541ffeeb5dc6, type: 3}
   id: 3

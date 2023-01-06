@@ -48,6 +48,7 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
 
     private DeviceButton openSuitManageMenuButton = new DeviceButton();
     
+    
     private void Awake()
     {
         weaponsManager.Load(this);
