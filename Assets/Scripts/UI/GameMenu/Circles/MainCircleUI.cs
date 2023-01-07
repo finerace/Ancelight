@@ -54,7 +54,7 @@ public class MainCircleUI : MonoBehaviour
 
         RestartIcons();
 
-        startBrightness = healthCircle.material.GetFloat("_Brightness");
+        startBrightness = 0.7f;
         nowBrightness = startBrightness;
 
         healthCircle.material = new Material(healthCircle.material);

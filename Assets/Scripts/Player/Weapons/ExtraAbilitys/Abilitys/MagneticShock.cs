@@ -21,6 +21,8 @@ public class MagneticShock : ExtraAbility
     [SerializeField] private bool dotScale = true;
     private bool isShockEffectOn;
 
+    private LayerMask shootingLayerMask; 
+        
     private new void Start()
     {
         base.Start();
@@ -35,13 +37,15 @@ public class MagneticShock : ExtraAbility
         shockEffectMaterial = shockEffectRenderer.material;
         shockEffectMaterial.SetFloat("FresnelEffect", shockEffectEndFresnelEffect);
         shockEffectRenderer.enabled = false;
+
+        shootingLayerMask = FindObjectOfType<LayerMasks>().PlayerShootingLayerMask;
     }
 
     public override void LaunchAbility()
     {
         //Technical
         Explousions.DirectedExplosion(shockPosition.position, shockPosition.forward, 
-            minDot, explosionForce, explosionRadius, damage, dotScale);
+            minDot, explosionForce, explosionRadius, shootingLayerMask,damage, dotScale);
 
         //Visual effects
         shockEffectRenderer.enabled = true;

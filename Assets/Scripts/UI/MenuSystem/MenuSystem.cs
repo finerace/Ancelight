@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MenuSystem : MonoBehaviour
 {
     [SerializeField] private ParentMenuData startMenuData;
-
+    [SerializeField] private GameObject splashWindowPrefab;
+    
     [Space]
     
     [SerializeField] private Animator menusChangeAnimation;
@@ -268,6 +270,13 @@ public class MenuSystem : MonoBehaviour
         menusChangeAnimation.Play("MenuChange");
     }
 
+    public void CallSplashWindow(string splashWindowText, UnityAction yesAction, UnityAction noAction = null)
+    {
+        var splashWindowData = Instantiate(splashWindowPrefab,currentMenuData.menu.transform).GetComponent<SplashWindowData>();
+        
+        splashWindowData.SetNewData(splashWindowText,yesAction,noAction);
+    }
+    
 }
 
 [System.Serializable]

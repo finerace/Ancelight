@@ -148,7 +148,7 @@ public static class Explousions
     }
 
     public static void DirectedExplosion(Vector3 explousionPos, Vector3 explousionDirection,
-        float minDot, float explosionForce, float explosionRadius, float damage = 0, bool DotScale = false)
+        float minDot, float explosionForce, float explosionRadius,LayerMask playerShootingLayerMask,float damage = 0, bool DotScale = false)
     {
         float explousionForceSmoothness = 100f;
         float resultExplousionForce = explosionForce * explousionForceSmoothness;
@@ -171,9 +171,9 @@ public static class Explousions
 
             float maxDistance = Vector3.Distance(explousionPos, collider.transform.position);
 
-            LayerMask layerMask =
-                GameObject.Find("LayerMasks").GetComponent<LayerMasks>().PlayerShootingLayerMask;
-
+            var layerMask =
+                playerShootingLayerMask;
+            
             Physics.Raycast(ray, out hitInfo, maxDistance, layerMask);
             bool raycastTest;
 

@@ -45,6 +45,8 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour,IUsePlayerDevice
 
     private DeviceButton useProtectionButton = new DeviceButton();
 
+    private LayerMask shootingLayerMask;
+    
     public void Load(float cooldownTime,float cooldownTimer,float explosionDamage, float explosionRadius,float minDot,float explosionForce, bool isCooldownOut)
     {
         this.cooldownTime = cooldownTime;
@@ -72,6 +74,8 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour,IUsePlayerDevice
         shockEffectMaterial = shockEffectRenderer.material;
         shockEffectMaterial.SetFloat(FresnelEffectShaderID, shockEffectEndFresnelEffect);
         shockEffectRenderer.enabled = false;
+
+        shootingLayerMask = FindObjectOfType<LayerMasks>().PlayerShootingLayerMask;
     }
 
     private void StartProtection()
@@ -80,7 +84,7 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour,IUsePlayerDevice
         StartCooldownTimer(); 
         
         Explousions.DirectedExplosion(shockPosition.position, shockPosition.forward, 
-            minDot, explosionForce, explosionRadius, explosionDamage, dotScale);
+            minDot, explosionForce, explosionRadius,shootingLayerMask,explosionDamage, dotScale);
 
         //Visual effects
         shockEffectRenderer.enabled = true;
