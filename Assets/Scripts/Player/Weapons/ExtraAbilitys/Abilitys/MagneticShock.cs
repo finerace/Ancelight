@@ -44,7 +44,7 @@ public class MagneticShock : ExtraAbility
     public override void LaunchAbility()
     {
         //Technical
-        Explousions.DirectedExplosion(shockPosition.position, shockPosition.forward, 
+        Explosions.DirectedExplosion(shockPosition.position, shockPosition.forward, 
             minDot, explosionForce, explosionRadius, shootingLayerMask,damage, dotScale);
 
         //Visual effects

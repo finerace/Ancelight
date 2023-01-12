@@ -27,7 +27,7 @@ public class BulletShell : Bullet
 
             bool isPunched = damage > health.Health_;
 
-            Explousions.Explosion(body_.position, explousionForce, exploisonRadius, 0, 0, 0, forceLayerMask);
+            Explosions.Explosion(body_.position, explousionForce, exploisonRadius, 0, 0, 0, forceLayerMask);
 
             if (isPunched)
             {

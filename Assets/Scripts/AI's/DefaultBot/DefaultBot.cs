@@ -133,6 +133,7 @@ public abstract class DefaultBot : Health
          isSmart = savedBot.isSmart;
 
          startAgentSpeed = savedBot.startAgentSpeed;
+         agent.transform.position = Vector3.zero;
     }
     
     internal void Start()

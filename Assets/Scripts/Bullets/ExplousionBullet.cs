@@ -21,8 +21,18 @@ public class ExplousionBullet : Bullet
     {
         if (!isDestruction)
         {
-            Explousions.Explosion(body_.position,explosionForce,explosionRadius,damage
-                , wallsLayerMask,damageLayerMask,forceLayerMask);
+            StartCoroutine(StartExplosion());
+            
+            IEnumerator StartExplosion()
+            {
+                Explosions.Explosion(body_.position, 0, explosionRadius, damage
+                    , wallsLayerMask, damageLayerMask, forceLayerMask);
+
+                yield return null;
+
+                Explosions.Explosion(body_.position, explosionForce, explosionRadius, 0
+                    , wallsLayerMask, damageLayerMask, forceLayerMask,1);
+            }
         }
 
         
@@ -69,15 +79,14 @@ public class ExplousionBullet : Bullet
 
 }
 
-public static class Explousions
+public static class Explosions
 {
 
     public static void Explosion(Vector3 explousionPos, float explosionForce, float explosionRadius, float damage
-        ,LayerMask wallsLayerMask, LayerMask damageLayerMask, LayerMask forceLayerMask)
+        ,LayerMask wallsLayerMask, LayerMask damageLayerMask, LayerMask forceLayerMask,float upModify = 0.25f)
     {
-        float explousionForceSmoothness = 100f;
-        float resultExplousionForce = explosionForce * explousionForceSmoothness;
-        float upModify = 0.25f;
+        float explosionForceSmoothness = 100f;
+        float resultExplosionForce = explosionForce * explosionForceSmoothness;
 
         //??????????? ??????????? ? ???? ?????????
         Collider[] explousionColliders = Physics.OverlapSphere(explousionPos, explosionRadius);
@@ -92,10 +101,9 @@ public static class Explousions
             if (!forceAllow && !damageAllow)
                 continue;
 
-            Rigidbody bodie;
+            Rigidbody bodyRb;
             Health health;
 
-            //?????? ???????? ?? ??????? ????
             Vector3 trueBulletPos = explousionPos;
 
             RaycastHit hitInfo;
@@ -116,14 +124,10 @@ public static class Explousions
                 raycastTest = (hitObjHash == colliderObjHash);
             }
             else raycastTest = true;
-            //????? ???????? ?? ?????
 
 
-            //???? ???????? ???????? ????..
             if (raycastTest)
             {
-
-                //??? ??????? ???????? ??????? ????
                 if (damageAllow)
                     if (collider.gameObject.TryGetComponent<Health>(out health))
                     {
@@ -135,14 +139,12 @@ public static class Explousions
 
                         health.GetDamage(resultDamage);
                     }
-
-                //??? ??????? ????? ???????? ????
+                
                 if (forceAllow)
-                    if (collider.gameObject.TryGetComponent<Rigidbody>(out bodie) && forceAllow)
+                    if (collider.gameObject.TryGetComponent(out bodyRb))
                     {
-                        bodie.AddExplosionForce(resultExplousionForce, explousionPos, explosionRadius, upModify);
+                        bodyRb.AddExplosionForce(resultExplosionForce, explousionPos, explosionRadius, upModify);
                     }
-
             }
         }
     }

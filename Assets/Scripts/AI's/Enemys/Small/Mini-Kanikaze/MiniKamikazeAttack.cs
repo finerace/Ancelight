@@ -23,7 +23,7 @@ public class MiniKamikazeAttack : DefaultBotAttack
     {
         isAttack = true;
 
-        Explousions.Explosion(bot.body.position, explousionForce, explousionRadius, damage,
+        Explosions.Explosion(bot.body.position, explousionForce, explousionRadius, damage,
             wallsLayerMask, damageLayerMask, forceLayerMask);
 
         bot.Died();

@@ -83,7 +83,7 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour,IUsePlayerDevice
         //Technical
         StartCooldownTimer(); 
         
-        Explousions.DirectedExplosion(shockPosition.position, shockPosition.forward, 
+        Explosions.DirectedExplosion(shockPosition.position, shockPosition.forward, 
             minDot, explosionForce, explosionRadius,shootingLayerMask,explosionDamage, dotScale);
 
         //Visual effects
