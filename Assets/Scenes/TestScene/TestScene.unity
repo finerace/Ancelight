@@ -33274,7 +33274,7 @@ GameObject:
   - component: {fileID: 1269875512}
   - component: {fileID: 1269875513}
   - component: {fileID: 1269875514}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: PhysicsFixer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33307,8 +33307,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 1.3, z: 0.95}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 1.01, y: 4.307336, z: 1.01}
+  m_Center: {x: 0, y: 1.5877508, z: 0}
 --- !u!114 &1269875514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51541,11 +51541,11 @@ MonoBehaviour:
       isRotationOn: 0
       isScaleOn: 0
       isPositionLocal: 0
-      animationSpeed: 0.5
+      animationSpeed: 1
       animationTime: 6
       currentAnimationEndTime: 0
       animationStartEndSmoothness: 0
-      lerpAnimationEnabled: 0
+      lerpAnimationEnabled: 1
     - position: {x: 2.3, y: 16.05, z: -27.7}
       rotation: {x: 0, y: 0, z: 0}
       scale: {x: 0, y: 0, z: 0}
@@ -51553,11 +51553,11 @@ MonoBehaviour:
       isRotationOn: 0
       isScaleOn: 0
       isPositionLocal: 0
-      animationSpeed: 0.5
+      animationSpeed: 1
       animationTime: 5
       currentAnimationEndTime: 0
       animationStartEndSmoothness: 0
-      lerpAnimationEnabled: 0
+      lerpAnimationEnabled: 1
     - position: {x: -28.3, y: 16.05, z: -27.7}
       rotation: {x: 0, y: 0, z: 0}
       scale: {x: 0, y: 0, z: 0}
@@ -51565,11 +51565,11 @@ MonoBehaviour:
       isRotationOn: 0
       isScaleOn: 0
       isPositionLocal: 0
-      animationSpeed: 0.5
+      animationSpeed: 1
       animationTime: 10
       currentAnimationEndTime: 0
       animationStartEndSmoothness: 0
-      lerpAnimationEnabled: 0
+      lerpAnimationEnabled: 1
     - position: {x: 2.3, y: 16.05, z: -27.7}
       rotation: {x: 0, y: 0, z: 0}
       scale: {x: 0, y: 0, z: 0}
@@ -51577,11 +51577,11 @@ MonoBehaviour:
       isRotationOn: 0
       isScaleOn: 0
       isPositionLocal: 0
-      animationSpeed: 0.5
+      animationSpeed: 1
       animationTime: 10
       currentAnimationEndTime: 0
       animationStartEndSmoothness: 0
-      lerpAnimationEnabled: 0
+      lerpAnimationEnabled: 1
     ObjectTranslatePosEvent:
       m_PersistentCalls:
         m_Calls: []
