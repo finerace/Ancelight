@@ -18,6 +18,9 @@ public class ScrollObjectService : MonoBehaviour
     [Space] 
     [SerializeField] private Scrollbar scrollbar;
 
+    public Transform StartPoint => startPoint;
+    public Transform ScrollObjectT => scrollObjectT;
+    
     private void Awake()
     {
         var startPointPos = startPoint.localPosition;
