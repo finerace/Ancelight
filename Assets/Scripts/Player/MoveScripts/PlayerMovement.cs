@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -499,6 +500,11 @@ public static class AuxiliaryFunc
         }
 
         return resultString;
+    }
+
+    public static TimeSpan ConvertSecondsToTimeSpan(int seconds)
+    {
+        return new TimeSpan(0, 0, seconds);
     }
     
 }

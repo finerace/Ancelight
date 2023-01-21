@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d2459569ef0db4987d602993032e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  savedLevelPassageService: 
   toSaveEnemyData: []
   toSaveWeaponItemData: []
   toSaveHealthArmorItemData: []
@@ -10101,7 +10102,7 @@ GameObject:
   - component: {fileID: 393283711}
   - component: {fileID: 393283712}
   m_Layer: 0
-  m_Name: LevelCompleteSystem
+  m_Name: LevelPassageService
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10134,7 +10135,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5340413265c87a46a094586c579dadc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIsCompleted: 0
+  levelData: {fileID: 11400000, guid: 884248bd4e4b16b41a723a7c90fd965f, type: 2}
+  secretsFound: 0
+  score: 0
+  enemyKilled: 0
+  passageTimeSec: 0
   menuSystem: {fileID: 853666521}
 --- !u!1 &398539123
 GameObject:
@@ -42943,6 +42948,85 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3643862459113991382, guid: 25d7b164466ad9f408a3541b87f0c4eb, type: 3}
   m_PrefabInstance: {fileID: 1643141986}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1643713578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1643713581}
+  - component: {fileID: 1643713580}
+  - component: {fileID: 1643713579}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1643713579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643713578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f497bd4e9ce9cf46b73a68ed35a1bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerId: 0
+  isTriggerActive: 1
+  activateLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  isSingleTrigger: 1
+  triggerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 393283712}
+        m_TargetAssemblyTypeName: LevelPassageService, Assembly-CSharp
+        m_MethodName: CompleteLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &1643713580
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643713578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.802086, y: 20.172663, z: 36.08303}
+  m_Center: {x: 3.901043, y: 1.849658, z: 6.345524}
+--- !u!4 &1643713581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643713578}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 101.7, y: 7.31, z: 120.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1652301877
 GameObject:
   m_ObjectHideFlags: 0
