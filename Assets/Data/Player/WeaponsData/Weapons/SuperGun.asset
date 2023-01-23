@@ -22,7 +22,7 @@ MonoBehaviour:
   raycast: 0
   isMelee: 0
   oneClick: 0
-  rateOfFire: 0.075
+  rateOfFire: 0.085
   endTimeShoot: 0
   shootingMode: 0
   shootingEffects: {fileID: 0}

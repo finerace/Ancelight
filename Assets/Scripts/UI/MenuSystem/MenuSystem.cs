@@ -22,7 +22,8 @@ public class MenuSystem : MonoBehaviour
     private MenuData currentMenuData;
 
     private bool currentMenuIsParent = true;
-
+    public bool isBackActionLock = false;
+    
     private Camera mainCamera;
     private PlayerMainService player;
     private bool isPlayerExist;
@@ -60,6 +61,9 @@ public class MenuSystem : MonoBehaviour
 
     private void Update()
     {
+        if(isBackActionLock)
+            return;
+        
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             Back();
