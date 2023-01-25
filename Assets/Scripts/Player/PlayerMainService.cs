@@ -64,6 +64,13 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
         LevelSaveData.mainLevelSaveData.AddToSaveData(this);
     }
 
+    public void Load(PlayerMainService savedPlayerMainService)
+    {
+        SetHealth(savedPlayerMainService.Health_);
+        
+        armor = savedPlayerMainService.armor;
+    }
+    
     private void FixedUpdate()
     {
         // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
@@ -169,14 +176,18 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
         immediatelyProtectionService.SetManageActive(state);
         playerUseService.SetManageActive(state);
     }
-
+    
     public override void Died()
     {
-
+        menuSystem.OpenLocalMenu("DiedMenu");
+        menuSystem.isBackActionLock = true;
     }
 
     private void CheckPlayerComponents()
     {
+        if (menuSystem == null)
+            menuSystem = FindObjectOfType<MenuSystem>();
+        
         if (playerMovement == null)
             playerMovement = GetComponent<PlayerMovement>();
         
