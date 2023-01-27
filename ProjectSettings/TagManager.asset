@@ -22,7 +22,7 @@ TagManager:
   - EnemyPhysBullets
   - PlayerBulletWalkColl
   - DefaultOnlyCollision
-  - UIbackground
+  - HookPoint
   - Item
   - AdditionalInformation
   - PlayerTrigger

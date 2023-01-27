@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 
@@ -32,10 +35,13 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
     [SerializeField] private float hookMaxActionRange = 30f;
     [SerializeField] private float hookDistanceDivider = 6f;
     [SerializeField] private float hookDamage = 15f;
+    [SerializeField] private float hookPointsDotScaleUse = 0.98f;
     [SerializeField] private LayerMask hookUseSurfaceMask;
 
     [SerializeField] private float minStrengthAmountToUse = 0.1f;
+    private Transform[] hookPoints;
 
+    public Transform[] HookPoints => hookPoints;
 
     public float MinStrengthAmountToUse => minStrengthAmountToUse;
     public float HookMaxActionRange => hookMaxActionRange;
@@ -51,9 +57,8 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
     public float HookDamage => hookDamage;
 
     public float StartDamper => startDamper;
+    
 
-    
-    
     private bool isHookUsed = false;
     public bool IsHookUsed => isHookUsed;
 
@@ -116,6 +121,52 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
         hookLineRenderer.transform.parent = null;
 
         lastHookRbPos = Vector3.forward;
+
+        
+        StartCoroutine(HookPointsFinder());
+        IEnumerator HookPointsFinder()
+        {
+            const float findCooldown = 0.5f;
+            var waitSeconds = new WaitForSeconds(findCooldown);
+
+            while (true)
+            {
+                yield return waitSeconds;
+                
+                FindHookPoint();
+            }
+
+            void FindHookPoint()
+            {
+                const int hookPointLayerMask = 1 << 15;
+                
+                var allHookPointInRange =
+                    Physics.OverlapSphere(player.weaponsManager.shootingPoint.position, hookMaxActionRange,hookPointLayerMask);
+                
+                hookPoints = GetAllTrueHookPoints(allHookPointInRange);
+
+                Transform[] GetAllTrueHookPoints(Collider[] findsHookPointsColliders)
+                {
+                    var resultHookPoints = new List<Transform>();
+
+                    foreach (var hookPoint in findsHookPointsColliders)
+                    {
+                        var origin = player.weaponsManager.shootingPoint;
+                        var direction = -(origin.position - hookPoint.transform.position).normalized;
+
+                        var checkRay = new Ray(origin.position, direction);
+
+                        var isPlayerLookHookPoint = !Physics.Raycast(checkRay, hookMaxActionRange, (1 << 0) + (1 << 1))
+                                                    && Vector3.Dot(origin.forward, direction) > -0.05;
+                        
+                        if (isPlayerLookHookPoint)
+                            resultHookPoints.Add(hookPoint.transform);
+                    }
+
+                    return resultHookPoints.ToArray();
+                }
+            }
+        }
     }
 
     private void Update()
@@ -124,7 +175,6 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
             return;
         
         UpdateHookAlgorithm();
-
     }
 
     public void SetManageActive(bool state)
@@ -143,7 +193,6 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
         
         if (!isHookUsed)
         {
-
             float hookCurrentStrengthAmount = hookCurrentStrength / hookMaxStrength;
             const float minDrawHookAmountToStartUse = 0.02f;
 
@@ -152,15 +201,30 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
                 hookCurrentStrengthAmount >= minStrengthAmountToUse &&
                 currentDrawHookAmount <= minDrawHookAmountToStartUse;
 
-            if (isHookCanUse)
+            if (isHookCanUse && IsHookAimedToHookPoint())
                 StartUseHook();
 
             HookAfterUseSetTimer();
 
-            const float hookLegthAmount = 0f;
+            const float hookLengthAmount = 0f;
 
-            DrawHookSmoothAmount(hookLegthAmount);
+            DrawHookSmoothAmount(hookLengthAmount);
 
+            bool IsHookAimedToHookPoint()
+            {
+                var playerAim = player.weaponsManager.shootingPoint;
+                var playerAimDirection = playerAim.forward;
+
+                foreach (var hookPoint in hookPoints)
+                {
+                    var playerAimToHookPointDirection = -(playerAim.position - hookPoint.position).normalized;
+                    
+                    if (Vector3.Dot(playerAimDirection, playerAimToHookPointDirection) >= hookPointsDotScaleUse)
+                        return true;
+                }
+
+                return false;
+            }
         }
         else
         {
@@ -326,7 +390,7 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
         }
 
     }
-
+    
     private void EndHookUse()
     {
         isHookUsed = false;
