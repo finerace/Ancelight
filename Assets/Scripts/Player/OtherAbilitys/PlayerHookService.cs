@@ -35,7 +35,7 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
     [SerializeField] private float hookMaxActionRange = 30f;
     [SerializeField] private float hookDistanceDivider = 6f;
     [SerializeField] private float hookDamage = 15f;
-    [SerializeField] private float hookPointsDotScaleUse = 0.98f;
+    [SerializeField] private bool isHookOnlyPointMode = true;
     [SerializeField] private LayerMask hookUseSurfaceMask;
 
     [SerializeField] private float minStrengthAmountToUse = 0.1f;
@@ -152,12 +152,17 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
                     foreach (var hookPoint in findsHookPointsColliders)
                     {
                         var origin = player.weaponsManager.shootingPoint;
-                        var direction = -(origin.position - hookPoint.transform.position).normalized;
+                        var hookPointT = hookPoint.transform;
+                        
+                        var direction = -(origin.position - hookPointT.position).normalized;
 
                         var checkRay = new Ray(origin.position, direction);
 
-                        var isPlayerLookHookPoint = !Physics.Raycast(checkRay, hookMaxActionRange, (1 << 0) + (1 << 1))
-                                                    && Vector3.Dot(origin.forward, direction) > -0.05;
+                        var originHookPointDistance = 
+                            Vector3.Distance(origin.position,hookPointT.position);
+                        
+                        var isPlayerLookHookPoint = Vector3.Dot(origin.forward, direction) > 0.5f
+                                                    && !Physics.Raycast(checkRay, originHookPointDistance, (1 << 0) + (1 << 1));
                         
                         if (isPlayerLookHookPoint)
                             resultHookPoints.Add(hookPoint.transform);
@@ -201,7 +206,7 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
                 hookCurrentStrengthAmount >= minStrengthAmountToUse &&
                 currentDrawHookAmount <= minDrawHookAmountToStartUse;
 
-            if (isHookCanUse && IsHookAimedToHookPoint())
+            if (isHookCanUse)
                 StartUseHook();
 
             HookAfterUseSetTimer();
@@ -210,21 +215,6 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
 
             DrawHookSmoothAmount(hookLengthAmount);
 
-            bool IsHookAimedToHookPoint()
-            {
-                var playerAim = player.weaponsManager.shootingPoint;
-                var playerAimDirection = playerAim.forward;
-
-                foreach (var hookPoint in hookPoints)
-                {
-                    var playerAimToHookPointDirection = -(playerAim.position - hookPoint.position).normalized;
-                    
-                    if (Vector3.Dot(playerAimDirection, playerAimToHookPointDirection) >= hookPointsDotScaleUse)
-                        return true;
-                }
-
-                return false;
-            }
         }
         else
         {
@@ -317,6 +307,9 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
 
         isHookUsed = true;
 
+        if(isHookOnlyPointMode)
+            hookHitObj.point = hookHitObj.transform.position;
+        
         hookRb.gameObject.SetActive(true);
         hookRb.transform.position = hookHitObj.point;
 
@@ -345,8 +338,7 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
 
         playerJoint.connectedBody = hookRb;
         playerJoint.spring = hookForce;
-
-
+        
         Health hitObjHealh;
         bool isHitObjHasHealth;
 
@@ -357,8 +349,7 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
         {
             hitObjHealh.GetDamage(hookDamage);
         }
-
-
+        
         bool GetHookRayRaycastHit(out RaycastHit hitObj)
         {
             Ray hookCheckSurfaceRay;
@@ -367,9 +358,13 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
             Vector3 hookRayDirection = player.playerLook.ShootingPoint.forward;
 
             hookCheckSurfaceRay = new Ray(hookRayOrigin, hookRayDirection);
+            var rayLayerMask = hookUseSurfaceMask;
 
+            if (isHookOnlyPointMode)
+                rayLayerMask = 1 << 15;
+            
             return
-                Physics.Raycast(hookCheckSurfaceRay, out hitObj, hookMaxActionRange, hookUseSurfaceMask);
+                Physics.Raycast(hookCheckSurfaceRay, out hitObj, hookMaxActionRange, rayLayerMask);
         }
 
         bool CheckHookHitObjectForRb(RaycastHit hitObj,out Rigidbody hitObjRb)
@@ -388,7 +383,6 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
 
             return isHitObjHasHealth;
         }
-
     }
     
     private void EndHookUse()
