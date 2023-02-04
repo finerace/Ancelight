@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
     
     [SerializeField] private float jumpForce = 1f;
     [SerializeField]  private Rigidbody playerRb;
+    public event Action onJumpEvent;
+    
     public Rigidbody PlayerRb { get { return playerRb; } }
     
     [SerializeField]  private Transform playerT;
@@ -65,6 +67,7 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
     [Range(0.05f,1f)] [SerializeField] private float crouchPlayerHeight = 0.65f;
     [SerializeField] private float crouchSpeedMultiplier = 0.4f;
     [SerializeField] private bool isPlayerCrouch = false;
+    public bool IsPlayerCrouch => isPlayerCrouch;
     
     [Space]
     [SerializeField] private Vector3 GroundNormal;
@@ -78,7 +81,7 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
     [HideInInspector] [SerializeField] private Vector3 currentMovementDirection;
     public Vector3 CurrentMovementDirection
         { get { return currentMovementDirection; } }
-
+    
     private DeviceButton forwardButton = new DeviceButton();
     private DeviceButton backButton = new DeviceButton();
     private DeviceButton leftButton = new DeviceButton();
@@ -140,19 +143,23 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
         float vertical = 0;
         bool isJumping = jumpButton.IsGetButton();
 
-        if (forwardButton.IsGetButton())
-            vertical = 1;
-        else if (backButton.IsGetButton())
-            vertical = -1;
-        else
-            vertical = 0;
-        
-        if (leftButton.IsGetButton())
-            horizontal = -1;
-        else if (rightButton.IsGetButton())
-            horizontal = 1;
-        else
-            horizontal = 0;
+        MovementButtonsObserveAlgorithm();
+        void MovementButtonsObserveAlgorithm()
+        {
+            if (forwardButton.IsGetButton())
+                vertical = 1;
+            else if (backButton.IsGetButton())
+                vertical = -1;
+            else
+                vertical = 0;
+
+            if (leftButton.IsGetButton())
+                horizontal = -1;
+            else if (rightButton.IsGetButton())
+                horizontal = 1;
+            else
+                horizontal = 0;
+        }
         
         
         float maxSpeedTemp;
@@ -160,12 +167,15 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
 
         Vector3 resultDirection = Vector3.zero;
 
-        //is Walked
-        if (horizontal != 0 || vertical != 0)
-            isWalked = true;
-        else
-            isWalked = false;
-
+        WalkedStateUpdater();
+        void WalkedStateUpdater()
+        {
+            if (horizontal != 0 || vertical != 0)
+                isWalked = true;
+            else
+                isWalked = false;
+        }
+        
         //??? ?????????? ??????? ???????? ?????? ???????????
         resultDirection += playerT.forward * vertical;
         resultDirection += playerT.right * horizontal;
@@ -188,47 +198,55 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
         if (isPlayerCrouch)
             resultDirection *= crouchSpeedMultiplier;
 
-        //?????????? ??????? ? ?????? ??????????? ??????? ???????? ????? ???????????
-        if (IsFlies)
+        InFlyPlayerMovementAlgorithm();
+        void InFlyPlayerMovementAlgorithm()
         {
-            maxSpeedTemp = OnFlyMaxSpeed;
-            resultDirection *= OnFlySpeedMultiply;
+            if (IsFlies)
+            {
+                maxSpeedTemp = OnFlyMaxSpeed;
+                resultDirection *= OnFlySpeedMultiply;
 
-            float defaultFallingSpeed = -0.1f;
-            playerRb.velocity += new Vector3(0, defaultFallingSpeed, 0) * FallingSpeed;
-            playerRb.useGravity = true;
+                float defaultFallingSpeed = -0.1f;
+                playerRb.velocity += new Vector3(0, defaultFallingSpeed, 0) * FallingSpeed;
+                playerRb.useGravity = true;
+            }
+            else
+            {
+                maxSpeedTemp = OnGroundMaxSpeed;
+
+                float Dot;
+                Dot = Vector3.Dot(resultDirection, GroundNormal);
+                Vector3 dotDirection = Dot * GroundNormal;
+
+                dotDirection = resultDirection - dotDirection;
+                resultDirection = dotDirection;
+                playerRb.useGravity = false;
+            }
         }
-        else
+
+        JumpAlgorithm();
+        void JumpAlgorithm()
         {
-            maxSpeedTemp = OnGroundMaxSpeed;
+            if (!IsFlies && isJumping && IsJumpingButtonPressed == false)
+            {
+                float additionalJumpBoost = 750f;
+                resultDirection += playerT.up * jumpForce * additionalJumpBoost;
 
-            float Dot;
-            Dot = Vector3.Dot(resultDirection, GroundNormal);
-            Vector3 dotDirection = Dot * GroundNormal;
+                Vector3 rbVelocity = playerRb.velocity;
+                playerRb.velocity =
+                    new Vector3(rbVelocity.x, 0, rbVelocity.z);
 
-            dotDirection = resultDirection - dotDirection;
-            resultDirection = dotDirection;
-            playerRb.useGravity = false;
+                playerT.position += new Vector3(0, 0.1f, 0);
+
+                IsFlies = true;
+                IsJumpingButtonPressed = true;
+
+                if (onJumpEvent != null)
+                    onJumpEvent.Invoke();
+            }
+            else if (!isJumping && !IsFlies)
+                IsJumpingButtonPressed = false;
         }
-
-        //?????????? ??????
-        if (!IsFlies && isJumping && IsJumpingButtonPressed == false)
-        {
-            float additionalJumpBoost = 750f;
-            resultDirection += playerT.up * jumpForce * additionalJumpBoost;
-
-            Vector3 rbVelocity = playerRb.velocity;
-            playerRb.velocity =
-                new Vector3(rbVelocity.x, 0, rbVelocity.z);
-
-            playerT.position += new Vector3(0, 0.1f, 0);
-
-            IsFlies = true;
-            IsJumpingButtonPressed = true;
-            
-        }
-        else if (!isJumping && !IsFlies)
-            IsJumpingButtonPressed = false;
         
         //???????? ??????????? ???????? ? ?????????? ????
         if ((playerRb.velocity + (resultDirection / 80f)).LengthXZ() <= maxSpeedTemp)
@@ -244,9 +262,7 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
         
 
     }
-
-    //???????? ??????? ? ?????????? ??????? ??????????? ?? ??????? ????? ?????
-
+    
     private void OnTriggerStay(Collider other)
     {
         if (other.isTrigger)
