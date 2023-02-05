@@ -63,10 +63,12 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     [SerializeField] private float weaponChangeCooldown = 0.20f;
     [HideInInspector] [SerializeField] private float adjustableAttackStartPower = 0.2f;
 
-    [SerializeField] private event Action ShotEvent;
-    [HideInInspector] [SerializeField] private event Action WeaponChange;
+     private event Action ShotEvent;
+     private event Action WeaponChangeEvent;
+     private event Action WeaponChangeButtonUseEvent;
 
-    [Space]
+
+     [Space]
     [HideInInspector] public UnityEvent extraAbilityUseEvent;
     [HideInInspector] public UnityEvent extraAbilityChangeEvent;
     [SerializeField] private List<ExtraAbilityData> abilityDatas = new List<ExtraAbilityData>();
@@ -115,7 +117,6 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
         SetSelectedWeapon(selectedWeaponID);
         SetSelectedAbility(selectedAbilityNum);
     }
-    
     
     private void Update()
     {
@@ -266,7 +267,6 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
             selectedBulletData = bulletsManager.FindData(selectedWeaponData.BulletsID);
         else selectedBulletData = null;
 
-        //int nowWeaponID = selectedWeaponID;
         float destroyTime = 0.08f;
         float spawnTime = 0.15f;
         StartCoroutine(DeletePrefabs(destroyTime));
@@ -332,12 +332,18 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
 
             WeaponData nowWeaponData = FindWeaponData(weaponsUnlockedIDs[selectedWeapon]);
 
+            if (nowWeaponData.Id != selectedWeaponData.Id)
+            {
+                if(WeaponChangeEvent != null)
+                    WeaponChangeEvent.Invoke();
+            }
+
             selectedWeaponData = nowWeaponData;
             InitializedWeaponsFields();
-            if (WeaponChange != null) WeaponChange.Invoke();
+            
+            if (WeaponChangeButtonUseEvent != null) 
+                WeaponChangeButtonUseEvent.Invoke();
         }
-
-
     }
 
     private void PreviousWeapon()
@@ -348,12 +354,18 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
 
             if (selectedWeapon < 0)
                 selectedWeapon = weaponsUnlockedIDs.Count-1;
-
+            
             WeaponData nowWeaponData = FindWeaponData(weaponsUnlockedIDs[selectedWeapon]);
-
+            
+            if (nowWeaponData.Id != selectedWeaponData.Id)
+            {
+                if(WeaponChangeEvent != null)
+                    WeaponChangeEvent.Invoke();
+            }
+            
             selectedWeaponData = nowWeaponData;
             InitializedWeaponsFields();
-            if (WeaponChange != null) WeaponChange.Invoke();
+            if (WeaponChangeButtonUseEvent != null) WeaponChangeButtonUseEvent.Invoke();
         }
     }
 
@@ -370,17 +382,27 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
 
         if (weaponsUnlockedIDs.Count >= 1)
         {
-
             if (selectedWeapon >= weaponsUnlockedIDs.Count)
                 selectedWeapon = 0;
 
             if (selectedAbilityNum <= 0)
                 selectedAbilityNum = weaponsUnlockedIDs.Count-1;
 
-            selectedWeaponData =
-                FindWeaponData(weaponsUnlockedIDs[selectedWeapon]);
+            var oldWeaponDataId = 0;
+            if(selectedWeaponData != null)
+                oldWeaponDataId = selectedWeaponData.Id;
+            
+            selectedWeaponData = FindWeaponData(weaponsUnlockedIDs[selectedWeapon]);
+            
+            if(selectedWeaponData != null)
+                if (oldWeaponDataId != selectedWeaponData.Id)
+                {
+                    if(WeaponChangeEvent != null)
+                        WeaponChangeEvent.Invoke();
+                }
+            
             InitializedWeaponsFields();
-            if(WeaponChange != null) WeaponChange.Invoke();
+            if(WeaponChangeButtonUseEvent != null) WeaponChangeButtonUseEvent.Invoke();
         }
     }
 
@@ -601,16 +623,28 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
             ShotEvent -= action;
     }
 
+    public void SubWeaponChangeUseButtonEvent(Action action)
+    {
+        if (action != null)
+            WeaponChangeButtonUseEvent += action;
+    }
+
+    public void UnsubWeaponChangeUseButtonEvent(Action action)
+    {
+        if (action != null)
+            WeaponChangeButtonUseEvent -= action;
+    }
+    
     public void SubWeaponChangeEvent(Action action)
     {
         if (action != null)
-            WeaponChange += action;
+            WeaponChangeEvent += action;
     }
 
     public void UnsubWeaponChangeEvent(Action action)
     {
         if (action != null)
-            WeaponChange -= action;
+            WeaponChangeEvent -= action;
     }
 
     private void Shot()

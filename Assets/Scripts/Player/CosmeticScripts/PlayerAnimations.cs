@@ -30,7 +30,7 @@ public class PlayerAnimations : MonoBehaviour
         startHandsSpeed = handsAnimator.speed;
 
         weaponsManager.SubscribeShotEvent(HandsSpeedColdown);
-        weaponsManager.SubWeaponChangeEvent(HandsSpeedColdown);
+        weaponsManager.SubWeaponChangeUseButtonEvent(HandsSpeedColdown);
 
     }
 

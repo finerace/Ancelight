@@ -26,7 +26,7 @@ public class OnAimExtraIcons : MonoBehaviour
         abilityIconMaterial = new Material(abilityIcon.material);
         abilityIcon.material = abilityIconMaterial;
 
-        weaponsManager.SubWeaponChangeEvent(UpdateWeaponIcon);
+        weaponsManager.SubWeaponChangeUseButtonEvent(UpdateWeaponIcon);
         weaponsManager.extraAbilityChangeEvent.AddListener(UpdateAbilityIcon);
 
     }

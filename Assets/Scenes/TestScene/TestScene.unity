@@ -150,8 +150,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: d8c33cc7841086d46812f67ffee5b946, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -7712,7 +7712,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171281695}
   m_LocalRotation: {x: -0, y: 0.9760419, z: -0, w: 0.2175827}
-  m_LocalPosition: {x: 5.82, y: 4.75, z: -30.39}
+  m_LocalPosition: {x: 18.6, y: 4.75, z: -4.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7754,13 +7754,13 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 16
-    volumeMin: 0.35
-    volumeMax: 0.45
+    volumeMin: 0.15
+    volumeMax: 0.25
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1.1
     stereoPan: 0
-    spatialBlend: 1
+    spatialBlend: 0.5
     minDistance: 0.25
     maxDistance: 2
   grassStepSounds:
@@ -7775,13 +7775,13 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 16
-    volumeMin: 0.35
-    volumeMax: 0.45
+    volumeMin: 0.25
+    volumeMax: 0.35
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1.1
     stereoPan: 0
-    spatialBlend: 0.75
+    spatialBlend: 0.5
     minDistance: 0.25
     maxDistance: 2
   waterStepSounds:
@@ -7796,13 +7796,13 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 16
-    volumeMin: 0.35
-    volumeMax: 0.45
+    volumeMin: 0.15
+    volumeMax: 0.25
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1.1
     stereoPan: 0
-    spatialBlend: 0.75
+    spatialBlend: 0.5
     minDistance: 0.25
     maxDistance: 2
   walkClothSound:
@@ -7812,13 +7812,13 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 15
-    volumeMin: 0.45
-    volumeMax: 0.5
+    volumeMin: 0.15
+    volumeMax: 0.2
     isLoop: 1
     pitchMin: 0.9
     pitchMax: 1.1
     stereoPan: 0
-    spatialBlend: 0.9
+    spatialBlend: 0.35
     minDistance: 0.1
     maxDistance: 2
   jumpSound:
@@ -7828,14 +7828,210 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 15
-    volumeMin: 0.35
-    volumeMax: 0.4
+    volumeMin: 0.2
+    volumeMax: 0.25
     isLoop: 0
     pitchMin: 0.9
     pitchMax: 1
     stereoPan: 0
     spatialBlend: 0.25
     minDistance: 0.1
+    maxDistance: 2
+  weaponChangeCooldownSmooth: 1.5
+  weaponChangeSounds:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 80807981addf1c64ab0746cdcfa9acb0, type: 3}
+    - {fileID: 8300000, guid: 2b4c47fc7142dc54cb2e60b0dd5d8c8e, type: 3}
+    - {fileID: 8300000, guid: cd884f39b47d87b488173aeae6d74345, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 15
+    volumeMin: 0.35
+    volumeMax: 0.4
+    isLoop: 0
+    pitchMin: 0.9
+    pitchMax: 1.1
+    stereoPan: 0
+    spatialBlend: 0.25
+    minDistance: 0.1
+    maxDistance: 2
+  fistsAttackSounds:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 845ad870a2d4d164480834905bcf02e5, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 12
+    volumeMin: 0.25
+    volumeMax: 0.3
+    isLoop: 0
+    pitchMin: 0.95
+    pitchMax: 1.1
+    stereoPan: 0
+    spatialBlend: 0.5
+    minDistance: 1
+    maxDistance: 1
+  pistolShotSounds:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 927ccb46e5fa1bf498c0c0ee1e9934c1, type: 3}
+    - {fileID: 8300000, guid: 90f3d9c54766b0a4a914bcc936244bcf, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 12
+    volumeMin: 0.35
+    volumeMax: 0.4
+    isLoop: 0
+    pitchMin: 0.9
+    pitchMax: 1.1
+    stereoPan: 0
+    spatialBlend: 0.35
+    minDistance: 0.1
+    maxDistance: 2
+  shotGunShotSounds:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 0e0e63d925ac40744aade9c0090bb26c, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 12
+    volumeMin: 0.35
+    volumeMax: 0.4
+    isLoop: 0
+    pitchMin: 0.95
+    pitchMax: 1.05
+    stereoPan: 0
+    spatialBlend: 0.35
+    minDistance: 0.1
+    maxDistance: 2
+  machineGunShotSounds:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: bee355f3581b88d479676c733ea229e3, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 12
+    volumeMin: 0.45
+    volumeMax: 0.5
+    isLoop: 0
+    pitchMin: 1
+    pitchMax: 1.1
+    stereoPan: 0
+    spatialBlend: 0.35
+    minDistance: 1
+    maxDistance: 1
+  grenadeLauncherShotSounds:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 598460a6fdb1e704a8c4736776c30741, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 12
+    volumeMin: 0.55
+    volumeMax: 0.6
+    isLoop: 0
+    pitchMin: 0.95
+    pitchMax: 1
+    stereoPan: 0
+    spatialBlend: 0.35
+    minDistance: 1
+    maxDistance: 1
+  rocketLauncherShotSounds:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: ef2a0ec80418f5f48b973488ec588013, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 12
+    volumeMin: 0.75
+    volumeMax: 0.8
+    isLoop: 0
+    pitchMin: 0.95
+    pitchMax: 1.1
+    stereoPan: 0
+    spatialBlend: 0.35
+    minDistance: 1
+    maxDistance: 2
+  superGunShotSounds:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 27aa233810d175c47b433d014e9a2f82, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 12
+    volumeMin: 0.75
+    volumeMax: 0.8
+    isLoop: 0
+    pitchMin: 0.9
+    pitchMax: 1.1
+    stereoPan: 0
+    spatialBlend: 0.3
+    minDistance: 1
+    maxDistance: 2
+  laserGunShotStartSounds:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 4863446a02692af438c0cbdbd322e5c3, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 12
+    volumeMin: 0.75
+    volumeMax: 0.8
+    isLoop: 0
+    pitchMin: 0.85
+    pitchMax: 1.15
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0.1
+    maxDistance: 2
+  laserGunShotSoundSource: {fileID: 0}
+  laserGunShotSounds:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 65111e969c76229479cec22561b06b32, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 12
+    volumeMin: 0.75
+    volumeMax: 0.8
+    isLoop: 1
+    pitchMin: 0.85
+    pitchMax: 1.15
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0.1
+    maxDistance: 2
+  laserGunEndShotSounds:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  bpjCollapserShotSounds:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 0e5a11d3284b8b545ada6c0aa04f8184, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 12
+    volumeMin: 0.85
+    volumeMax: 0.9
+    isLoop: 0
+    pitchMin: 1
+    pitchMax: 1
+    stereoPan: 0
+    spatialBlend: 0.3
+    minDistance: 1
     maxDistance: 2
 --- !u!1 &176184604
 GameObject:
@@ -16083,7 +16279,7 @@ GameObject:
   - component: {fileID: 434369505}
   - component: {fileID: 434369507}
   - component: {fileID: 434369506}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: WalkZoneTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31303,6 +31499,54 @@ Transform:
   m_Father: {fileID: 126894689}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
+--- !u!1 &933947280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 933947281}
+  - component: {fileID: 933947282}
+  m_Layer: 0
+  m_Name: GrassData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &933947281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933947280}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1548062217}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &933947282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933947280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5439937e888677d4995b71f21e5a439f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelUsedGrassMaterials:
+  - {fileID: 2100000, guid: db732c532691a9949b23baeac653a16b, type: 2}
+  levelUsedGrassMeshes:
+  - {fileID: 34697265}
 --- !u!1001 &935132214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42994,6 +43238,7 @@ Transform:
   - {fileID: 393283711}
   - {fileID: 1360282203}
   - {fileID: 1043679428}
+  - {fileID: 933947281}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49401,7 +49646,7 @@ GameObject:
   - component: {fileID: 1661650980}
   - component: {fileID: 1661650982}
   - component: {fileID: 1661650981}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: WalkZoneTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50345,8 +50590,8 @@ Transform:
   - {fileID: 1348783308}
   - {fileID: 1676129731}
   - {fileID: 1921427197}
-  - {fileID: 1627471624}
   - {fileID: 1685995614}
+  - {fileID: 1627471624}
   - {fileID: 47595319}
   m_Father: {fileID: 176184605}
   m_RootOrder: 3
