@@ -4968,6 +4968,7 @@ GameObject:
   - component: {fileID: 6571646158022850636}
   - component: {fileID: 6571646158022850672}
   - component: {fileID: 6571646158022850674}
+  - component: {fileID: 5784314833946976038}
   m_Layer: 6
   m_Name: Pistol Bullet
   m_TagString: Untagged
@@ -5034,6 +5035,35 @@ MonoBehaviour:
   collisionForce: 5
   speed: 50
   bulletId: 5
+--- !u!114 &5784314833946976038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6571646158022850639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9818d22faf6ad499a33a7af92af7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletMain: {fileID: 6571646158022850674}
+  bulletDestroySoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: dd06de850485d434eb96d9cbf2fa773c, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 16
+    volumeMin: 0.5
+    volumeMax: 0.55
+    isLoop: 0
+    pitchMin: 1.35
+    pitchMax: 1.4
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 1
+    maxDistance: 25
 --- !u!1 &6571646158332862438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5090,6 +5120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6571646158483313403}
   - component: {fileID: 6571646158483313400}
+  - component: {fileID: 2464575077965582342}
   m_Layer: 6
   m_Name: Light
   m_TagString: Untagged
@@ -5174,3 +5205,23 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2464575077965582342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6571646158483313402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}

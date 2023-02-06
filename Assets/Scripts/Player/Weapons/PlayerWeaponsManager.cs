@@ -64,6 +64,7 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     [HideInInspector] [SerializeField] private float adjustableAttackStartPower = 0.2f;
 
      private event Action ShotEvent;
+     private event Action ShotPreparingEvent;
      private event Action WeaponChangeEvent;
      private event Action WeaponChangeButtonUseEvent;
 
@@ -166,6 +167,9 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
                         if (!isAttacking)
                         {
                             StartAdjustableAttack();
+                            
+                            if(ShotPreparingEvent != null)
+                                ShotPreparingEvent.Invoke();
                         }
 
                         isAttacking = true;
@@ -645,6 +649,18 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     {
         if (action != null)
             WeaponChangeEvent -= action;
+    }
+    
+    public void SubscribeShotPreparingEvent(Action action)
+    {
+        if (action != null)
+            ShotPreparingEvent += action;
+    }
+
+    public void UnsubShotPreparingEvent(Action action)
+    {
+        if (action != null)
+            ShotPreparingEvent -= action;
     }
 
     private void Shot()

@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -30,6 +29,9 @@ public class Bullet : MonoBehaviour
     protected float startRBPower = 1f;
     [Range(0, 1000)] [SerializeField] private float speed;
     [SerializeField] private int bulletId;
+    
+    private event Action onDestroyEvent;
+    
     public int BulletId => bulletId;
 
     public void Load(float currentTime)
@@ -59,8 +61,7 @@ public class Bullet : MonoBehaviour
             body_.position += body_.forward * Time.deltaTime * speed;
         }
     }
-
-
+    
     private void DestroyProcess(Transform colliderT)
     {
         if (isDestruction != true)
@@ -117,7 +118,10 @@ public class Bullet : MonoBehaviour
 
             if (effects != null)
                 effects.Destruction(destructionTime, collisionObj);
-
+            
+            if(onDestroyEvent != null)
+                onDestroyEvent.Invoke();
+            
             Destroy(gameObject, destructionTime);
         }
     }
@@ -131,7 +135,7 @@ public class Bullet : MonoBehaviour
     {
         startRBPower = power;
     }
-
+    
     private IEnumerator AutoDestruction(float time)
     {
 
@@ -146,4 +150,17 @@ public class Bullet : MonoBehaviour
         Destruction(null);
     }
 
+    public void SubDestroyEvent(Action action)
+    {
+        if (action != null)
+            onDestroyEvent += action;
+    }
+    
+    public void UnSubDestroyEvent(Action action)
+    {
+        if (action != null)
+            onDestroyEvent -= action;
+    }
+
+    
 }

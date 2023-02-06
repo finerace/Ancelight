@@ -9782,6 +9782,7 @@ GameObject:
   - component: {fileID: 6571646158022850636}
   - component: {fileID: 3450244399219428141}
   - component: {fileID: 6571646158022850674}
+  - component: {fileID: 276501960061066024}
   m_Layer: 6
   m_Name: VintovkaBullet
   m_TagString: Untagged
@@ -9848,6 +9849,35 @@ MonoBehaviour:
   collisionForce: 5
   speed: 80
   bulletId: 8
+--- !u!114 &276501960061066024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6571646158022850639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9818d22faf6ad499a33a7af92af7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletMain: {fileID: 6571646158022850674}
+  bulletDestroySoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 9d08af6dc13f10444b96ba150a63fa37, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 16
+    volumeMin: 0.6
+    volumeMax: 0.65
+    isLoop: 0
+    pitchMin: 1.15
+    pitchMax: 1.2
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 2
+    maxDistance: 40
 --- !u!1 &6571646158332862438
 GameObject:
   m_ObjectHideFlags: 0

@@ -7478,7 +7478,7 @@ MonoBehaviour:
   yellowPlasmaMaxReserve: 100
   redPlasmaMaxReserve: 50
   bluePlasmaMaxReserve: 50
-  infinityAmmoMode: 0
+  infinityAmmoMode: 1
 --- !u!114 &171281703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7774,7 +7774,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 572322bbfd0f83240a24f0eb0c818511, type: 3}
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
-    priority: 16
+    priority: 14
     volumeMin: 0.25
     volumeMax: 0.35
     isLoop: 0
@@ -7859,17 +7859,19 @@ MonoBehaviour:
   fistsAttackSounds:
     audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
     clips:
-    - {fileID: 8300000, guid: 845ad870a2d4d164480834905bcf02e5, type: 3}
+    - {fileID: 8300000, guid: 443e20e97efa8b544a97389d276ba039, type: 3}
+    - {fileID: 8300000, guid: ca15fc561f92d0d428c698f83a88f79c, type: 3}
+    - {fileID: 8300000, guid: 511c0817cd0f2f547a040bc8652de8c6, type: 3}
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 12
-    volumeMin: 0.25
-    volumeMax: 0.3
+    volumeMin: 0.2
+    volumeMax: 0.25
     isLoop: 0
-    pitchMin: 0.95
-    pitchMax: 1.1
+    pitchMin: 0.9
+    pitchMax: 1.15
     stereoPan: 0
-    spatialBlend: 0.5
+    spatialBlend: 0
     minDistance: 1
     maxDistance: 1
   pistolShotSounds:
@@ -7896,8 +7898,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 12
-    volumeMin: 0.35
-    volumeMax: 0.4
+    volumeMin: 0.65
+    volumeMax: 0.7
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1.05
@@ -7976,16 +7978,15 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 12
-    volumeMin: 0.75
-    volumeMax: 0.8
+    volumeMin: 0.25
+    volumeMax: 0.3
     isLoop: 0
     pitchMin: 0.85
     pitchMax: 1.15
     stereoPan: 0
-    spatialBlend: 0
-    minDistance: 0.1
+    spatialBlend: 0.75
+    minDistance: 1
     maxDistance: 2
-  laserGunShotSoundSource: {fileID: 0}
   laserGunShotSounds:
     audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
     clips:
@@ -7993,34 +7994,51 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 12
-    volumeMin: 0.75
-    volumeMax: 0.8
+    volumeMin: 0.6
+    volumeMax: 0.75
     isLoop: 1
-    pitchMin: 0.85
-    pitchMax: 1.15
+    pitchMin: 0.95
+    pitchMax: 1.05
     stereoPan: 0
-    spatialBlend: 0
+    spatialBlend: 0.35
     minDistance: 0.1
     maxDistance: 2
   laserGunEndShotSounds:
-    audioMixerGroup: {fileID: 0}
-    clips: []
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 1d88b89e420f1214a82f95c6911e9236, type: 3}
     castPos: {x: 0, y: 0, z: 0}
-    castParent: {fileID: 0}
-    priority: 0
-    volumeMin: 0
-    volumeMax: 0
+    castParent: {fileID: 171281712}
+    priority: 12
+    volumeMin: 0.25
+    volumeMax: 0.3
     isLoop: 0
-    pitchMin: 0
-    pitchMax: 0
+    pitchMin: 0.85
+    pitchMax: 1.15
     stereoPan: 0
-    spatialBlend: 0
-    minDistance: 0
-    maxDistance: 0
+    spatialBlend: 0.75
+    minDistance: 1
+    maxDistance: 2
   bpjCollapserShotSounds:
     audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
     clips:
     - {fileID: 8300000, guid: 0e5a11d3284b8b545ada6c0aa04f8184, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 10
+    volumeMin: 0.85
+    volumeMax: 0.9
+    isLoop: 0
+    pitchMin: 1
+    pitchMax: 1
+    stereoPan: 0
+    spatialBlend: 0.3
+    minDistance: 1
+    maxDistance: 2
+  bpjCollapserShotPreparingSounds:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 64311bed78cff584581cba44911365e6, type: 3}
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 12

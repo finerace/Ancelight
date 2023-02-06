@@ -19497,6 +19497,7 @@ GameObject:
   - component: {fileID: 6571646158022850636}
   - component: {fileID: 6571646158022850672}
   - component: {fileID: 6022327677378512381}
+  - component: {fileID: 1485450113497202683}
   m_Layer: 13
   m_Name: BPJ_CollapsatorBullet
   m_TagString: Untagged
@@ -19568,6 +19569,35 @@ MonoBehaviour:
     m_Bits: 1280
   explousionForce: 40
   exploisonRadius: 6
+--- !u!114 &1485450113497202683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6571646158022850639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9818d22faf6ad499a33a7af92af7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletMain: {fileID: 6022327677378512381}
+  bulletDestroySoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 812244b3466747540877472c94576da8, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 16
+    volumeMin: 1
+    volumeMax: 1
+    isLoop: 0
+    pitchMin: 0.55
+    pitchMax: 0.6
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 8
+    maxDistance: 125
 --- !u!1 &6571646158332862438
 GameObject:
   m_ObjectHideFlags: 0
