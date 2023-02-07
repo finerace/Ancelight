@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
     [SerializeField] private float oneDashEnergySpend = 3f;
     [SerializeField] private float dashsRegenerationSpeed = 3f;
 
+    private event Action dashUseEvent;
+    
     private DeviceButton useDashButton  = new DeviceButton();
     
     public int DashsCount => dashsCount;
@@ -102,7 +105,7 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
         dashCurrentEnergy =
             (int)((dashCurrentEnergy - oneDashEnergySpend) / oneDashEnergySpend)
             * oneDashEnergySpend;
-
+        
         dashCurrentColdownTimer += dashColdown;
 
         Vector3 currentPlayerDirection = CalculateCurrentPlayerDirection();
@@ -111,8 +114,10 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
 
         RotateDashEffectToDashDirection(currentPlayerDirection);
         dashEffect.Play();
-
-
+        
+        if(dashUseEvent != null)
+            dashUseEvent.Invoke();
+        
         Vector3 CalculateCurrentPlayerDirection()
         {
             Vector3 currentPlayerMovementDirection = playerMovement.CurrentMovementDirection;
@@ -207,4 +212,17 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
 
         return getButtons;
     }
+
+    public void SubDashUseEvent(Action action)
+    {
+        if (action != null)
+            dashUseEvent += action;
+    }
+    
+    public void UnSubDashUseEvent(Action action)
+    {
+        if (action != null)
+            dashUseEvent -= action;
+    }
+    
 }

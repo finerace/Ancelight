@@ -161,7 +161,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1636,6 +1636,62 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
+--- !u!1 &96027666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 96027668}
+  - component: {fileID: 96027667}
+  m_Layer: 0
+  m_Name: GameObject_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!167 &96027667
+AudioReverbZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96027666}
+  m_Enabled: 1
+  m_MinDistance: 184.1
+  m_MaxDistance: 303.2
+  m_ReverbPreset: 10
+  m_Room: -1000
+  m_RoomHF: -698
+  m_DecayTime: 7.24
+  m_DecayHFRatio: 0.33
+  m_Reflections: -1166
+  m_ReflectionsDelay: 0.02
+  m_Reverb: 16
+  m_ReverbDelay: 0.03
+  m_HFReference: 5000
+  m_Diffusion: 100
+  m_Density: 100
+  m_LFReference: 250
+  m_RoomLF: 0
+--- !u!4 &96027668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96027666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.9, y: 0, z: 81}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &101050784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 440076868204069174, guid: 0493dcaa480a2fa4083f42483cc84667, type: 3}
@@ -7887,8 +7943,8 @@ MonoBehaviour:
     isLoop: 0
     pitchMin: 0.9
     pitchMax: 1.1
-    stereoPan: 0
-    spatialBlend: 0.35
+    stereoPan: 0.25
+    spatialBlend: 0
     minDistance: 0.1
     maxDistance: 2
   shotGunShotSounds:
@@ -7919,8 +7975,8 @@ MonoBehaviour:
     isLoop: 0
     pitchMin: 1
     pitchMax: 1.1
-    stereoPan: 0
-    spatialBlend: 0.35
+    stereoPan: 0.25
+    spatialBlend: 0
     minDistance: 1
     maxDistance: 1
   grenadeLauncherShotSounds:
@@ -7935,8 +7991,8 @@ MonoBehaviour:
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1
-    stereoPan: 0
-    spatialBlend: 0.35
+    stereoPan: 0.25
+    spatialBlend: 0
     minDistance: 1
     maxDistance: 1
   rocketLauncherShotSounds:
@@ -7951,8 +8007,8 @@ MonoBehaviour:
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1.1
-    stereoPan: 0
-    spatialBlend: 0.35
+    stereoPan: 0.25
+    spatialBlend: 0
     minDistance: 1
     maxDistance: 2
   superGunShotSounds:
@@ -7967,8 +8023,8 @@ MonoBehaviour:
     isLoop: 0
     pitchMin: 0.9
     pitchMax: 1.1
-    stereoPan: 0
-    spatialBlend: 0.3
+    stereoPan: 0.25
+    spatialBlend: 0
     minDistance: 1
     maxDistance: 2
   laserGunShotStartSounds:
@@ -7983,8 +8039,8 @@ MonoBehaviour:
     isLoop: 0
     pitchMin: 0.85
     pitchMax: 1.15
-    stereoPan: 0
-    spatialBlend: 0.75
+    stereoPan: 0.25
+    spatialBlend: 0
     minDistance: 1
     maxDistance: 2
   laserGunShotSounds:
@@ -7999,8 +8055,8 @@ MonoBehaviour:
     isLoop: 1
     pitchMin: 0.95
     pitchMax: 1.05
-    stereoPan: 0
-    spatialBlend: 0.35
+    stereoPan: 0.25
+    spatialBlend: 0
     minDistance: 0.1
     maxDistance: 2
   laserGunEndShotSounds:
@@ -8015,8 +8071,8 @@ MonoBehaviour:
     isLoop: 0
     pitchMin: 0.85
     pitchMax: 1.15
-    stereoPan: 0
-    spatialBlend: 0.75
+    stereoPan: 0.25
+    spatialBlend: 0
     minDistance: 1
     maxDistance: 2
   bpjCollapserShotSounds:
@@ -8031,8 +8087,8 @@ MonoBehaviour:
     isLoop: 0
     pitchMin: 1
     pitchMax: 1
-    stereoPan: 0
-    spatialBlend: 0.3
+    stereoPan: 0.25
+    spatialBlend: 0
     minDistance: 1
     maxDistance: 2
   bpjCollapserShotPreparingSounds:
@@ -8047,10 +8103,80 @@ MonoBehaviour:
     isLoop: 0
     pitchMin: 1
     pitchMax: 1
-    stereoPan: 0
-    spatialBlend: 0.3
+    stereoPan: 0.25
+    spatialBlend: 0
     minDistance: 1
     maxDistance: 2
+  dashSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 75ca9745656772b4b80b3339974ab50c, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 10
+    volumeMin: 0.15
+    volumeMax: 0.2
+    isLoop: 0
+    pitchMin: 0.95
+    pitchMax: 1.05
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 1
+    maxDistance: 2
+  hookUseSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: e044583ec2cdef24e85f1a9101842b46, type: 3}
+    - {fileID: 8300000, guid: 5f5a3d80e9dfcdb41a25bf5b0ef01565, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 10
+    volumeMin: 0.4
+    volumeMax: 0.45
+    isLoop: 0
+    pitchMin: 2.45
+    pitchMax: 2.5
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 1
+    maxDistance: 1
+  hookHookedSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 122e3aa0a50fa064bbde594c0f5a33bc, type: 3}
+    - {fileID: 8300000, guid: 9512b877739bece4381d14dd9e8d7aeb, type: 3}
+    - {fileID: 8300000, guid: 0a5111ef768c17d4492663ecba211088, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 12
+    volumeMin: 0.4
+    volumeMax: 0.45
+    isLoop: 0
+    pitchMin: 1.1
+    pitchMax: 1.3
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 6.6
+    maxDistance: 65
+  hookHookedSoundDelay: 0.175
+  hookRopeSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: fa2196eab0615734a9df1df0f69ca5ce, type: 3}
+    - {fileID: 8300000, guid: 7d8f402b6eca50441885f9bb8f1e10f4, type: 3}
+    - {fileID: 8300000, guid: 5db33e69f92ba2a4685236cd0ffb9220, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 171281712}
+    priority: 8
+    volumeMin: 0.45
+    volumeMax: 0.5
+    isLoop: 1
+    pitchMin: 0.9
+    pitchMax: 1.1
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 10
+    maxDistance: 50
 --- !u!1 &176184604
 GameObject:
   m_ObjectHideFlags: 0
@@ -36021,7 +36147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd45e407afcb9647af8635fcf440bb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMaxAudioSources: 32
+  startMaxAudioSources: 48
+  spreadEffect: 0
 --- !u!1001 &1363298904
 PrefabInstance:
   m_ObjectHideFlags: 0

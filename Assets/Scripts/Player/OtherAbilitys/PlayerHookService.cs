@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UIElements;
@@ -43,6 +44,8 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
 
     public Transform[] HookPoints => hookPoints;
 
+    public Transform HookMeshT => hookMeshT; 
+    
     public float MinStrengthAmountToUse => minStrengthAmountToUse;
     public float HookMaxActionRange => hookMaxActionRange;
 
@@ -78,6 +81,9 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
     
     private bool hookManageIsBlocked = false;
 
+    private event Action hookUseEvent;
+    private event Action hookEndUseEvent;
+    
     private DeviceButton useHookButton = new DeviceButton();
 
     private bool isLoaded = false;
@@ -350,6 +356,9 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
             hitObjHealh.GetDamage(hookDamage);
         }
         
+        if(hookUseEvent != null)
+            hookUseEvent.Invoke();
+        
         bool GetHookRayRaycastHit(out RaycastHit hitObj)
         {
             Ray hookCheckSurfaceRay;
@@ -398,6 +407,9 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
         playerJoint.connectedBody = null;
         playerJoint.spring = 0;
         playerJoint.damper = 0;
+        
+        if(hookEndUseEvent != null)
+            hookEndUseEvent.Invoke();
     }
 
     private void DrawHookRenderer(float amount)
@@ -454,6 +466,30 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
 
     }
 
+    public void SubHookUseEvent(Action action)
+    {
+        if (action != null)
+            hookUseEvent += action;
+    }
+    
+    public void UnSubHookUseEvent(Action action)
+    {
+        if (action != null)
+            hookUseEvent -= action;
+    }
+    
+    public void SubHookEndUseEvent(Action action)
+    {
+        if (action != null)
+            hookEndUseEvent += action;
+    }
+    
+    public void UnSubHookEndUseEvent(Action action)
+    {
+        if (action != null)
+            hookEndUseEvent -= action;
+    }
+    
     public DeviceButton[] GetUsesDevicesButtons()
     {
         return
