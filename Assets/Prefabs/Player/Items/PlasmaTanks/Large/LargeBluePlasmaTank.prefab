@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 6667428153909992909}
   - component: {fileID: 6667428153909992908}
   - component: {fileID: 6667428153909992911}
+  - component: {fileID: 5634615654857053979}
   - component: {fileID: 6667428153909992910}
   m_Layer: 16
   m_Name: LargeBluePlasmaTank
@@ -250,9 +251,38 @@ MonoBehaviour:
   itemId: 1
   plasmaId: blue
   plasmaCount: 50
+--- !u!114 &5634615654857053979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667428153909992913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2de4dd696e9f540b6244aa1669be99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerItem: {fileID: 6667428153909992911}
+  collectItemSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 42b7bff91beb6e84e94082c410411370, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 10
+    volumeMin: 0.75
+    volumeMax: 0.8
+    isLoop: 0
+    pitchMin: 0.75
+    pitchMax: 0.8
+    stereoPan: 0
+    spatialBlend: 0.25
+    minDistance: 2
+    maxDistance: 20
 --- !u!95 &6667428153909992910
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -269,7 +299,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &6667428154251307976
 GameObject:
   m_ObjectHideFlags: 0

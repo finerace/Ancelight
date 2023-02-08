@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -9,7 +10,8 @@ public abstract class OrdinaryPlayerItem : MonoBehaviour, IPlayerItem
     [SerializeField] protected bool isOneUsesItem = true;
     [SerializeField] protected int itemId = 0;
     private bool itemIsDestroyed = false;
-
+    private event Action itemCollectEvent;
+    
     public int ItemId => itemId;
 
     public void PickUp(PlayerMainService player)
@@ -18,6 +20,10 @@ public abstract class OrdinaryPlayerItem : MonoBehaviour, IPlayerItem
             return;
 
         PickUpItemAlgorithm(player);
+        
+        
+        if(itemCollectEvent != null && itemIsDestroyed)
+            itemCollectEvent.Invoke();
     }
 
     protected abstract void PickUpItemAlgorithm(PlayerMainService player);
@@ -59,7 +65,17 @@ public abstract class OrdinaryPlayerItem : MonoBehaviour, IPlayerItem
             
         }
     }
-    
+
+    public void SubItemCollectEvent(Action action)
+    {
+        if (action != null)
+            itemCollectEvent += action;
+    }
+    public void UnSubItemCollectEvent(Action action)
+    {
+        if (action != null)
+            itemCollectEvent -= action;
+    }
 }
 
 public interface IPlayerItem

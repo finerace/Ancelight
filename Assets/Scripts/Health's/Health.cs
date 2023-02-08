@@ -8,6 +8,7 @@ public abstract class Health : MonoBehaviour
     [SerializeField] private float maxHealth_;
     [SerializeField] internal bool isDie;
     public event Action OnDie;
+    public event Action<float> OnDamageEvent; 
 
     public float Health_ => health_;
 
@@ -35,7 +36,12 @@ public abstract class Health : MonoBehaviour
         else if (health_ - damage >= maxHealth_)
             health_ = maxHealth_;
         else
+        {
             health_ -= damage;
+            
+            if(OnDamageEvent != null)
+                OnDamageEvent.Invoke(damage);
+        }
     }
 
     public virtual void SetMaxHealth(float maxHealth)

@@ -60,7 +60,7 @@ public abstract class DefaultBot : Health
     [SerializeField] internal bool isRbVelocityToNavAgnStrict;
 
     [Space]
-    [SerializeField] internal bool isAannoyed;
+    [SerializeField] internal bool isAnnoyed;
     [SerializeField] internal const float aannoyedTime = 5f;
     [SerializeField] internal float aannoyedTimer = 0f;
 
@@ -81,6 +81,8 @@ public abstract class DefaultBot : Health
     [SerializeField] internal DefaultBotAnimations botAnimations;
     
     [SerializeField] internal float startAgentSpeed;
+
+    protected event Action botPlayerLookEvent;
     
     public DefaultBotParts BotParts => botParts;
 
@@ -120,7 +122,7 @@ public abstract class DefaultBot : Health
 
          isRbVelocityToNavAgnStrict = savedBot.isRbVelocityToNavAgnStrict;
 
-         isAannoyed = savedBot.isAannoyed;
+         isAnnoyed = savedBot.isAnnoyed;
          aannoyedTimer = savedBot.aannoyedTimer;
 
          isLookingTarget = savedBot.isLookingTarget;
@@ -191,11 +193,11 @@ public abstract class DefaultBot : Health
         if (aannoyedTimer > 0)
         {
             aannoyedTimer -= Time.deltaTime;
-            isAannoyed = true;
+            isAnnoyed = true;
         }
-        else isAannoyed = false;
+        else isAnnoyed = false;
 
-        if (isStaticBot && (isLookingTarget || isAannoyed))
+        if (isStaticBot && (isLookingTarget || isAnnoyed))
             StaticBotRotation();
     }
 
@@ -311,12 +313,21 @@ public abstract class DefaultBot : Health
     {
         while (true)
         {
+            var oldLookingTarget = isLookingTarget;
+            
             isLookingTarget = CheckIsLookingTarget();
 
+            if (isLookingTarget && !oldLookingTarget)
+            {
+                if(botPlayerLookEvent != null)
+                    botPlayerLookEvent.Invoke();
+            }
+                
             if(isLookingTarget)
             {
                 targetOldLookTimer = 0;
                 isBotGoToWayPoints = false;
+
                 GetAannoyed();
             }
 
@@ -518,7 +529,7 @@ public abstract class DefaultBot : Health
         Quaternion targetRot = Quaternion.identity;
         float timeStep = Time.deltaTime * speed;
 
-        if (!isBotGoToWayPoints && (isLookingTarget || isAannoyed ))
+        if (!isBotGoToWayPoints && (isLookingTarget || isAnnoyed ))
         {
             targetRot = Quaternion.LookRotation(targetPos - item.position);
 
@@ -541,7 +552,7 @@ public abstract class DefaultBot : Health
         Quaternion targetRot = Quaternion.identity;
         float timeStep = Time.deltaTime * speed;
 
-        if (!isBotGoToWayPoints && (isLookingTarget || isAannoyed))
+        if (!isBotGoToWayPoints && (isLookingTarget || isAnnoyed))
         {
             targetRot = Quaternion.LookRotation(targetPos - itemChild.position);
 
@@ -613,4 +624,16 @@ public abstract class DefaultBot : Health
         return targetSmatrPos;
     }
 
+    public void SubPlayerLookEvent(Action action)
+    {
+        if(action != null)
+            botPlayerLookEvent += action;
+    }
+    
+    public void UnSubPlayerLookEvent(Action action)
+    {
+        if(action != null)
+            botPlayerLookEvent -= action;
+    }
+    
 }

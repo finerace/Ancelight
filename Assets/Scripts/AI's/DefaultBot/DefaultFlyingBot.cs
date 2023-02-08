@@ -67,11 +67,11 @@ public abstract class DefaultFlyingBot : DefaultBot
 
     protected virtual void StateMachineAlgorithm()
     {
-        if (!isLookingTarget && !isAannoyed)
+        if (!isLookingTarget && !isAnnoyed)
         {
             currentDroneState = DroneState.Idle;
         }
-        else if (isAannoyed && (!isTargetClosely || !isLookingTarget))
+        else if (isAnnoyed && (!isTargetClosely || !isLookingTarget))
         {
             currentDroneState = DroneState.ToTarget;
         }

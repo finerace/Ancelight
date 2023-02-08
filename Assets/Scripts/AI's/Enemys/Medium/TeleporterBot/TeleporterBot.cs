@@ -106,7 +106,7 @@ public class TeleporterBot : DefaultBot
 
             yield return new WaitForSeconds(coldown);
 
-            if(!isTeleportInProcess && isAannoyed)
+            if(!isTeleportInProcess && isAnnoyed)
                 StartTeleportation();
 
         }

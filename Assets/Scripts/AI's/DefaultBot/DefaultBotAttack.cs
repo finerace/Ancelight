@@ -17,6 +17,11 @@ public abstract class DefaultBotAttack : MonoBehaviour
     [SerializeField] internal int attackPhase;
     protected bool isRecentlyLoad;
 
+    protected event Action shotEvent;
+    
+    protected event Action meleeAttackEvent;
+    protected event Action preShotEvent;
+
     public void Load(DefaultBotAttack attack)
     {
         onAttackTime = attack.onAttackTime;
@@ -39,12 +44,15 @@ public abstract class DefaultBotAttack : MonoBehaviour
         if (bullet == null)
             bullet = this.bullet;
 
+        if(shotEvent != null)
+            shotEvent.Invoke();
+        
         return Instantiate(bullet, point.position, point.rotation);
     }
 
     public void Update()
     {
-        if (bot.isAannoyed)
+        if (bot.isAnnoyed)
             onAttackTime += Time.deltaTime;
     }
 
@@ -70,6 +78,9 @@ public abstract class DefaultBotAttack : MonoBehaviour
                 
                 attackPhase = 1;
                 botEffects.PlayMeleeAttackParticls();
+
+                if(meleeAttackEvent != null)
+                    meleeAttackEvent.Invoke();
             }
 
             if (attackPhase == 1)
@@ -96,5 +107,40 @@ public abstract class DefaultBotAttack : MonoBehaviour
             yield return null;
         }
     }
+
+    public void SubShotEvent(Action action)
+    {
+        if (action != null)
+            shotEvent += action;
+    }
     
+    public void UnSubShotEvent(Action action)
+    {
+        if (action != null)
+            shotEvent -= action;
+    }
+    
+    public void SubPreShotEvent(Action action)
+    {
+        if (action != null)
+            preShotEvent += action;
+    }
+    
+    public void UnSubPreShotEvent(Action action)
+    {
+        if (action != null)
+            preShotEvent -= action;
+    }
+    
+    public void SubMeleeAttackEvent(Action action)
+    {
+        if (action != null)
+            meleeAttackEvent += action;
+    }
+    
+    public void UnSubMeleeAttackEvent(Action action)
+    {
+        if (action != null)
+            meleeAttackEvent -= action;
+    }
 }

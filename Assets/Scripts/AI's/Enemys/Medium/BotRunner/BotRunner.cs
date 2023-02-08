@@ -80,7 +80,7 @@ public class BotRunner : DefaultBot
 
     private void RotateHeadToTarget()
     {
-        if ((isLookingTarget || isAannoyed) && moveState == MoveState.Walk)
+        if ((isLookingTarget || isAnnoyed) && moveState == MoveState.Walk)
             headJoint.targetRotation = Quaternion.Inverse(Quaternion.LookRotation(target.position - head.position)) *
                 body.rotation;
         else

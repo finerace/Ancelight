@@ -17,7 +17,7 @@ public class RocketBot : DefaultBot
     {
         float timeStep = Time.deltaTime * headRotationSpeed;
 
-        if (isLookingTarget || isAannoyed)
+        if (isLookingTarget || isAnnoyed)
         {
             Quaternion lookRotation = Quaternion.LookRotation(target.position - head.position);
 

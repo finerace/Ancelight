@@ -21,7 +21,7 @@ public class MinBotWizard : DefaultBot
     {
         float rotationTimeStep = Time.deltaTime * 7.5f;
 
-        if (isLookingTarget || isAannoyed)
+        if (isLookingTarget || isAnnoyed)
             head.rotation = Quaternion.Lerp(head.rotation, Quaternion.LookRotation(target.position - head.position), rotationTimeStep);
         else
             head.rotation = Quaternion.Lerp(head.rotation, Quaternion.identity * body.rotation, rotationTimeStep);

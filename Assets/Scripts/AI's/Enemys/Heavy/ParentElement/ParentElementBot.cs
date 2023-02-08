@@ -85,7 +85,7 @@ public class ParentElementBot : DefaultBot
 
             bool isChildsMany = childsCountNow >= childsMax;
 
-            if (isAannoyed && !botAttack.isAttack && !isChildsMany)
+            if (isAnnoyed && !botAttack.isAttack && !isChildsMany)
             {
                 botAttack.StartAttack();
             }

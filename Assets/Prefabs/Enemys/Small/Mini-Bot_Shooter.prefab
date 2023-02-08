@@ -29928,6 +29928,7 @@ GameObject:
   - component: {fileID: -6586121845762459703}
   - component: {fileID: 3397326189423220286}
   - component: {fileID: 3397326189423220281}
+  - component: {fileID: -5493099062900866964}
   m_Layer: 9
   m_Name: Mini-Bot_Shooter
   m_TagString: Untagged
@@ -30012,7 +30013,9 @@ MonoBehaviour:
   targetCloselyRadius: 6
   targetVeryCloselyRadius: 3
   damageImpulse: 3
+  destination: {x: 0, y: 0, z: 0}
   isStaticBot: 0
+  targetOldLookTimer: 1024
   fovDot: 0.5
   lookingLayerMask:
     serializedVersion: 2
@@ -30021,7 +30024,8 @@ MonoBehaviour:
   setTargetPosTime: 7.5
   nowSettesTargetPos: 0
   isRbVelocityToNavAgnStrict: 0
-  isAannoyed: 0
+  isAnnoyed: 0
+  aannoyedTimer: 0
   isLookingTarget: 0
   isTargetClosely: 0
   isTargetVeryClosely: 0
@@ -30032,6 +30036,7 @@ MonoBehaviour:
   botEffects: {fileID: 3397326189278217368}
   botAttack: {fileID: 3397326189423220281}
   botAnimations: {fileID: 0}
+  startAgentSpeed: 0
 --- !u!114 &3397326189423220281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30057,6 +30062,142 @@ MonoBehaviour:
   attackPhase: 0
   meleeAttackDamage: 5
   miniBot: {fileID: 3397326189423220286}
+--- !u!114 &-5493099062900866964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3397326189423220274}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881c507fa7c7138408d2cb4c05a8bcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 3397326189423220286}
+  enemyAttack: {fileID: 3397326189423220281}
+  enemyDamageSoundData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  enemyHoverSoundData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  enemyIdleSoundData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  enemyIdleDangerSoundData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  minNextCastTime: 3
+  maxNextCastTime: 16
+  enemyWarningSoundData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  enemyPreShotSoundData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  enemyShotSoundData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  enemyMeleeAttackSoundData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
 --- !u!1 &3397326189486916524
 GameObject:
   m_ObjectHideFlags: 0

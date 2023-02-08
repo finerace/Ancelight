@@ -60,7 +60,7 @@ public class AIManager : MonoBehaviour
 
                 var firstBot = Bots[i];
 
-                if (!firstBot.isAannoyed)
+                if (!firstBot.isAnnoyed)
                     continue;
 
                 if (firstBot.TargetOldLookTimer > crowdAannoyedTime)

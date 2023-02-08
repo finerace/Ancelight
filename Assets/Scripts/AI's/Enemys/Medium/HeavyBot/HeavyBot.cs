@@ -38,7 +38,7 @@ public class HeavyBot : DefaultBot
     
     private void RotateHeadToTarget()
     {
-        if (isLookingTarget || isAannoyed)
+        if (isLookingTarget || isAnnoyed)
             headJoint.targetRotation = Quaternion.Inverse(Quaternion.LookRotation(target.position - head.position)) *
                 body.rotation;
         else 
