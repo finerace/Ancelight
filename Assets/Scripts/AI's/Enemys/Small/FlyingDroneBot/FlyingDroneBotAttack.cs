@@ -14,12 +14,10 @@ public class FlyingDroneBotAttack : DefaultBotAttack
         IEnumerator AttackAlgorithm()
         {
             isAttack = true;
-            float randomWaitShotTime = Random.Range(0f, 1f);
-            float attackEndWaitTime = 1 - randomWaitShotTime;
             
             if (attackPhase == 0)
             {
-                yield return WaitTime(attackTime*randomWaitShotTime);
+                yield return WaitTime(attackTime/2);
 
                 attackPhase = 1;
             }
@@ -32,7 +30,7 @@ public class FlyingDroneBotAttack : DefaultBotAttack
                     botEffects.PlayAttackParticls();
                 }
 
-                yield return WaitTime(attackTime*randomWaitShotTime);
+                yield return WaitTime(attackTime/2);
 
                 isAttack = false;
 

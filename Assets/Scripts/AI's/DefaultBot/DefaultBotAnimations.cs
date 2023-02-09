@@ -8,10 +8,17 @@ public class DefaultBotAnimations : MonoBehaviour
 
     public virtual void SetAnimations(bool isAttacking, bool isMeleeAttacking, bool isPrepareAttack)
     {
+        if(botAnimator == null)
+            return;
+            
         botAnimator.SetBool("isAttacking", isAttacking);
         botAnimator.SetBool("isMeleeAttacking", isMeleeAttacking);
         botAnimator.SetBool("isPrepareAttack",isPrepareAttack);
     }
 
-
+    public void Destruct()
+    {
+        Destroy(botAnimator);
+    }
+    
 }

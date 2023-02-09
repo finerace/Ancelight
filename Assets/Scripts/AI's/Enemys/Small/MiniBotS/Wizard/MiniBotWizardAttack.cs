@@ -21,8 +21,10 @@ public class MiniBotWizardAttack : DefaultBotAttack
                 if(!isRecentlyLoad)
                     effects.PlayPreShootParticls();
                 
+                ActivatePreShotEvent();
+                
                 yield return WaitTime(1);
-
+                
                 attackPhase = 1;
             }
 
@@ -42,13 +44,11 @@ public class MiniBotWizardAttack : DefaultBotAttack
                 }
                 
                 yield return WaitTime(2);
-
-                attackPhase = 0;
             }
 
             isShoot = false;
             isAttack = false;
-
+            attackPhase = 0;
             isRecentlyLoad = false;
         }
 

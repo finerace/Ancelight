@@ -44,8 +44,7 @@ public abstract class DefaultBotAttack : MonoBehaviour
         if (bullet == null)
             bullet = this.bullet;
 
-        if(shotEvent != null)
-            shotEvent.Invoke();
+        ActivateShotEvent();
         
         return Instantiate(bullet, point.position, point.rotation);
     }
@@ -61,9 +60,9 @@ public abstract class DefaultBotAttack : MonoBehaviour
         Health health;
 
         if (target.gameObject.TryGetComponent<Health>(out health))
-            StartCoroutine(meleeAttack());
-
-        IEnumerator meleeAttack()
+            StartCoroutine(MeleeAttack());
+        
+        IEnumerator MeleeAttack()
         {
             isMeleeAttack = true;
 
@@ -75,6 +74,8 @@ public abstract class DefaultBotAttack : MonoBehaviour
                 {
                     health.GetDamage(damage);
                 }
+                
+                ActivateMeleeAttackEvent();
                 
                 attackPhase = 1;
                 botEffects.PlayMeleeAttackParticls();
@@ -143,4 +144,23 @@ public abstract class DefaultBotAttack : MonoBehaviour
         if (action != null)
             meleeAttackEvent -= action;
     }
+
+    protected void ActivatePreShotEvent()
+    {
+        if(preShotEvent != null)
+            preShotEvent.Invoke();
+    }
+
+    protected void ActivateShotEvent()
+    {
+        if(shotEvent != null)
+            shotEvent.Invoke();
+    }
+    
+    protected void ActivateMeleeAttackEvent()
+    {
+        if(meleeAttackEvent != null)
+            meleeAttackEvent.Invoke();
+    }
+
 }

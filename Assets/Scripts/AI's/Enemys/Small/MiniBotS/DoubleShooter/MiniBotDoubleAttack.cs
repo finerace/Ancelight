@@ -19,8 +19,9 @@ public class MiniBotDoubleAttack : DefaultBotAttack
             if (attackPhase == 0)
             {
                 isAttack = true;
-
-                yield return WaitTime(0.5f);
+                
+                ActivatePreShotEvent();
+                yield return WaitTime(1f);
                 
                 attackPhase = 1;
             }
@@ -60,7 +61,7 @@ public class MiniBotDoubleAttack : DefaultBotAttack
 
             if (attackPhase >= doubleAttackCount * 2)
             {
-                yield return WaitTime(2);
+                yield return WaitTime(1.5f);
                 isAttack = false;
             }
             

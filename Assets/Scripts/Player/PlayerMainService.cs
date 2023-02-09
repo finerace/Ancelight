@@ -21,8 +21,12 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     [SerializeField] internal PlayerImmediatelyProtectionService immediatelyProtectionService;
     [SerializeField] internal PlayerUseService playerUseService;
     [SerializeField] internal PlayerCleaner playerCleaner;
-    
+
     [Space] 
+    
+    [SerializeField] private bool godModeEnabled = false;
+    
+    [Space]
     
     [SerializeField] private MenuSystem menuSystem;
     
@@ -128,6 +132,9 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     
     public override void GetDamage(float damage,Transform source)
     {
+        if(godModeEnabled)
+            return;
+        
         if(armor >= damage)
         {
             armor -= damage/2f;

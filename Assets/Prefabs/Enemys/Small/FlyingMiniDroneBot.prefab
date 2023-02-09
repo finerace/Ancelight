@@ -5087,6 +5087,7 @@ GameObject:
   - component: {fileID: 6910328609629713444}
   - component: {fileID: 6910328609629713443}
   - component: {fileID: 6910328609629713442}
+  - component: {fileID: 1384433136975145610}
   m_Layer: 9
   m_Name: FlyingMiniDroneBot
   m_TagString: Untagged
@@ -5177,7 +5178,9 @@ MonoBehaviour:
   targetCloselyRadius: 16
   targetVeryCloselyRadius: 3
   damageImpulse: 25
+  destination: {x: 0, y: 0, z: 0}
   isStaticBot: 0
+  targetOldLookTimer: 1024
   fovDot: 0.35
   lookingLayerMask:
     serializedVersion: 2
@@ -5186,15 +5189,19 @@ MonoBehaviour:
   setTargetPosTime: 10
   nowSettesTargetPos: 0
   isRbVelocityToNavAgnStrict: 0
-  isAannoyed: 0
+  isAnnoyed: 0
+  aannoyedTimer: 0
   isLookingTarget: 0
   isTargetClosely: 0
   isTargetVeryClosely: 0
+  isBotGoToWayPoints: 0
+  currentWayPoint: {x: 0, y: 0, z: 0}
   isSmart: 1
   botParts: {fileID: 6910328610237430412}
   botEffects: {fileID: 6910328609459704981}
   botAttack: {fileID: 6910328609629713442}
   botAnimations: {fileID: 0}
+  startAgentSpeed: 0
   flyPoint: {fileID: 6910328611107249180}
   currentDroneState: 2
   maxFlyHight: 7
@@ -5227,7 +5234,249 @@ MonoBehaviour:
   isMeleeAttack: 0
   botEffects: {fileID: 6910328609459704981}
   bot: {fileID: 6910328609629713443}
+  onAttackTime: 0
+  currentWaitTime: 0
+  attackPhase: 0
   attackTime: 3
+--- !u!114 &1384433136975145610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910328609629713447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881c507fa7c7138408d2cb4c05a8bcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 6910328609629713443}
+  enemyAttack: {fileID: 6910328609629713442}
+  enemyDamageSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 1fde227702a41a44ea5014fdde27ecf4, type: 3}
+    - {fileID: 8300000, guid: 637ac64d157391e40a2a38d699a0cb48, type: 3}
+    - {fileID: 8300000, guid: 01fa6a0e672c8ee4d9da9dab80cf2e9a, type: 3}
+    - {fileID: 8300000, guid: 9a0920d54088151448b810567ae7806a, type: 3}
+    - {fileID: 8300000, guid: 600a4ac7553c09d4bb1632a210e0b5aa, type: 3}
+    - {fileID: 8300000, guid: 12025a8dfcf96074281ff08743a254b5, type: 3}
+    - {fileID: 8300000, guid: 71f05a50afc5bc8438a3db7274e78a5a, type: 3}
+    - {fileID: 8300000, guid: e9af4111d3e27de43bebf859934eb44b, type: 3}
+    - {fileID: 8300000, guid: 1f7dfe2233ac95846a9c9aade9be81de, type: 3}
+    - {fileID: 8300000, guid: ac78326d6e866cf40b646292d8feed93, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 13
+    volumeMin: 0.76
+    volumeMax: 0.8
+    isLoop: 0
+    pitchMin: 1.25
+    pitchMax: 1.35
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 5
+    maxDistance: 15
+  enemyHoverSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: c4c60da45879659478080b9ea8b5c129, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 10
+    volumeMin: 0.25
+    volumeMax: 0.35
+    isLoop: 1
+    pitchMin: 1.15
+    pitchMax: 1.2
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 1
+    maxDistance: 5
+  enemyIdleSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 448353ea87112bb498cc4374a14de80f, type: 3}
+    - {fileID: 8300000, guid: dee0ebaa07a7ff344aad88133c0691ba, type: 3}
+    - {fileID: 8300000, guid: 0bbfe4fa61ffd244b98eb7de2b16d558, type: 3}
+    - {fileID: 8300000, guid: b8899fd70d2c7c54088a0561e316c8d5, type: 3}
+    - {fileID: 8300000, guid: 28638dba180065a4991254bee2b5fb60, type: 3}
+    - {fileID: 8300000, guid: c967954ae04cbd54a85b27853e71b881, type: 3}
+    - {fileID: 8300000, guid: 4f19f4b6c226b4b4e80299b811060995, type: 3}
+    - {fileID: 8300000, guid: bd7e0a88638e5a648ac817f5da464267, type: 3}
+    - {fileID: 8300000, guid: 346a90640a72ac147b7572e3abbc3814, type: 3}
+    - {fileID: 8300000, guid: 9918d70f363eb344d9c7aaf4928908da, type: 3}
+    - {fileID: 8300000, guid: 25b988db1e55db04ca3876b0431b9532, type: 3}
+    - {fileID: 8300000, guid: c120a47545508eb4da129b30ae7bfd72, type: 3}
+    - {fileID: 8300000, guid: 7086863cb97191d4380bb0fea65cfd53, type: 3}
+    - {fileID: 8300000, guid: b8a071151cfeb024bb1d01cc302bed93, type: 3}
+    - {fileID: 8300000, guid: 48d88f55f63288a44b0fd784bccc7c2f, type: 3}
+    - {fileID: 8300000, guid: cba00cc4a2ecab4418e569dd32f2158c, type: 3}
+    - {fileID: 8300000, guid: ebd615bb6f840e14ebcee0a27cd537cd, type: 3}
+    - {fileID: 8300000, guid: 36f16fc18536dc84683e6a0a82aecc97, type: 3}
+    - {fileID: 8300000, guid: 1bcbdc1e7e53a8345b900d3f1303e6fd, type: 3}
+    - {fileID: 8300000, guid: 443f0169061350b43a2734fb8d8d8f1e, type: 3}
+    - {fileID: 8300000, guid: d0f3e094e253b0f41acf1c21899ba308, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 15
+    volumeMin: 0.2
+    volumeMax: 0.25
+    isLoop: 0
+    pitchMin: 1.55
+    pitchMax: 1.65
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 2
+    maxDistance: 15
+  enemyIdleDangerSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 448353ea87112bb498cc4374a14de80f, type: 3}
+    - {fileID: 8300000, guid: dee0ebaa07a7ff344aad88133c0691ba, type: 3}
+    - {fileID: 8300000, guid: 0bbfe4fa61ffd244b98eb7de2b16d558, type: 3}
+    - {fileID: 8300000, guid: b8899fd70d2c7c54088a0561e316c8d5, type: 3}
+    - {fileID: 8300000, guid: 28638dba180065a4991254bee2b5fb60, type: 3}
+    - {fileID: 8300000, guid: c967954ae04cbd54a85b27853e71b881, type: 3}
+    - {fileID: 8300000, guid: 4f19f4b6c226b4b4e80299b811060995, type: 3}
+    - {fileID: 8300000, guid: bd7e0a88638e5a648ac817f5da464267, type: 3}
+    - {fileID: 8300000, guid: 346a90640a72ac147b7572e3abbc3814, type: 3}
+    - {fileID: 8300000, guid: 9918d70f363eb344d9c7aaf4928908da, type: 3}
+    - {fileID: 8300000, guid: 25b988db1e55db04ca3876b0431b9532, type: 3}
+    - {fileID: 8300000, guid: c120a47545508eb4da129b30ae7bfd72, type: 3}
+    - {fileID: 8300000, guid: 7086863cb97191d4380bb0fea65cfd53, type: 3}
+    - {fileID: 8300000, guid: b8a071151cfeb024bb1d01cc302bed93, type: 3}
+    - {fileID: 8300000, guid: 48d88f55f63288a44b0fd784bccc7c2f, type: 3}
+    - {fileID: 8300000, guid: cba00cc4a2ecab4418e569dd32f2158c, type: 3}
+    - {fileID: 8300000, guid: ebd615bb6f840e14ebcee0a27cd537cd, type: 3}
+    - {fileID: 8300000, guid: 36f16fc18536dc84683e6a0a82aecc97, type: 3}
+    - {fileID: 8300000, guid: 1bcbdc1e7e53a8345b900d3f1303e6fd, type: 3}
+    - {fileID: 8300000, guid: 443f0169061350b43a2734fb8d8d8f1e, type: 3}
+    - {fileID: 8300000, guid: d0f3e094e253b0f41acf1c21899ba308, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 14
+    volumeMin: 0.35
+    volumeMax: 0.4
+    isLoop: 0
+    pitchMin: 1.25
+    pitchMax: 1.3
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 2
+    maxDistance: 20
+  minNextCastTime: 4
+  maxNextCastTime: 12
+  enemyWarningSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: e0cc3f732a58ae74e8e3b51feda123f9, type: 3}
+    - {fileID: 8300000, guid: 8a3008a7ea5d8654189c9510970ea98e, type: 3}
+    - {fileID: 8300000, guid: 212f77d20e8b9504d83f95b34aab4c37, type: 3}
+    - {fileID: 8300000, guid: ffdb5fd66b6cfbb4599dd42c6abbd298, type: 3}
+    - {fileID: 8300000, guid: 633beb912a669e04bb21e916109eaaf2, type: 3}
+    - {fileID: 8300000, guid: 2bc2fb8ba00a3dc47ad6f0202e015a39, type: 3}
+    - {fileID: 8300000, guid: ccb45f201c764ad479e5e3333f78e067, type: 3}
+    - {fileID: 8300000, guid: 0a236d7a2c42d1d4ca3104dd203ec429, type: 3}
+    - {fileID: 8300000, guid: 7ae549a464ff09c438fddebb119b3642, type: 3}
+    - {fileID: 8300000, guid: 9256fb97c437fd444914fe8216f5610e, type: 3}
+    - {fileID: 8300000, guid: 77b6ec351c0916044957cb12bb45ffe0, type: 3}
+    - {fileID: 8300000, guid: 1250250e2cda62141a2f6b9e64c540d5, type: 3}
+    - {fileID: 8300000, guid: 62de56fd390a6224a856fb1faf9a4382, type: 3}
+    - {fileID: 8300000, guid: fc489dde9b6f61a449f2dc33c4dc7575, type: 3}
+    - {fileID: 8300000, guid: 010ed83422a902549ae6144fa43064ad, type: 3}
+    - {fileID: 8300000, guid: f1a9249f9cda3da43ad80d3d149aaf84, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 9
+    volumeMin: 0.45
+    volumeMax: 0.5
+    isLoop: 0
+    pitchMin: 1.6
+    pitchMax: 1.65
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 2
+    maxDistance: 25
+  enemyPreShotSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: e1d7e107d636b4245a9d65c3bebbf445, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 10
+    volumeMin: 0.76
+    volumeMax: 0.8
+    isLoop: 0
+    pitchMin: 1.3
+    pitchMax: 1.35
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 2
+    maxDistance: 15
+  enemyShotSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 1fe3eddb27cccc040b223ba575bfddab, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 12
+    volumeMin: 0.65
+    volumeMax: 0.7
+    isLoop: 0
+    pitchMin: 2
+    pitchMax: 2.1
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 2
+    maxDistance: 15
+  enemyMeleeAttackSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: d9c536f62b2fd9f4ba18e79359d337a5, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 10
+    volumeMin: 0.55
+    volumeMax: 0.6
+    isLoop: 0
+    pitchMin: 3
+    pitchMax: 3
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 1
+    maxDistance: 15
+  enemyDieSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: e0cc3f732a58ae74e8e3b51feda123f9, type: 3}
+    - {fileID: 8300000, guid: 8a3008a7ea5d8654189c9510970ea98e, type: 3}
+    - {fileID: 8300000, guid: 212f77d20e8b9504d83f95b34aab4c37, type: 3}
+    - {fileID: 8300000, guid: ffdb5fd66b6cfbb4599dd42c6abbd298, type: 3}
+    - {fileID: 8300000, guid: 633beb912a669e04bb21e916109eaaf2, type: 3}
+    - {fileID: 8300000, guid: 2bc2fb8ba00a3dc47ad6f0202e015a39, type: 3}
+    - {fileID: 8300000, guid: ccb45f201c764ad479e5e3333f78e067, type: 3}
+    - {fileID: 8300000, guid: 0a236d7a2c42d1d4ca3104dd203ec429, type: 3}
+    - {fileID: 8300000, guid: 7ae549a464ff09c438fddebb119b3642, type: 3}
+    - {fileID: 8300000, guid: 9256fb97c437fd444914fe8216f5610e, type: 3}
+    - {fileID: 8300000, guid: 77b6ec351c0916044957cb12bb45ffe0, type: 3}
+    - {fileID: 8300000, guid: 1250250e2cda62141a2f6b9e64c540d5, type: 3}
+    - {fileID: 8300000, guid: 62de56fd390a6224a856fb1faf9a4382, type: 3}
+    - {fileID: 8300000, guid: fc489dde9b6f61a449f2dc33c4dc7575, type: 3}
+    - {fileID: 8300000, guid: 010ed83422a902549ae6144fa43064ad, type: 3}
+    - {fileID: 8300000, guid: f1a9249f9cda3da43ad80d3d149aaf84, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 10
+    volumeMin: 0.45
+    volumeMax: 0.5
+    isLoop: 0
+    pitchMin: 1.2
+    pitchMax: 1.25
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 3
+    maxDistance: 20
 --- !u!1 &6910328609655211539
 GameObject:
   m_ObjectHideFlags: 0

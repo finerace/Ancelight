@@ -9,11 +9,14 @@ public class DefaultBotParts : MonoBehaviour
     [SerializeField] private Collider[] botPartsColliders = new Collider[0];
     [SerializeField] private HealthExporter[] botHealthExporters = new HealthExporter[0];
     [SerializeField] private float frozeTime = 5f;
-
+    protected bool isDestruct;
+    public bool IsDestruct => isDestruct;
+    
     public virtual void DestructParts(Rigidbody parentRB)
     {
         transform.parent = null;
-
+        isDestruct = true;
+        
         foreach (var item in botPartsJoints)
         {
             Destroy(item);
@@ -40,6 +43,11 @@ public class DefaultBotParts : MonoBehaviour
         foreach (var item in botHealthExporters)
         {
             Destroy(item);
+        }
+
+        foreach (var collider in botPartsColliders)
+        {
+            Destroy(collider.gameObject,SettingsSetSystem.enemyPartsDestroyTime);
         }
 
         StartCoroutine(RigidbodyRemover());
@@ -70,8 +78,6 @@ public class DefaultBotParts : MonoBehaviour
                         {
                             Destroy(botPartsRb[i]);
                             //Destroy(botPartsColliders[i]);
-
-                            isFindActiveRBs = true;
                         }
                     }
 
@@ -83,7 +89,7 @@ public class DefaultBotParts : MonoBehaviour
                     break;
                 }
 
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(1f);
             }
 
         }

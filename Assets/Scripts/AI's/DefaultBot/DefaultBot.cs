@@ -498,13 +498,24 @@ public abstract class DefaultBot : Health
 
     public override void Died()
     {
-        LevelSaveData.mainLevelSaveData.RemoveFromSaveData(this);
-        
-        if(botParts != null)
-            botParts.DestructParts(bodyRB);
+        if(botAnimations != null)
+            botAnimations.Destruct();
 
-        botEffects.Destruct();
-        Destroy(gameObject);
+        StartCoroutine(Die());
+        
+        IEnumerator Die()
+        {
+            yield return null;
+            
+            LevelSaveData.mainLevelSaveData.RemoveFromSaveData(this);
+
+            if (botParts != null)
+                botParts.DestructParts(bodyRB);
+
+            botEffects.Destruct();
+            gameObject.SetActive(false);
+            Destroy(gameObject, 5);
+        }
     }
 
     public float PathLegth(Vector3[] corners)

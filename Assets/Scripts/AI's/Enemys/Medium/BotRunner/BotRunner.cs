@@ -18,9 +18,12 @@ public class BotRunner : DefaultBot
     {
         RotateHeadToTarget();
 
-        botAnimations.SetAnimations
-            (isLookingTarget,botRunnerAttack.isMeleeAttack,botRunnerAttack.isJerk);
-        
+        if (botAnimations != null)
+        {
+            botAnimations.SetAnimations
+                (isLookingTarget, botRunnerAttack.isMeleeAttack, botRunnerAttack.isJerk);
+        }
+
         base.FixedUpdate();
     }
 

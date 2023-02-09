@@ -27,7 +27,10 @@ public abstract class Health : MonoBehaviour
 
                 if(OnDie != null)
                     OnDie.Invoke();
-
+                
+                if(OnDamageEvent != null)
+                    OnDamageEvent.Invoke(damage);
+                
                 Died();
             }
 
@@ -50,6 +53,8 @@ public abstract class Health : MonoBehaviour
             maxHealth_ = maxHealth;
         else 
             throw new Exception("?????? ???????? ???????????? ????????!");
+        
+        
     }
     
     public virtual void SetHealth(float health)

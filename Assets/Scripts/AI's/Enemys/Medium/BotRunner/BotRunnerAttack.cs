@@ -38,7 +38,8 @@ public class BotRunnerAttack : DefaultBotAttack
             
             
                 botEffects.botParticlsAttack[1].Play();
-
+                ActivatePreShotEvent();
+                
                 while (!isJerkingToTarget)
                 {
                 
@@ -50,7 +51,6 @@ public class BotRunnerAttack : DefaultBotAttack
                     
                         if (dotCheck)
                         {
-                        
                             isJerkingToTarget = true;
 
                             botEffects.botParticlsAttack[0].Play();
@@ -68,6 +68,8 @@ public class BotRunnerAttack : DefaultBotAttack
                             {
                                 targetHealth.GetDamage(damage);
                             }
+                            
+                            ActivateShotEvent();
                         }
                     }
 
@@ -102,11 +104,8 @@ public class BotRunnerAttack : DefaultBotAttack
 
     public override void StartMeleeAttack(Transform target)
     {
-
         float meleeAttackTime = 1f;
-
         
-
         StartCoroutine(MeleeAttack(meleeAttackTime));
 
         IEnumerator MeleeAttack(float time)
@@ -127,6 +126,8 @@ public class BotRunnerAttack : DefaultBotAttack
 
                     if (botRunner.target.TryGetComponent<Health>(out Health targetHealth))
                         targetHealth.GetDamage(damage);
+                    
+                    ActivateMeleeAttackEvent();
                 }
 
                 attackPhase = 1;

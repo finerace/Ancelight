@@ -17,6 +17,7 @@ public class MiniBotShooterAttack : DefaultBotAttack
 
             if (attackPhase == 0)
             {
+                ActivatePreShotEvent();
                 yield return WaitTime(0.5f);
                 attackPhase = 1;
             }
@@ -56,7 +57,8 @@ public class MiniBotShooterAttack : DefaultBotAttack
             {
                 health.GetDamage(meleeAttackDamage);
             }
-
+            
+            ActivateMeleeAttackEvent();
             botEffects.PlayMeleeAttackParticls();
 
             yield return new WaitForSeconds(0.5f);

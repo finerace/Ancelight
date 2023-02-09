@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,7 @@ public class MiniKamikazeAttack : DefaultBotAttack
         Explosions.Explosion(bot.body.position, explousionForce, explousionRadius, damage,
             wallsLayerMask, damageLayerMask, forceLayerMask);
 
-        bot.Died();
+        bot.GetDamage(bot.Health_+1,null);
 
         botEffects.PlayAttackParticls();
     }
