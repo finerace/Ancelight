@@ -17,7 +17,8 @@ public class RocketBotAttack : DefaultBotAttack
             if (attackPhase == 0)
             {
                 isAttack = true;
-
+                ActivatePreShotEvent();
+                
                 yield return WaitTime(1);
 
                 if (!isMeleeAttack)

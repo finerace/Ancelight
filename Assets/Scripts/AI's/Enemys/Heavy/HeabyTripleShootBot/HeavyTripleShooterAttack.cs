@@ -63,9 +63,12 @@ public class HeavyTripleShooterAttack : DefaultBotAttack
             {
                 yield return WaitTime(attackTime * 0.2f);
 
+
                 Shot(shotPoints[2], bullet)
                     .GetComponent<BulletHoming>().target = bot.target;
                 
+                ActivatePreShotEvent();
+
                 isShoot = false;
                 
                 if (isRecentlyLoad)

@@ -29,6 +29,8 @@ public class ParentElementAttack : DefaultBotAttack
 
             if (attackPhase == 0)
             {
+                ActivatePreShotEvent();
+                
                 yield return WaitTime(startAttackColdown);
 
                 attackPhase = 1;
@@ -70,6 +72,8 @@ public class ParentElementAttack : DefaultBotAttack
 
     private void SpawnChildBot(Transform shotPoint)
     {
+        ActivateShotEvent();
+        
         Health botHealth = 
             Instantiate(bullet, shotPoint.position, shotPoint.rotation)
             .GetComponent<Health>();

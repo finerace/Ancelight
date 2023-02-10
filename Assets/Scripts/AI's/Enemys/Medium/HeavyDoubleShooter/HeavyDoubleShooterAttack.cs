@@ -17,6 +17,7 @@ public class HeavyDoubleShooterAttack : DefaultBotAttack
 
             if (attackPhase == 0)
             {
+                ActivatePreShotEvent();
                 yield return WaitTime(1);
 
                 attackPhase = 1;

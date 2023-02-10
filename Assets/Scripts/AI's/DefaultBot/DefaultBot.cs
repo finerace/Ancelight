@@ -199,6 +199,13 @@ public abstract class DefaultBot : Health
 
         if (isStaticBot && (isLookingTarget || isAnnoyed))
             StaticBotRotation();
+        
+        AttackManageAlgorithm();
+        void AttackManageAlgorithm()
+        {
+            if (isTargetVeryClosely && !botAttack.isMeleeAttack && !botAttack.isAttack)
+                botAttack.StartMeleeAttack(target);
+        }
     }
 
     protected void FixedUpdate()
@@ -369,6 +376,7 @@ public abstract class DefaultBot : Health
         while (true)
         {
             yield return new WaitForSeconds(time);
+            
             if (isTargetVeryClosely && !botAttack.isMeleeAttack && !botAttack.isAttack)
                 botAttack.StartMeleeAttack(target);
             

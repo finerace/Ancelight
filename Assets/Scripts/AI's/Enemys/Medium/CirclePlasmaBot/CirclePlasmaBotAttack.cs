@@ -12,7 +12,6 @@ public class CirclePlasmaBotAttack : DefaultBotAttack
 
     public override void StartAttack()
     {
-
         StartCoroutine( AttackProcess() );
 
         IEnumerator AttackProcess()
@@ -22,6 +21,7 @@ public class CirclePlasmaBotAttack : DefaultBotAttack
 
             if (attackPhase == 0)
             {
+                ActivatePreShotEvent();
                 yield return WaitTime(attackColdown);
                 attackPhase = 1;
             }
@@ -49,10 +49,7 @@ public class CirclePlasmaBotAttack : DefaultBotAttack
             isShoot = false;
             isAttack = false;
         }
-
-
         
-
     }
 
     public override void StartMeleeAttack(Transform target)

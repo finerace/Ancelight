@@ -19,7 +19,8 @@ public class HeavyBotAttack : DefaultBotAttack
             
             if (attackPhase == 0)
             {
-                yield return WaitTime(0.15f);
+                ActivatePreShotEvent();
+                yield return WaitTime(1.5f);
                 attackPhase = 1;
             }
 
@@ -44,10 +45,16 @@ public class HeavyBotAttack : DefaultBotAttack
 
             if (attackPhase == 5)
             {
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(0.15f);
             }
             
             isAttack = false;
+            
+            attackPhase = 0;
+            
+            if(heavyBot.isTargetVeryClosely)
+                StartMeleeAttack(heavyBot.target);
+            
         }
 
     }

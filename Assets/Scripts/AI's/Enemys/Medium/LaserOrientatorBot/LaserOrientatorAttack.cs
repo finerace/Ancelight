@@ -48,10 +48,12 @@ public class LaserOrientatorAttack : DefaultBotAttack
 
             if (attackPhase == 0)
             {
+                ActivatePreShotEvent();
+                
                 if(!isRecentlyLoad)
                     effects2.SetGunBrightState(true);
 
-                yield return WaitTime(startAttackColdownTime * 0.9f);
+                yield return WaitTime(startAttackColdownTime * 0.85f);
                 
                 attackPhase = 1;
 
@@ -61,11 +63,13 @@ public class LaserOrientatorAttack : DefaultBotAttack
 
             if (attackPhase == 1)
             {
+                isShoot = true;
+                
                 if(!isRecentlyLoad)
                     effects2.SetLazerState(LaserOrientatorBotEffects.LaserState.Prepare);
-             
-                yield return WaitTime(startAttackColdownTime * 0.1f);
 
+                yield return WaitTime(startAttackColdownTime * 0.15f);
+                
                 if (isRecentlyLoad)
                     isRecentlyLoad = false;
 
@@ -73,12 +77,15 @@ public class LaserOrientatorAttack : DefaultBotAttack
             }
 
             if (attackPhase == 2)
+                
             {
                 if (!isRecentlyLoad)
                 {
                     effects2.SetLazerState(LaserOrientatorBotEffects.LaserState.On);
 
                     isShoot = true;
+                    
+                    ActivateShotEvent();
                 }
 
                 yield return WaitTime(attackTime);
@@ -92,8 +99,9 @@ public class LaserOrientatorAttack : DefaultBotAttack
             isShoot = false;
 
             effects2.SetGunBrightState(false);
-
+            
             attackPhase = 0;
+            ActivateLoopShotStopEvent();
             isAttack = false;
         }
 

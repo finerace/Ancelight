@@ -18,6 +18,7 @@ public abstract class DefaultBotAttack : MonoBehaviour
     protected bool isRecentlyLoad;
 
     protected event Action shotEvent;
+    protected event Action loopShotStopEvent;
     
     protected event Action meleeAttackEvent;
     protected event Action preShotEvent;
@@ -133,6 +134,18 @@ public abstract class DefaultBotAttack : MonoBehaviour
             preShotEvent -= action;
     }
     
+    public void SubLoopShotStopEvent(Action action)
+    {
+        if (action != null)
+            loopShotStopEvent += action;
+    }
+    
+    public void UnSubLoopShotStopEvent(Action action)
+    {
+        if (action != null)
+            loopShotStopEvent -= action;
+    }
+    
     public void SubMeleeAttackEvent(Action action)
     {
         if (action != null)
@@ -155,6 +168,12 @@ public abstract class DefaultBotAttack : MonoBehaviour
     {
         if(shotEvent != null)
             shotEvent.Invoke();
+    }
+
+    protected void ActivateLoopShotStopEvent()
+    {
+        if(loopShotStopEvent != null)
+            loopShotStopEvent.Invoke();
     }
     
     protected void ActivateMeleeAttackEvent()

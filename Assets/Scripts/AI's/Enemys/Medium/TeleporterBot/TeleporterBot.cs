@@ -122,7 +122,7 @@ public class TeleporterBot : DefaultBot
                 botAttack.StartAttack();
         }
 
-        yield return null;
+        yield break;
     }
 
     private void StartTeleportation()

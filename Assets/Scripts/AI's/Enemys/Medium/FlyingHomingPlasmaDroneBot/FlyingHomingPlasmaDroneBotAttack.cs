@@ -17,6 +17,8 @@ public class FlyingHomingPlasmaDroneBotAttack : DefaultBotAttack
 
             if (attackPhase == 0)
             {
+                ActivatePreShotEvent();
+                
                 yield return WaitTime(attackTime * 0.333f);
                 botEffects.PlayAttackParticls();
 

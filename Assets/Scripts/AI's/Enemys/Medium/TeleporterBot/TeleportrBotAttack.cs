@@ -10,9 +10,8 @@ public class TeleportrBotAttack : DefaultBotAttack
 
     public override void StartAttack()
     {
-
-        StartCoroutine(AttackProcess());
-
+        StartCoroutine(AttackProcess()); ;
+        
         IEnumerator AttackProcess()
         {
             if (attackPhase == 0)
@@ -22,7 +21,6 @@ public class TeleportrBotAttack : DefaultBotAttack
 
                 attackPhase = 1;
             }
-            
             
             int shotsCount = 3;
             float oneShotTime = 0.2f;
@@ -55,7 +53,10 @@ public class TeleportrBotAttack : DefaultBotAttack
                 isRecentlyLoad = false;
             }
 
+            attackPhase = 0;
             isAttack = false;
+            
+            ActivatePreShotEvent();
         }
 
     }
