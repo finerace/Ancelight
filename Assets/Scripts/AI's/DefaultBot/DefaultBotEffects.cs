@@ -69,7 +69,7 @@ public class DefaultBotEffects : MonoBehaviour
             botCurrentBright = botStartBright * botNoActiveBright;
         else
         {
-            float botDestructBright = botStartBright * -0.5f;
+            float botDestructBright = -0.5f;
 
             botCurrentBright = botDestructBright;
         }

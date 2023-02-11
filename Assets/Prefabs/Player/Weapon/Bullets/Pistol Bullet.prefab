@@ -5062,7 +5062,7 @@ MonoBehaviour:
     pitchMax: 1.4
     stereoPan: 0
     spatialBlend: 1
-    minDistance: 1
+    minDistance: 2
     maxDistance: 25
 --- !u!1 &6571646158332862438
 GameObject:

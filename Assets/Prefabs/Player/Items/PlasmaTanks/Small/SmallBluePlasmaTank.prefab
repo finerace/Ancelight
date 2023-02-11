@@ -10044,14 +10044,14 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 42b7bff91beb6e84e94082c410411370, type: 3}
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 0}
-    priority: 11
+    priority: 6
     volumeMin: 0.4
     volumeMax: 0.45
     isLoop: 0
     pitchMin: 2
     pitchMax: 2.1
     stereoPan: 0
-    spatialBlend: 0.25
+    spatialBlend: 0
     minDistance: 2
     maxDistance: 20
 --- !u!95 &440076868204069163

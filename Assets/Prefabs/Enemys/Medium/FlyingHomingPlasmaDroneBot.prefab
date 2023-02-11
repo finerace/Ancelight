@@ -14542,7 +14542,7 @@ MonoBehaviour:
   botMeshLOD2:
   - {fileID: 63402761794983737}
   hitParticle: {fileID: 63402760648205262}
-  botBrightSpeed: 2
+  botBrightSpeed: 1
   botActiveBright: 1
   botNoActiveBright: 0.75
   botIsActive: 0

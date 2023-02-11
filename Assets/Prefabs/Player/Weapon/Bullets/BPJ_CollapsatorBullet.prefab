@@ -19588,15 +19588,15 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 812244b3466747540877472c94576da8, type: 3}
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 0}
-    priority: 16
-    volumeMin: 1
-    volumeMax: 1
+    priority: 5
+    volumeMin: 0.5
+    volumeMax: 0.55
     isLoop: 0
     pitchMin: 0.55
     pitchMax: 0.6
     stereoPan: 0
     spatialBlend: 1
-    minDistance: 8
+    minDistance: 18
     maxDistance: 125
 --- !u!1 &6571646158332862438
 GameObject:

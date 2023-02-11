@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 2398454916777494616}
   - component: {fileID: 2398454916777494619}
   - component: {fileID: 2398454916777494618}
+  - component: {fileID: -1042992814031666936}
   - component: {fileID: 2398454916777494621}
   m_Layer: 16
   m_Name: PistolItem
@@ -136,9 +137,38 @@ MonoBehaviour:
   getWeaponId: 2
   bonusBullets: 0
   stand: {fileID: 2398454918129982101}
+--- !u!114 &-1042992814031666936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398454916777494620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2de4dd696e9f540b6244aa1669be99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerItem: {fileID: 2398454916777494618}
+  collectItemSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: d8c33cc7841086d46812f67ffee5b946, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 5
+    volumeMin: 0.4
+    volumeMax: 0.45
+    isLoop: 0
+    pitchMin: 1.15
+    pitchMax: 1.2
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 2
+    maxDistance: 20
 --- !u!95 &2398454916777494621
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -155,7 +185,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &2398454917441978144
 GameObject:
   m_ObjectHideFlags: 0

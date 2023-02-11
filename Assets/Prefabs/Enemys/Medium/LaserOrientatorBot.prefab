@@ -10534,7 +10534,7 @@ MonoBehaviour:
   - {fileID: 926764907751210}
   - {fileID: 9065746755136040912}
   hitParticle: {fileID: 5001171775200943475}
-  botBrightSpeed: 2
+  botBrightSpeed: 1
   botActiveBright: 2
   botNoActiveBright: 0.05
   botIsActive: 0

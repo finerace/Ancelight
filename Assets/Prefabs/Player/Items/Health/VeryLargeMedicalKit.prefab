@@ -10002,6 +10002,7 @@ GameObject:
   - component: {fileID: 937307254675038759}
   - component: {fileID: 937307254675038756}
   - component: {fileID: 937307254675038758}
+  - component: {fileID: -2759733319736024146}
   - component: {fileID: 937307254675038757}
   m_Layer: 16
   m_Name: VeryLargeMedicalKit
@@ -10061,9 +10062,38 @@ MonoBehaviour:
   itemId: 26
   getHealth: 100
   getArmor: 0
+--- !u!114 &-2759733319736024146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937307254675038754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2de4dd696e9f540b6244aa1669be99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerItem: {fileID: 937307254675038758}
+  collectItemSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 419644b4fd4556c46ba0bca00d95c688, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 5
+    volumeMin: 0.55
+    volumeMax: 0.6
+    isLoop: 0
+    pitchMin: 1.1
+    pitchMax: 1.15
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 2
+    maxDistance: 20
 --- !u!95 &937307254675038757
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10080,7 +10110,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &937307254988086847
 GameObject:
   m_ObjectHideFlags: 0

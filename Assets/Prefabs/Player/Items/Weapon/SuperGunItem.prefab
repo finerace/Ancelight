@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 2873122594748301336}
   - component: {fileID: 2873122594748301343}
   - component: {fileID: 2873122594748301342}
+  - component: {fileID: -1153062798401308406}
   - component: {fileID: 2873122594748301341}
   m_Layer: 16
   m_Name: SuperGunItem
@@ -271,9 +272,38 @@ MonoBehaviour:
   getWeaponId: 7
   bonusBullets: 75
   stand: {fileID: 2873122596652904660}
+--- !u!114 &-1153062798401308406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2873122594748301340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2de4dd696e9f540b6244aa1669be99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerItem: {fileID: 2873122594748301342}
+  collectItemSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: d8c33cc7841086d46812f67ffee5b946, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 5
+    volumeMin: 0.4
+    volumeMax: 0.45
+    isLoop: 0
+    pitchMin: 0.9
+    pitchMax: 0.95
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 2
+    maxDistance: 20
 --- !u!95 &2873122594748301341
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -290,7 +320,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &2873122594848762128
 GameObject:
   m_ObjectHideFlags: 0

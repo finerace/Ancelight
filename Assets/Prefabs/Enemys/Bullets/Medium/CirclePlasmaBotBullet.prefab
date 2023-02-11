@@ -9696,6 +9696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6571646158022850636}
   - component: {fileID: 5152448735994343201}
+  - component: {fileID: -4274262029712721600}
   - component: {fileID: 7399644231182480711}
   m_Layer: 12
   m_Name: CirclePlasmaBotBullet
@@ -9747,6 +9748,35 @@ MonoBehaviour:
   collisionForce: 1
   speed: 35
   bulletId: 13
+--- !u!114 &-4274262029712721600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6571646158022850639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9818d22faf6ad499a33a7af92af7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletMain: {fileID: 5152448735994343201}
+  bulletDestroySoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 0e0e63d925ac40744aade9c0090bb26c, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 12
+    volumeMin: 0.35
+    volumeMax: 0.4
+    isLoop: 0
+    pitchMin: 1.45
+    pitchMax: 1.5
+    stereoPan: 0
+    spatialBlend: 1
+    minDistance: 3
+    maxDistance: 25
 --- !u!54 &7399644231182480711
 Rigidbody:
   m_ObjectHideFlags: 0

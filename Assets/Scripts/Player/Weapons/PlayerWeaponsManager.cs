@@ -533,14 +533,16 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
             Shot();
         }
 
-        float fire1 = Axis.Fire1;
+        float fire1 = 0;
+
+        if (fireButton.IsGetButton())
+            fire1 = 1;
 
         if (shootingMode != WeaponData.ShootingMode.Lazer) 
             isAttacking = false;
 
         else if (fire1 > 0 && isThereAnyBullets)  
         {
-            //????? ?????????? ??????? ?? ??? ???? ??? ?????
             StartAttack();
         }
         else isAttacking = false;

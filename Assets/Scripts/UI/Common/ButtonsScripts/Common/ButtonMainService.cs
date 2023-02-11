@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,14 @@ public class ButtonMainService : MonoBehaviour, IPointerUpHandler,IPointerDownHa
     public UnityEvent onClickAction;
     private bool onMouseEnter = false;
     private bool isClicked = false;
+    private AudioPoolService audioPoolService;
+    [SerializeField] private AudioCastData onClickAudioData;
+    [SerializeField] private AudioCastData onEnterExitAudioData;
+
+    private void Start()
+    {
+        audioPoolService = AudioPoolService.currentAudioPoolService;
+    }
 
     public void OnPointerUp(PointerEventData data)
     {
@@ -41,6 +50,9 @@ public class ButtonMainService : MonoBehaviour, IPointerUpHandler,IPointerDownHa
             ButtonAnimations.ButtonState.Clicked;
 
         isClicked = true;
+
+        if (onClickAudioData.Clips.Length != 0)
+            audioPoolService.CastAudio(onClickAudioData);
     }
 
     public void OnPointerEnter(PointerEventData data)
@@ -52,6 +64,9 @@ public class ButtonMainService : MonoBehaviour, IPointerUpHandler,IPointerDownHa
             ButtonAnimations.ButtonState.MouseEnter;
 
         onMouseEnter = true;
+
+        if (onEnterExitAudioData.Clips.Length != 0)
+            audioPoolService.CastAudio(onEnterExitAudioData);
     }
 
     public void OnPointerExit(PointerEventData data)
@@ -63,6 +78,9 @@ public class ButtonMainService : MonoBehaviour, IPointerUpHandler,IPointerDownHa
             ButtonAnimations.ButtonState.Idle;
 
         onMouseEnter = false;
+        
+        if (onEnterExitAudioData.Clips.Length != 0)
+            audioPoolService.CastAudio(onEnterExitAudioData);
     }
 
     // public void OnMouseOver()

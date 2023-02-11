@@ -29,29 +29,28 @@ public class RocketsHomingBotAttack : DefaultBotAttack
             int shotCount = 1;
             float shotTime = 0.3f / shotCount;
 
-            if (attackPhase >= 1 && attackPhase < (shotCount*2) + 1) ;
+            if (attackPhase == 1)
             {
-                for (int i = 1; i < shotCount+1; i++)
-                {
-                    if (isRecentlyLoad)
-                        i = attackPhase;
+                BulletHomingExplousion bullet =
+                    Shot(shotPoints[0]).GetComponent<BulletHomingExplousion>();
+                bullet.target = bot.target;
 
-                    attackPhase = i;
-                    
-                    BulletHomingExplousion bullet =
-                        Shot(shotPoints[0]).GetComponent<BulletHomingExplousion>();
-                    bullet.target = bot.target;
+                bot.botEffects.PlayAttackParticls();
 
-                    bot.botEffects.PlayAttackParticls();
+                attackPhase = 2;
+            }
+            
+            if (attackPhase == 2) ;
+            {
+                yield return WaitTime(shotTime);
 
-                    yield return WaitTime(shotTime);
+                if (isRecentlyLoad)
+                    isRecentlyLoad = false;
 
-                    if (isRecentlyLoad)
-                        isRecentlyLoad = false;
-                }
+                attackPhase = 3;
             }
 
-            if (attackPhase == (shotCount * 2) + 1)
+            if (attackPhase == 3)
             {
                 isShoot = false;
                 yield return WaitTime(attackTime * 0.4f);

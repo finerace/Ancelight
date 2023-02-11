@@ -9885,6 +9885,7 @@ GameObject:
   - component: {fileID: 1100785540793588574}
   - component: {fileID: 1100785540793588573}
   - component: {fileID: 1100785540793588572}
+  - component: {fileID: 6464954527854361840}
   - component: {fileID: 1100785540793588563}
   m_Layer: 16
   m_Name: DrobovikItem
@@ -9946,9 +9947,38 @@ MonoBehaviour:
   getWeaponId: 3
   bonusBullets: 25
   stand: {fileID: 1100785539816719692}
+--- !u!114 &6464954527854361840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100785540793588575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2de4dd696e9f540b6244aa1669be99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerItem: {fileID: 1100785540793588572}
+  collectItemSoundData:
+    audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: d8c33cc7841086d46812f67ffee5b946, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 5
+    volumeMin: 0.4
+    volumeMax: 0.45
+    isLoop: 0
+    pitchMin: 1
+    pitchMax: 1.1
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 2
+    maxDistance: 20
 --- !u!95 &1100785540793588563
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9965,7 +9995,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1722610306399391989
 GameObject:
   m_ObjectHideFlags: 0
