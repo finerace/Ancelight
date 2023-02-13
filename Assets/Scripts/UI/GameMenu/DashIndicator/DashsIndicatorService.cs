@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +15,31 @@ public class DashsIndicatorService : MonoBehaviour
 
     private float currentIndicatorsTransparency = 1f;
     private float currentIndicatorsFillAmount = 1f;
+    
+    private event Action dashUnitReadyEvent;
 
+    public event Action DashUnitReadyEvent
+    {
+        add
+        {
+            if (value == null)
+                throw new EventSourceException("Action is null!");
+            
+            dashUnitReadyEvent += value;
+        }
+
+        remove
+        {
+            if (value == null)
+                throw new EventSourceException("Action is null!");
+            
+            dashUnitReadyEvent -= value;
+        }
+    }
+
+    private int currentReadyDashUnits;
+    private int soundedReadyDashUnits;
+    
     private Transform startPoint;
     
     private bool isDashServiceActive 
@@ -33,8 +59,19 @@ public class DashsIndicatorService : MonoBehaviour
     private void Update()
     {
         UpdateDashsIndiactors();
+        
+        DashUnitReadyEventWork();
     }
 
+    private void DashUnitReadyEventWork()
+    {
+        if(soundedReadyDashUnits < currentReadyDashUnits)
+            if(dashUnitReadyEvent != null)
+                dashUnitReadyEvent.Invoke();
+
+        soundedReadyDashUnits = currentReadyDashUnits;
+    }
+    
     private void ReCreateIndicators()
     {
         for (int i = 0; i < dashIndicators.Count; i++)
@@ -124,7 +161,6 @@ public class DashsIndicatorService : MonoBehaviour
 
     private void UpdateDashsIndiactors()
     {
-
         if(!isDashServiceActive && afterActiveWorkTimer <= 0)
         {
             SetIndicatorsTransparency(0);
@@ -207,7 +243,8 @@ public class DashsIndicatorService : MonoBehaviour
         {
             const float readyDashIndicatorIntensity = 0.3f;
             const float notReadyDashIndicatorIntensity = 0.1f;
-
+            currentReadyDashUnits = 0;
+            
             for (int i = 0; i < dashIndicators.Count; i += 2)
             {
                 var item1 = dashIndicators[i];
@@ -219,6 +256,7 @@ public class DashsIndicatorService : MonoBehaviour
                     item1.SetFillZoneEffectIntensity(readyDashIndicatorIntensity);
                     item2.SetFillZoneEffectIntensity(readyDashIndicatorIntensity);
 
+                    currentReadyDashUnits++;
                     continue;
                 }
 
@@ -232,8 +270,6 @@ public class DashsIndicatorService : MonoBehaviour
                         item1.SetFillZoneEffectIntensity(readyDashIndicatorIntensity);
                         item2.SetFillZoneEffectIntensity(readyDashIndicatorIntensity);
                     }
-
-                    continue;
                 }
             }
         }

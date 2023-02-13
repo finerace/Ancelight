@@ -7828,7 +7828,7 @@ MonoBehaviour:
   immediatelyProtectionService: {fileID: 171281697}
   playerUseService: {fileID: 171281696}
   playerCleaner: {fileID: 1966918004}
-  godModeEnabled: 1
+  godModeEnabled: 0
   menuSystem: {fileID: 853666521}
   shootingPoint: {fileID: 1569887400}
   weaponPoint: {fileID: 984041353}

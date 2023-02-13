@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEditor.UIElements;
 using UnityEngine;
 
@@ -83,6 +84,28 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
 
     private event Action hookUseEvent;
     private event Action hookEndUseEvent;
+    
+    private event Action hookRegenerateEvent;
+    private bool isHookRegenerateWorked;
+    
+    public event Action HookRegenerateEvent
+    {
+        add
+        {
+            if (value == null)
+                throw new EventSourceException("Action is null!");
+            
+            hookRegenerateEvent += value;
+        }
+
+        remove
+        {
+            if (value == null)
+                throw new EventSourceException("Action is null!");
+            
+            hookRegenerateEvent -= value;
+        }
+    }
     
     private DeviceButton useHookButton = new DeviceButton();
 
@@ -260,6 +283,18 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
 
             hookCurrentStrength +=
                     hookStrengthRegenerationPerSecond * Time.deltaTime;
+
+            if (hookCurrentStrength - 0.05f >= hookMaxStrength)
+            {
+                if (!isHookRegenerateWorked && hookRegenerateEvent != null)
+                {
+                    hookRegenerateEvent.Invoke();
+                    isHookRegenerateWorked = true;
+                }
+            }
+            else
+                isHookRegenerateWorked = false;
+
         }
 
         void HookStrengthUse()

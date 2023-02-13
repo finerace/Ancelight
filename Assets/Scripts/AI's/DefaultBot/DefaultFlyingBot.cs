@@ -21,7 +21,7 @@ public abstract class DefaultFlyingBot : DefaultBot
     protected float currentAllowedHight = 0;
     protected float currentDistanceXZ = 0;
     protected bool isAgentVisible = false;
-
+    
     [SerializeField] protected float agentStopTimer = 0;
     protected bool isAgentStopped = true;
     protected const float maxAgentStopTimeToRespawn = 3f;
@@ -29,7 +29,7 @@ public abstract class DefaultFlyingBot : DefaultBot
     
     protected Vector3 motionDistortion;
     [SerializeField] protected float motionDistortionPower = 1f;
-
+    
     private new void Start()
     {
         base.Start();
@@ -83,6 +83,9 @@ public abstract class DefaultFlyingBot : DefaultBot
 
     protected virtual void FlyPointManage()
     {
+        if(isDie)
+            return;
+        
         Vector3 resultFlyPointPos = Vector3.zero;
 
         switch (currentDroneState)
@@ -222,6 +225,9 @@ public abstract class DefaultFlyingBot : DefaultBot
 
     internal override void WalkBotToNavAgent()
     {
+        if(isDie)
+            return;
+        
         Vector3 toFlyPointDirection = (flyPoint.position - bodyRB.position).normalized;
         Vector3 finalDirection = toFlyPointDirection * droneSpeed;
 

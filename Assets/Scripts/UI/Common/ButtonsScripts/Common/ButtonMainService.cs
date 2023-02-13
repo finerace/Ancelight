@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class ButtonMainService : MonoBehaviour, IPointerUpHandler,IPointerDownHandler, 
     IPointerEnterHandler, IPointerExitHandler
@@ -19,12 +15,12 @@ public class ButtonMainService : MonoBehaviour, IPointerUpHandler,IPointerDownHa
     private AudioPoolService audioPoolService;
     [SerializeField] private AudioCastData onClickAudioData;
     [SerializeField] private AudioCastData onEnterExitAudioData;
-
+    
     private void Start()
     {
         audioPoolService = AudioPoolService.currentAudioPoolService;
     }
-
+    
     public void OnPointerUp(PointerEventData data)
     {
         if (onMouseEnter)
