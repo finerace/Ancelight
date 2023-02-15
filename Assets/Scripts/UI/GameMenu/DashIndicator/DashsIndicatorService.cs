@@ -269,6 +269,7 @@ public class DashsIndicatorService : MonoBehaviour
                     {
                         item1.SetFillZoneEffectIntensity(readyDashIndicatorIntensity);
                         item2.SetFillZoneEffectIntensity(readyDashIndicatorIntensity);
+                        currentReadyDashUnits++;
                     }
                 }
             }

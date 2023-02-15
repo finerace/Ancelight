@@ -284,7 +284,7 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
             hookCurrentStrength +=
                     hookStrengthRegenerationPerSecond * Time.deltaTime;
 
-            if (hookCurrentStrength - 0.05f >= hookMaxStrength)
+            if (hookCurrentStrength + 0.05f >= hookMaxStrength)
             {
                 if (!isHookRegenerateWorked && hookRegenerateEvent != null)
                 {
