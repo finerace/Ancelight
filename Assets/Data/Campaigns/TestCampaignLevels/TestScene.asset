@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aafa4f540456a7c4bbbfa9a8d7b41b9b, type: 3}
+  m_Name: TestScene
+  m_EditorClassIdentifier: 
+  levelCampaignData: {fileID: 11400000, guid: 1e71b38d4d6b0df48aca32a339c28640, type: 2}
+  levelName: Test Scene
+  levelSceneId: 1
+  levelPassageTimeHours: 0
+  levelPassageTimeMinutes: 0
+  levelEnemyCount: 0
+  levelSecretsCount: 0
+  isLevelUnlocked: 1
+  levelMaxScore: 0
+  levelSecretsFounded: 0
