@@ -78,6 +78,14 @@ public abstract class OrdinaryPlayerItem : MonoBehaviour, IPlayerItem
     }
 }
 
+public class PlayerItemContainer : OrdinaryPlayerItem
+{
+    protected override void PickUpItemAlgorithm(PlayerMainService player)
+    {
+        throw new NotImplementedException();
+    }
+}
+
 public interface IPlayerItem
 {
     public void PickUp(PlayerMainService player);

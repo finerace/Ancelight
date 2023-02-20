@@ -254,28 +254,12 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
                 DestroyImmediate(enemyData.EnemyType.gameObject);
             }
             
-            foreach (var itemData in data.ToSavePlasmaItemData)
+            foreach (var itemData in data.ToSaveItemData)
             {
-                if(itemData.PlasmaItem == null)
+                if(itemData.ItemService == null)
                     return;
                 
-                DestroyImmediate(itemData.PlasmaItem.gameObject);
-            }
-            
-            foreach (var itemData in data.ToSaveWeaponItemData)
-            {
-                if(itemData.WeaponGetItem == null)
-                    return;
-                
-                DestroyImmediate(itemData.WeaponGetItem.gameObject);
-            }
-            
-            foreach (var itemData in data.ToSaveHealthArmorItemData)
-            {
-                if(itemData.HealthArmorItem == null)
-                    return;
-                
-                DestroyImmediate(itemData.HealthArmorItem.gameObject);
+                DestroyImmediate(itemData.ItemService.gameObject);
             }
         }
 
@@ -292,9 +276,7 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
             data.SavedLevelSpawnScenarios.Clear();
             data.LevelTransformTranslateSavedSystems.Clear();
             data.ToSaveEnemyData.Clear();
-            data.ToSavePlasmaItemData.Clear();
-            data.ToSaveWeaponItemData.Clear();
-            data.ToSaveHealthArmorItemData.Clear();
+            data.ToSaveItemData.Clear();
         }
         
         void LoadSavedLevelData(LevelSaveData levelData)
@@ -385,31 +367,14 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
 
             void LoadItems()
             {
-                foreach (var plasmaItemData in levelData.ToSavePlasmaItemData)
+                foreach (var plasmaItemData in levelData.ToSaveItemData)
                 {
-                    OrdinaryPlayerItem itemMain = new PlasmaGetItem();
-                    JsonUtility.FromJsonOverwrite(plasmaItemData.jsonPlasmaItem,itemMain);
+                    OrdinaryPlayerItem itemMain = new PlayerItemContainer();
+                    JsonUtility.FromJsonOverwrite(plasmaItemData.jsonItemService,itemMain);
 
-                    SpawnItem(itemMain.ItemId,plasmaItemData.jsonPlasmaItemPos);
+                    SpawnItem(itemMain.ItemId,plasmaItemData.jsonItemT);
                 }
-
-                foreach (var weaponItemData in levelData.ToSaveWeaponItemData)
-                {
-                    OrdinaryPlayerItem itemMain = new WeaponGetItem();
-                    JsonUtility.FromJsonOverwrite(weaponItemData.jsonWeaponGetItem,itemMain);
-
-                    SpawnItem(itemMain.ItemId,weaponItemData .jsonWeaponItemPos);
-                }
-
-                foreach (var healthArmorItemData in levelData.ToSaveHealthArmorItemData)
-                {
-                    OrdinaryPlayerItem itemMain = new GetHealthArmorItem();
-                    JsonUtility.FromJsonOverwrite(healthArmorItemData.jsonHealthArmorItem,itemMain);
-                    
-                    SpawnItem(itemMain.ItemId,healthArmorItemData.jsonHealthArmorItemPos);
-                }
-
-
+                
                 void SpawnItem(int id, JsonTransform transf)
                 {
                     foreach (var itemPrefab in itemsPrefabs)

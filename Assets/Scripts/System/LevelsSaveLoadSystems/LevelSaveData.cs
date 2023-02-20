@@ -12,11 +12,10 @@ public class LevelSaveData : MonoBehaviour
      
      [SerializeField] private List<SaveEnemyData> toSaveEnemyData;
 
-     [SerializeField] private List<SaveWeaponItemData> toSaveWeaponItemData;
-     [SerializeField] private List<SaveHealthArmorItemData> toSaveHealthArmorItemData;
-     [SerializeField] private List<SavePlasmaItemData> toSavePlasmaItemData;
-     [SerializeField] private List<SaveBulletData> toSaveBulletData;
+     [SerializeField] private List<SaveItemData> toSaveItemData;
 
+     [SerializeField] private List<SaveBulletData> toSaveBulletData;
+     
      [SerializeField] private List<SaveTriggerData> toSaveLevelTriggers;
      
      [SerializeField] private List<string> savedLevelSpawnScenarios;
@@ -38,11 +37,7 @@ public class LevelSaveData : MonoBehaviour
      
      public List<SaveEnemyData> ToSaveEnemyData => toSaveEnemyData;
 
-     public List<SaveWeaponItemData> ToSaveWeaponItemData => toSaveWeaponItemData;
-
-     public List<SaveHealthArmorItemData> ToSaveHealthArmorItemData => toSaveHealthArmorItemData;
-
-     public List<SavePlasmaItemData> ToSavePlasmaItemData => toSavePlasmaItemData;
+     public List<SaveItemData> ToSaveItemData => toSaveItemData;
 
      public List<SaveBulletData> ToSaveBulletData => toSaveBulletData;
 
@@ -83,25 +78,10 @@ public class LevelSaveData : MonoBehaviour
                  enemyData.jsonEnemyAttack = JsonUtility.ToJson(enemyData.EnemyAttack);
              }
 
-             foreach (var weaponItemData in toSaveWeaponItemData)
+             foreach (var itemData in toSaveItemData)
              {
-                 weaponItemData.jsonWeaponItemPos = FixedJsonUtilityFunc.GetJsonVersion(weaponItemData.WeaponItemPos);
-                 weaponItemData.jsonWeaponGetItem = JsonUtility.ToJson(weaponItemData.WeaponGetItem);
-             }
-
-             foreach (var healthArmorItemData in toSaveHealthArmorItemData)
-             {
-                 healthArmorItemData.jsonHealthArmorItemPos =
-                     FixedJsonUtilityFunc.GetJsonVersion(healthArmorItemData.HealthArmorItemPos);
-
-                 healthArmorItemData.jsonHealthArmorItem = JsonUtility.ToJson(healthArmorItemData.HealthArmorItem);
-             }
-
-             foreach (var plasmaItemData in toSavePlasmaItemData)
-             {
-                 plasmaItemData.jsonPlasmaItemPos = FixedJsonUtilityFunc.GetJsonVersion(plasmaItemData.PlasmaItemPos);
-
-                 plasmaItemData.jsonPlasmaItem = JsonUtility.ToJson(plasmaItemData.PlasmaItem);
+                 itemData.jsonItemT = FixedJsonUtilityFunc.GetJsonVersion(itemData.ItemT);
+                 itemData.jsonItemService = JsonUtility.ToJson(itemData.ItemService);
              }
 
              foreach (var saveBulletData in toSaveBulletData)
@@ -192,69 +172,27 @@ public class LevelSaveData : MonoBehaviour
         }
     }
     
-    public void AddToSaveData(WeaponGetItem weaponItem)
+    public void AddToSaveData(OrdinaryPlayerItem item)
     {
-        var newWeaponItemData = new SaveWeaponItemData(
-            weaponItem.transform,
-            weaponItem);
+        var newWeaponItemData = new SaveItemData(
+            item.transform,
+            item);
         
-        toSaveWeaponItemData.Add(newWeaponItemData);
+        toSaveItemData.Add(newWeaponItemData);
     }
-    public void RemoveFromSaveData(WeaponGetItem saveWeaponItemData)
+    public void RemoveFromSaveData(OrdinaryPlayerItem itemData)
     {
-        foreach (var weaponItem in toSaveWeaponItemData)
+        foreach (var weaponItem in toSaveItemData)
         {
-            if (weaponItem.WeaponGetItem == saveWeaponItemData)
+            if (weaponItem.ItemService == itemData)
             {
-                toSaveWeaponItemData.Remove(weaponItem);
+                toSaveItemData.Remove(weaponItem);
                 
                 break;
             }
         }
     }
-    
-    public void AddToSaveData(GetHealthArmorItem healthArmorItem)
-    {
-        var newHealthArmorItemData = new SaveHealthArmorItemData(
-            healthArmorItem.transform,
-            healthArmorItem);
-        
-        toSaveHealthArmorItemData.Add(newHealthArmorItemData);
-    }
-    public void RemoveFromSaveData(GetHealthArmorItem saveHealthArmorItem)
-    {
-        foreach (var healthArmorItem in toSaveHealthArmorItemData)
-        {
-            if (healthArmorItem.HealthArmorItem == saveHealthArmorItem)
-            {
-                toSaveHealthArmorItemData.Remove(healthArmorItem);
-                
-                break;
-            }
-        }
-    }
-    
-    public void AddToSaveData(PlasmaGetItem plasmaItem)
-    {
-        var newPlasmaItemData = new SavePlasmaItemData(
-            plasmaItem.transform,
-            plasmaItem);
-        
-        toSavePlasmaItemData.Add(newPlasmaItemData);
-    }
-    public void RemoveFromSaveData(PlasmaGetItem plasmaSaveItem)
-    {
-        foreach (var plasmaItem in toSavePlasmaItemData)
-        {
-            if (plasmaSaveItem == plasmaItem.PlasmaItem)
-            {
-                toSavePlasmaItemData.Remove(plasmaItem);
-                
-                break;
-            }
-        }
-    }
-    
+
     public void AddToSaveData(Bullet bullet)
     {
         var newBulletData = new SaveBulletData(
@@ -374,63 +312,24 @@ public class LevelSaveData : MonoBehaviour
     }
     
     [Serializable]
-    public class SaveWeaponItemData
+    public class SaveItemData
     {
-        [NonSerialized] private Transform weaponItemPos;
-        [NonSerialized] private WeaponGetItem weaponGetItem;
+        [NonSerialized] private Transform itemT;
+        [NonSerialized] private OrdinaryPlayerItem itemService;
         
-        public JsonTransform jsonWeaponItemPos;
-        public string jsonWeaponGetItem;
+        public JsonTransform jsonItemT;
+        public string jsonItemService;
         
-        public SaveWeaponItemData(Transform weaponItemPos, WeaponGetItem weaponGetItem)
+        public SaveItemData(Transform itemT, OrdinaryPlayerItem itemService)
         {
-            this.weaponItemPos = weaponItemPos;
-            this.weaponGetItem = weaponGetItem;
+            this.itemT = itemT;
+            this.itemService = itemService;
         }
 
-        public Transform WeaponItemPos => weaponItemPos;
+        public Transform ItemT => itemT;
 
-        public WeaponGetItem WeaponGetItem => weaponGetItem;
-    }
-    
-    [Serializable]
-    public class SaveHealthArmorItemData
-    {
-        [NonSerialized] private Transform healthArmorItemPos;
-        [NonSerialized] private GetHealthArmorItem healthArmorItem;
-
-        public JsonTransform jsonHealthArmorItemPos;
-        public string jsonHealthArmorItem;
+        public OrdinaryPlayerItem ItemService => itemService;
         
-        public SaveHealthArmorItemData(Transform healthArmorItemPos, GetHealthArmorItem healthArmorItem)
-        {
-            this.healthArmorItemPos = (healthArmorItemPos);
-            this.healthArmorItem = healthArmorItem;
-        }
-
-        public Transform HealthArmorItemPos => healthArmorItemPos;
-
-        public GetHealthArmorItem HealthArmorItem => healthArmorItem;
-    }
-    
-    [Serializable]
-    public class SavePlasmaItemData
-    {
-        [NonSerialized] private Transform plasmaItemPos;
-        [NonSerialized] private PlasmaGetItem plasmaItem;
-
-        public JsonTransform jsonPlasmaItemPos;
-        public string jsonPlasmaItem;
-        
-        public SavePlasmaItemData(Transform plasmaItemPos, PlasmaGetItem plasmaItem)
-        {
-            this.plasmaItemPos = plasmaItemPos;
-            this.plasmaItem = plasmaItem;
-        }
-
-        public Transform PlasmaItemPos => plasmaItemPos;
-
-        public PlasmaGetItem PlasmaItem => plasmaItem;
     }
     
     [Serializable]

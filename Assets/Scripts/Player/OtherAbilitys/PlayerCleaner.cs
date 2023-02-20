@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,58 @@ public class PlayerCleaner : MonoBehaviour,IUsePlayerDevicesButtons
     private bool isWork = false;
     private bool isGarbageCollectorActive = false;
 
+    private bool cleanerIsWorking = false;
+    private event Action onCleanerStart;
+    public event Action OnCleanerStart
+    {
+        add 
+        {
+            onCleanerStart += value;
+        }
+
+        remove
+        {
+            if (value == null)
+                throw new NullReferenceException();
+
+            onCleanerStart -= value;
+        }
+    }
+    
+    private event Action onCleanerEnd;
+    public event Action OnCleanerEnd
+    {
+        add 
+        {
+            onCleanerEnd += value;
+        }
+
+        remove
+        {
+            if (value == null)
+                throw new NullReferenceException();
+
+            onCleanerEnd -= value;
+        }
+    }
+    
+    private event Action onCleanerDestroyTrash;
+    public event Action OnCleanerDestroyTrash
+    {
+        add 
+        {
+            onCleanerDestroyTrash += value;
+        }
+
+        remove
+        {
+            if (value == null)
+                throw new NullReferenceException();
+
+            onCleanerDestroyTrash -= value;
+        }
+    }
+    
     [SerializeField] private Animator cleaningAnimator;
 
     private DeviceButton useCleanerButton = new DeviceButton();
@@ -38,6 +91,23 @@ public class PlayerCleaner : MonoBehaviour,IUsePlayerDevicesButtons
         {
             CollectGarbage();
         }
+        
+        
+        if (isWork && !cleanerIsWorking)
+        {
+            cleanerIsWorking = true;
+                
+            if(onCleanerStart != null)
+                onCleanerStart.Invoke();
+        }
+        else if (!isWork && cleanerIsWorking)
+        {
+            cleanerIsWorking = false;
+            
+            if(onCleanerEnd != null)
+                onCleanerEnd.Invoke();
+        }
+             
 
         CorrectParticleDirectionToTarget(cleanerPoint.position, particlsToPointVelocitySpeed);
 
@@ -145,6 +215,8 @@ public class PlayerCleaner : MonoBehaviour,IUsePlayerDevicesButtons
 
             capturedGarbage.Remove(deleteGarbages[i]);
             Destroy(deleteGarbages[i].gameObject);
+            
+            onCleanerDestroyTrash.Invoke();
         }
 
     }

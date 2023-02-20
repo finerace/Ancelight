@@ -75,6 +75,10 @@ public class PlayerSoundsService : MonoBehaviour
     private AudioSource hookRopeSoundSource;
     [SerializeField] private AudioCastData hookRopeSoundData;
     
+    private AudioSource cleanerSoundSource;
+    [SerializeField] private AudioCastData cleanerSoundData;
+    [SerializeField] private AudioCastData cleanerTrashDestroySound;
+    
 
     private void Awake()
     {
@@ -135,6 +139,17 @@ public class PlayerSoundsService : MonoBehaviour
                 playerMainService.hookService.SubHookEndUseEvent(HookRopeSoundStop);
                 
             }
+        }
+        
+        AddCleanerSoundToEvents();
+        void AddCleanerSoundToEvents()
+        {
+            var cleanerService = playerMainService.playerCleaner;
+
+            cleanerService.OnCleanerStart += CleanerSoundCast;
+            cleanerService.OnCleanerEnd += CleanerSoundStop;
+
+            cleanerService.OnCleanerDestroyTrash += CleanerTrashDestroySoundCast;
         }
     }
 
@@ -476,6 +491,35 @@ public class PlayerSoundsService : MonoBehaviour
             
         hookRopeSoundSource.Stop();
         hookRopeSoundSource = null;
+    }
+
+    private void CleanerSoundCast()
+    {
+        var cleanerSoundData = this.cleanerSoundData;
+        
+        cleanerSoundData.castParent = playerMovement.Body;
+        cleanerSoundData.castPos = playerMovement.Body.position;
+
+        cleanerSoundSource = audioPoolService.CastAudio(cleanerSoundData);
+    }
+
+    private void CleanerSoundStop()
+    {
+        if (cleanerSoundSource == null)
+            return;
+            
+        cleanerSoundSource.Stop();
+        cleanerSoundSource = null;
+    }
+
+    private void CleanerTrashDestroySoundCast()
+    {
+        var cleanerTrashDestroySoundData = cleanerTrashDestroySound;
+        
+        cleanerTrashDestroySoundData.castParent = playerMovement.Body;
+        cleanerTrashDestroySoundData.castPos = playerMovement.Body.position;
+
+        audioPoolService.CastAudio(cleanerTrashDestroySoundData);
     }
     
     public void SetNewWalkZone(PlayerWalkZone newWalkZone)

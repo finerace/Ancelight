@@ -1,12 +1,17 @@
 using System;
 using UnityEngine;
 
-public class ItemAmmo : OrdinaryPlayerItem
+public class PlayerAmmoItem : OrdinaryPlayerItem
 {
     [Space] 
     
     [SerializeField] private int bulletId;
     [SerializeField] private int bulletCount;
+
+    private void Start()
+    {
+        LevelSaveData.mainLevelSaveData.AddToSaveData(this);
+    }
 
     protected override void PickUpItemAlgorithm(PlayerMainService player)
     {
@@ -17,6 +22,8 @@ public class ItemAmmo : OrdinaryPlayerItem
         if (!isBulletsFull)
         {
             player.AddBullets(bulletId, bulletCount);
+            
+            LevelSaveData.mainLevelSaveData.RemoveFromSaveData(this);
             DestroyItem();
         }
     }
