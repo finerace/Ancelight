@@ -18,7 +18,7 @@ public class ItemSoundService : MonoBehaviour
         var collectItemSoundData = this.collectItemSoundData;
         collectItemSoundData.castPos = playerItem.transform.position;
         
-        AudioPoolService.currentAudioPoolService.CastAudio(collectItemSoundData);
+        AudioPoolService.audioPoolServiceInstance.CastAudio(collectItemSoundData);
     }
 
 }

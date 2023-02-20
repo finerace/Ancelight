@@ -15,7 +15,7 @@ public class GameMenuSoundService : MonoBehaviour
     
     private void Start()
     {
-        audioPoolService = AudioPoolService.currentAudioPoolService;
+        audioPoolService = AudioPoolService.audioPoolServiceInstance;
         playerMainService = FindObjectOfType<PlayerMainService>();
         
         AddCastMethodsToEvents();

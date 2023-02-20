@@ -47,7 +47,7 @@ public class BotSoundService : MonoBehaviour
         SetEmptyFields();
         void SetEmptyFields()
         {
-            audioPoolService = AudioPoolService.currentAudioPoolService;
+            audioPoolService = AudioPoolService.audioPoolServiceInstance;
 
             if (enemy == null)
                 enemy = GetComponent<DefaultBot>();

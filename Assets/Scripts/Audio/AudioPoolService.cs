@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class AudioPoolService : MonoBehaviour
 {
-    public static AudioPoolService currentAudioPoolService;
+    public static AudioPoolService audioPoolServiceInstance;
     
     [SerializeField] private int startMaxAudioSources;
     [SerializeField] private float spreadEffect = 0.35f;
@@ -15,7 +15,7 @@ public class AudioPoolService : MonoBehaviour
 
     private void Awake()
     {
-        currentAudioPoolService = this;
+        audioPoolServiceInstance = this;
         
         SetNewMaxAudioSourcesCount(startMaxAudioSources);
     }

@@ -11,7 +11,7 @@ public class BulletSoundService : MonoBehaviour
 
     private void Start()
     {
-        audioPoolService = AudioPoolService.currentAudioPoolService;
+        audioPoolService = AudioPoolService.audioPoolServiceInstance;
 
         if (bulletMain == null)
             bulletMain = GetComponent<Bullet>();

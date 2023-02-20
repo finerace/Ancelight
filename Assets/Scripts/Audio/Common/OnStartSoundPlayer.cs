@@ -8,7 +8,7 @@ public class OnStartSoundPlayer : MonoBehaviour
     
     private void Start()
     {
-        var audioPool = AudioPoolService.currentAudioPoolService;
+        var audioPool = AudioPoolService.audioPoolServiceInstance;
         var soundData = this.soundData;
         
         if(soundParent != null)

@@ -18,7 +18,7 @@ public class ButtonMainService : MonoBehaviour, IPointerUpHandler,IPointerDownHa
     
     private void Start()
     {
-        audioPoolService = AudioPoolService.currentAudioPoolService;
+        audioPoolService = AudioPoolService.audioPoolServiceInstance;
     }
     
     public void OnPointerUp(PointerEventData data)
