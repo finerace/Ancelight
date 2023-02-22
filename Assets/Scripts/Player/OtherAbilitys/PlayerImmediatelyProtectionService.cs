@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -27,6 +28,27 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour,IUsePlayerDevice
     private static readonly int FresnelEffectShaderID = Shader.PropertyToID("FresnelEffect");
 
     [HideInInspector] [SerializeField] private float cooldownTimer = 0;
+
+    private event Action useEvent;
+    
+    public event Action UseEvent
+    {
+        add
+        {
+            if (value == null)
+                throw new NullReferenceException();
+
+            useEvent += value;
+        }
+
+        remove
+        {
+            if (value == null)
+                throw new NullReferenceException();
+
+            useEvent -= value;
+        }
+    }
     
     private bool isManageBlocked = false;
 
@@ -92,6 +114,9 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour,IUsePlayerDevice
         shockEffectFresnelEffectNow = shockEffectStartFresnelEffect;
         
         StartCoroutine(ShockEffectTimer(shockEffectTime));
+        
+        if(useEvent != null)
+            useEvent.Invoke();
         
         void StartCooldownTimer()
         {

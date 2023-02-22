@@ -78,7 +78,11 @@ public class PlayerSoundsService : MonoBehaviour
     private AudioSource cleanerSoundSource;
     [SerializeField] private AudioCastData cleanerSoundData;
     [SerializeField] private AudioCastData cleanerTrashDestroySound;
+
+    [Space] 
     
+    [SerializeField] private AudioCastData immediatelyProtectionUseSound;
+
 
     private void Awake()
     {
@@ -150,6 +154,18 @@ public class PlayerSoundsService : MonoBehaviour
             cleanerService.OnCleanerEnd += CleanerSoundStop;
 
             cleanerService.OnCleanerDestroyTrash += CleanerTrashDestroySoundCast;
+        }
+
+        AddImmediatelyProtectionSoundCastToEvent();
+        void AddImmediatelyProtectionSoundCastToEvent()
+        {
+            playerMainService.immediatelyProtectionService.UseEvent += ImmediatelyProtectionUseSoundCast;
+        }
+
+        AbilityUseSoundCastToEvent();
+        void AbilityUseSoundCastToEvent()
+        {
+            playerWeaponsManager.AbilityUseEvent += AbilityUseSoundCast;
         }
     }
 
@@ -520,6 +536,26 @@ public class PlayerSoundsService : MonoBehaviour
         cleanerTrashDestroySoundData.castPos = playerMovement.Body.position;
 
         audioPoolService.CastAudio(cleanerTrashDestroySoundData);
+    }
+
+    private void ImmediatelyProtectionUseSoundCast()
+    {
+        var soundData = immediatelyProtectionUseSound;
+
+        soundData.castParent = playerMovement.Body;
+        soundData.castPos = playerMovement.Body.position;
+
+        audioPoolService.CastAudio(soundData);
+    }
+
+    private void AbilityUseSoundCast()
+    {
+        var abilitySoundData = playerWeaponsManager.SelectedAbilityData.AbilityUseSound;
+        
+        abilitySoundData.castParent = playerMovement.Body;
+        abilitySoundData.castPos = playerMovement.Body.position;
+
+        audioPoolService.CastAudio(abilitySoundData);
     }
     
     public void SetNewWalkZone(PlayerWalkZone newWalkZone)

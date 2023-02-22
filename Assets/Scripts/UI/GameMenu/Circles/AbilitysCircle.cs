@@ -57,9 +57,9 @@ public class AbilitysCircle : MonoBehaviour
 
         float timeStep = Time.deltaTime * 15f;
 
-        float incomplete—ircleSmoothness = 0.9f;
+        float incompleteCircleSmoothness = 0.9f;
         float fillAmount = (1f - abilitysTimers[selectedAbilityData.Id] / selectedAbilityData.DelayTime)
-            * incomplete—ircleSmoothness;
+            * incompleteCircleSmoothness;
 
         dynamicCircle.fillAmount = fillAmount;
 

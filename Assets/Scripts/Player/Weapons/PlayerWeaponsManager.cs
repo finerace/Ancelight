@@ -68,8 +68,48 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
      private event Action WeaponChangeEvent;
      private event Action WeaponChangeButtonUseEvent;
 
+     
+     private event Action abilityUseEvent;
+     public event Action AbilityUseEvent
+     {
+         add
+         {
+             if (value == null)
+                 throw new NullReferenceException();
 
-     [Space]
+             abilityUseEvent += value;
+         }
+
+         remove
+         {
+             if (value == null)
+                 throw new NullReferenceException();
+
+             abilityUseEvent -= value;
+         }
+     }
+
+     /*private event Action abilitySpecialSoundEvent;
+     public event Action AbilitySpecialSoundEvent
+     {
+         add
+         {
+             if (value == null)
+                 throw new NullReferenceException();
+
+             abilitySpecialSoundEvent += value;
+         }
+
+         remove
+         {
+             if (value == null)
+                 throw new NullReferenceException();
+
+             abilitySpecialSoundEvent -= value;
+         }
+     }*/
+     
+    [Space]
     [HideInInspector] public UnityEvent extraAbilityUseEvent;
     [HideInInspector] public UnityEvent extraAbilityChangeEvent;
     [SerializeField] private List<ExtraAbilityData> abilityDatas = new List<ExtraAbilityData>();
@@ -98,8 +138,7 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     private DeviceButton useAbilityButton = new DeviceButton();
     private DeviceButton nextAbilityButton = new DeviceButton();
     private DeviceButton previousAbilityButton = new DeviceButton();
-
-
+    
     public void Load(PlayerMainService playerMainService)
     {
         shootingPoint = playerMainService.ShootingPoint;
@@ -222,6 +261,9 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
                 AbilityDelay();
 
                 extraAbilityOneClickState = true;
+                
+                if(abilityUseEvent != null)
+                    abilityUseEvent.Invoke();
             }
             else if (!useAbility) extraAbilityOneClickState = false;
         }

@@ -11,11 +11,14 @@ public class ExtraAbilityData : ScriptableObject
     [SerializeField] private int abilityID = 0;
     [SerializeField] private GameObject abilityPrefab;
 
+    [SerializeField] private AudioCastData abilityUseSound;
+    
     public float DelayTime { get {return abilityDelayTime; }}
     public float AttackTime { get {return attackTime; }}
     public string Name {get {return abilityName;}}
     public Sprite Icon {get {return icon;}}
     public int Id {get {return abilityID;}}
     public GameObject AbilityPrefab {get {return abilityPrefab;}}
+    public AudioCastData AbilityUseSound => abilityUseSound;
 
 }

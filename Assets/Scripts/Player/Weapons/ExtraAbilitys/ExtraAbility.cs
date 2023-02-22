@@ -13,7 +13,7 @@ public abstract class ExtraAbility : MonoBehaviour
 
     internal void Start()
     {
-        weaponsManager = GameObject.Find("Player").GetComponent<PlayerWeaponsManager>();
+        weaponsManager = FindObjectOfType<PlayerWeaponsManager>();
         delayTime = weaponsManager.SelectedAbilityData.DelayTime;
         attackTime = weaponsManager.SelectedAbilityData.AttackTime;
         SubAbility();
