@@ -13,6 +13,15 @@ public class LevelCompleteMenuSpecial : MonoBehaviour
     [SerializeField] private TextMeshProUGUI secretsFoundLabel;
     private LevelData currentLevel;
     
+    private LevelSaveLoadSystem levelSaveLoadSystem;
+    private PlayerMainService playerMainService;
+    
+    private void Awake()
+    {
+        levelSaveLoadSystem = FindObjectOfType<LevelSaveLoadSystem>();
+        playerMainService = FindObjectOfType<PlayerMainService>();
+    }
+
     public void SetLevelCompleteLabels(LevelPassageService levelPassageService)
     {
         currentLevel = levelPassageService.LevelData;
@@ -37,8 +46,12 @@ public class LevelCompleteMenuSpecial : MonoBehaviour
         if (!isLevelLast)
         {
             var nextLevelSceneId = levelCampaign.CampaignLevels[inCampaignLevelNum + 1].LevelSceneId;
-
-            SceneManager.LoadScene(nextLevelSceneId);
+            
+            levelSaveLoadSystem.LoadNextLevel(
+                nextLevelSceneId,
+                playerMainService,
+                playerMainService.weaponsManager,
+                playerMainService.weaponsBulletsManager);
         }
         else
         {
@@ -51,7 +64,11 @@ public class LevelCompleteMenuSpecial : MonoBehaviour
                 return;    
             }
             
-            SceneManager.LoadScene(nextCampaign.CampaignLevels[0].LevelSceneId);
+            levelSaveLoadSystem.LoadNextLevel(
+                nextCampaign.CampaignLevels[0].LevelSceneId,
+                playerMainService,
+                playerMainService.weaponsManager,
+                playerMainService.weaponsBulletsManager);
         }
     }
 

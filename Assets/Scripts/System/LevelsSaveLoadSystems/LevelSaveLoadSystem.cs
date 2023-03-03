@@ -11,6 +11,10 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
     private static bool _isLoadedScene;
     private static string _loadSaveName;
 
+    private static bool _isLoadedNextLevelScene;
+    private static string _toNextLevelSavedPlayerData;
+
+
     private string savesPath;
 
     [SerializeField] private bool staticMode; 
@@ -38,6 +42,29 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
             StartCoroutine(LoadLevel(_loadSaveName));
             
             _loadSaveName = String.Empty;
+        }
+
+        if (_isLoadedNextLevelScene)
+        {
+            _isLoadedNextLevelScene = false;
+            
+            var playerMainService = FindObjectOfType<PlayerMainService>();
+
+            var savedPlayerData = JsonUtility.FromJson<LevelSaveData.SavePlayerData>(_toNextLevelSavedPlayerData);
+            
+            var savePlayerMainService = new PlayerMainService();
+            JsonUtility.FromJsonOverwrite(savedPlayerData.jsonPlayerMainService,savePlayerMainService);
+            
+            playerMainService.Load(savePlayerMainService);
+            
+            JsonUtility.FromJsonOverwrite
+                (savedPlayerData.jsonPlayerWeaponsManager,playerMainService.weaponsManager);
+            JsonUtility.FromJsonOverwrite
+                (savedPlayerData.jsonPlayerWeaponsBulletsManager,playerMainService.weaponsBulletsManager);
+
+            playerMainService.weaponsManager.bulletsManager = playerMainService.weaponsBulletsManager;
+            playerMainService.weaponsManager.Load(playerMainService);
+            playerMainService.weaponsBulletsManager.Load(savedPlayerData);
         }
     }
 
@@ -493,6 +520,43 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
                 levelData.LevelPassageService.Load(saveLevelPassageService);
             }
         }
+    }
+
+    public void LoadNextLevel(
+        int nextLevelId,
+        PlayerMainService playerMainService,
+        PlayerWeaponsManager playerWeaponsManager,
+        PlayerWeaponsBulletsManager playerWeaponsBulletsManager)
+    {
+        _isLoadedNextLevelScene = true;
+
+        var savedPlayerData = new LevelSaveData.SavePlayerData(
+            transform,
+            new Rigidbody(),
+            playerMainService,
+            new PlayerMovement(),
+            playerMainService.weaponsManager,
+            playerMainService.weaponsBulletsManager,
+            new PlayerHookService(),
+            new PlayerDashsService(),
+            new PlayerImmediatelyProtectionService());
+
+        savedPlayerData.jsonPlayerMainService = JsonUtility.ToJson(playerMainService);
+        savedPlayerData.jsonPlayerWeaponsManager = JsonUtility.ToJson(playerWeaponsManager);
+        savedPlayerData.jsonPlayerWeaponsBulletsManager = JsonUtility.ToJson(playerWeaponsBulletsManager);
+        
+        savedPlayerData.plasmaReserves = 
+            new JsonDictionary<string, float>(playerWeaponsBulletsManager.PlasmaReserves);
+        savedPlayerData.plasmaMaxReserves =
+            new JsonDictionary<string, float>(playerWeaponsBulletsManager.PlasmaMaxReserves);
+        savedPlayerData.bulletsCount =
+            new JsonDictionary<int, int>(playerWeaponsBulletsManager.BulletsCount);
+        savedPlayerData.bulletsMax = 
+            new JsonDictionary<int, int>(playerWeaponsBulletsManager.BulletsMax);
+        
+        _toNextLevelSavedPlayerData = JsonUtility.ToJson(savedPlayerData);
+        
+        SceneManager.LoadScene(nextLevelId);
     }
     
     public string GetJsonLevelSaveData(string saveName)
