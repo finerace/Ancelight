@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.15
+  m_AmbientIntensity: 0.35
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 0ffaa0b7117ba8c47a9d05ae701d4b4d, type: 2}
@@ -33,12 +33,12 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 512
+  m_DefaultReflectionResolution: 256
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 0
+  m_ReflectionIntensity: 0.446
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
+  m_IndirectSpecularColor: {r: 0.09775707, g: 0.18037045, b: 0.1950513, a: 0.446}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: a20782f2588f3974ea7ee08291ddc0e9, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 6088bb6354805554e8b2ee9fa0614025, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -7805,8 +7805,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 10
-    volumeMin: 0.15
-    volumeMax: 0.25
+    volumeMin: 0.07
+    volumeMax: 0.1
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1.1
@@ -7826,8 +7826,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 10
-    volumeMin: 0.25
-    volumeMax: 0.35
+    volumeMin: 0.07
+    volumeMax: 0.1
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1.1
@@ -7847,8 +7847,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 9
-    volumeMin: 0.15
-    volumeMax: 0.25
+    volumeMin: 0.1
+    volumeMax: 0.12
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1.1
@@ -7863,8 +7863,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 171281712}
     priority: 13
-    volumeMin: 0.15
-    volumeMax: 0.2
+    volumeMin: 0.05
+    volumeMax: 0.075
     isLoop: 1
     pitchMin: 0.9
     pitchMax: 1.1
@@ -45066,7 +45066,7 @@ Light:
   m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
