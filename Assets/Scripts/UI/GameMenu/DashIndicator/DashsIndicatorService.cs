@@ -17,7 +17,6 @@ public class DashsIndicatorService : MonoBehaviour
     private float currentIndicatorsFillAmount = 1f;
     
     private event Action dashUnitReadyEvent;
-
     public event Action DashUnitReadyEvent
     {
         add
@@ -54,6 +53,8 @@ public class DashsIndicatorService : MonoBehaviour
         dashsService = FindObjectOfType<PlayerDashsService>();
 
         ReCreateIndicators();
+
+        dashsService.OnDashCountUpdate += ReCreateIndicators;
     }
 
     private void Update()

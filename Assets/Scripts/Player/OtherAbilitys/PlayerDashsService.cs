@@ -41,6 +41,14 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
 
     private bool isLoad;
 
+    private event Action onDashCountUpdate;
+    public event Action OnDashCountUpdate
+    {
+        add => onDashCountUpdate += value ?? throw new NullReferenceException();
+
+        remove => onDashCountUpdate -= value ?? throw new NullReferenceException();
+    }
+
     public void Load(float savedDashCurrentEnergy,int savedDashCount)
     {
         dashCurrentEnergy = savedDashCurrentEnergy;
@@ -142,6 +150,17 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
             dashEffectT.rotation = dashDirection;
         }
 
+    }
+
+    public void SetNewDashCount(int newDashCount)
+    {
+        if (newDashCount < 0)
+            throw new Exception("Dashs count can not be less than zero!");
+
+        dashsCount = newDashCount;
+        dashMaxEnergy = dashsCount * oneDashEnergySpend;
+        
+        onDashCountUpdate?.Invoke();
     }
 
     private IEnumerator DashProcess(Vector3 currentPlayerXYDirection)

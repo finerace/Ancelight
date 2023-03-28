@@ -34,6 +34,21 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     [SerializeField] private Transform weaponPoint;
     [SerializeField] private Transform meleeAttackPoint;
 
+    [SerializeField] private int suitImprovementPoints;
+
+    public int SuitImprovementPoints
+    {
+        get => suitImprovementPoints;
+
+        set
+        {
+            if (value < 0)
+                throw new Exception("Improvement points cannot be less than zero!");
+
+            suitImprovementPoints = value;
+        }
+    }
+    
     public Transform ShootingPoint => shootingPoint;
 
     public Transform WeaponPoint => weaponPoint;
@@ -71,8 +86,9 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     public void Load(PlayerMainService savedPlayerMainService)
     {
         SetHealth(savedPlayerMainService.Health_);
-        
         armor = savedPlayerMainService.armor;
+
+        suitImprovementPoints = savedPlayerMainService.suitImprovementPoints;
     }
     
     private void FixedUpdate()
