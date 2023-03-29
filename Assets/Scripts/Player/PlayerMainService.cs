@@ -7,8 +7,11 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     [SerializeField] private float maxArmor;
     [SerializeField] private float armor;
 
+    [SerializeField] private float armorDamageResistance = 2.5f;
+    
     public float MaxArmor => maxArmor;
     public float Armor => armor;
+    public float ArmorDamageResistance => armorDamageResistance;
 
     [Space]
     [SerializeField] internal PlayerMovement playerMovement;
@@ -89,6 +92,8 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
         armor = savedPlayerMainService.armor;
 
         suitImprovementPoints = savedPlayerMainService.suitImprovementPoints;
+        maxArmor = savedPlayerMainService.MaxArmor;
+        armorDamageResistance = savedPlayerMainService.ArmorDamageResistance;
     }
     
     private void FixedUpdate()
@@ -153,12 +158,12 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
         
         if(armor >= damage)
         {
-            armor -= damage/2f;
-            damage /= 2.5f;
+            armor -= damage/ (armorDamageResistance / 1.25f);
+            damage /= armorDamageResistance;
         } 
         else if(armor < damage && armor > 0)
         {
-            damage -= armor / 2.5f;
+            damage -= armor / armorDamageResistance;
             armor = 0;
         }
 
@@ -180,6 +185,22 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
         AddArmorEvent?.Invoke(armor);
     }
     
+    public void SetMaxArmor(float newMaxArmor)
+    {
+        if (newMaxArmor < 0)
+            throw new ArgumentException("Max armor cannot be less than zero!");
+
+        maxArmor = newMaxArmor;
+    }
+    
+    public void SetArmorDamageResistance(float newResistanceValue)
+    {
+        if (newResistanceValue < 0)
+            throw new ArgumentException("Armor damage resistance cannot be less than zero!");
+
+        armorDamageResistance = newResistanceValue;
+    }
+
     public override void AddHealth(float health)
     {
         base.AddHealth(health);

@@ -47,6 +47,12 @@ public class DashsIndicatorService : MonoBehaviour
     [SerializeField] private float afterActiveWorkTime = 2;
     private float afterActiveWorkTimer = 0;
 
+    [Space] 
+    
+    [SerializeField] private AudioCastData onMouseEnter;
+    [SerializeField] private AudioCastData onMouseClickComplete;
+    [SerializeField] private AudioCastData onMouseClickDefeat;
+    
     private void Awake()
     {
         startPoint = transform;
@@ -266,7 +272,7 @@ public class DashsIndicatorService : MonoBehaviour
                     item1.SetFillZoneEffectIntensity(notReadyDashIndicatorIntensity);
                     item2.SetFillZoneEffectIntensity(notReadyDashIndicatorIntensity);
 
-                    if(realFillAmount >= 0.99f)
+                    if(realFillAmount >= 0.95f)
                     {
                         item1.SetFillZoneEffectIntensity(readyDashIndicatorIntensity);
                         item2.SetFillZoneEffectIntensity(readyDashIndicatorIntensity);

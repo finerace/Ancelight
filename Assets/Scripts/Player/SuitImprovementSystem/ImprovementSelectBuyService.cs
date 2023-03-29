@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class ImprovementSelectBuyService : MonoBehaviour
 {
     [SerializeField] public static ImprovementSelectBuyService instance; 
-    public PlayerMainService playerMainService;
-
+    [HideInInspector] public PlayerMainService playerMainService;
+    [SerializeField] private SuitManageMenuIndicatorsSetService suitIndicators;
+    
     [SerializeField] private ImprovementItem selectedItem;
     
     [Space] 
@@ -22,11 +23,23 @@ public class ImprovementSelectBuyService : MonoBehaviour
     [SerializeField] private TMP_Text itemEffectLabel;
     [SerializeField] private TMP_Text itemCostLabel;
 
+    [Space] 
+    
+    private AudioPoolService audioPoolService;
+    
+    [SerializeField] private AudioCastData onSellSound;
+    [SerializeField] private AudioCastData onSellDefeatSound;
+    
     private void Awake()
     {
         playerMainService = FindObjectOfType<PlayerMainService>();
         
         instance = this;
+    }
+
+    private void Start()
+    {
+        audioPoolService = AudioPoolService.audioPoolServiceInstance;
     }
 
     private void OnEnable()
@@ -50,13 +63,19 @@ public class ImprovementSelectBuyService : MonoBehaviour
 
     public void BuySelectedItem()
     {
-        if(selectedItem == null || !selectedItem.IsSellPossible())
+        if (selectedItem == null || !selectedItem.IsSellPossible())
+        {
+            audioPoolService.CastAudio(onSellDefeatSound);    
             return;
+        }
         
         selectedItem.Buy();
         
         ClearItemFields();
         UpdateImprovementPointsLabel();
+        
+        audioPoolService.CastAudio(onSellSound);
+        suitIndicators.UpdateIndicators();
     }
     
     private void UpdateImprovementPointsLabel()

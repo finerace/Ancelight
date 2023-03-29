@@ -166,6 +166,16 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour,IUsePlayerDevice
             isCooldownOut = true;
         }
     }
+
+    public void SetNewDamage(float newDamage)
+    {
+        explosionDamage = newDamage;
+    }
+
+    public void SetNewDamageRadius(float newRadius)
+    {
+        explosionRadius = newRadius;
+    }
     
     private IEnumerator ShockEffectTimer(float time)
     {

@@ -3,10 +3,10 @@ using UnityEngine;
 public class DashImprovementItem : ImprovementItem
 {
     private PlayerDashsService playerDashsService;
-
+    
     [SerializeField] private int minDashToBuy;
     [SerializeField] private int itemDashBuy;
-
+    
     protected new void Start()
     {
         playerDashsService = FindObjectOfType<PlayerDashsService>();
@@ -14,7 +14,7 @@ public class DashImprovementItem : ImprovementItem
         base.Start();
     }
     
-    protected override void BuyEffect()
+    protected override void ImprovementEffect()
     {
         playerDashsService.SetNewDashCount(itemDashBuy);
     }

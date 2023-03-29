@@ -52,7 +52,7 @@ public class SuitManageMenuIndicatorsSetService : MonoBehaviour
         UpdateIndicators();
     }
 
-    private void UpdateIndicators()
+    public void UpdateIndicators()
     {
         SetCommonSuitIndicator();
         

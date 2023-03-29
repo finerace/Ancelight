@@ -40,15 +40,24 @@ public abstract class ImprovementItem : MonoBehaviour, IPointerClickHandler,IPoi
     
     private bool mouseInItem;
 
+    [Space] 
+    
+    private AudioPoolService audioPoolService;
+    [SerializeField] private AudioCastData onMouseEnter;
+    [SerializeField] private AudioCastData onMouseClickComplete;
+    [SerializeField] private AudioCastData onMouseClickDefeat;
+
     protected void Start()
     {
         improvementSelectBuyService = ImprovementSelectBuyService.instance;
-
+        
+        audioPoolService = AudioPoolService.audioPoolServiceInstance;
+        
         if(NowSellCheck())
             ActivateBuyIndicator();
     }
 
-    protected abstract void BuyEffect();
+    protected abstract void ImprovementEffect();
 
     protected abstract bool SpecialsBuyConditionsCheck();
 
@@ -67,7 +76,7 @@ public abstract class ImprovementItem : MonoBehaviour, IPointerClickHandler,IPoi
 
         improvementSelectBuyService.SuitImprovementPoints -= improvementPointCost;
         
-        BuyEffect();
+        ImprovementEffect();
         ActivateBuyIndicator();
     }
 
@@ -83,9 +92,13 @@ public abstract class ImprovementItem : MonoBehaviour, IPointerClickHandler,IPoi
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(!SpecialsBuyConditionsCheck())
+        if (!SpecialsBuyConditionsCheck())
+        {
+            audioPoolService.CastAudio(onMouseClickDefeat);
             return;
-            
+        }
+        
+        audioPoolService.CastAudio(onMouseClickComplete);
         improvementSelectBuyService.SelectImprovementItem(this);
     }
     
@@ -95,7 +108,8 @@ public abstract class ImprovementItem : MonoBehaviour, IPointerClickHandler,IPoi
             SetSelectIndicator(buySelectColor);
         else
             SetSelectIndicator(noBuySelectColor);
-        
+
+        audioPoolService.CastAudio(onMouseEnter);
     }
     
     public void OnPointerExit(PointerEventData eventData)
