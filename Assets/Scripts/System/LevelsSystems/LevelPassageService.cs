@@ -15,7 +15,6 @@ public class LevelPassageService : MonoBehaviour
     
     [SerializeField] private MenuSystem menuSystem;
     
-    
     public LevelData LevelData => levelData;
 
     public int SecretsFound => secretsFound;

@@ -8,7 +8,8 @@ public class AdditionalInformationPanel : MonoBehaviour
     [SerializeField] private PlayerLookService playerLookService;
     [SerializeField] private Transform searchRayPoint;
     private const int searchRayLayerMask = 1 << 17;
-
+    [SerializeField] private LayerMask obstaclesLayerMask;
+    
     [SerializeField] private Transform panelT;
 
     [Space] 
@@ -128,7 +129,10 @@ public class AdditionalInformationPanel : MonoBehaviour
         var rayIsFindInformation =
             Physics.Raycast(searchRay, out var hitData, searchDistance, searchRayLayerMask);
 
-        if (!rayIsFindInformation)
+        var obstaclesIsFind =
+            Physics.Raycast(searchRay, searchDistance, obstaclesLayerMask);
+        
+        if (!rayIsFindInformation || obstaclesIsFind)
         {
             data = null;
             return false;

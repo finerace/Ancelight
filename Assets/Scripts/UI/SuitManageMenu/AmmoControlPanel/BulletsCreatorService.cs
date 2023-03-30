@@ -20,13 +20,19 @@ public class BulletsCreatorService : MonoBehaviour
     
     private static readonly int TargetTexturePropId = Shader.PropertyToID("_TargetTexture2");
 
+    [Space]
+    
+    private AudioPoolService audioPoolService;
+    [SerializeField] private AudioCastData onUnsuccessfulBulletCreate;
+    
     private void Start()
     {
         playerMainService = FindObjectOfType<PlayerMainService>();
         
         bulletCountInputField.onValueChanged.AddListener(BulletsCostUpdate);
+        
+        audioPoolService = AudioPoolService.audioPoolServiceInstance;
     }
-
 
     private void OnEnable()
     {
@@ -83,6 +89,13 @@ public class BulletsCreatorService : MonoBehaviour
 
     public void CreateBullets()
     {
+        if (selectedBulletId <= 0)
+        {
+            audioPoolService.CastAudio(onUnsuccessfulBulletCreate);
+            
+            return;
+        }
+
         var selectedBulletData = playerMainService.weaponsBulletsManager.FindData(selectedBulletId);
         var bulletManager = playerMainService.weaponsBulletsManager;
         
@@ -92,9 +105,12 @@ public class BulletsCreatorService : MonoBehaviour
         
         if(bulletCountToCreate != string.Empty)
             createBulletsCount = Convert.ToInt32(bulletCountToCreate);
-        
-        if(createBulletsCount == 0)
+
+        if (createBulletsCount == 0)
+        {
+            audioPoolService.CastAudio(onUnsuccessfulBulletCreate);
             return;
+        }
 
         var selectedBulletCount = bulletManager.BulletsCount[selectedBulletId];
 
@@ -120,7 +136,10 @@ public class BulletsCreatorService : MonoBehaviour
         createBulletsCount = CheckToCreateBulletsCostOnPlasmaCounts();
         
         if(createBulletsCount == 0)
+        {
+            audioPoolService.CastAudio(onUnsuccessfulBulletCreate);
             return;
+        }
 
         if (createBulletsCount < oldCreateBulletCount)
         {

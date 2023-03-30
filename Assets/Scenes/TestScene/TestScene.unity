@@ -7486,7 +7486,7 @@ MonoBehaviour:
   isHookOnlyPointMode: 1
   hookUseSurfaceMask:
     serializedVersion: 2
-    m_Bits: 515
+    m_Bits: 32768
   minStrengthAmountToUse: 0.1
 --- !u!114 &171281701
 MonoBehaviour:

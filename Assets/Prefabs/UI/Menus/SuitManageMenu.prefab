@@ -4529,6 +4529,22 @@ MonoBehaviour:
   redPlasmaCreateCostText: {fileID: 3657638009671493130}
   bluePlasmaCreateCostText: {fileID: 3657638010062986696}
   selectedBulletId: 0
+  onUnsuccessfulBulletCreate:
+    audioMixerGroup: {fileID: -6742611630364910418, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 945765567d35dbe4783cb5db0ef1e595, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 6
+    volumeMin: 0.75
+    volumeMax: 0.8
+    isLoop: 0
+    pitchMin: 0.6
+    pitchMax: 0.65
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 1
+    maxDistance: 1
 --- !u!1 &3657638009763830519
 GameObject:
   m_ObjectHideFlags: 0
@@ -5958,8 +5974,8 @@ RectTransform:
   m_Father: {fileID: 3657638010846170231}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.8}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6252,11 +6268,11 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 0}
     priority: 4
-    volumeMin: 1
-    volumeMax: 1
+    volumeMin: 0.5
+    volumeMax: 0.55
     isLoop: 0
-    pitchMin: 1
-    pitchMax: 1
+    pitchMin: 1.25
+    pitchMax: 1.3
     stereoPan: 0
     spatialBlend: 0
     minDistance: 1
@@ -6268,11 +6284,11 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 0}
     priority: 4
-    volumeMin: 1
-    volumeMax: 1
+    volumeMin: 0.5
+    volumeMax: 0.55
     isLoop: 0
-    pitchMin: 1
-    pitchMax: 1
+    pitchMin: 1.25
+    pitchMax: 1.3
     stereoPan: 0
     spatialBlend: 0
     minDistance: 1
@@ -10900,7 +10916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3657638010825715213
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17134,7 +17150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6049172127582251721
 RectTransform:
   m_ObjectHideFlags: 0

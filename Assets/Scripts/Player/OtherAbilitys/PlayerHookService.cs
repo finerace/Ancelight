@@ -152,7 +152,7 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
         lastHookRbPos = Vector3.forward;
 
         
-        StartCoroutine(HookPointsFinder());
+        //StartCoroutine(HookPointsFinder());
         IEnumerator HookPointsFinder()
         {
             const float findCooldown = 0.5f;
@@ -162,52 +162,55 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
             {
                 yield return waitSeconds;
                 
-                FindHookPoint();
+                FindHookPoints();
             }
-
-            void FindHookPoint()
-            {
-                const int hookPointLayerMask = 1 << 15;
-                
-                var allHookPointInRange =
-                    Physics.OverlapSphere(player.weaponsManager.shootingPoint.position, hookMaxActionRange,hookPointLayerMask);
-                
-                hookPoints = GetAllTrueHookPoints(allHookPointInRange);
-
-                Transform[] GetAllTrueHookPoints(Collider[] findsHookPointsColliders)
-                {
-                    var resultHookPoints = new List<Transform>();
-
-                    foreach (var hookPoint in findsHookPointsColliders)
-                    {
-                        var origin = player.weaponsManager.shootingPoint;
-                        var hookPointT = hookPoint.transform;
-                        
-                        var direction = -(origin.position - hookPointT.position).normalized;
-
-                        var checkRay = new Ray(origin.position, direction);
-
-                        var originHookPointDistance = 
-                            Vector3.Distance(origin.position,hookPointT.position);
-                        
-                        var isPlayerLookHookPoint = Vector3.Dot(origin.forward, direction) > 0.5f
-                                                    && !Physics.Raycast(checkRay, originHookPointDistance, (1 << 0) + (1 << 1));
-                        
-                        if (isPlayerLookHookPoint)
-                            resultHookPoints.Add(hookPoint.transform);
-                    }
-
-                    return resultHookPoints.ToArray();
-                }
-            }
+            
+            FindHookPoints();
         }
     }
+    
+    void FindHookPoints()
+    {
+        const int hookPointLayerMask = 1 << 15;
+                
+        var allHookPointInRange =
+            Physics.OverlapSphere(player.weaponsManager.shootingPoint.position, hookMaxActionRange,hookPointLayerMask);
+                
+        hookPoints = GetAllTrueHookPoints(allHookPointInRange);
 
+        Transform[] GetAllTrueHookPoints(Collider[] findsHookPointsColliders)
+        {
+            var resultHookPoints = new List<Transform>();
+
+            foreach (var hookPoint in findsHookPointsColliders)
+            {
+                var origin = player.weaponsManager.shootingPoint;
+                var hookPointT = hookPoint.transform;
+                        
+                var direction = -(origin.position - hookPointT.position).normalized;
+
+                var checkRay = new Ray(origin.position, direction);
+
+                var originHookPointDistance = 
+                    Vector3.Distance(origin.position,hookPointT.position);
+                        
+                var isPlayerLookHookPoint = Vector3.Dot(origin.forward, direction) > 0.5f
+                                            && !Physics.Raycast(checkRay, originHookPointDistance, (1 << 0) + (1 << 1));
+                        
+                if (isPlayerLookHookPoint)
+                    resultHookPoints.Add(hookPoint.transform);
+            }
+
+            return resultHookPoints.ToArray();
+        }
+    }
+    
     private void Update()
     {
         if(hookManageIsBlocked)
             return;
         
+        FindHookPoints();
         UpdateHookAlgorithm();
     }
 
@@ -407,8 +410,10 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
             if (isHookOnlyPointMode)
                 rayLayerMask = 1 << 15;
             
-            return
-                Physics.Raycast(hookCheckSurfaceRay, out hitObj, hookMaxActionRange, rayLayerMask);
+            if(!Physics.Raycast(hookCheckSurfaceRay, out hitObj, hookMaxActionRange))
+                return false;
+            
+            return hookUseSurfaceMask.IsLayerInMask(hitObj.collider.gameObject.layer);
         }
 
         bool CheckHookHitObjectForRb(RaycastHit hitObj,out Rigidbody hitObjRb)

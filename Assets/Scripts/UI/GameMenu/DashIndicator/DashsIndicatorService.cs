@@ -58,9 +58,12 @@ public class DashsIndicatorService : MonoBehaviour
         startPoint = transform;
         dashsService = FindObjectOfType<PlayerDashsService>();
 
-        ReCreateIndicators();
-
         dashsService.OnDashCountUpdate += ReCreateIndicators;
+    }
+
+    private void Start()
+    {
+        ReCreateIndicators();
     }
 
     private void Update()

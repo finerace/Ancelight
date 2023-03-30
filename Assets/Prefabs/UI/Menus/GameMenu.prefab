@@ -2590,6 +2590,51 @@ MonoBehaviour:
   dashsService: {fileID: 0}
   dashIndicators: []
   afterActiveWorkTime: 2
+  onMouseEnter:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  onMouseClickComplete:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  onMouseClickDefeat:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
 --- !u!1 &674054790424861505
 GameObject:
   m_ObjectHideFlags: 0
@@ -5149,6 +5194,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLookService: {fileID: 0}
   searchRayPoint: {fileID: 0}
+  obstaclesLayerMask:
+    serializedVersion: 2
+    m_Bits: 3
   panelT: {fileID: 674054790727949414}
   searchDistance: 45
   hightScaleCoof: 20

@@ -65,6 +65,23 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
             playerMainService.weaponsManager.bulletsManager = playerMainService.weaponsBulletsManager;
             playerMainService.weaponsManager.Load(playerMainService);
             playerMainService.weaponsBulletsManager.Load(savedPlayerData);
+
+            var savedDashService = new PlayerDashsService(); 
+            JsonUtility.FromJsonOverwrite(savedPlayerData.jsonPlayerDashsService,savedDashService);
+            playerMainService.dashsService.Load(savedDashService.DashCurrentEnergy,savedDashService.DashsCount);
+
+            var savedProtectionService = new PlayerImmediatelyProtectionService();
+            JsonUtility.FromJsonOverwrite(savedPlayerData.jsonPlayerImmediatelyProtectionService,
+                savedProtectionService);
+            playerMainService.immediatelyProtectionService.Load
+                (savedProtectionService.CooldownTime
+                ,savedProtectionService.CooldownTimer
+                ,savedProtectionService.ExplosionDamage
+                ,savedProtectionService.ExplosionRadius
+                ,savedProtectionService.MinDot
+                ,savedProtectionService.ExplosionForce
+                ,savedProtectionService.IsCooldownOut);
+
         }
     }
 
@@ -538,8 +555,8 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
             playerMainService.weaponsManager,
             playerMainService.weaponsBulletsManager,
             new PlayerHookService(),
-            new PlayerDashsService(),
-            new PlayerImmediatelyProtectionService());
+            playerMainService.dashsService,
+            playerMainService.immediatelyProtectionService);
 
         savedPlayerData.jsonPlayerMainService = JsonUtility.ToJson(playerMainService);
         savedPlayerData.jsonPlayerWeaponsManager = JsonUtility.ToJson(playerWeaponsManager);
@@ -553,6 +570,10 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
             new JsonDictionary<int, int>(playerWeaponsBulletsManager.BulletsCount);
         savedPlayerData.bulletsMax = 
             new JsonDictionary<int, int>(playerWeaponsBulletsManager.BulletsMax);
+
+        savedPlayerData.jsonPlayerDashsService = JsonUtility.ToJson(playerMainService.dashsService);
+        savedPlayerData.jsonPlayerImmediatelyProtectionService =
+            JsonUtility.ToJson(playerMainService.immediatelyProtectionService);
         
         _toNextLevelSavedPlayerData = JsonUtility.ToJson(savedPlayerData);
         
