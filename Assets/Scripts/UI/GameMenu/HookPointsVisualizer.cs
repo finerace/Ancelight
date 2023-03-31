@@ -65,12 +65,12 @@ public class HookPointsVisualizer : MonoBehaviour
 
                 Vector2 hookPointPos = playerCamera.WorldToScreenPoint(hookObjectPos);
 
-                var xAmount = playerCamera.pixelWidth / 1920f;
-                var yAmount = playerCamera.pixelHeight / 1080f;
-
-                hookPointPos.x /= xAmount;
+                var xAmount = Screen.width / 1920f;
+                var yAmount = Screen.height / 1080f;
+                
+                hookPointPos.x /= xAmount / (playerCamera.aspect / (1920f / 1080f));
                 hookPointPos.y /= yAmount;
-
+                
                 hookPointT.localPosition = hookPointPos;
             }
         }

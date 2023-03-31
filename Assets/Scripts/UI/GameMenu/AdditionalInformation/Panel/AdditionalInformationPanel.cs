@@ -83,7 +83,7 @@ public class AdditionalInformationPanel : MonoBehaviour
         var xAmount = playerCamera.pixelWidth / 1920f;
         var yAmount = playerCamera.pixelHeight / 1080f;
 
-        panelPos.x /= xAmount;
+        panelPos.x /= xAmount / (playerCamera.aspect / (1920f / 1080f));
         panelPos.y /= yAmount;
 
         panelT.localPosition = panelPos;

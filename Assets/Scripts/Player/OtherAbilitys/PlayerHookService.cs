@@ -39,7 +39,9 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
     [SerializeField] private float hookDamage = 15f;
     [SerializeField] private bool isHookOnlyPointMode = true;
     [SerializeField] private LayerMask hookUseSurfaceMask;
+    [SerializeField] private LayerMask hookObstaclesSurfaceMask;
 
+    
     [SerializeField] private float minStrengthAmountToUse = 0.1f;
     private Transform[] hookPoints;
 
@@ -410,7 +412,12 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
             if (isHookOnlyPointMode)
                 rayLayerMask = 1 << 15;
             
-            if(!Physics.Raycast(hookCheckSurfaceRay, out hitObj, hookMaxActionRange))
+            if(!Physics.Raycast(hookCheckSurfaceRay, out hitObj, hookMaxActionRange,hookUseSurfaceMask))
+                return false;
+
+            var originHookPointDistance =
+                Vector3.Distance(hookRayOrigin, hitObj.collider.gameObject.transform.position);
+            if(Physics.Raycast(hookCheckSurfaceRay,originHookPointDistance,hookObstaclesSurfaceMask))
                 return false;
             
             return hookUseSurfaceMask.IsLayerInMask(hitObj.collider.gameObject.layer);
