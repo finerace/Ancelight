@@ -44,6 +44,7 @@ public class LevelPassagePointsService : MonoBehaviour
 
     private void PlayerGoingToPoint(int zoneId,int pointId,int nonLinearZoneId = -1)
     {
+        print($"{zoneId} {pointId} {nonLinearZoneId}");
         var goingZone = passagePointsZones[zoneId];
 
         if (nonLinearZoneId < 0)
@@ -69,8 +70,15 @@ public class LevelPassagePointsService : MonoBehaviour
         
         var goingNoLinearZone = passagePointsZones[zoneId].NonLinearPassageZones[nonLinearZoneId];
 
-        var isLastNonLinearPoint = goingNoLinearZone.PassagePoints.Length-1 == pointId;
+        var isFirstPoint = pointId == 0;
+        if (isFirstPoint)
+        {
+            currentPassagePoint = null;
+            return;
+        }
         
+        var isLastNonLinearPoint = goingNoLinearZone.PassagePoints.Length-1 == pointId;
+
         if (!isLastNonLinearPoint)
         {
             currentPassagePoint = goingNoLinearZone.PassagePoints[pointId+1];
@@ -84,11 +92,9 @@ public class LevelPassagePointsService : MonoBehaviour
                 if (!nonLinearPassageZone.zoneIsBlocked)
                 {
                     currentPassagePoint = null;
-                    break;
+                    return;
                 }
             }
-
-            goingZone.zoneIsBlocked = true;
 
             var isLastZone = passagePointsZones.Length-1 == zoneId;
             if(isLastZone)

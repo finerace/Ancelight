@@ -411,16 +411,16 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
 
             if (isHookOnlyPointMode)
                 rayLayerMask = 1 << 15;
-            
+
             if(!Physics.Raycast(hookCheckSurfaceRay, out hitObj, hookMaxActionRange,rayLayerMask))
                 return false;
             
             var originHookPointDistance =
-                Vector3.Distance(hookRayOrigin, hitObj.collider.gameObject.transform.position);
+                Vector3.Distance(hookRayOrigin, hitObj.collider.gameObject.transform.position) - 0.01f;
             if(Physics.Raycast(hookCheckSurfaceRay,originHookPointDistance,hookObstaclesSurfaceMask))
                 return false;
             
-            return hookUseSurfaceMask.IsLayerInMask(hitObj.collider.gameObject.layer);
+            return true;
         }
 
         bool CheckHookHitObjectForRb(RaycastHit hitObj,out Rigidbody hitObjRb)

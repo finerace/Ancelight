@@ -6,13 +6,19 @@ public class LevelPassagePointsVisualizer : MonoBehaviour
     private PlayerMainService playerMainService;
     private LevelPassagePointsService levelPassagePointsService;
     private List<Transform> pointsT = new List<Transform>();
-
+    private Camera playerCamera;
+    private Transform playerCameraT;
+    private Vector2[] cashedPointsCanvasPoses = new Vector2[16];
+    
     [SerializeField] private GameObject pointPrefab;
 
     private void Start()
     {
         levelPassagePointsService = LevelPassagePointsService.instance;
         playerMainService = FindObjectOfType<PlayerMainService>();
+        
+        playerCamera = Camera.main;
+        playerCameraT = playerCamera.transform;
     }
 
     private void Update()
@@ -54,36 +60,75 @@ public class LevelPassagePointsVisualizer : MonoBehaviour
             {
                 var pointT = pointsT[i];
                 
-                var playerCamera = playerMainService.playerLook.mainCamera;
                 var pointPos = points[i].position;
                 
-                Vector2 hookPointPos = playerCamera.WorldToScreenPoint(pointPos);
+                Vector2 canvasPointPos = canvasPointPos = playerCamera.WorldToScreenPoint(pointPos);;
 
-                var xAmount = Screen.width / 1920f;
-                var yAmount = Screen.height / 1080f;
+                const float canvasWidth = 1920f;
+                const float canvasHeight = 1080f;
                 
-                hookPointPos.x /= xAmount / (playerCamera.aspect / (1920f / 1080f));
-                hookPointPos.y /= yAmount;
+                PointInvertedVisualizeFix();
+
+                void PointInvertedVisualizeFix()
+                {
+                    var cameraDirection = playerCameraT.forward;
+                    var toPointDirection = (playerCameraT.position - pointPos);
+
+                    var cameraPointDirectionsDot = Vector3.Dot(cameraDirection,-toPointDirection.normalized);
+
+                    if (cameraPointDirectionsDot < -1)
+                    {
+                        canvasPointPos.x = Mathf.Clamp(canvasPointPos.x,canvasWidth,canvasWidth);
+                    
+                        canvasPointPos.y = Mathf.Clamp(canvasPointPos.y, 0, canvasHeight);
+                    }
+                }
+
+                var xAmount = Screen.width / canvasWidth;
+                var yAmount = Screen.height / canvasHeight;
                 
-                pointT.localPosition = hookPointPos;
+                canvasPointPos.x /= xAmount / (playerCamera.aspect / (canvasWidth / canvasHeight));
+                canvasPointPos.y /= yAmount;
+
+                ClampPointPos();
+                void ClampPointPos()
+                {
+                    canvasPointPos.x = Mathf.Clamp(canvasPointPos.x,0,
+                            canvasWidth * (playerCamera.aspect / (canvasWidth / canvasHeight)));
+                    
+                    canvasPointPos.y = Mathf.Clamp(canvasPointPos.y, 0, canvasHeight);
+                }
+                
+                pointT.localPosition = canvasPointPos;
             }
         }
     }
 
     Transform[] GetPoints()
     {
-        var pointTransforms = new Transform[]{levelPassagePointsService.CurrentPassagePoint.pointT};
-        
+        Transform[] pointTransforms;
+
         if(levelPassagePointsService.CurrentZoneIsNonLinear)
         {
+            var isOneOfNonLinearZonesGoingNow = levelPassagePointsService.CurrentPassagePoint != null;
+            if (isOneOfNonLinearZonesGoingNow)
+            {
+                pointTransforms = new Transform[]{levelPassagePointsService.CurrentPassagePoint.pointT};
+                return pointTransforms;
+            }
+            
             var points = new List<Transform>();
             foreach (var nonLinearZone in levelPassagePointsService.CurrentPassageZone.NonLinearPassageZones)
             {
-                points.Add(nonLinearZone.PassagePoints[0].pointT);
+                if(!nonLinearZone.zoneIsBlocked)
+                    points.Add(nonLinearZone.PassagePoints[0].pointT);
             }
 
             pointTransforms = points.ToArray();
         }
+        else
+            pointTransforms = new Transform[]{levelPassagePointsService.CurrentPassagePoint.pointT};
+        
 
         return pointTransforms;
     }
