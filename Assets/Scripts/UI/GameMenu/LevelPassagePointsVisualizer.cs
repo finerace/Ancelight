@@ -55,35 +55,34 @@ public class LevelPassagePointsVisualizer : MonoBehaviour
         void UpdatePointsPositionOnScreen()
         {
             var points = GetPoints();
+            var cameraPlanes = GeometryUtility.CalculateFrustumPlanes(playerCamera);
+            var cameraOrigin = playerCameraT.position + playerCameraT.forward * 0.1f; 
             
             for (var i = 0; i < pointsT.Count; i++)
             {
                 var pointT = pointsT[i];
-                
                 var pointPos = points[i].position;
+
+                var checkRay = new Ray(cameraOrigin, -(cameraOrigin - pointPos));
+
+                var minDistance = 9999f;
                 
-                Vector2 canvasPointPos = canvasPointPos = playerCamera.WorldToScreenPoint(pointPos);;
+                for (int j = 0; j < 4; j++)
+                {
+                    if (cameraPlanes[j].Raycast(checkRay, out var distance))
+                    {
+                        if (distance < minDistance)
+                            minDistance = distance;
+                    }
+                }
+
+                pointPos = checkRay.GetPoint(minDistance);
+                
+                Vector2 canvasPointPos = playerCamera.WorldToScreenPoint(pointPos);;
 
                 const float canvasWidth = 1920f;
                 const float canvasHeight = 1080f;
                 
-                PointInvertedVisualizeFix();
-
-                void PointInvertedVisualizeFix()
-                {
-                    var cameraDirection = playerCameraT.forward;
-                    var toPointDirection = (playerCameraT.position - pointPos);
-
-                    var cameraPointDirectionsDot = Vector3.Dot(cameraDirection,-toPointDirection.normalized);
-
-                    if (cameraPointDirectionsDot < -1)
-                    {
-                        canvasPointPos.x = Mathf.Clamp(canvasPointPos.x,canvasWidth,canvasWidth);
-                    
-                        canvasPointPos.y = Mathf.Clamp(canvasPointPos.y, 0, canvasHeight);
-                    }
-                }
-
                 var xAmount = Screen.width / canvasWidth;
                 var yAmount = Screen.height / canvasHeight;
                 

@@ -44,7 +44,6 @@ public class LevelPassagePointsService : MonoBehaviour
 
     private void PlayerGoingToPoint(int zoneId,int pointId,int nonLinearZoneId = -1)
     {
-        print($"{zoneId} {pointId} {nonLinearZoneId}");
         var goingZone = passagePointsZones[zoneId];
 
         if (nonLinearZoneId < 0)
