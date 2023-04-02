@@ -964,6 +964,7 @@ GameObject:
   - component: {fileID: 47840754}
   - component: {fileID: 47840756}
   - component: {fileID: 47840755}
+  - component: {fileID: 47840757}
   m_Layer: 18
   m_Name: PassagePoint_2
   m_TagString: Untagged
@@ -1012,6 +1013,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointT: {fileID: 0}
+--- !u!114 &47840757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47840753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f497bd4e9ce9cf46b73a68ed35a1bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerId: 0
+  isTriggerActive: 1
+  activateLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  isSingleTrigger: 1
+  triggerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1600204259}
+        m_TargetAssemblyTypeName: LevelTaskService, Assembly-CSharp
+        m_MethodName: SetNewTask
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Reach to three positions
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &53155768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1859,7 +1893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &102112960
 Transform:
   m_ObjectHideFlags: 0
@@ -7716,7 +7750,7 @@ MonoBehaviour:
   yellowPlasmaMaxReserve: 100
   redPlasmaMaxReserve: 50
   bluePlasmaMaxReserve: 50
-  infinityAmmoMode: 0
+  infinityAmmoMode: 1
 --- !u!114 &171281703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7826,14 +7860,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a1981c2123bbd42a31d8bfb0d21888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 5
   jumpForce: 1
   playerRb: {fileID: 171281708}
   playerT: {fileID: 171281712}
   FallingSpeed: 1.25
   SprintSpeedMultiply: 0.6
   OnFlySpeedMultiply: 0.1
-  OnGroundMaxSpeed: 20
+  OnGroundMaxSpeed: 1000
   OnFlyMaxSpeed: 60
   groundLayerMask:
     serializedVersion: 2
@@ -7887,7 +7921,7 @@ MonoBehaviour:
   immediatelyProtectionService: {fileID: 171281697}
   playerUseService: {fileID: 171281696}
   playerCleaner: {fileID: 1966918004}
-  godModeEnabled: 0
+  godModeEnabled: 1
   menuSystem: {fileID: 853666521}
   shootingPoint: {fileID: 1569887400}
   weaponPoint: {fileID: 984041353}
@@ -34306,7 +34340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &983570430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38172,7 +38206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1325678385
 Transform:
   m_ObjectHideFlags: 0
@@ -46373,6 +46407,7 @@ Transform:
   - {fileID: 1043679428}
   - {fileID: 933947281}
   - {fileID: 96027668}
+  - {fileID: 1600204258}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47284,6 +47319,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6657604126050427369, guid: 33c6ef5393d75e34fb5d4d3170dcb29d, type: 3}
   m_PrefabInstance: {fileID: 1599203548}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1600204257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1600204258}
+  - component: {fileID: 1600204259}
+  m_Layer: 0
+  m_Name: LevelTaskService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1600204258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600204257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1548062217}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1600204259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600204257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97d2bddff1076fd4a8347a084903b057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTask: Go to forward
+  taskCounter: 0
+  taskCounterMax: 0
+  counterAlignment: 1
 --- !u!1001 &1603807120
 PrefabInstance:
   m_ObjectHideFlags: 0

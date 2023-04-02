@@ -96,6 +96,7 @@ public class LevelPassagePointsService : MonoBehaviour
             }
 
             var isLastZone = passagePointsZones.Length-1 == zoneId;
+            currentPassageZone.zoneIsBlocked = true;
             if(isLastZone)
                 return;
             
@@ -113,6 +114,15 @@ public class LevelPassagePointsService : MonoBehaviour
             }
             else
             {
+                var isLastZone = passagePointsZones.Length - 1 == zoneId;
+
+                if (currentPassageZone.zoneIsBlocked && !isLastZone)
+                {
+                    zoneId++;
+                    GoToNextZone();
+                    return;
+                }
+                    
                 currentPassagePoint = null;
                 currentZoneIsNonLinear = true;
             }
