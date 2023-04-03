@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f497bd4e9ce9cf46b73a68ed35a1bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerId: 0
+  triggerId: 953
   isTriggerActive: 1
   activateLayerMask:
     serializedVersion: 2
@@ -1043,7 +1043,31 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Reach to three positions
+          m_StringArgument: 'Reach to positions: '
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1600204259}
+        m_TargetAssemblyTypeName: LevelTaskService, Assembly-CSharp
+        m_MethodName: SetMaxTaskCounter
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1600204259}
+        m_TargetAssemblyTypeName: LevelTaskService, Assembly-CSharp
+        m_MethodName: SetTaskCounterAlignment
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1001 &53155768
@@ -34194,6 +34218,7 @@ GameObject:
   - component: {fileID: 973239285}
   - component: {fileID: 973239287}
   - component: {fileID: 973239286}
+  - component: {fileID: 973239288}
   m_Layer: 18
   m_Name: PassagePoint_7
   m_TagString: Untagged
@@ -34242,6 +34267,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointT: {fileID: 0}
+--- !u!114 &973239288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973239284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f497bd4e9ce9cf46b73a68ed35a1bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerId: 56136
+  isTriggerActive: 1
+  activateLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  isSingleTrigger: 1
+  triggerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1600204259}
+        m_TargetAssemblyTypeName: LevelTaskService, Assembly-CSharp
+        m_MethodName: AddToTaskCounter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1600204259}
+        m_TargetAssemblyTypeName: LevelTaskService, Assembly-CSharp
+        m_MethodName: IfIsCounterFullSetNewTask
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Go to next vavilon
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1600204259}
+        m_TargetAssemblyTypeName: LevelTaskService, Assembly-CSharp
+        m_MethodName: IfIsCounterFullSetNewCounterAlignment
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &976945076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37064,6 +37146,7 @@ GameObject:
   - component: {fileID: 1219871355}
   - component: {fileID: 1219871357}
   - component: {fileID: 1219871356}
+  - component: {fileID: 1219871358}
   m_Layer: 18
   m_Name: PassagePoint_3
   m_TagString: Untagged
@@ -37112,6 +37195,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointT: {fileID: 0}
+--- !u!114 &1219871358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219871354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f497bd4e9ce9cf46b73a68ed35a1bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerId: 24732
+  isTriggerActive: 1
+  activateLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  isSingleTrigger: 1
+  triggerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1600204259}
+        m_TargetAssemblyTypeName: LevelTaskService, Assembly-CSharp
+        m_MethodName: AddToTaskCounter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1600204259}
+        m_TargetAssemblyTypeName: LevelTaskService, Assembly-CSharp
+        m_MethodName: IfIsCounterFullSetNewTask
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Go to next vavilon
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1600204259}
+        m_TargetAssemblyTypeName: LevelTaskService, Assembly-CSharp
+        m_MethodName: IfIsCounterFullSetNewCounterAlignment
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1225766443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47363,7 +47503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d2bddff1076fd4a8347a084903b057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTask: Go to forward
+  realCurrentTask: Go ahead
   taskCounter: 0
   taskCounterMax: 0
   counterAlignment: 1
@@ -47472,6 +47612,7 @@ GameObject:
   - component: {fileID: 1605642995}
   - component: {fileID: 1605642997}
   - component: {fileID: 1605642996}
+  - component: {fileID: 1605642998}
   m_Layer: 18
   m_Name: PassagePoint_4
   m_TagString: Untagged
@@ -47520,6 +47661,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointT: {fileID: 0}
+--- !u!114 &1605642998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605642994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f497bd4e9ce9cf46b73a68ed35a1bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerId: 136167136
+  isTriggerActive: 1
+  activateLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  isSingleTrigger: 1
+  triggerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1600204259}
+        m_TargetAssemblyTypeName: LevelTaskService, Assembly-CSharp
+        m_MethodName: AddToTaskCounter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1600204259}
+        m_TargetAssemblyTypeName: LevelTaskService, Assembly-CSharp
+        m_MethodName: IfIsCounterFullSetNewTask
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Go to next vavilon
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1600204259}
+        m_TargetAssemblyTypeName: LevelTaskService, Assembly-CSharp
+        m_MethodName: IfIsCounterFullSetNewCounterAlignment
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1618433707
 PrefabInstance:
   m_ObjectHideFlags: 0

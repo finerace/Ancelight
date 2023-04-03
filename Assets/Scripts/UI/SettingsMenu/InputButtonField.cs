@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -165,6 +166,7 @@ public class InputButtonField : MonoBehaviour, IPointerClickHandler
     }
 }
 
+[Serializable]
 public class DeviceButton
 {
     public KeyCode AssignedButtonKeyCode;

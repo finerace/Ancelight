@@ -17,7 +17,8 @@ public class LevelPassagePointsVisualizer : MonoBehaviour
     [SerializeField] private float pointsDefaultScale = 1;
     [SerializeField] private float pointsScalingCof = 3;
     [SerializeField] private float pointsScalingDistance = 50f;
-
+    [SerializeField] private float pointsBordersScale = 15;
+    
     
     private void Start()
     {
@@ -112,13 +113,13 @@ public class LevelPassagePointsVisualizer : MonoBehaviour
                     canvasPointPos.y /= yAmount;
 
                     ClampPointPos();
-
                     void ClampPointPos()
                     {
-                        canvasPointPos.x = Mathf.Clamp(canvasPointPos.x, 0,
-                            canvasWidth * (playerCamera.aspect / (canvasWidth / canvasHeight)));
 
-                        canvasPointPos.y = Mathf.Clamp(canvasPointPos.y, 0, canvasHeight);
+                        canvasPointPos.x = Mathf.Clamp(canvasPointPos.x, pointsBordersScale,
+                            (canvasWidth - pointsBordersScale) * (playerCamera.aspect / (canvasWidth / canvasHeight)));
+
+                        canvasPointPos.y = Mathf.Clamp(canvasPointPos.y, pointsBordersScale, canvasHeight-pointsBordersScale);
                     }
 
                     pointT.localPosition = canvasPointPos;

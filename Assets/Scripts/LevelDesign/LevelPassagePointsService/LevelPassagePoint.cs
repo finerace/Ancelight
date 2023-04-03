@@ -14,6 +14,9 @@ public class LevelPassagePoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.isTrigger)
+            return;
+        
         OnPlayerInPoint?.Invoke(id);
     }
 

@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class LevelTaskService : MonoBehaviour
 {
-
-    [SerializeField] private string currentTask;
+    private string currentTask;
+    [SerializeField] private string realCurrentTask;
     
     [Space]
     
@@ -22,20 +22,9 @@ public class LevelTaskService : MonoBehaviour
 
     public void SetNewTask(string newTask)
     {
-        switch (counterAlignment)
-        {
-            case TextAlignment.Left:
-                currentTask = $"{currentTask}{taskCounter}/{taskCounterMax}";
-                break;
-            case TextAlignment.Right:
-                currentTask = $"{currentTask}/{taskCounterMax}{taskCounter}";
-                break;
-            default:
-                currentTask = newTask;
-                break;
-        }
-
-        OnLevelTaskUpdate?.Invoke(currentTask);
+        realCurrentTask = newTask;
+        
+        UpdateTask();
     }
 
     private void UpdateTask()
@@ -43,19 +32,24 @@ public class LevelTaskService : MonoBehaviour
         switch (counterAlignment)
         {
             case TextAlignment.Left:
-                currentTask = $"{currentTask}{taskCounter}/{taskCounterMax}";
+                currentTask = $"{taskCounter}/{taskCounterMax}{realCurrentTask}";
                 break;
             case TextAlignment.Right:
-                currentTask = $"{currentTask}/{taskCounterMax}{taskCounter}";
+                currentTask = $"{realCurrentTask}{taskCounter}/{taskCounterMax}";
+                break;
+            default:
+                currentTask = realCurrentTask;
                 break;
         }
 
         OnLevelTaskUpdate?.Invoke(currentTask);
     }
     
-    public void SetTaskCounterAlignment(TextAlignment alignment)
+    public void SetTaskCounterAlignment(int state)
     {
-        counterAlignment = alignment;
+        counterAlignment = (TextAlignment)state;
+        
+        UpdateTask();
     }
 
     public void AddToTaskCounter()
@@ -68,6 +62,19 @@ public class LevelTaskService : MonoBehaviour
         UpdateTask();
     }
 
+    public void IfIsCounterFullSetNewTask(string newTask)
+    {
+        if(taskCounter >= taskCounterMax)
+            SetNewTask(newTask);
+    }
+    
+    public void IfIsCounterFullSetNewCounterAlignment(int state)
+    {
+        if(taskCounter >= taskCounterMax)
+            SetTaskCounterAlignment(state);
+    }
+
+    
     public void SetMaxTaskCounter(int taskCounterMaxValue)
     {
         taskCounterMax = taskCounterMaxValue;

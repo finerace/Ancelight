@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SettingsMenuQuadManyLines
+  m_Name: keyBloom
   m_Shader: {fileID: -6465566751694194690, guid: 20325d6481541cc468b3ced0243b2a08, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -15,7 +15,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -26,7 +26,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_5b8bf0fc7012438aaff7d4aff778c209:
-        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -82,11 +82,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TargetTexture:
-        m_Texture: {fileID: 2800000, guid: 36eea6c6524a16f428650b9ac1cb4da3, type: 3}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TargetTexture2:
-        m_Texture: {fileID: 2800000, guid: 8d10e5d7987a187499c7c584f1585d20, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -106,14 +106,13 @@ Material:
     - Boolean_b49a16a55efd4938afb56b1606ffecab: 0
     - Vector1_40fa341f37614c98a4ca6a4187ec694b: 1
     - Vector1_a7367d30b27f48a88898d8a2773cb578: 3
-    - Vector1_cdea67384fbe4b94baa4476968e9f762: 1.3
+    - Vector1_cdea67384fbe4b94baa4476968e9f762: 0.63
     - _AlphaClip: 0
     - _Blend: 0
-    - _Brightness: 1
+    - _Brightness: 1.27
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ColorMask: 15
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -124,36 +123,31 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Intensity: 0.07
+    - _Intensity: 1
     - _IsTransparentTexture: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _QueueControl: 0
+    - _QueueControl: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Rotation: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 0.1
+    - _Speed: 0.075
     - _SrcBlend: 1
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
     - _Surface: 0
     - _UnscaledTime: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _unscaledTime: 126.11129
+    - _unscaledTime: 0
     m_Colors:
-    - Vector2_b8d33165554f47859715f268ca93d9dd: {r: 0, g: 0.2, b: 0, a: 0}
+    - Vector2_b8d33165554f47859715f268ca93d9dd: {r: 3, g: 1.67, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 1.3803922, g: 6.6509805, b: 11.984314, a: 1}
+    - _MainColor: {r: 0.08018869, g: 0.4481133, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &746199492815016537

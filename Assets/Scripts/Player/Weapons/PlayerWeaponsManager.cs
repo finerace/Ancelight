@@ -178,7 +178,7 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
         else
             fire1 = 0;
             
-        bool useAbility = useAbilityButton.IsGetButtonDown();
+        bool useAbility = false;
 
         isThereAnyBullets = bulletsManager.CheckBullets(selectedWeaponData.BulletsID);
 

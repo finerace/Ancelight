@@ -39,7 +39,7 @@ public abstract class LevelTrigger : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if(!isTriggerActive)
+        if(!isTriggerActive || other.isTrigger)
             return;
         
         if (activateLayerMask.IsLayerInMask(other.gameObject.layer))
