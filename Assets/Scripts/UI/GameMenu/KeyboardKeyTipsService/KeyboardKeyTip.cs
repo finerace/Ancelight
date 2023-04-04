@@ -37,7 +37,7 @@ public abstract class KeyboardKeyTip : MonoBehaviour
         UpdateKey();
     }
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         UpdateKey();   
     }
@@ -101,10 +101,10 @@ public abstract class KeyboardKeyTip : MonoBehaviour
         switch (keyAlignment)
         {
             case TextAlignment.Left:
-                keyT.localPosition = defaultLocalPos - new Vector3(resultScale/2,0,0);
+                keyT.localPosition = defaultLocalPos - new Vector3((resultScale / 2)-keyBorders/2,0,0);
                 break;
             case TextAlignment.Right:
-                keyT.localPosition = defaultLocalPos + new Vector3(resultScale/2,0,0);
+                keyT.localPosition = defaultLocalPos + new Vector3((resultScale / 2)-keyBorders/2,0,0);
                 break;
         }
         

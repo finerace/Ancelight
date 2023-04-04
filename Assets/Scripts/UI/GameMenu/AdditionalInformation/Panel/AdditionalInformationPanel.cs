@@ -129,10 +129,18 @@ public class AdditionalInformationPanel : MonoBehaviour
         var rayIsFindInformation =
             Physics.Raycast(searchRay, out var hitData, searchDistance, searchRayLayerMask);
 
+        var toInformationDistance = 0f;
+        if (!rayIsFindInformation)
+        {
+            data = null;
+            return false;
+        }
+
+        toInformationDistance = Vector3.Distance(origin, hitData.point);
         var obstaclesIsFind =
-            Physics.Raycast(searchRay, searchDistance, obstaclesLayerMask);
+            Physics.Raycast(searchRay, toInformationDistance, obstaclesLayerMask);
         
-        if (!rayIsFindInformation || obstaclesIsFind)
+        if (obstaclesIsFind)
         {
             data = null;
             return false;

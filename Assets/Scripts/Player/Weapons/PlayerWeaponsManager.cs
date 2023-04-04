@@ -475,6 +475,7 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
 
     private void NextAbility()
     {
+        return;
         if (abilityUnlockedIDs.Count >= 1)
         {
             selectedAbilityNum++;
@@ -489,6 +490,7 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
 
     private void PreviousAbility()
     {
+        return;
         if (abilityUnlockedIDs.Count >= 1)
         {
             --selectedAbilityNum;

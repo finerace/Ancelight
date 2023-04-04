@@ -584,7 +584,7 @@ MonoBehaviour:
     isTimeNotActive: 0
     childsMenusData:
     - menuID: SettingsMenu
-      menuPrefab: {fileID: 423478606749408204, guid: 4362afb269e8f9d408e9b1d473d1e3d0, type: 3}
+      menuPrefab: {fileID: 7014694381334070251, guid: 39f0eada864147d4d9991b96a7302fa4, type: 3}
       menu: {fileID: 0}
       isCursorActive: 1
       isTimeNotActive: 0

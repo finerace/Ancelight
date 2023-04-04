@@ -7884,14 +7884,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a1981c2123bbd42a31d8bfb0d21888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
   jumpForce: 1
   playerRb: {fileID: 171281708}
   playerT: {fileID: 171281712}
   FallingSpeed: 1.25
   SprintSpeedMultiply: 0.6
   OnFlySpeedMultiply: 0.1
-  OnGroundMaxSpeed: 1000
+  OnGroundMaxSpeed: 60
   OnFlyMaxSpeed: 60
   groundLayerMask:
     serializedVersion: 2
