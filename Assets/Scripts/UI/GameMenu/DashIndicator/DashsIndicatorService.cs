@@ -63,11 +63,25 @@ public class DashsIndicatorService : MonoBehaviour
 
     private void Start()
     {
+        if (!dashsService.IsDashServiceExist)
+        {
+            dashsService.OnDashServiceUnlock += OnUnlock;
+            void OnUnlock()
+            {
+                ReCreateIndicators();
+            }
+                
+            return;
+        }
+        
         ReCreateIndicators();
     }
 
     private void Update()
     {
+        if(!dashsService.IsDashServiceExist)
+            return;
+            
         UpdateDashsIndiactors();
         
         DashUnitReadyEventWork();

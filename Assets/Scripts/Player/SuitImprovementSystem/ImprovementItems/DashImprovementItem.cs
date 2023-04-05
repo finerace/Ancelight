@@ -21,7 +21,7 @@ public class DashImprovementItem : ImprovementItem
 
     protected override bool SpecialsBuyConditionsCheck()
     {
-        return playerDashsService.DashsCount == minDashToBuy;
+        return playerDashsService.DashsCount == minDashToBuy && playerDashsService.IsDashServiceExist;
     }
 
     protected override bool NowSellCheck()

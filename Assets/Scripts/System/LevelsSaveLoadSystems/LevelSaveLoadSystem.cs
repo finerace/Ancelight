@@ -68,19 +68,13 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
 
             var savedDashService = new PlayerDashsService(); 
             JsonUtility.FromJsonOverwrite(savedPlayerData.jsonPlayerDashsService,savedDashService);
-            playerMainService.dashsService.Load(savedDashService.DashCurrentEnergy,savedDashService.DashsCount);
+            playerMainService.dashsService.Load(savedDashService);
 
             var savedProtectionService = new PlayerImmediatelyProtectionService();
             JsonUtility.FromJsonOverwrite(savedPlayerData.jsonPlayerImmediatelyProtectionService,
                 savedProtectionService);
             playerMainService.immediatelyProtectionService.Load
-                (savedProtectionService.CooldownTime
-                ,savedProtectionService.CooldownTimer
-                ,savedProtectionService.ExplosionDamage
-                ,savedProtectionService.ExplosionRadius
-                ,savedProtectionService.MinDot
-                ,savedProtectionService.ExplosionForce
-                ,savedProtectionService.IsCooldownOut);
+                (savedProtectionService);
 
         }
     }
@@ -224,7 +218,7 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
                 var savedDashService = new PlayerDashsService();
                 JsonUtility.FromJsonOverwrite(playerData.jsonPlayerDashsService,savedDashService);
                 
-                playerMainService.dashsService.Load(savedDashService.DashCurrentEnergy,savedDashService.DashsCount);
+                playerMainService.dashsService.Load(savedDashService);
             }
 
             void LoadImmediatelyProtection()
@@ -234,14 +228,7 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
                 
                 JsonUtility.FromJsonOverwrite(jsonSavedProtection,savedProtection);
                 
-                playerMainService.immediatelyProtectionService.Load(
-                    savedProtection.CooldownTime,
-                    savedProtection.CooldownTimer,
-                    savedProtection.ExplosionDamage,
-                    savedProtection.ExplosionRadius,
-                    savedProtection.MinDot,
-                    savedProtection.ExplosionForce,
-                    savedProtection.IsCooldownOut);
+                playerMainService.immediatelyProtectionService.Load(savedProtection);
             }
 
             void LoadHookService()
@@ -251,16 +238,7 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
                 
                 JsonUtility.FromJsonOverwrite(jsonSavedHook,savedHook);
                 
-                playerMainService.hookService.Load(
-                    savedHook.HookCurrentStrength,
-                    savedHook.HookMaxStrength,
-                    savedHook.HookStrengthRegenerationPerSecond,
-                    savedHook.MinStrengthAmountToUse,
-                    savedHook.HookMaxActionRange,
-                    savedHook.HookStrengthUsePerSecond,
-                    savedHook.HookStrengthRegenerationAfterUseTime,
-                    savedHook.HookForce,
-                    savedHook.HookDamage);
+                playerMainService.hookService.Load(savedHook);
             }
         }
 

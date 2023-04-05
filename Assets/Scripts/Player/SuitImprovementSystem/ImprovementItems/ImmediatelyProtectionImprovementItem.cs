@@ -27,7 +27,8 @@ public class ImmediatelyProtectionImprovementItem : ImprovementItem
 
     protected override bool SpecialsBuyConditionsCheck()
     {
-        return playerProtection.ExplosionDamage >= minDamageToBuy && playerProtection.ExplosionDamage <= maxDamageToBuy;
+        return playerProtection.ExplosionDamage >= minDamageToBuy && playerProtection.ExplosionDamage <= maxDamageToBuy
+            && playerProtection.IsProtectionExist;
     }
 
     protected override bool NowSellCheck()

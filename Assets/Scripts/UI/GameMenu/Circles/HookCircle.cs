@@ -19,11 +19,13 @@ public class HookCircle : MonoBehaviour
     private float currentCircleTransparency = 1f;
 
     private Color startIndicatorColor;
-    
+
     private bool circleIsActive =>
         hookService.IsHookStrengthRegenerationActive || 
         hookService.IsHookUsed || hookService.IsAfterUseTimerActive;
 
+    private bool isHookExist;
+    
     private void Start()
     {
         hookService = FindObjectOfType<PlayerHookService>();
@@ -32,11 +34,25 @@ public class HookCircle : MonoBehaviour
         
         CopyImagesMaterials();
         
-        if (!isVanish)
-            return;
-        
-        SetAllCircleImagesStartAlpha();
-        
+        if (isVanish)
+            SetAllCircleImagesStartAlpha();
+
+        isHookExist = hookService.IsHookExist;
+
+        if (!isHookExist)
+        {
+            var circleT = transform;
+            
+            circleT.SetChildsActive(false);
+            hookService.OnHookUnlock += OnUnlock;
+
+            void OnUnlock()
+            {
+                isHookExist = true;
+                circleT.SetChildsActive(true);
+            }
+        }
+
         void SetAllCircleImagesStartAlpha()
         {
             allCircleImagesStartTransparency = new float[allCircleImages.Length];
@@ -73,6 +89,9 @@ public class HookCircle : MonoBehaviour
 
     private void Update()
     {
+        if(!isHookExist)
+            return;
+            
         if (!isVanish)
         {
             if(circleIsActive)
@@ -164,5 +183,6 @@ public class HookCircle : MonoBehaviour
             allCircleImages[i].color = newItemColor;
         }
     }
+    
 
 }

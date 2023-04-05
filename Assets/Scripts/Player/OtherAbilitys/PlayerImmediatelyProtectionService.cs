@@ -68,21 +68,31 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour,IUsePlayerDevice
     private DeviceButton useProtectionButton = new DeviceButton();
 
     private LayerMask shootingLayerMask;
+
+    [SerializeField] private bool isProtectionExist;
+    public bool IsProtectionExist => isProtectionExist;
     
-    public void Load(float cooldownTime,float cooldownTimer,float explosionDamage, float explosionRadius,float minDot,float explosionForce, bool isCooldownOut)
+    private event Action onUnlock;
+    public event Action OnUnlock
     {
-        this.cooldownTime = cooldownTime;
-        this.cooldownTimer = cooldownTimer;
+        add => onUnlock += value;
+        remove => onUnlock -= value;
+    }
+    
+    public void Load(PlayerImmediatelyProtectionService savedProtection)
+    {
+        this.cooldownTime = savedProtection.cooldownTime;
+        this.cooldownTimer = savedProtection.cooldownTimer;
 
-        this.explosionDamage = explosionDamage;
-        this.explosionRadius = explosionRadius;
+        this.explosionDamage = savedProtection.explosionDamage;
+        this.explosionRadius = savedProtection.explosionRadius;
 
-        this.minDot = minDot;
+        this.minDot = savedProtection.minDot;
 
-        this.explosionForce = explosionForce;
+        this.explosionForce = savedProtection.explosionForce;
 
-        this.isCooldownOut = isCooldownOut;
-
+        this.isCooldownOut = savedProtection.isCooldownOut;
+        this.isProtectionExist = savedProtection.isProtectionExist;
     }
     
     private void Start()
@@ -129,6 +139,9 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour,IUsePlayerDevice
 
     private void Update()
     {
+        if(!isProtectionExist)
+            return;
+            
         if(!isCooldownOut)
             CooldownTimerSet();
             
@@ -175,6 +188,13 @@ public class PlayerImmediatelyProtectionService : MonoBehaviour,IUsePlayerDevice
     public void SetNewDamageRadius(float newRadius)
     {
         explosionRadius = newRadius;
+    }
+
+    public void Unlock()
+    {
+        isProtectionExist = true;
+        
+        onUnlock?.Invoke();
     }
     
     private IEnumerator ShockEffectTimer(float time)

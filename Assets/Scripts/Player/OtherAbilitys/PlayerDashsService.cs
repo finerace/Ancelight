@@ -49,10 +49,21 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
         remove => onDashCountUpdate -= value ?? throw new NullReferenceException();
     }
 
-    public void Load(float savedDashCurrentEnergy,int savedDashCount)
+    [SerializeField] private bool isDashServiceExist;
+    public bool IsDashServiceExist => isDashServiceExist;
+
+    private event Action onDashSeviceUnlock;
+    public event Action OnDashServiceUnlock
     {
-        dashCurrentEnergy = savedDashCurrentEnergy;
-        dashsCount = savedDashCount;
+        add => onDashSeviceUnlock += value;
+        remove => onDashSeviceUnlock -= value;
+    }
+
+    public void Load(PlayerDashsService savedDashService)
+    {
+        dashCurrentEnergy = savedDashService.dashCurrentEnergy;
+        dashsCount = savedDashService.dashsCount;
+        isDashServiceExist = savedDashService.isDashServiceExist;
         
         isLoad = true;
     }
@@ -67,6 +78,9 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
     
     private void Update()
     {
+        if(!isDashServiceExist)
+            return;
+            
         DashUpdateAlgorithm();
     }
 
@@ -151,7 +165,7 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
         }
 
     }
-
+    
     public void SetNewDashCount(int newDashCount)
     {
         if (newDashCount < 0)
@@ -163,6 +177,13 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
         onDashCountUpdate?.Invoke();
     }
 
+    public void Unlock()
+    {
+        isDashServiceExist = true;
+        
+        onDashSeviceUnlock?.Invoke();
+    }
+    
     private IEnumerator DashProcess(Vector3 currentPlayerXYDirection)
     {
 

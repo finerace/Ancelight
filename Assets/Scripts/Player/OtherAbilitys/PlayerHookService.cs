@@ -40,16 +40,18 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
     [SerializeField] private bool isHookOnlyPointMode = true;
     [SerializeField] private LayerMask hookUseSurfaceMask;
     [SerializeField] private LayerMask hookObstaclesSurfaceMask;
-
+    
     
     [SerializeField] private float minStrengthAmountToUse = 0.1f;
+
     private Transform[] hookPoints;
 
     public Transform[] HookPoints => hookPoints;
 
-    public Transform HookMeshT => hookMeshT; 
-    
+    public Transform HookMeshT => hookMeshT;
+
     public float MinStrengthAmountToUse => minStrengthAmountToUse;
+
     public float HookMaxActionRange => hookMaxActionRange;
 
     public float HookStrengthUsePerSecond => hookStrengthUsePerSecond;
@@ -64,32 +66,51 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
 
     public float StartDamper => startDamper;
     
-
+    [Space] 
+    
+    [SerializeField] private bool isHookExist;
+    public bool IsHookExist => isHookExist;
+    private event Action onHookUnlock;
+    public event Action OnHookUnlock
+    {
+        add => onHookUnlock += value;
+        remove => onHookUnlock -= value;
+    }
+    
+    
     private bool isHookUsed = false;
+
     public bool IsHookUsed => isHookUsed;
 
     private bool isHookStrengthRegenerationActive = false;
+
     public bool IsHookStrengthRegenerationActive => isHookStrengthRegenerationActive;
 
     private Rigidbody hookRb;
+
     private FixedJoint hookFixedJoint;
+
     //private Rigidbody playerRB;
+
 
     private float startDamper;
 
     private float currentDrawHookAmount = 0;
 
     private Vector3 lastHookRbPos;
+
     private Transform lastHookHitObjT;
-    
+
     private bool hookManageIsBlocked = false;
 
     private event Action hookUseEvent;
+
     private event Action hookEndUseEvent;
-    
+
     private event Action hookRegenerateEvent;
+
     private bool isHookRegenerateWorked;
-    
+
     public event Action HookRegenerateEvent
     {
         add
@@ -108,32 +129,31 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
             hookRegenerateEvent -= value;
         }
     }
-    
+
     private DeviceButton useHookButton = new DeviceButton();
 
     private bool isLoaded = false;
-    
-    public void Load(float hookCurrentStrength, float hookMaxStrength, float hookStrengthRegenerationPerSecond,
-        float minStrengthAmountToUse, float hookMaxActionRange, float hookStrengthUsePerSecond,
-        float hookStrengthRegenerationAfterUseTime,
-        float hookForce, float hookDamage)
+
+    public void Load(PlayerHookService savedHookService)
     {
-        this.hookCurrentStrength = hookCurrentStrength;
-        this.hookMaxStrength = hookMaxStrength;
+        this.hookCurrentStrength = savedHookService.hookCurrentStrength;
+        this.hookMaxStrength = savedHookService.hookMaxStrength;
 
-        this.hookStrengthRegenerationPerSecond = hookStrengthRegenerationPerSecond;
-        this.hookStrengthUsePerSecond = hookStrengthUsePerSecond;
-        this.hookStrengthRegenerationAfterUseTime = hookStrengthRegenerationAfterUseTime;
+        this.hookStrengthRegenerationPerSecond = savedHookService.hookStrengthRegenerationPerSecond;
+        this.hookStrengthUsePerSecond = savedHookService.hookStrengthUsePerSecond;
+        this.hookStrengthRegenerationAfterUseTime = savedHookService.hookStrengthRegenerationAfterUseTime;
 
-        this.minStrengthAmountToUse = minStrengthAmountToUse;
-        this.hookMaxActionRange = hookMaxActionRange;
+        this.minStrengthAmountToUse = savedHookService.minStrengthAmountToUse;
+        this.hookMaxActionRange = savedHookService.hookMaxActionRange;
 
-        this.hookForce = hookForce;
-        this.hookDamage = hookDamage;
+        this.hookForce = savedHookService.hookForce;
+        this.hookDamage = savedHookService.hookDamage;
 
+        isHookExist = savedHookService.isHookExist;
+        
         isLoaded = true;
     }
-    
+
     private void Awake()
     {
         //playerRB = GetComponent<Rigidbody>();
@@ -170,7 +190,7 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
             FindHookPoints();
         }
     }
-    
+
     void FindHookPoints()
     {
         const int hookPointLayerMask = 1 << 15;
@@ -206,9 +226,12 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
             return resultHookPoints.ToArray();
         }
     }
-    
+
     private void Update()
     {
+        if(!isHookExist)
+            return;
+            
         if(hookManageIsBlocked)
             return;
         
@@ -513,6 +536,13 @@ public class PlayerHookService : MonoBehaviour,IUsePlayerDevicesButtons
 
     }
 
+    public void UnlockHook()
+    {
+        isHookExist = true;
+        
+        onHookUnlock?.Invoke();
+    }
+    
     public void SubHookUseEvent(Action action)
     {
         if (action != null)

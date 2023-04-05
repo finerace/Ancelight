@@ -523,4 +523,11 @@ public static class AuxiliaryFunc
         return new TimeSpan(0, 0, seconds);
     }
     
+    public static void SetChildsActive(this Transform objectT, bool active)
+    {
+        for (int i = 0; i < objectT.childCount; i++)
+        {
+            objectT.GetChild(i).gameObject.SetActive(active);
+        }
+    }
 }

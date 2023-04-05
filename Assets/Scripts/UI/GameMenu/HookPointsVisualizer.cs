@@ -18,6 +18,9 @@ public class HookPointsVisualizer : MonoBehaviour
 
     private void Update()
     {
+        if(!playerHookService.IsHookExist)
+            return;
+            
         UpdateHookPointsCount();
         void UpdateHookPointsCount()
         {

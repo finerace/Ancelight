@@ -207,6 +207,24 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
         
         AddHealthEvent?.Invoke(health);
     }
+
+    public void UnlockModule(PlayerModules module)
+    {
+        switch (module)
+        {
+            case PlayerModules.DashService:
+                dashsService.Unlock();
+                break;
+            case PlayerModules.HookService:
+                hookService.UnlockHook();
+                break;
+            case PlayerModules.ProtectionService:
+                immediatelyProtectionService.Unlock();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(module), module, null);
+        }
+    }
     
     public void SetManageActive(bool state)
     {
@@ -252,4 +270,11 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     {
         return new DeviceButton[] {openSuitManageMenuButton} ;
     }
+}
+
+public enum PlayerModules
+{
+    DashService,
+    HookService,
+    ProtectionService
 }

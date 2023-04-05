@@ -10,14 +10,33 @@ public class ImedProtectionCircle : MonoBehaviour
 
     [SerializeField] private Image icon;
     [SerializeField] private Image dynamicCircle;
-
+    private bool isProtectionExist = true;
+    
     private void Awake()
     {
         immedProtectionService = FindObjectOfType<PlayerImmediatelyProtectionService>();
+
+        if (!immedProtectionService.IsProtectionExist)
+        {
+            transform.SetChildsActive(false);
+            isProtectionExist = false;
+
+            immedProtectionService.OnUnlock += OnUnlock;
+            
+            void OnUnlock()
+            {
+                transform.SetChildsActive(true);
+                isProtectionExist = true;
+            }
+        }
+            
     }
 
     private void Update()
-    { 
+    {
+        if(!isProtectionExist)
+            return;
+            
         UpdateHookCircle();
     }
 
@@ -57,7 +76,5 @@ public class ImedProtectionCircle : MonoBehaviour
         }
         
     }
-
-
 
 }
