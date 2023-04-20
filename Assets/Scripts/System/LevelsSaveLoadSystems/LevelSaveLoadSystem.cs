@@ -182,7 +182,9 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
             LoadImmediatelyProtection();
             
             LoadHookService();
-
+            
+            LoadSuitDatabase();
+            
             void LoadPlayerMainService()
             {
                 var savePlayerMainService = new PlayerMainService();
@@ -239,6 +241,14 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
                 JsonUtility.FromJsonOverwrite(jsonSavedHook,savedHook);
                 
                 playerMainService.hookService.Load(savedHook);
+            }
+
+            void LoadSuitDatabase()
+            {
+                var savedDataBase = new SuitInformationDataBase();
+                JsonUtility.FromJsonOverwrite(playerData.jsonSuitInformationDataBase,savedDataBase);
+                
+                FindObjectOfType<SuitInformationDataBase>().Load(savedDataBase);
             }
         }
 
@@ -534,7 +544,8 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
             playerMainService.weaponsBulletsManager,
             new PlayerHookService(),
             playerMainService.dashsService,
-            playerMainService.immediatelyProtectionService);
+            playerMainService.immediatelyProtectionService,
+            FindObjectOfType<SuitInformationDataBase>());
 
         savedPlayerData.jsonPlayerMainService = JsonUtility.ToJson(playerMainService);
         savedPlayerData.jsonPlayerWeaponsManager = JsonUtility.ToJson(playerWeaponsManager);

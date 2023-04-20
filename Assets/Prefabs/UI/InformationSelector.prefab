@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 8677837104119298636}
   - component: {fileID: 7178364676474578177}
   m_Layer: 5
-  m_Name: InformationUnit
+  m_Name: InformationSelector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -350,3 +350,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiSetter: {fileID: 0}
   buttonMainService: {fileID: 2163288185023185706}
+  informationNameLabel: {fileID: 2031155249885553563}

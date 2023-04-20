@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SuitInformationSetUI : MonoBehaviour
 {
@@ -12,17 +13,22 @@ public class SuitInformationSetUI : MonoBehaviour
     [SerializeField] private TMP_Text informationDesc;
 
     [SerializeField] private GameObject informationImageObject1;
-    [SerializeField] private SpriteRenderer informationSprite1;
+    [SerializeField] private Image informationSprite1;
     
     [SerializeField] private GameObject informationImageObject2;
-    [SerializeField] private SpriteRenderer informationSprite2;
+    [SerializeField] private Image informationSprite2;
 
     [SerializeField] private GameObject informationImageObject3;
-    [SerializeField] private SpriteRenderer informationSprite3;
+    [SerializeField] private Image informationSprite3;
 
     private void Awake()
     {
         dataBase = FindObjectOfType<SuitInformationDataBase>();
+    }
+
+    private void OnEnable()
+    {
+        ClearAllInformation();
     }
 
     public void OpenInformation(int informationId)
@@ -55,6 +61,16 @@ public class SuitInformationSetUI : MonoBehaviour
         }
         else
             informationImageObject3.SetActive(false);
+    }
+
+    private void ClearAllInformation()
+    {
+        informationName.text = String.Empty;
+        informationDesc.text = String.Empty;
+        
+        informationImageObject1.SetActive(false);
+        informationImageObject2.SetActive(false);
+        informationImageObject3.SetActive(false);
     }
     
 }
