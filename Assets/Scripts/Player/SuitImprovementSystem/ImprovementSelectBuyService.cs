@@ -22,7 +22,7 @@ public class ImprovementSelectBuyService : MonoBehaviour
     [SerializeField] private TMP_Text itemDescLabel;
     [SerializeField] private TMP_Text itemEffectLabel;
     [SerializeField] private TMP_Text itemCostLabel;
-
+    
     [Space] 
     
     private AudioPoolService audioPoolService;
@@ -55,9 +55,9 @@ public class ImprovementSelectBuyService : MonoBehaviour
         itemIcon.sprite = item.ItemIcon;
         itemLevelLabel.text = item.ItemDecorationLevel;
         
-        itemNameLabel.text = item.ItemName;
-        itemDescLabel.text = item.ItemDesc;
-        itemEffectLabel.text = item.ItemEffect;
+        itemNameLabel.text = CurrentLanguageData.GetText(item.ItemNameTextId);
+        itemDescLabel.text = CurrentLanguageData.GetText(item.ItemDescTextId);
+        itemEffectLabel.text = CurrentLanguageData.GetText(item.ItemEffectTextId);
         itemCostLabel.text = item.ImprovementPointCost.ToString();
     }
 

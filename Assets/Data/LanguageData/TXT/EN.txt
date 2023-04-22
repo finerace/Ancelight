@@ -67,8 +67,12 @@ Available Data;
 Armor Improvement;
 Dash Improvement;
 Immed. Protection Improvement;
-Cost;
+Cost:;
 Points;
 Improve;
+Effect:;
+Enter the number of bullets...;
+Synthesize bullets;
+Plasma reserves;
 
 

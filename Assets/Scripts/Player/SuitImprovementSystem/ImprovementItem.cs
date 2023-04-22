@@ -12,18 +12,18 @@ public abstract class ImprovementItem : MonoBehaviour, IPointerClickHandler,IPoi
     [Space] 
     
     [SerializeField] private Sprite itemIcon;
-    [SerializeField] private string itemName;
-    [SerializeField] private string itemDesc;
-    [SerializeField] private string itemEffect;
+    [SerializeField] private int itemNameTextId;
+    [SerializeField] private int itemDescTextId;
+    [SerializeField] private int itemEffectTextId;
     [SerializeField] private string itemDecorationLevel;
-
+    
     public Sprite ItemIcon => itemIcon;
 
-    public string ItemName => itemName;
+    public int ItemNameTextId => itemNameTextId;
 
-    public string ItemDesc => itemDesc;
+    public int ItemDescTextId => itemDescTextId;
 
-    public string ItemEffect => itemEffect;
+    public int ItemEffectTextId => itemEffectTextId;
 
     public string ItemDecorationLevel => itemDecorationLevel;
 

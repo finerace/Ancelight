@@ -306,9 +306,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 2
   itemIcon: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
-  itemName: Armor Improvement
-  itemDesc: Increases armor's resistance to damage
-  itemEffect: +10% armor damage resistance
+  itemNameTextId: 0
+  itemDescTextId: 0
+  itemEffectTextId: 0
   itemDecorationLevel: I
   buyIndicator: {fileID: 4115232457172333075}
   selectIndicator: {fileID: 6455678793265393886}
@@ -691,9 +691,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 2
   itemIcon: {fileID: 21300000, guid: 651e0d7f2f9f3404eb866abb57716cb9, type: 3}
-  itemName: Dash Improvement
-  itemDesc: Adds additional dash slots
-  itemEffect: +1 Dash slot
+  itemNameTextId: 0
+  itemDescTextId: 0
+  itemEffectTextId: 0
   itemDecorationLevel: III
   buyIndicator: {fileID: 8059191061095599669}
   selectIndicator: {fileID: 7305522311087463667}
@@ -1581,9 +1581,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 3
   itemIcon: {fileID: 21300000, guid: a016d50cc167f9445a255089f4f7011f, type: 3}
-  itemName: Immediately Protection
-  itemDesc: Increases the damage and range of the immediately protection system.
-  itemEffect: +15% damage +10% radius
+  itemNameTextId: 0
+  itemDescTextId: 0
+  itemEffectTextId: 0
   itemDecorationLevel: IV
   buyIndicator: {fileID: 4650925548406210128}
   selectIndicator: {fileID: 2415600195572666432}
@@ -2102,9 +2102,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 1
   itemIcon: {fileID: 21300000, guid: a016d50cc167f9445a255089f4f7011f, type: 3}
-  itemName: Immediately Protection
-  itemDesc: Increases the damage and range of the immediately protection system.
-  itemEffect: +10% damage
+  itemNameTextId: 0
+  itemDescTextId: 0
+  itemEffectTextId: 0
   itemDecorationLevel: I
   buyIndicator: {fileID: 296677518073724811}
   selectIndicator: {fileID: 2652850649357979711}
@@ -3832,9 +3832,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 1
   itemIcon: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
-  itemName: Armor Improvement
-  itemDesc: Increases the maximum armor limit
-  itemEffect: +25 to the armor limit
+  itemNameTextId: 0
+  itemDescTextId: 0
+  itemEffectTextId: 0
   itemDecorationLevel: II
   buyIndicator: {fileID: 9170462431123979584}
   selectIndicator: {fileID: 3518758307948874463}
@@ -3989,9 +3989,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 1
   itemIcon: {fileID: 21300000, guid: 651e0d7f2f9f3404eb866abb57716cb9, type: 3}
-  itemName: Dash Improvement
-  itemDesc: Adds additional dash slots
-  itemEffect: +1 Dash slot
+  itemNameTextId: 0
+  itemDescTextId: 0
+  itemEffectTextId: 0
   itemDecorationLevel: I
   buyIndicator: {fileID: 4700751712917791620}
   selectIndicator: {fileID: 2861397167758262223}
@@ -10639,7 +10639,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.0000051259995, y: 0.00058866}
-  m_SizeDelta: {x: 199.74, y: 38.31}
+  m_SizeDelta: {x: 199.74, y: 31.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3657638010615013829
 CanvasRenderer:
@@ -10696,12 +10696,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.9
+  m_fontSize: 20
   m_fontSizeBase: 20.9
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 1
+  m_fontSizeMax: 20
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -15852,9 +15852,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 2
   itemIcon: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
-  itemName: Armor Improvement
-  itemDesc: Increases armor's resistance to damage
-  itemEffect: +20% armor damage resistance
+  itemNameTextId: 0
+  itemDescTextId: 0
+  itemEffectTextId: 0
   itemDecorationLevel: II
   buyIndicator: {fileID: 4585165642174756709}
   selectIndicator: {fileID: 4755914501821688788}
@@ -16603,9 +16603,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 2
   itemIcon: {fileID: 21300000, guid: a016d50cc167f9445a255089f4f7011f, type: 3}
-  itemName: Immediately Protection
-  itemDesc: Increases the damage and range of the immediately protection system.
-  itemEffect: +10% damage +10% radius
+  itemNameTextId: 0
+  itemDescTextId: 0
+  itemEffectTextId: 0
   itemDecorationLevel: III
   buyIndicator: {fileID: 7917626052700553756}
   selectIndicator: {fileID: 4331538719253464472}
@@ -16912,9 +16912,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 1
   itemIcon: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
-  itemName: Armor Improvement
-  itemDesc: Increases the maximum armor limit
-  itemEffect: +25 to the armor limit
+  itemNameTextId: 0
+  itemDescTextId: 0
+  itemEffectTextId: 0
   itemDecorationLevel: I
   buyIndicator: {fileID: 6098259349977680775}
   selectIndicator: {fileID: 743171106141259839}
@@ -18798,9 +18798,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 1
   itemIcon: {fileID: 21300000, guid: 651e0d7f2f9f3404eb866abb57716cb9, type: 3}
-  itemName: Dash Improvement
-  itemDesc: Adds additional dash slots
-  itemEffect: +1 Dash slot
+  itemNameTextId: 0
+  itemDescTextId: 0
+  itemEffectTextId: 0
   itemDecorationLevel: II
   buyIndicator: {fileID: 1013630052601246646}
   selectIndicator: {fileID: 6571650312109280629}
@@ -19859,7 +19859,7 @@ MonoBehaviour:
     - {fileID: 2082103751973470}
     languageDataTextId: 64
   - targetTexts:
-    - {fileID: 2082103751973470}
+    - {fileID: 1126533635725210724}
     languageDataTextId: 65
   - targetTexts:
     - {fileID: 4276998881460296427}
@@ -19882,6 +19882,21 @@ MonoBehaviour:
   - targetTexts:
     - {fileID: 1809949525203691119}
     languageDataTextId: 72
+  - targetTexts:
+    - {fileID: 3175727609519328499}
+    languageDataTextId: 73
+  - targetTexts:
+    - {fileID: 3657638011499303561}
+    languageDataTextId: 74
+  - targetTexts:
+    - {fileID: 3657638010615013826}
+    languageDataTextId: 75
+  - targetTexts:
+    - {fileID: 3657638010686324331}
+    languageDataTextId: 70
+  - targetTexts:
+    - {fileID: 3657638011129536140}
+    languageDataTextId: 76
 --- !u!1 &7594999975749014952
 GameObject:
   m_ObjectHideFlags: 0
@@ -20167,9 +20182,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 2
   itemIcon: {fileID: 21300000, guid: a016d50cc167f9445a255089f4f7011f, type: 3}
-  itemName: Immediately Protection
-  itemDesc: Increases the damage and range of the immediately protection system.
-  itemEffect: +10% damage +5% radius
+  itemNameTextId: 0
+  itemDescTextId: 0
+  itemEffectTextId: 0
   itemDecorationLevel: II
   buyIndicator: {fileID: 358878233577547717}
   selectIndicator: {fileID: 3257010071028865734}
@@ -21919,9 +21934,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 3
   itemIcon: {fileID: 21300000, guid: 651e0d7f2f9f3404eb866abb57716cb9, type: 3}
-  itemName: Dash Improvement
-  itemDesc: Adds additional dash slots
-  itemEffect: +1 Dash slot
+  itemNameTextId: 0
+  itemDescTextId: 0
+  itemEffectTextId: 0
   itemDecorationLevel: IV
   buyIndicator: {fileID: 7652770347671255976}
   selectIndicator: {fileID: 7018475028693548019}
