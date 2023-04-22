@@ -11,6 +11,17 @@ public class LevelCompleteMenuSpecial : MonoBehaviour
     [SerializeField] private TextMeshProUGUI passageTimeLabel;
     [SerializeField] private TextMeshProUGUI enemyKilledLabel;
     [SerializeField] private TextMeshProUGUI secretsFoundLabel;
+
+    [Space] 
+    [SerializeField] private int mainLevelTextId1;
+    [SerializeField] private int mainLevelTextId2;
+    
+    [SerializeField] private int scoreTextId;
+    
+    [SerializeField] private int passageTimeTextId;
+    [SerializeField] private int enemyKilledTextId;
+    [SerializeField] private int secretsFoundTextId;
+    
     private LevelData currentLevel;
     
     private LevelSaveLoadSystem levelSaveLoadSystem;
@@ -26,13 +37,16 @@ public class LevelCompleteMenuSpecial : MonoBehaviour
     {
         currentLevel = levelPassageService.LevelData;
         
-        mainLevelCompleteLabel.text = $"Level {levelPassageService.LevelData.LevelName} completed.";
+        mainLevelCompleteLabel.text 
+            = $"{CurrentLanguageData.GetText(mainLevelTextId1)} " +
+              $"\n{CurrentLanguageData.GetText(levelPassageService.LevelData.LevelNameTextId)} " +
+              $"\n{CurrentLanguageData.GetText(mainLevelTextId2)}";
 
-        scoreLabel.text = $"Score: {levelPassageService.Score}";
-        passageTimeLabel.text = $"Passage time: " +
+        scoreLabel.text = $"{CurrentLanguageData.GetText(scoreTextId)} {levelPassageService.Score}";
+        passageTimeLabel.text = $"{CurrentLanguageData.GetText(passageTimeTextId)} " +
                                 $"{new TimeSpan(0,0,(int)levelPassageService.PassageTimeSec)}";
-        enemyKilledLabel.text = $"Enemy killed: {levelPassageService.EnemyKilled}";
-        secretsFoundLabel.text = $"Secrets found: {levelPassageService.SecretsFound}";
+        enemyKilledLabel.text = $"{CurrentLanguageData.GetText(enemyKilledTextId)} {levelPassageService.EnemyKilled}";
+        secretsFoundLabel.text = $"{CurrentLanguageData.GetText(secretsFoundTextId)} {levelPassageService.SecretsFound}";
     }
 
     public void LoadNextLevel()

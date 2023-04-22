@@ -29,6 +29,14 @@ public class SavesSelectLoadDeleteService : MonoBehaviour
     [SerializeField] private SavesFoundSpawnService savesFoundSpawnService;
     private MenuSystem menuSystem;
     
+    [Space]
+    
+    [SerializeField] private int savePassageTimeTextId;
+    [SerializeField] private int saveScoreTextId;
+    [SerializeField] private int saveEnemyKilledTextId;
+    [SerializeField] private int saveSecretsFoundTextId;
+    [SerializeField] private int saveDateTextId;
+    
     private void Awake()
     {
         savesPath = $"{Application.persistentDataPath}/Saves";
@@ -50,15 +58,15 @@ public class SavesSelectLoadDeleteService : MonoBehaviour
         JsonUtility.FromJsonOverwrite(levelSaveData.SavedLevelPassageService,levelPassageService);
         
         saveNameLabel.text = selectedSaveUnitData.SaveName;
-        saveLevelNameLabel.text = levelPassageService.LevelData.LevelCampaignData.CampaignName;
+        saveLevelNameLabel.text = CurrentLanguageData.GetText(levelPassageService.LevelData.LevelCampaignData.CampaignNameTextId);
 
-        savePassageTimeLabel.text = $"Passage time: " +
+        savePassageTimeLabel.text = $"{CurrentLanguageData.GetText(savePassageTimeTextId)} " +
                                     $"{AuxiliaryFunc.ConvertSecondsToTimeSpan((int)levelPassageService.PassageTimeSec)}";
-        saveScoreLabel.text = $"Score: {levelPassageService.Score}";
-        saveEnemyKilledLabel.text = $"Enemy killed: {levelPassageService.EnemyKilled}";
-        saveSecretsFoundLabel.text = $"Secrets found: {levelPassageService.SecretsFound}";
+        saveScoreLabel.text = $"{CurrentLanguageData.GetText(saveScoreTextId)} {levelPassageService.Score}";
+        saveEnemyKilledLabel.text = $"{CurrentLanguageData.GetText(saveEnemyKilledTextId)} {levelPassageService.EnemyKilled}";
+        saveSecretsFoundLabel.text = $"{CurrentLanguageData.GetText(saveSecretsFoundTextId)} {levelPassageService.SecretsFound}";
         
-        saveDateLabel.text = "SaveDate: \n"  + selectedSaveUnitData.SaveDateTimeLabel.text;
+        saveDateLabel.text = $"{CurrentLanguageData.GetText(saveDateTextId)} \n"  + selectedSaveUnitData.SaveDateTimeLabel.text;
         
         
         SetScreenshot();

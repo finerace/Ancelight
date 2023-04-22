@@ -24,8 +24,8 @@ public class MenuCampaignsService : MonoBehaviour
     const float notUnlockedButtonMatBrightness = 0.70f;
     const float notUnlockedButtonDecLineBrightness = 0.55f;
 
-    private const string campaignsUnitsOnPanelLabelText = "Select Campaign";
-    private const string levelsUnitsOnPanelLabelText = "Select Level";
+    [SerializeField] private int campaignsUnitsOnPanelTextId;
+    [SerializeField] private int levelsUnitsOnPanelTextId;
     
     private void Awake()
     {
@@ -53,7 +53,7 @@ public class MenuCampaignsService : MonoBehaviour
             
             spawnedUnitData.transform.localPosition += new Vector3(0, -(resultUnitsScrollDistance), 0);
             spawnedUnitData.SetNewCampaignData(campaignData);
-            spawnedUnitData.NameLabel.text = spawnedUnitData.CampaignData.CampaignName;
+            spawnedUnitData.NameLabel.text = CurrentLanguageData.GetText(spawnedUnitData.CampaignData.CampaignNameTextId);
             
             if (!campaignData.IsCampaignUnlocked)
             {
@@ -107,7 +107,7 @@ public class MenuCampaignsService : MonoBehaviour
     private void OpenCampaignLevelsList(CampaignData campaignData)
     {
         SetObjectsActive(spawnedCampaignsUnits,false);
-        campaignsLevelsPanelLabel.text = levelsUnitsOnPanelLabelText;
+        campaignsLevelsPanelLabel.text = CurrentLanguageData.GetText(levelsUnitsOnPanelTextId);
         
         var resultUnitsScrollDistance = 0f;
         const int minScrollDistance = 900;
@@ -124,7 +124,7 @@ public class MenuCampaignsService : MonoBehaviour
             spawnedUnitData.transform.localPosition += new Vector3(0, -(resultUnitsScrollDistance), 0);
             spawnedUnitData.SetNewCampaignData(campaignData);
             spawnedUnitData.SetNewLevelData(levelData);
-            spawnedUnitData.NameLabel.text = spawnedUnitData.LevelData.LevelName;
+            spawnedUnitData.NameLabel.text = CurrentLanguageData.GetText(spawnedUnitData.LevelData.LevelNameTextId);
             
             if (!levelData.IsLevelUnlocked)
             {
@@ -188,7 +188,7 @@ public class MenuCampaignsService : MonoBehaviour
         backToCampaignUnitsButton.SetActive(false);
         SetObjectsActive(spawnedCampaignsUnits,true);
 
-        campaignsLevelsPanelLabel.text = campaignsUnitsOnPanelLabelText;
+        campaignsLevelsPanelLabel.text = CurrentLanguageData.GetText(campaignsUnitsOnPanelTextId);
         scrollObjectService.ReloadScrollSystem(campaignUnitsScrollDistance);
     }
     

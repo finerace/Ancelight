@@ -5,13 +5,13 @@ using UnityEngine;
 [Serializable]
 public class CampaignData : ScriptableObject
 {
-    [SerializeField] private string campaignName;
+    [SerializeField] private int campaignNameTextId;
     [SerializeField] private CampaignData previousCampaignData;
     [SerializeField] private CampaignData nextCampaignData;
     [SerializeField] private LevelData[] campaignLevels;
     [SerializeField] private bool isCampaignUnlocked;
 
-    public string CampaignName => campaignName;
+    public int CampaignNameTextId => campaignNameTextId;
 
     public CampaignData PreviousCampaignData => previousCampaignData;
 

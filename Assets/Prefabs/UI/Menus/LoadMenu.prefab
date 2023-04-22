@@ -4704,6 +4704,11 @@ MonoBehaviour:
   saveScreenshot: {fileID: 2800742970088036986}
   loadSystem: {fileID: 3355116206534757718}
   savesFoundSpawnService: {fileID: 2800742969554297037}
+  savePassageTimeTextId: 96
+  saveScoreTextId: 95
+  saveEnemyKilledTextId: 97
+  saveSecretsFoundTextId: 98
+  saveDateTextId: 101
 --- !u!1 &2800742970167148977
 GameObject:
   m_ObjectHideFlags: 0
@@ -6035,6 +6040,9 @@ MonoBehaviour:
     - {fileID: 2800742969709167902}
     - {fileID: 2800742969708409620}
     languageDataTextId: 8
+  - targetTexts:
+    - {fileID: 3779207064014419732}
+    languageDataTextId: 102
 --- !u!1 &8476028709434465573
 GameObject:
   m_ObjectHideFlags: 0

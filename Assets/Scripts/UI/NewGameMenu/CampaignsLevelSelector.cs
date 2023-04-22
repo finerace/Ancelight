@@ -14,6 +14,17 @@ public class CampaignsLevelSelector : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelMaxScoreLabel;
     [SerializeField] private TextMeshProUGUI levelSecretsFoundLabel;
     [SerializeField] private TextMeshProUGUI levelMinimumPassageTimeLabel;
+
+    [Space]
+    
+    [SerializeField] private int levelPassageTimeTextId;
+    [SerializeField] private int levelEnemyCountTextId;
+    [SerializeField] private int levelSecretCountTextId;
+                             
+    [SerializeField] private int levelMaxScoreTextId;
+    [SerializeField] private int levelSecretsFoundTextId;
+    [SerializeField] private int levelMinimumPassageTimeTextId;
+
     
     private LevelData selectedLevelData;
     private CampaignData selectedCampaignData;
@@ -26,18 +37,18 @@ public class CampaignsLevelSelector : MonoBehaviour
         SetLabels();
         void SetLabels()
         {
-            levelNameLabel.text = levelData.LevelName;
-            campaignNameLabel.text = levelCampaignData.CampaignName;
+            levelNameLabel.text = CurrentLanguageData.GetText(levelData.LevelNameTextId);
+            campaignNameLabel.text = CurrentLanguageData.GetText(levelCampaignData.CampaignNameTextId);
 
-            levelPassageTimeLabel.text = $"Passage time: {AuxiliaryFunc.ConvertNumCharacters(levelData.LevelPassageTimeHours)}:" +
+            levelPassageTimeLabel.text = $"{CurrentLanguageData.GetText(levelPassageTimeTextId)} {AuxiliaryFunc.ConvertNumCharacters(levelData.LevelPassageTimeHours)}:" +
                                          $"{AuxiliaryFunc.ConvertNumCharacters(levelData.LevelPassageTimeMinutes)}:00";
             
-            levelEnemyCountLabel.text = "Enemy count: " + levelData.LevelEnemyCount.ToString();
-            levelSecretCountLabel.text = "Secrets count: " + levelData.LevelSecretsCount.ToString();
+            levelEnemyCountLabel.text = $"{CurrentLanguageData.GetText(levelEnemyCountTextId)} " + levelData.LevelEnemyCount.ToString();
+            levelSecretCountLabel.text = $"{CurrentLanguageData.GetText(levelSecretCountTextId)} " + levelData.LevelSecretsCount.ToString();
 
-            levelMaxScoreLabel.text = "Max score: " + levelData.LevelMaxScore.ToString();
-            levelSecretsFoundLabel.text = $"Founded secrets: {levelData.LevelSecretsFounded}/{levelData.LevelSecretsCount}";
-            levelMinimumPassageTimeLabel.text = "Minimum passage time: " + levelData.LevelMinimumPassageTime.ToString();
+            levelMaxScoreLabel.text = $"{CurrentLanguageData.GetText(levelMaxScoreTextId)} " + levelData.LevelMaxScore.ToString();
+            levelSecretsFoundLabel.text = $"{CurrentLanguageData.GetText(levelSecretsFoundTextId)} {levelData.LevelSecretsFounded}/{levelData.LevelSecretsCount}";
+            levelMinimumPassageTimeLabel.text = $"{CurrentLanguageData.GetText(levelMinimumPassageTimeTextId)} " + levelData.LevelMinimumPassageTime.ToString();
         }
     }
     

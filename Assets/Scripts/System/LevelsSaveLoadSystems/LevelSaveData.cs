@@ -27,7 +27,7 @@ public class LevelSaveData : MonoBehaviour
      [SerializeField] private SavePlayerData playerData;
      public PlayerMainService playerMainService;
      
-     [SerializeField] private string levelName;
+     [SerializeField] private int levelNameTextId;
 
      public static LevelSaveData MainLevelSaveData => mainLevelSaveData;
 
@@ -53,12 +53,11 @@ public class LevelSaveData : MonoBehaviour
 
      public SavePlayerData PlayerData => playerData;
 
-     public string LevelName => levelName;
+     public int LevelNameTextId => levelNameTextId;
 
      public void Awake()
     {
         mainLevelSaveData = this;
-        levelName = SceneManager.GetActiveScene().name;
     }
      
      public string SaveToJson()

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8112c06a87df00c4ca2f472f3d19d11f, type: 3}
   m_Name: MainTestCampaign
   m_EditorClassIdentifier: 
-  campaignName: TestCampaign
+  campaignNameTextId: 102
+  previousCampaignData: {fileID: 0}
+  nextCampaignData: {fileID: 0}
   campaignLevels:
   - {fileID: 11400000, guid: 884248bd4e4b16b41a723a7c90fd965f, type: 2}
   - {fileID: 11400000, guid: 8ab8a6c53db31a3499176267fe79bbcd, type: 2}

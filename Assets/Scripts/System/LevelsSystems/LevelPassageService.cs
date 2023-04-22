@@ -49,7 +49,7 @@ public class LevelPassageService : MonoBehaviour
         var levelCampaignData = levelData.LevelCampaignData;
 
         levelData.SetEndLevelData(score,secretsFound,AuxiliaryFunc.ConvertSecondsToTimeSpan((int)passageTimeSec));
-        print($"Level {levelData.LevelName} completed!");
+        print($"Level {levelData.LevelNameTextId} completed!");
 
         UnlockNextLevel();
         void UnlockNextLevel()
@@ -118,7 +118,7 @@ public class CampaignsLevelsSaveUtility
 
         public CampaignSaveData(CampaignData campaignData)
         {
-            campaignName = campaignData.CampaignName;
+            campaignName = CurrentLanguageData.GetText(campaignData.CampaignNameTextId);
             isCampaignUnlocked = campaignData.IsCampaignUnlocked;
         }
 
@@ -133,7 +133,7 @@ public class CampaignsLevelsSaveUtility
     [Serializable]
     public class LevelSaveData
     {
-        [SerializeField] private string levelName;
+        [SerializeField] private int levelNameTextId;
         [SerializeField] private int levelSceneId;
         [Space]
         [SerializeField] private bool isLevelUnlocked;
@@ -141,7 +141,7 @@ public class CampaignsLevelsSaveUtility
         [SerializeField] private int levelSecretsFounded;
         [SerializeField] private TimeSpan levelMinimumPassageTime;
 
-        public string LevelName => levelName;
+        public int LevelNameTextId => levelNameTextId;
 
         public int LevelSceneId => levelSceneId;
 
@@ -155,7 +155,7 @@ public class CampaignsLevelsSaveUtility
 
         public LevelSaveData(LevelData levelData)
         {
-            levelName = levelData.LevelName;
+            levelNameTextId = levelData.LevelNameTextId;
             levelSceneId = levelData.LevelSceneId;
 
             isLevelUnlocked = levelData.IsLevelUnlocked;
@@ -293,8 +293,6 @@ public class CampaignsLevelsSaveUtility
             {
                 foreach (var campaignSaveData in campaignSaveDatas)
                 {
-                    var isCampaignsEqual = campaignData.CampaignName == campaignSaveData.campaignName;
-                    
                     campaignSaveData.OverwriteCampaignData(campaignData);
                 }
             }    
@@ -306,7 +304,7 @@ public class CampaignsLevelsSaveUtility
             {
                 foreach (var levelSaveData in levelSaveDatas)
                 {
-                    var isLevelsEqual = levelData.LevelName == levelSaveData.LevelName &&
+                    var isLevelsEqual = levelData.LevelNameTextId == levelSaveData.LevelNameTextId ||
                                         levelData.LevelSceneId == levelSaveData.LevelSceneId;
                     if(isLevelsEqual)
                         levelSaveData.OverwriteLevelData(levelData);

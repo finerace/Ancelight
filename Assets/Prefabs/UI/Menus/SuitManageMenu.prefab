@@ -306,9 +306,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 2
   itemIcon: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
-  itemNameTextId: 0
-  itemDescTextId: 0
-  itemEffectTextId: 0
+  itemNameTextId: 77
+  itemDescTextId: 80
+  itemEffectTextId: 81
   itemDecorationLevel: I
   buyIndicator: {fileID: 4115232457172333075}
   selectIndicator: {fileID: 6455678793265393886}
@@ -691,9 +691,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 2
   itemIcon: {fileID: 21300000, guid: 651e0d7f2f9f3404eb866abb57716cb9, type: 3}
-  itemNameTextId: 0
-  itemDescTextId: 0
-  itemEffectTextId: 0
+  itemNameTextId: 83
+  itemDescTextId: 84
+  itemEffectTextId: 85
   itemDecorationLevel: III
   buyIndicator: {fileID: 8059191061095599669}
   selectIndicator: {fileID: 7305522311087463667}
@@ -749,8 +749,8 @@ MonoBehaviour:
     spatialBlend: 0
     minDistance: 1
     maxDistance: 1
-  minDashToBuy: 2
-  itemDashBuy: 3
+  minDashToBuy: 3
+  itemDashBuy: 4
 --- !u!1 &901049626265744459
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,9 +1581,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 3
   itemIcon: {fileID: 21300000, guid: a016d50cc167f9445a255089f4f7011f, type: 3}
-  itemNameTextId: 0
-  itemDescTextId: 0
-  itemEffectTextId: 0
+  itemNameTextId: 86
+  itemDescTextId: 87
+  itemEffectTextId: 91
   itemDecorationLevel: IV
   buyIndicator: {fileID: 4650925548406210128}
   selectIndicator: {fileID: 2415600195572666432}
@@ -2102,9 +2102,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 1
   itemIcon: {fileID: 21300000, guid: a016d50cc167f9445a255089f4f7011f, type: 3}
-  itemNameTextId: 0
-  itemDescTextId: 0
-  itemEffectTextId: 0
+  itemNameTextId: 86
+  itemDescTextId: 87
+  itemEffectTextId: 88
   itemDecorationLevel: I
   buyIndicator: {fileID: 296677518073724811}
   selectIndicator: {fileID: 2652850649357979711}
@@ -3832,9 +3832,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 1
   itemIcon: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
-  itemNameTextId: 0
-  itemDescTextId: 0
-  itemEffectTextId: 0
+  itemNameTextId: 77
+  itemDescTextId: 78
+  itemEffectTextId: 79
   itemDecorationLevel: II
   buyIndicator: {fileID: 9170462431123979584}
   selectIndicator: {fileID: 3518758307948874463}
@@ -3989,9 +3989,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 1
   itemIcon: {fileID: 21300000, guid: 651e0d7f2f9f3404eb866abb57716cb9, type: 3}
-  itemNameTextId: 0
-  itemDescTextId: 0
-  itemEffectTextId: 0
+  itemNameTextId: 83
+  itemDescTextId: 84
+  itemEffectTextId: 85
   itemDecorationLevel: I
   buyIndicator: {fileID: 4700751712917791620}
   selectIndicator: {fileID: 2861397167758262223}
@@ -4047,8 +4047,8 @@ MonoBehaviour:
     spatialBlend: 0
     minDistance: 1
     maxDistance: 1
-  minDashToBuy: 0
-  itemDashBuy: 1
+  minDashToBuy: 1
+  itemDashBuy: 2
 --- !u!1 &3178015769746531784
 GameObject:
   m_ObjectHideFlags: 0
@@ -15852,9 +15852,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 2
   itemIcon: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
-  itemNameTextId: 0
-  itemDescTextId: 0
-  itemEffectTextId: 0
+  itemNameTextId: 77
+  itemDescTextId: 80
+  itemEffectTextId: 82
   itemDecorationLevel: II
   buyIndicator: {fileID: 4585165642174756709}
   selectIndicator: {fileID: 4755914501821688788}
@@ -16603,9 +16603,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 2
   itemIcon: {fileID: 21300000, guid: a016d50cc167f9445a255089f4f7011f, type: 3}
-  itemNameTextId: 0
-  itemDescTextId: 0
-  itemEffectTextId: 0
+  itemNameTextId: 86
+  itemDescTextId: 87
+  itemEffectTextId: 90
   itemDecorationLevel: III
   buyIndicator: {fileID: 7917626052700553756}
   selectIndicator: {fileID: 4331538719253464472}
@@ -16912,9 +16912,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 1
   itemIcon: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
-  itemNameTextId: 0
-  itemDescTextId: 0
-  itemEffectTextId: 0
+  itemNameTextId: 77
+  itemDescTextId: 78
+  itemEffectTextId: 79
   itemDecorationLevel: I
   buyIndicator: {fileID: 6098259349977680775}
   selectIndicator: {fileID: 743171106141259839}
@@ -18798,9 +18798,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 1
   itemIcon: {fileID: 21300000, guid: 651e0d7f2f9f3404eb866abb57716cb9, type: 3}
-  itemNameTextId: 0
-  itemDescTextId: 0
-  itemEffectTextId: 0
+  itemNameTextId: 83
+  itemDescTextId: 84
+  itemEffectTextId: 85
   itemDecorationLevel: II
   buyIndicator: {fileID: 1013630052601246646}
   selectIndicator: {fileID: 6571650312109280629}
@@ -18856,8 +18856,8 @@ MonoBehaviour:
     spatialBlend: 0
     minDistance: 1
     maxDistance: 1
-  minDashToBuy: 1
-  itemDashBuy: 2
+  minDashToBuy: 2
+  itemDashBuy: 3
 --- !u!1 &7078679822738286151
 GameObject:
   m_ObjectHideFlags: 0
@@ -20182,9 +20182,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 2
   itemIcon: {fileID: 21300000, guid: a016d50cc167f9445a255089f4f7011f, type: 3}
-  itemNameTextId: 0
-  itemDescTextId: 0
-  itemEffectTextId: 0
+  itemNameTextId: 86
+  itemDescTextId: 87
+  itemEffectTextId: 89
   itemDecorationLevel: II
   buyIndicator: {fileID: 358878233577547717}
   selectIndicator: {fileID: 3257010071028865734}
@@ -21934,9 +21934,9 @@ MonoBehaviour:
   improvementSelectBuyService: {fileID: 0}
   improvementPointCost: 3
   itemIcon: {fileID: 21300000, guid: 651e0d7f2f9f3404eb866abb57716cb9, type: 3}
-  itemNameTextId: 0
-  itemDescTextId: 0
-  itemEffectTextId: 0
+  itemNameTextId: 83
+  itemDescTextId: 84
+  itemEffectTextId: 85
   itemDecorationLevel: IV
   buyIndicator: {fileID: 7652770347671255976}
   selectIndicator: {fileID: 7018475028693548019}
@@ -21992,8 +21992,8 @@ MonoBehaviour:
     spatialBlend: 0
     minDistance: 1
     maxDistance: 1
-  minDashToBuy: 3
-  itemDashBuy: 4
+  minDashToBuy: 4
+  itemDashBuy: 5
 --- !u!1 &8970344468173307492
 GameObject:
   m_ObjectHideFlags: 0

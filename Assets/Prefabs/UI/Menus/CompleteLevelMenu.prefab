@@ -104,8 +104,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b66dd14331e9c94459552d77848a22cc, type: 2}
-  m_sharedMaterial: {fileID: -7009245474723229332, guid: b66dd14331e9c94459552d77848a22cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e46f32281224cc04aa1862e253e45215, type: 2}
+  m_sharedMaterial: {fileID: 6894227755710250732, guid: e46f32281224cc04aa1862e253e45215, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -468,8 +468,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b66dd14331e9c94459552d77848a22cc, type: 2}
-  m_sharedMaterial: {fileID: -7009245474723229332, guid: b66dd14331e9c94459552d77848a22cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e46f32281224cc04aa1862e253e45215, type: 2}
+  m_sharedMaterial: {fileID: 6894227755710250732, guid: e46f32281224cc04aa1862e253e45215, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2275,8 +2275,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b66dd14331e9c94459552d77848a22cc, type: 2}
-  m_sharedMaterial: {fileID: -7009245474723229332, guid: b66dd14331e9c94459552d77848a22cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e46f32281224cc04aa1862e253e45215, type: 2}
+  m_sharedMaterial: {fileID: 6894227755710250732, guid: e46f32281224cc04aa1862e253e45215, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2411,8 +2411,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b66dd14331e9c94459552d77848a22cc, type: 2}
-  m_sharedMaterial: {fileID: -7009245474723229332, guid: b66dd14331e9c94459552d77848a22cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e46f32281224cc04aa1862e253e45215, type: 2}
+  m_sharedMaterial: {fileID: 6894227755710250732, guid: e46f32281224cc04aa1862e253e45215, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3262,6 +3262,12 @@ MonoBehaviour:
   passageTimeLabel: {fileID: 3255705865782095831}
   enemyKilledLabel: {fileID: 3255705865296733730}
   secretsFoundLabel: {fileID: 3255705865375027480}
+  mainLevelTextId1: 93
+  mainLevelTextId2: 94
+  scoreTextId: 95
+  passageTimeTextId: 96
+  enemyKilledTextId: 97
+  secretsFoundTextId: 98
 --- !u!1 &3951646697743761537
 GameObject:
   m_ObjectHideFlags: 0
@@ -3845,6 +3851,9 @@ MonoBehaviour:
     - {fileID: 3255705866299666271}
     - {fileID: 3255705864753655235}
     languageDataTextId: 11
+  - targetTexts:
+    - {fileID: 3255705865139894420}
+    languageDataTextId: 92
 --- !u!1 &7325608836138940052
 GameObject:
   m_ObjectHideFlags: 0
@@ -3957,8 +3966,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 8.999986, y: -111.99988}
-  m_SizeDelta: {x: 241.37, y: 72.9}
+  m_AnchoredPosition: {x: 0, y: -90.088}
+  m_SizeDelta: {x: 257.874, y: 57.664}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3686290167413353405
 CanvasRenderer:
@@ -3988,7 +3997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level test_cool_level completed!
+  m_text: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C test_cool_level \n\u0437\u0430\u0432\u0435\u0448\u0435\u043D\u043E!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e46f32281224cc04aa1862e253e45215, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: a4f133e1ba2c342488c99fa11aa29605, type: 2}
@@ -4015,15 +4024,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.45
+  m_fontSize: 21.25
   m_fontSizeBase: 29.7
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 10
   m_fontSizeMax: 28
-  m_fontStyle: 32
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4051,7 +4060,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.118121624, z: -0.7664604, w: 0.26189137}
+  m_margin: {x: 0, y: 0.118121624, z: -0.7664604, w: -7.2994757}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

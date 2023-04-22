@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestScene
   m_EditorClassIdentifier: 
   levelCampaignData: {fileID: 11400000, guid: 1e71b38d4d6b0df48aca32a339c28640, type: 2}
-  levelName: Test Scene
+  levelNameTextId: 99
   levelSceneId: 1
   levelPassageTimeHours: 0
   levelPassageTimeMinutes: 0

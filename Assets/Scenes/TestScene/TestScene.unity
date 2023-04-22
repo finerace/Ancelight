@@ -355,7 +355,7 @@ MonoBehaviour:
     jsonPlayerDashsService: 
     jsonPlayerImmediatelyProtectionService: 
   playerMainService: {fileID: 171281707}
-  levelName: 
+  levelNameTextId: 0
 --- !u!4 &30128252 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9005370536926214343, guid: 4bce73c76718af84699da32bed1c8680, type: 3}
@@ -7712,7 +7712,7 @@ MonoBehaviour:
   playerMovement: {fileID: 171281706}
   playerLook: {fileID: 171281701}
   dashEffect: {fileID: 122137209}
-  dashsCount: 2
+  dashsCount: 1
   oneDashEnergySpend: 3
   dashsRegenerationSpeed: 3
   dashPower: 35
@@ -7994,12 +7994,12 @@ MonoBehaviour:
   immediatelyProtectionService: {fileID: 171281697}
   playerUseService: {fileID: 171281696}
   playerCleaner: {fileID: 1966918004}
-  godModeEnabled: 1
+  godModeEnabled: 0
   menuSystem: {fileID: 853666521}
   shootingPoint: {fileID: 1569887400}
   weaponPoint: {fileID: 984041353}
   meleeAttackPoint: {fileID: 1558692840}
-  suitImprovementPoints: 8
+  suitImprovementPoints: 80
 --- !u!54 &171281708
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8060,7 +8060,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171281695}
   m_LocalRotation: {x: -0, y: 0.036271498, z: -0, w: 0.999342}
-  m_LocalPosition: {x: 15.6, y: 4.75, z: -40.8}
+  m_LocalPosition: {x: 20.1, y: 4.75, z: -22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

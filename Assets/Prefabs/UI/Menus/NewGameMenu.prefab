@@ -746,6 +746,12 @@ MonoBehaviour:
   - targetTexts:
     - {fileID: 4075362336025607317}
     languageDataTextId: 14
+  - targetTexts:
+    - {fileID: 5558042819429849976}
+    languageDataTextId: 110
+  - targetTexts:
+    - {fileID: 4651930698287848535}
+    languageDataTextId: 111
 --- !u!1 &4651930697431629647
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,7 +818,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level enemy count: 15/25'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e46f32281224cc04aa1862e253e45215, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: a4f133e1ba2c342488c99fa11aa29605, type: 2}
@@ -839,7 +845,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.65
+  m_fontSize: 7
   m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1023,7 +1029,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Minimum Passage Time: 1:25:05'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e46f32281224cc04aa1862e253e45215, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: a4f133e1ba2c342488c99fa11aa29605, type: 2}
@@ -1050,11 +1056,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5.75
+  m_fontSize: 7
   m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 5
+  m_fontSizeMin: 4
   m_fontSizeMax: 9
   m_fontStyle: 32
   m_HorizontalAlignment: 1
@@ -1158,7 +1164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Max Score: 1 250 250'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e46f32281224cc04aa1862e253e45215, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: a4f133e1ba2c342488c99fa11aa29605, type: 2}
@@ -1185,7 +1191,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.65
+  m_fontSize: 7
   m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1293,7 +1299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level enemy count: 255'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e46f32281224cc04aa1862e253e45215, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: a4f133e1ba2c342488c99fa11aa29605, type: 2}
@@ -1320,7 +1326,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.65
+  m_fontSize: 7
   m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1800,7 +1806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Secret Count: 25'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e46f32281224cc04aa1862e253e45215, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: a4f133e1ba2c342488c99fa11aa29605, type: 2}
@@ -1827,7 +1833,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.65
+  m_fontSize: 7
   m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1935,7 +1941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Passage Time: 1:00:00'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e46f32281224cc04aa1862e253e45215, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: a4f133e1ba2c342488c99fa11aa29605, type: 2}
@@ -1962,7 +1968,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.65
+  m_fontSize: 7
   m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3088,6 +3094,8 @@ MonoBehaviour:
   scrollObjectService: {fileID: 5558042819266506031}
   campaignsLevelsPanelLabel: {fileID: 4075362336025607317}
   backToCampaignUnitsButton: {fileID: 3937697807389214567}
+  campaignsUnitsOnPanelTextId: 108
+  levelsUnitsOnPanelTextId: 109
 --- !u!1 &5558042819379509544
 GameObject:
   m_ObjectHideFlags: 0
@@ -5978,6 +5986,12 @@ MonoBehaviour:
   levelMaxScoreLabel: {fileID: 4651930697933103171}
   levelSecretsFoundLabel: {fileID: 4651930697431629641}
   levelMinimumPassageTimeLabel: {fileID: 4651930697801349987}
+  levelPassageTimeTextId: 96
+  levelEnemyCountTextId: 103
+  levelSecretCountTextId: 104
+  levelMaxScoreTextId: 105
+  levelSecretsFoundTextId: 106
+  levelMinimumPassageTimeTextId: 107
 --- !u!1 &5558042820899645546
 GameObject:
   m_ObjectHideFlags: 0

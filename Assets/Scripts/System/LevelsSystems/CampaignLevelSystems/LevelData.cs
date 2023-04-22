@@ -7,7 +7,7 @@ using UnityEngine;
 public class LevelData : ScriptableObject
 {
     [SerializeField] private CampaignData levelCampaignData;
-    [SerializeField] private string levelName;
+    [SerializeField] private int levelNameTextId;
     [SerializeField] private int levelSceneId;
     [Space] 
     [SerializeField] private int levelPassageTimeHours;
@@ -23,7 +23,7 @@ public class LevelData : ScriptableObject
 
     public CampaignData LevelCampaignData => levelCampaignData;
 
-    public string LevelName => levelName;
+    public int LevelNameTextId => levelNameTextId;
 
     public int LevelSceneId => levelSceneId;
 
