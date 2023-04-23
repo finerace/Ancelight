@@ -51,8 +51,8 @@ public class SuitInformationSelectorObjectSpawner : MonoBehaviour
             InitInformationSelector();
             void InitInformationSelector()
             {
-                var informationName = informationDataBase.GetInformationData(id).InformationName;
-                buttonSelector.SetInformation(id, informationName, suitInformationSetUI);
+                var informationName = informationDataBase.GetInformationData(id).InformationNameTextId;
+                buttonSelector.SetInformation(id, CurrentLanguageData.GetText(informationName), suitInformationSetUI);
                 spawnedObjects.Add(buttonSelector.gameObject);
             }
             

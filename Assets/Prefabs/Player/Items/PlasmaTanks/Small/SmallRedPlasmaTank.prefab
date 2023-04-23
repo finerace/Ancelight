@@ -61,8 +61,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 7461330869494570141}
   informedObjectHight: 0.5
   informedObjectHealth: {fileID: 0}
-  informationName: Plasma Tank
-  informationDescription: +5 Small Red Plasma Tank
+  informationNameTextId: 141
+  informationDescriptionTextId: 149
   informedObjectMainColor: {r: 0.92941177, g: 0.18864298, b: 0, a: 1}
 --- !u!1 &9005370535082448146
 GameObject:

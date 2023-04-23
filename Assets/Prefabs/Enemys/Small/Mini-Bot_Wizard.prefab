@@ -14777,8 +14777,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 7455766465917852186}
   informedObjectHight: 1.15
   informedObjectHealth: {fileID: 5846294311358327253}
-  informationName: Mini-Bot Wizard
-  informationDescription: 
+  informationNameTextId: 188
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 0.82977486, g: 0, b: 1, a: 1}
 --- !u!1 &5846294311358327273
 GameObject:

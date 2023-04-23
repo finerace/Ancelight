@@ -28,7 +28,10 @@ public class LevelSaveData : MonoBehaviour
      public PlayerMainService playerMainService;
      
      [SerializeField] private int levelNameTextId;
+     [SerializeField] private int levelSceneId;
 
+     public int LevelSceneId => levelSceneId;
+     
      public static LevelSaveData MainLevelSaveData => mainLevelSaveData;
 
      public LevelPassageService LevelPassageService => levelPassageService;
@@ -63,11 +66,13 @@ public class LevelSaveData : MonoBehaviour
      public string SaveToJson()
      {
          SetJsonnedData();
-
+         
          return JsonUtility.ToJson(this);
 
          void SetJsonnedData()
          {
+             levelSceneId = SceneManager.GetActiveScene().buildIndex;
+             
              foreach (var enemyData in toSaveEnemyData)
              {
                  enemyData.jsonEnemyPos = FixedJsonUtilityFunc.GetJsonVersion(enemyData.EnemyPos);

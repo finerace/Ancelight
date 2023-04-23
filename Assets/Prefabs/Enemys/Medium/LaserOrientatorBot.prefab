@@ -20759,8 +20759,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 9068719740095824764}
   informedObjectHight: 2
   informedObjectHealth: {fileID: 5001171774041041260}
-  informationName: Laser-Orientator
-  informationDescription: 
+  informationNameTextId: 183
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 0, g: 1, b: 0.77991986, a: 1}
 --- !u!1 &6885641855395337515
 GameObject:

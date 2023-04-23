@@ -6,11 +6,6 @@ public class PlasmaGetItem : OrdinaryPlayerItem
     [SerializeField] private string plasmaId = "yellow";
     [SerializeField] private float plasmaCount = 0;
 
-    private void Start()
-    {
-        LevelSaveData.mainLevelSaveData.AddToSaveData(this);
-    }
-
     protected override void PickUpItemAlgorithm(PlayerMainService player)
     {
         if(IsPlasmaMax())
@@ -18,8 +13,6 @@ public class PlasmaGetItem : OrdinaryPlayerItem
 
         player.AddPlasma(plasmaId,plasmaCount);
 
-        LevelSaveData.mainLevelSaveData.RemoveFromSaveData(this);
-        
         DestroyItem();
         
         bool IsPlasmaMax()

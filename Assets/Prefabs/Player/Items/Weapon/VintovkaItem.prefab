@@ -61,8 +61,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 4729812056710216047}
   informedObjectHight: 0.75
   informedObjectHealth: {fileID: 0}
-  informationName: Rifle YLAR-4
-  informationDescription: The latest light yellow-plasma automatic rifle.
+  informationNameTextId: 171
+  informationDescriptionTextId: 172
   informedObjectMainColor: {r: 1, g: 0.77952445, b: 0, a: 1}
 --- !u!1 &7215117842566080627
 GameObject:

@@ -10088,7 +10088,6 @@ MonoBehaviour:
   informedObjectT: {fileID: 2416214855356833419}
   informedObjectHight: 1
   informedObjectHealth: {fileID: 0}
-  informationName: Dash Module
-  informationDescription: With this module, you can easily dodge dangers by making
-    dash.
+  informationNameTextId: 151
+  informationDescriptionTextId: 152
   informedObjectMainColor: {r: 0.4764151, g: 0.9443666, b: 1, a: 1}

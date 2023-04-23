@@ -61,8 +61,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 1729326698223051475}
   informedObjectHight: 1.4
   informedObjectHealth: {fileID: 8810049108534697803}
-  informationName: Circle-Plasma Bot
-  informationDescription: 
+  informationNameTextId: 178
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 0, g: 1, b: 0.946259, a: 1}
 --- !u!1 &4074175202491919375
 GameObject:

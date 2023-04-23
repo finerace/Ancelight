@@ -10290,6 +10290,6 @@ MonoBehaviour:
   informedObjectT: {fileID: 5782481955052756554}
   informedObjectHight: 0.75
   informedObjectHealth: {fileID: 0}
-  informationName: YG-MG 1D
-  informationDescription: Yellow-Green-Plasma light machine gun.
+  informationNameTextId: 169
+  informationDescriptionTextId: 170
   informedObjectMainColor: {r: 0.65333176, g: 0.92941177, b: 0, a: 1}

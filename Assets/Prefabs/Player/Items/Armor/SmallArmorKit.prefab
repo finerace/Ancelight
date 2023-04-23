@@ -61,8 +61,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 3715303813052093224}
   informedObjectHight: 0.5
   informedObjectHealth: {fileID: 0}
-  informationName: Armor Kit
-  informationDescription: +5 Small Armor Kit
+  informationNameTextId: 129
+  informationDescriptionTextId: 132
   informedObjectMainColor: {r: 0.2946235, g: 0.7051177, b: 0.92941177, a: 1}
 --- !u!1 &4827681855012132471
 GameObject:

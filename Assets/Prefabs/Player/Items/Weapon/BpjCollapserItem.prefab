@@ -10670,6 +10670,6 @@ MonoBehaviour:
   informedObjectT: {fileID: 1279199030842163995}
   informedObjectHight: 0.75
   informedObjectHealth: {fileID: 0}
-  informationName: BPC-1 Collapsator
-  informationDescription: Blue-plasma-collapsing experimental cannon.
+  informationNameTextId: 157
+  informationDescriptionTextId: 158
   informedObjectMainColor: {r: 0, g: 0.48681426, b: 0.92941177, a: 1}

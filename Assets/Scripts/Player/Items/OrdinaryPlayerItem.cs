@@ -14,6 +14,11 @@ public abstract class OrdinaryPlayerItem : MonoBehaviour, IPlayerItem
     
     public int ItemId => itemId;
 
+    protected void Start()
+    {
+        LevelSaveData.mainLevelSaveData.AddToSaveData(this);
+    }
+
     public void PickUp(PlayerMainService player)
     {
         if(itemIsDestroyed)
@@ -33,6 +38,8 @@ public abstract class OrdinaryPlayerItem : MonoBehaviour, IPlayerItem
         if(itemIsDestroyed)
             return;
             
+        LevelSaveData.mainLevelSaveData.RemoveFromSaveData(this);
+        
         itemIsDestroyed = true;
         
         DestroyMainItemObject();

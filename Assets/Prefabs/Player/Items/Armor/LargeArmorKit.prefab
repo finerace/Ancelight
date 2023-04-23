@@ -10113,6 +10113,6 @@ MonoBehaviour:
   informedObjectT: {fileID: 1833175253165374719}
   informedObjectHight: 0.75
   informedObjectHealth: {fileID: 0}
-  informationName: Armor Kit
-  informationDescription: +50 Large Armor Kit
+  informationNameTextId: 129
+  informationDescriptionTextId: 130
   informedObjectMainColor: {r: 0.2946235, g: 0.7051177, b: 0.92941177, a: 1}

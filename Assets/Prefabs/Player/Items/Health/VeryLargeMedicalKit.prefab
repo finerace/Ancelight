@@ -10229,6 +10229,6 @@ MonoBehaviour:
   informedObjectT: {fileID: 2455610163686566118}
   informedObjectHight: 0.75
   informedObjectHealth: {fileID: 0}
-  informationName: Medical Kit
-  informationDescription: +100 Very Large Medical Kit
+  informationNameTextId: 135
+  informationDescriptionTextId: 139
   informedObjectMainColor: {r: 0.92941177, g: 0.317972, b: 0.237, a: 1}

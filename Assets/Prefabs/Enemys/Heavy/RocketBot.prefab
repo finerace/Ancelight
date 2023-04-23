@@ -61,8 +61,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 1666398947703103131}
   informedObjectHight: 1.5
   informedObjectHealth: {fileID: 7856843895279773902}
-  informationName: Rocket Bot
-  informationDescription: 
+  informationNameTextId: 175
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 1, g: 0.9473174, b: 0, a: 1}
 --- !u!1 &7856843894432205636
 GameObject:

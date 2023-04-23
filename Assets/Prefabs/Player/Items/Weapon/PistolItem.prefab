@@ -61,8 +61,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 5795169142920422823}
   informedObjectHight: 1
   informedObjectHealth: {fileID: 0}
-  informationName: Pistol GLP-4
-  informationDescription: An ordinary green-plasma light pistol.
+  informationNameTextId: 165
+  informationDescriptionTextId: 166
   informedObjectMainColor: {r: 0.0021698475, g: 1, b: 0, a: 1}
 --- !u!1 &2398454916777494620
 GameObject:

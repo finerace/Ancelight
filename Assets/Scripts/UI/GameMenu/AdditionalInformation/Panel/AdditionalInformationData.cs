@@ -12,8 +12,8 @@ public class AdditionalInformationData : MonoBehaviour
     
     [SerializeField] private Health informedObjectHealth;
     
-    [SerializeField] private string informationName;
-    [SerializeField] private string informationDescription;
+    [SerializeField] private int informationNameTextId;
+    [SerializeField] private int informationDescriptionTextId;
 
     [SerializeField] private Color informedObjectMainColor = Color.white;
     
@@ -22,8 +22,8 @@ public class AdditionalInformationData : MonoBehaviour
     
     public Health InformedObjectHealth => informedObjectHealth;
 
-    public string InformationName => informationName;
-    public string InformationDescription => informationDescription;
+    public int InformationNameTextId => informationNameTextId;
+    public int InformationDescriptionTextId => informationDescriptionTextId;
 
     public Color InformedObjectMainColor => informedObjectMainColor;
 

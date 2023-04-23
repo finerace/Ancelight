@@ -35830,6 +35830,6 @@ MonoBehaviour:
   informedObjectT: {fileID: 954993799390238791}
   informedObjectHight: 1.75
   informedObjectHealth: {fileID: 4326418179888100427}
-  informationName: H-a-P Bot
-  informationDescription: 
+  informationNameTextId: 182
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 1, g: 0, b: 0.80166054, a: 1}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845e298e1df55cb4083983bbae2ace3a, type: 3}
   m_Name: DUCK 2
   m_EditorClassIdentifier: 
-  informationName: 2
-  informationDesc: qwr112512
+  informationNameTextId: 2
+  informationDescTextId: 5
   informationImage1: {fileID: 21300000, guid: 4b2224eb93e37a1488d8c9402e759c5d, type: 3}
   informationImage2: {fileID: 21300000, guid: da545229eea36164d8b8cba2f75a1143, type: 3}
   informationImage3: {fileID: 21300000, guid: 8d10e5d7987a187499c7c584f1585d20, type: 3}

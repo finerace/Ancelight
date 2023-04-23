@@ -5170,8 +5170,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 2847699471236611077}
   informedObjectHight: 0.5
   informedObjectHealth: {fileID: 0}
-  informationName: BPJ Collapser Ammo
-  informationDescription: +3 BPJ Collapser ammo
+  informationNameTextId: 115
+  informationDescriptionTextId: 116
   informedObjectMainColor: {r: 0, g: 0.6836959, b: 0.92941177, a: 1}
 --- !u!1 &2847699471483301822
 GameObject:

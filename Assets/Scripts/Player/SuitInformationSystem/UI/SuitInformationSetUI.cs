@@ -35,8 +35,8 @@ public class SuitInformationSetUI : MonoBehaviour
     {
         var informationData = dataBase.GetInformationData(informationId);
 
-        informationName.text = informationData.InformationName;
-        informationDesc.text = informationData.InformationDesc;
+        informationName.text = CurrentLanguageData.GetText(informationData.InformationNameTextId);
+        informationDesc.text = CurrentLanguageData.GetText(informationData.InformationDescTextId);
 
         if (informationData.InformationImage1 != null)
         {

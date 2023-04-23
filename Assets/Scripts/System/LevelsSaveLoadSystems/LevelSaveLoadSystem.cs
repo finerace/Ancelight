@@ -135,7 +135,7 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
         
         JsonUtility.FromJsonOverwrite(levelDataJson,levelData);
         
-        SceneManager.LoadScene(levelData.LevelNameTextId);
+        SceneManager.LoadScene(levelData.LevelSceneId);
     }
 
     public void DeleteSave(string saveName)

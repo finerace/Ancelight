@@ -10206,6 +10206,6 @@ MonoBehaviour:
   informedObjectT: {fileID: 7886518344559914932}
   informedObjectHight: 0.75
   informedObjectHealth: {fileID: 0}
-  informationName: RARL-2
-  informationDescription: Red-Plasma Automatic Rocket Launcher (2gen).
+  informationNameTextId: 167
+  informationDescriptionTextId: 168
   informedObjectMainColor: {r: 0.929, g: 0.029933978, b: 0, a: 1}

@@ -10091,8 +10091,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 3108954214844974494}
   informedObjectHight: 0.75
   informedObjectHealth: {fileID: 0}
-  informationName: Shotgun PLS-7A
-  informationDescription: Light purple-plasma shotgun 7 gen.
+  informationNameTextId: 159
+  informationDescriptionTextId: 160
   informedObjectMainColor: {r: 0.9829345, g: 0, b: 1, a: 1}
 --- !u!1 &8472156756157269381
 GameObject:

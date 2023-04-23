@@ -35689,6 +35689,6 @@ MonoBehaviour:
   informedObjectT: {fileID: 6810433151907895887}
   informedObjectHight: 1.75
   informedObjectHealth: {fileID: 1745694421628653158}
-  informationName: Teleporter Bot
-  informationDescription: 
+  informationNameTextId: 184
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 0, g: 1, b: 0.3603778, a: 1}

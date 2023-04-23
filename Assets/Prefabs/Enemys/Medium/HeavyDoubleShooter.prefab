@@ -61,8 +61,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 8649294972446654222}
   informedObjectHight: 1.5
   informedObjectHealth: {fileID: 3454785966935620442}
-  informationName: Heavy D. Shooter
-  informationDescription: 
+  informationNameTextId: 181
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 0, g: 0.77702403, b: 1, a: 1}
 --- !u!1 &3454785965432950051
 GameObject:

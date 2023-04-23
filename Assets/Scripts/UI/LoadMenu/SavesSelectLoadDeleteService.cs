@@ -58,7 +58,7 @@ public class SavesSelectLoadDeleteService : MonoBehaviour
         JsonUtility.FromJsonOverwrite(levelSaveData.SavedLevelPassageService,levelPassageService);
         
         saveNameLabel.text = selectedSaveUnitData.SaveName;
-        saveLevelNameLabel.text = CurrentLanguageData.GetText(levelPassageService.LevelData.LevelCampaignData.CampaignNameTextId);
+        saveLevelNameLabel.text = CurrentLanguageData.GetText(levelPassageService.LevelData.LevelNameTextId);
 
         savePassageTimeLabel.text = $"{CurrentLanguageData.GetText(savePassageTimeTextId)} " +
                                     $"{AuxiliaryFunc.ConvertSecondsToTimeSpan((int)levelPassageService.PassageTimeSec)}";

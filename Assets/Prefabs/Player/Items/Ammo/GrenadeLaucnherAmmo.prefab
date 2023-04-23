@@ -5174,8 +5174,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 8683555809896144392}
   informedObjectHight: 0.5
   informedObjectHealth: {fileID: 0}
-  informationName: Grenades
-  informationDescription: +4 Grenades
+  informationNameTextId: 117
+  informationDescriptionTextId: 118
   informedObjectMainColor: {r: 0, g: 0.8397393, b: 0.92941177, a: 1}
 --- !u!1 &8683555809949337822
 GameObject:

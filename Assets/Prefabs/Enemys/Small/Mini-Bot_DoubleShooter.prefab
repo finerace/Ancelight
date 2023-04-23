@@ -35098,6 +35098,6 @@ MonoBehaviour:
   informedObjectT: {fileID: 1993262662443172452}
   informedObjectHight: 1.35
   informedObjectHealth: {fileID: 620626361877919510}
-  informationName: Mini-Bot D. Shooter
-  informationDescription: 
+  informationNameTextId: 186
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 1, g: 0.491087, b: 0, a: 1}

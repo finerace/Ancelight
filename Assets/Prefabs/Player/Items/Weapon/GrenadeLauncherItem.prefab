@@ -61,8 +61,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 3784381665915177717}
   informedObjectHight: 0.75
   informedObjectHealth: {fileID: 0}
-  informationName: Gren. Laun. CAGL-1t.
-  informationDescription: Cyan-Plasma Automatic Grenade Launcher. (experimental sample)
+  informationNameTextId: 161
+  informationDescriptionTextId: 162
   informedObjectMainColor: {r: 0, g: 0.8998494, b: 1, a: 1}
 --- !u!1 &7338025632464330065
 GameObject:

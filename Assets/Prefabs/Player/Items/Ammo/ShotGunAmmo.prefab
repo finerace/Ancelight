@@ -5201,6 +5201,6 @@ MonoBehaviour:
   informedObjectT: {fileID: 373455272876122641}
   informedObjectHight: 0.5
   informedObjectHealth: {fileID: 0}
-  informationName: Shotgun Ammo
-  informationDescription: +4 Shotgun ammo
+  informationNameTextId: 125
+  informationDescriptionTextId: 126
   informedObjectMainColor: {r: 0.9236655, g: 0, b: 0.92941177, a: 1}

@@ -164,13 +164,18 @@ public class AdditionalInformationPanel : MonoBehaviour
         
         void SetNewTexts()
         {
-            panelName.text = data.InformationName;
+            panelName.text = CurrentLanguageData.GetText(data.InformationNameTextId);
+
+            var descText = String.Empty;
             
-            var isDescriptionUseless = data.InformationDescription == String.Empty;
+            if(data.InformationDescriptionTextId > 0)
+                descText = CurrentLanguageData.GetText(data.InformationDescriptionTextId);
+            
+            var isDescriptionUseless = descText == String.Empty;
 
             if (!isDescriptionUseless)
             {
-                panelDescription.text = data.InformationDescription;
+                panelDescription.text = descText;
 
                 if (panelDescription.fontSize != oldDescriptionTextScale) {
                     panelDescription.fontSize = oldDescriptionTextScale;

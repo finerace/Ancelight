@@ -10522,8 +10522,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 8288292197385686016}
   informedObjectHight: 0.75
   informedObjectHealth: {fileID: 0}
-  informationName: BG-LG-2 ex.
-  informationDescription: Experimental Blue-Green plasma laser gun 2 gen.
+  informationNameTextId: 163
+  informationDescriptionTextId: 164
   informedObjectMainColor: {r: 0, g: 0.92941177, b: 0.74861664, a: 1}
 --- !u!1 &8803273609986339527
 GameObject:

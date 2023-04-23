@@ -5117,8 +5117,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 8738898013773419401}
   informedObjectHight: 0.5
   informedObjectHealth: {fileID: 0}
-  informationName: Laser Gun
-  informationDescription: +100 Laser ammo
+  informationNameTextId: 119
+  informationDescriptionTextId: 120
   informedObjectMainColor: {r: 0, g: 0.92941177, b: 0.4956293, a: 1}
 --- !u!1 &8738898013780295665
 GameObject:

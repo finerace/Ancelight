@@ -40659,8 +40659,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 2332271537753649047}
   informedObjectHight: 2.3
   informedObjectHealth: {fileID: 776609140344810137}
-  informationName: Parent Element
-  informationDescription: 
+  informationNameTextId: 174
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 0.7608987, g: 1, b: 0, a: 1}
 --- !u!1 &7418399079138544087
 GameObject:

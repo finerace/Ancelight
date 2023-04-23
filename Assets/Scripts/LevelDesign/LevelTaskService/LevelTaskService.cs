@@ -20,9 +20,9 @@ public class LevelTaskService : MonoBehaviour
         UpdateTask();
     }
 
-    public void SetNewTask(string newTask)
+    public void SetNewTask(int newTaskTextId)
     {
-        realCurrentTask = newTask;
+        realCurrentTask = CurrentLanguageData.GetText(newTaskTextId);
         
         UpdateTask();
     }
@@ -62,10 +62,10 @@ public class LevelTaskService : MonoBehaviour
         UpdateTask();
     }
 
-    public void IfIsCounterFullSetNewTask(string newTask)
+    public void IfIsCounterFullSetNewTask(int newTaskTextId)
     {
         if(taskCounter >= taskCounterMax)
-            SetNewTask(newTask);
+            SetNewTask(newTaskTextId);
     }
     
     public void IfIsCounterFullSetNewCounterAlignment(int state)

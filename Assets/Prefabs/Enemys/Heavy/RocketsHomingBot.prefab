@@ -40283,6 +40283,6 @@ MonoBehaviour:
   informedObjectT: {fileID: 1296035112409058077}
   informedObjectHight: 2.2
   informedObjectHealth: {fileID: 1612392535287401842}
-  informationName: R-H Bot
-  informationDescription: 
+  informationNameTextId: 176
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 1, g: 0, b: 0.34120464, a: 1}

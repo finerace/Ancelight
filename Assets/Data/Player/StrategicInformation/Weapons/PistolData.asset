@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845e298e1df55cb4083983bbae2ace3a, type: 3}
   m_Name: PistolData
   m_EditorClassIdentifier: 
-  informationName: Pistol 12
-  informationDesc: It's a ordinary battle plasma pistol.
+  informationNameTextId: 76
+  informationDescTextId: 54
   informationImage1: {fileID: 0}
   informationImage2: {fileID: 0}
   informationImage3: {fileID: 0}

@@ -92,8 +92,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 4884525403795531585}
   informedObjectHight: 0.5
   informedObjectHealth: {fileID: 6910328609629713443}
-  informationName: Mini-Drone
-  informationDescription: 
+  informationNameTextId: 185
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 1, g: 0.96448624, b: 0, a: 1}
 --- !u!1 &4699475076328593248
 GameObject:

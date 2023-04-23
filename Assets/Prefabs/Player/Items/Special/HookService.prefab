@@ -61,8 +61,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 979521009920948091}
   informedObjectHight: 1
   informedObjectHealth: {fileID: 0}
-  informationName: Hook System Part
-  informationDescription: This is a lost part of the hook system.
+  informationNameTextId: 153
+  informationDescriptionTextId: 154
   informedObjectMainColor: {r: 0.4764151, g: 0.9443666, b: 1, a: 1}
 --- !u!1 &7274852698641646053
 GameObject:

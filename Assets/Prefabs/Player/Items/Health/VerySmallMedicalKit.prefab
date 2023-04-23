@@ -284,8 +284,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 707871457720293231}
   informedObjectHight: 0.5
   informedObjectHealth: {fileID: 0}
-  informationName: Medical Kit
-  informationDescription: +1 Very Small Medical Kit
+  informationNameTextId: 135
+  informationDescriptionTextId: 140
   informedObjectMainColor: {r: 0.92941177, g: 0.317972, b: 0.237, a: 1}
 --- !u!1 &8523567258860530638
 GameObject:

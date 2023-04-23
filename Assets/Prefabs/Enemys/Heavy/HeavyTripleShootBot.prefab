@@ -61,8 +61,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 7022904681367582435}
   informedObjectHight: 2.2
   informedObjectHealth: {fileID: 3298547892854114166}
-  informationName: Heavy Triple Shooter
-  informationDescription: 
+  informationNameTextId: 173
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 0, g: 0.28291607, b: 1, a: 1}
 --- !u!1 &3298547892854114189
 GameObject:

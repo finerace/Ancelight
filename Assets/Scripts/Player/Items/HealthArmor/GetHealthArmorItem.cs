@@ -7,9 +7,9 @@ public class GetHealthArmorItem : OrdinaryPlayerItem
     [SerializeField] private float getHealth;
     [SerializeField] private float getArmor;
     private bool isValuesInvalid = false;
-    private void Start()
+    protected new void Start()
     {
-        LevelSaveData.mainLevelSaveData.AddToSaveData(this);
+        base.Start();
         
         CheckValuesForInvalid();
     }
@@ -32,8 +32,6 @@ public class GetHealthArmorItem : OrdinaryPlayerItem
         
         if(isArmorGetNotUseless)
             player.AddArmor(getArmor);
-        
-        LevelSaveData.mainLevelSaveData.RemoveFromSaveData(this);
         
         DestroyItem();
         

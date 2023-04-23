@@ -20203,6 +20203,6 @@ MonoBehaviour:
   informedObjectT: {fileID: 2307147230061346956}
   informedObjectHight: 0.5
   informedObjectHealth: {fileID: 1539869909391741075}
-  informationName: Mini-Kamikaze
-  informationDescription: 
+  informationNameTextId: 189
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 1, g: 0.29713672, b: 0, a: 1}

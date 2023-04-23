@@ -20327,6 +20327,6 @@ MonoBehaviour:
   informedObjectT: {fileID: 8425138736287036019}
   informedObjectHight: 1
   informedObjectHealth: {fileID: 63402761584809371}
-  informationName: H-a-P Drone
-  informationDescription: 
+  informationNameTextId: 179
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 0, g: 0.92101526, b: 1, a: 1}

@@ -5030,8 +5030,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 5751480979338444801}
   informedObjectHight: 0.5
   informedObjectHealth: {fileID: 0}
-  informationName: Rockets
-  informationDescription: +3 Rockets
+  informationNameTextId: 123
+  informationDescriptionTextId: 124
   informedObjectMainColor: {r: 0.92941177, g: 0, b: 0.050421257, a: 1}
 --- !u!1 &5751480979341142231
 GameObject:

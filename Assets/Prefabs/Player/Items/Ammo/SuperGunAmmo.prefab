@@ -5001,8 +5001,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 7794369330677196144}
   informedObjectHight: 0.5
   informedObjectHealth: {fileID: 0}
-  informationName: Super Gun Ammo
-  informationDescription: +10 Super gun ammo
+  informationNameTextId: 127
+  informationDescriptionTextId: 128
   informedObjectMainColor: {r: 0.59003365, g: 0.92941177, b: 0, a: 1}
 --- !u!1 &7794369330970904381
 GameObject:

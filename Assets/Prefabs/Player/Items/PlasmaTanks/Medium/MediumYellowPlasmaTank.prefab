@@ -61,8 +61,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 1067373398913449585}
   informedObjectHight: 0.75
   informedObjectHealth: {fileID: 0}
-  informationName: Plasma Tank
-  informationDescription: +15 Medium Yellow Plasma Tank
+  informationNameTextId: 141
+  informationDescriptionTextId: 147
   informedObjectMainColor: {r: 0.8429631, g: 0.92941177, b: 0, a: 1}
 --- !u!1 &3458466874831193518
 GameObject:

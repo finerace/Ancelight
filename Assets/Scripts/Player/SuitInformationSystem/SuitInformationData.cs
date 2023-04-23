@@ -3,8 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Suit Information Data", menuName = "SuitInformationData", order = 51)]
 public class SuitInformationData : ScriptableObject
 {
-    [SerializeField] private string informationName;
-    [SerializeField] private string informationDesc;
+    [SerializeField] private int informationNameTextId;
+    [SerializeField] private int informationDescTextId;
 
     [SerializeField] private Sprite informationImage1;
     [SerializeField] private Sprite informationImage2;
@@ -12,9 +12,9 @@ public class SuitInformationData : ScriptableObject
 
     [SerializeField] private int informationId;
     
-    public string InformationName => informationName;
+    public int InformationNameTextId => informationNameTextId;
 
-    public string InformationDesc => informationDesc;
+    public int InformationDescTextId => informationDescTextId;
 
     public Sprite InformationImage1 => informationImage1;
 

@@ -61,8 +61,8 @@ MonoBehaviour:
   informedObjectT: {fileID: 1968085468426015434}
   informedObjectHight: 1.35
   informedObjectHealth: {fileID: 6133552505256046063}
-  informationName: Bot Runner
-  informationDescription: 
+  informationNameTextId: 177
+  informationDescriptionTextId: 0
   informedObjectMainColor: {r: 0.6942307, g: 1, b: 0, a: 1}
 --- !u!1 &837831218888355078
 GameObject:
