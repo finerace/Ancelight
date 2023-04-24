@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlasmaGetItem : OrdinaryPlayerItem
 {
     [SerializeField] private string plasmaId = "yellow";
+    [SerializeField] private int plasmaNameId;
     [SerializeField] private float plasmaCount = 0;
 
     protected override void PickUpItemAlgorithm(PlayerMainService player)
@@ -11,7 +12,7 @@ public class PlasmaGetItem : OrdinaryPlayerItem
         if(IsPlasmaMax())
             return;
 
-        player.AddPlasma(plasmaId,plasmaCount);
+        player.AddPlasma(plasmaNameId,plasmaId,plasmaCount);
 
         DestroyItem();
         

@@ -39,8 +39,8 @@ public class LevelCompleteMenuSpecial : MonoBehaviour
         
         mainLevelCompleteLabel.text 
             = $"{CurrentLanguageData.GetText(mainLevelTextId1)} " +
-              $"\n{CurrentLanguageData.GetText(levelPassageService.LevelData.LevelNameTextId)} " +
-              $"\n{CurrentLanguageData.GetText(mainLevelTextId2)}";
+              $"{CurrentLanguageData.GetText(levelPassageService.LevelData.LevelNameTextId)} " +
+              $"{CurrentLanguageData.GetText(mainLevelTextId2)}";
 
         scoreLabel.text = $"{CurrentLanguageData.GetText(scoreTextId)} {levelPassageService.Score}";
         passageTimeLabel.text = $"{CurrentLanguageData.GetText(passageTimeTextId)} " +

@@ -14,7 +14,14 @@ public class TextAdditionalInformation : MonoBehaviour
     
     private float textVanishTimer = 0;
     private bool timerIsEnd = true;
+
+    [Space] 
     
+    [SerializeField] private int addHealthTextId;
+    [SerializeField] private int addArmorTextId;
+    [SerializeField] private int addPlasmaUnitsTextId;
+    [SerializeField] private int addWeaponTextId1;
+    [SerializeField] private int addWeaponTextId2;
     
     private void Start()
     {
@@ -27,28 +34,29 @@ public class TextAdditionalInformation : MonoBehaviour
         
         void ShowAddHealthText(float healthCount)
         {
-            var newInformation = $"+{healthCount} health units.";
+            var newInformation = $"+{healthCount} {CurrentLanguageData.GetText(addHealthTextId)}";
             
             ShowText(newInformation);
         }
         
         void ShowAddArmorText(float armorCount)
         {
-            var newInformation = $"+{armorCount} armor units.";
+            var newInformation = $"+{armorCount} {CurrentLanguageData.GetText(addArmorTextId)}";
             
             ShowText(newInformation);
         }
 
-        void ShowAddPlasmaText((string id, float count) plasmaData)
+        void ShowAddPlasmaText((int textId,string plasmaId, float count) plasmaData)
         {
-            var newInformation = $"+{plasmaData.count} {plasmaData.id} plasma units.";
+            var newInformation = $"+{plasmaData.count} {CurrentLanguageData.GetText(plasmaData.textId)} {CurrentLanguageData.GetText(addPlasmaUnitsTextId)}";
 
             ShowText(newInformation);
         }
 
         void ShowAddWeaponText(WeaponData weaponData)
         {
-            var newInformation = $"Added {weaponData.Name} weapon.";
+            var newInformation = 
+                $"{CurrentLanguageData.GetText(addWeaponTextId1)} {CurrentLanguageData.GetText(weaponData.NameTextId)} {CurrentLanguageData.GetText(addWeaponTextId2)}";
 
             ShowText(newInformation);
         }

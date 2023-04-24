@@ -137,6 +137,9 @@ public static class Explosions
                         float distance = Vector3.Distance(explousionPos, healthPos);
                         float resultDamage = damage * (1 - (distance / explosionRadius));
 
+                        if (distance > explosionRadius)
+                            resultDamage = 0;
+                        
                         health.GetDamage(resultDamage);
                     }
                 

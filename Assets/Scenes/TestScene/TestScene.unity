@@ -354,7 +354,9 @@ MonoBehaviour:
     jsonPlayerHookService: 
     jsonPlayerDashsService: 
     jsonPlayerImmediatelyProtectionService: 
+    jsonLevelTaskService: 
   playerMainService: {fileID: 171281707}
+  jsonLevelPassagePointsService: 
   levelNameTextId: 99
   levelSceneId: 0
 --- !u!4 &30128252 stripped
@@ -1000,8 +1002,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12.77, y: 10.6309595, z: 57.006927}
-  m_Center: {x: 0, y: 3.599133, z: 13.561371}
+  m_Size: {x: 23.626743, y: 24.023489, z: 67.37336}
+  m_Center: {x: 5.4283676, y: 10.295398, z: 18.74458}
 --- !u!114 &47840756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12585,7 +12587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f497bd4e9ce9cf46b73a68ed35a1bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerId: 0
+  triggerId: 76
   isTriggerActive: 1
   activateLayerMask:
     serializedVersion: 2
@@ -23235,6 +23237,17 @@ MonoBehaviour:
     nonLinearPassage: 0
     nonLinearPassageZones: []
   currentPassagePoint: {fileID: 0}
+  currentPassageZone:
+    passagePoints: []
+    zoneIsBlocked: 0
+    nonLinearPassage: 0
+    nonLinearPassageZones: []
+  currentZoneIsNonLinear: 0
+  currentZoneId: 0
+  currentPointId: 0
+  currentNonLinearZoneId: 0
+  blockedNonLinearZoneZoneId: 
+  blockedNonLinearZoneNonLinearZoneId: 
 --- !u!1 &511186115
 GameObject:
   m_ObjectHideFlags: 0
@@ -37339,7 +37352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f497bd4e9ce9cf46b73a68ed35a1bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerId: 24732
+  triggerId: 99533
   isTriggerActive: 1
   activateLayerMask:
     serializedVersion: 2

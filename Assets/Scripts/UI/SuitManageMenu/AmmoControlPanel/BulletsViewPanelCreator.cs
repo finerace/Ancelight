@@ -67,7 +67,7 @@ public class BulletsViewPanelCreator : MonoBehaviour
             
             SetIconsAndColors();
             
-            bulletViewPanelData.panelName.text = $"{localWeaponData.Name} Bullet";
+            bulletViewPanelData.panelName.text = $"{localWeaponData.NameTextId} Bullet";
             
             void SetBulletSelectService()
             {

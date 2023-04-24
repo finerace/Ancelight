@@ -15,6 +15,18 @@ public class LevelTaskService : MonoBehaviour
 
     public event Action<string> OnLevelTaskUpdate;
 
+    public void Load(LevelTaskService savedLevelTaskService)
+    {
+        realCurrentTask = savedLevelTaskService.realCurrentTask;
+
+        taskCounter = savedLevelTaskService.taskCounter;
+        taskCounterMax = savedLevelTaskService.taskCounterMax;
+
+        counterAlignment = savedLevelTaskService.counterAlignment;
+        
+        UpdateTask();
+    }
+    
     private void Start()
     {
         UpdateTask();
@@ -73,7 +85,6 @@ public class LevelTaskService : MonoBehaviour
         if(taskCounter >= taskCounterMax)
             SetTaskCounterAlignment(state);
     }
-
     
     public void SetMaxTaskCounter(int taskCounterMaxValue)
     {

@@ -70,6 +70,7 @@ MonoBehaviour:
   isOneUsesItem: 1
   itemId: 4
   plasmaId: blue
+  plasmaNameId: 197
   plasmaCount: 15
 --- !u!114 &-62556991137027006
 MonoBehaviour:

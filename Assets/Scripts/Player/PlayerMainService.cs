@@ -66,7 +66,7 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     public event Action<float> AddHealthEvent;
     public event Action<float> AddArmorEvent;
     public event Action<WeaponData> UnlockWeaponEvent; 
-    public event Action<(string,float)> AddPlasmaEvent;
+    public event Action<(int, string,float)> AddPlasmaEvent;
 
     private DeviceButton openSuitManageMenuButton = new DeviceButton();
     
@@ -143,11 +143,11 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
         weaponsBulletsManager.AddBullets(id, count);
     }
 
-    public void AddPlasma(string id, float count)
+    public void AddPlasma(int textId,string id, float count)
     {
         weaponsBulletsManager.AddPlasma(id,count);
 
-        AddPlasmaEvent?.Invoke((id,count));
+        AddPlasmaEvent?.Invoke((textId,id,count));
 
     }
     
@@ -155,6 +155,8 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     {
         if(godModeEnabled)
             return;
+        
+        print(damage);
         
         if(armor >= damage)
         {

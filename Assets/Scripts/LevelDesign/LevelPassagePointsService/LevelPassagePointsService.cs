@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class LevelPassagePointsService : MonoBehaviour
 {
     public static LevelPassagePointsService instance;
@@ -9,12 +11,71 @@ public class LevelPassagePointsService : MonoBehaviour
     [Space]
     
     [SerializeField] private LevelPassagePoint currentPassagePoint;
-    private LevelPassagePointsZone currentPassageZone;
-    private bool currentZoneIsNonLinear;
-    
+    [SerializeField] private LevelPassagePointsZone currentPassageZone;
+    [SerializeField] private bool currentZoneIsNonLinear;
+
+    [SerializeField] private int currentZoneId;
+    [SerializeField] private int currentPointId;
+    [SerializeField] private int currentNonLinearZoneId;
+
+    [SerializeField] private List<int> blockedNonLinearZoneZoneId;
+    [SerializeField] private List<int> blockedNonLinearZoneNonLinearZoneId;
+
     public LevelPassagePoint CurrentPassagePoint => currentPassagePoint;
     public LevelPassagePointsZone CurrentPassageZone => currentPassageZone;
     public bool CurrentZoneIsNonLinear => currentZoneIsNonLinear;
+
+    private bool isLoad = false;
+
+    public void Load(LevelPassagePointsService levelPassagePointsService)
+    {
+        isLoad = true;
+        
+        SetSavesData();
+        void SetSavesData()
+        {
+            currentZoneId = levelPassagePointsService.currentZoneId;
+            currentPointId = levelPassagePointsService.currentPointId;
+            currentNonLinearZoneId = levelPassagePointsService.currentNonLinearZoneId;
+
+            blockedNonLinearZoneZoneId = levelPassagePointsService.blockedNonLinearZoneZoneId;
+            blockedNonLinearZoneNonLinearZoneId = levelPassagePointsService.blockedNonLinearZoneNonLinearZoneId;
+
+            currentZoneIsNonLinear = levelPassagePointsService.currentZoneIsNonLinear;
+        }
+
+        LoadCurrentZonesAndPoints();
+        void LoadCurrentZonesAndPoints()
+        {
+            currentPassageZone = passagePointsZones[currentZoneId];
+
+            if (currentPointId < 0)
+            {
+                currentPassagePoint = null;
+                return;
+            }
+
+            if (currentNonLinearZoneId >= 0)
+            {
+                currentPassagePoint = currentPassageZone.NonLinearPassageZones[currentNonLinearZoneId]
+                    .PassagePoints[currentPointId];
+            }
+            else
+                currentPassagePoint = currentPassageZone.PassagePoints[currentPointId];
+        }
+        
+        BlockedSavedBlockZones();
+        void BlockedSavedBlockZones()
+        {
+            for (var i = 0; i < blockedNonLinearZoneZoneId.Count; i++)
+            {
+                var zoneId = blockedNonLinearZoneZoneId[i];
+                var nonLinearZoneId = blockedNonLinearZoneNonLinearZoneId[i];
+
+                passagePointsZones[zoneId].NonLinearPassageZones[nonLinearZoneId].zoneIsBlocked = true;
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -23,7 +84,12 @@ public class LevelPassagePointsService : MonoBehaviour
 
     private void Start()
     {
+        LevelSaveData.mainLevelSaveData.AddToSaveData(this);
+        
         InitZonesAndPoints();
+
+        if (isLoad)
+            return;
         
         SetStartZoneAndPoint();
         void SetStartZoneAndPoint()
@@ -39,20 +105,24 @@ public class LevelPassagePointsService : MonoBehaviour
                 currentZoneIsNonLinear = true;
             }
         }
-            
     }
 
     private void PlayerGoingToPoint(int zoneId,int pointId,int nonLinearZoneId = -1)
     {
         var goingZone = passagePointsZones[zoneId];
 
+        currentZoneId = zoneId;
+        
         if (nonLinearZoneId < 0)
         {
+            currentNonLinearZoneId = -1;
+
             var isLastPoint = goingZone.PassagePoints.Length-1 == pointId;
 
             if (!isLastPoint)
             {
                 currentPassagePoint = goingZone.PassagePoints[pointId + 1];
+                currentPointId = pointId + 1;
                 return;
             }
 
@@ -68,11 +138,13 @@ public class LevelPassagePointsService : MonoBehaviour
         currentZoneIsNonLinear = true;
         
         var goingNoLinearZone = passagePointsZones[zoneId].NonLinearPassageZones[nonLinearZoneId];
-
+        currentNonLinearZoneId = nonLinearZoneId;
+    
         var isFirstPoint = pointId == 0;
         if (isFirstPoint)
         {
             currentPassagePoint = null;
+            currentPointId = -1;
             return;
         }
         
@@ -81,22 +153,30 @@ public class LevelPassagePointsService : MonoBehaviour
         if (!isLastNonLinearPoint)
         {
             currentPassagePoint = goingNoLinearZone.PassagePoints[pointId+1];
+            currentPointId = pointId + 1;
         }
         else
         {
             goingNoLinearZone.zoneIsBlocked = true;
+            
+            blockedNonLinearZoneZoneId.Add(zoneId);
+            blockedNonLinearZoneNonLinearZoneId.Add(nonLinearZoneId);
+            
+            print((zoneId,nonLinearZoneId));
             
             foreach (var nonLinearPassageZone in goingZone.NonLinearPassageZones)
             {
                 if (!nonLinearPassageZone.zoneIsBlocked)
                 {
                     currentPassagePoint = null;
+                    currentPointId = -1;
                     return;
                 }
             }
 
             var isLastZone = passagePointsZones.Length-1 == zoneId;
             currentPassageZone.zoneIsBlocked = true;
+            
             if(isLastZone)
                 return;
             
@@ -106,11 +186,13 @@ public class LevelPassagePointsService : MonoBehaviour
         void GoToNextZone()
         {
             currentPassageZone = passagePointsZones[zoneId + 1];
-
+            currentZoneId = zoneId + 1;
+            
             if (!currentPassageZone.NonLinearPassage)
             {
                 currentPassagePoint = currentPassageZone.PassagePoints[0];
                 currentZoneIsNonLinear = false;
+                currentNonLinearZoneId = -1;
             }
             else
             {
@@ -124,7 +206,10 @@ public class LevelPassagePointsService : MonoBehaviour
                 }
                     
                 currentPassagePoint = null;
+                currentPointId = -1;
+                currentZoneId = zoneId+1;
                 currentZoneIsNonLinear = true;
+                currentNonLinearZoneId = -1;
             }
         }
     }
@@ -166,7 +251,6 @@ public class LevelPassagePointsService : MonoBehaviour
             zoneItem.OnPlayerGoing += PlayerGoingToPoint;
         }
     }
-
 
     [Serializable]
     public class LevelPassagePointsZone

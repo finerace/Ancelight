@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
 
-    [SerializeField] private string name_;
+    [SerializeField] private int name_TextId;
     [SerializeField] private string description;
     [SerializeField] private Sprite icon;
     [SerializeField] private int id;
@@ -26,7 +26,7 @@ public class WeaponData : ScriptableObject
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject weaponPrefab;
 
-    public string Name { get { return name_; } }
+    public int NameTextId { get { return name_TextId; } }
     public string Description { get { return description; } }
     public Sprite Icon { get { return icon; } }
     public int Id { get { return id; } }

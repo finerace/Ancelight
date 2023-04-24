@@ -6,8 +6,9 @@ public class PlayerExistModulesTips : MonoBehaviour
     [SerializeField] private GameObject hookExistTipObj;
     [SerializeField] private GameObject dashExistTipObj;
     [SerializeField] private GameObject protectionExistTipObj;
-
-    private void Awake()
+    [SerializeField] private bool isInvert;
+    
+    private void Start()
     {
         playerMain = FindObjectOfType<PlayerMainService>();
         
@@ -16,27 +17,32 @@ public class PlayerExistModulesTips : MonoBehaviour
             playerMain.hookService.OnHookUnlock += DisableTipObject;
             void DisableTipObject()
             {
-                hookExistTipObj.SetActive(false);
+                hookExistTipObj.SetActive(isInvert);
             }
-            
         }
+        else
+            hookExistTipObj.SetActive(isInvert);
         
         if (!playerMain.dashsService.IsDashServiceExist)
         {
             playerMain.dashsService.OnDashServiceUnlock += DisableTipObject;
             void DisableTipObject()
             {
-                dashExistTipObj.SetActive(false);
+                dashExistTipObj.SetActive(isInvert);
             }
         }
+        else
+            dashExistTipObj.SetActive(isInvert);
 
         if (!playerMain.immediatelyProtectionService.IsProtectionExist)
         {
             playerMain.immediatelyProtectionService.OnUnlock += DisableTipObject;
             void DisableTipObject()
             {
-                protectionExistTipObj.SetActive(false);
+                protectionExistTipObj.SetActive(isInvert);
             }
         }
+        else
+            protectionExistTipObj.SetActive(isInvert);
     }
 }

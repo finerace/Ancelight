@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d46e2684db628f4896f1390284a7e53, type: 3}
   m_Name: Vintovka
   m_EditorClassIdentifier: 
-  name_: Machine Gun
+  name_TextId: 171
   description: Is a machine gun.
   icon: {fileID: 21300000, guid: e85de782461ac144d96f5e2f6e4798ed, type: 3}
   id: 4

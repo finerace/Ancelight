@@ -86,6 +86,9 @@ public class AudioPoolService : MonoBehaviour
         InitFreeSource();
         void InitFreeSource()
         {
+            if(freeSource == null)
+                return;
+            
             freeSource.outputAudioMixerGroup = audioCastData.AudioMixerGroup;
             freeSource.clip = audioCastData.Clips[Random.Range(0,audioCastData.Clips.Length)];
 

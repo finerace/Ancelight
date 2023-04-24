@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[Serializable]
 public class LevelPassagePoint : MonoBehaviour
 {
     public event Action<int> OnPlayerInPoint;

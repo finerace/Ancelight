@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d46e2684db628f4896f1390284a7e53, type: 3}
   m_Name: Rocket Launcher
   m_EditorClassIdentifier: 
-  name_: Rocket Launcher
+  name_TextId: 167
   description: Its a MAGECK 0_0
   icon: {fileID: 21300000, guid: a79de41e415f5d24096a6f7ed287e69a, type: 3}
   id: 6

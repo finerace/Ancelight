@@ -1285,8 +1285,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMainService: {fileID: 0}
   additionalInformationText: {fileID: 674054791253799681}
-  textVanishTime: 5
-  textVanishSpeed: 5
+  textVanishTime: 6
+  textVanishSpeed: 6
+  addHealthTextId: 192
+  addArmorTextId: 193
+  addPlasmaUnitsTextId: 194
+  addWeaponTextId1: 195
+  addWeaponTextId2: 196
 --- !u!1 &674054789835750595
 GameObject:
   m_ObjectHideFlags: 0
@@ -4353,6 +4358,7 @@ RectTransform:
   - {fileID: 8929230300062130223}
   - {fileID: 2149265326701312194}
   - {fileID: 611401153585015962}
+  - {fileID: 1259528651077097996}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4932,7 +4938,7 @@ GameObject:
   - component: {fileID: 674054791253799680}
   - component: {fileID: 674054791253799681}
   m_Layer: 5
-  m_Name: ItemCollectText
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6472,6 +6478,54 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &3934534823844062582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1259528651077097996}
+  - component: {fileID: 4285686546780023564}
+  m_Layer: 0
+  m_Name: ModulesTip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1259528651077097996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934534823844062582}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -960, y: -540, z: 0}
+  m_LocalScale: {x: 3.6363637, y: 3.6363637, z: 3.6363637}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 674054790991718728}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4285686546780023564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934534823844062582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e3221c37aba6e4681fdca0665cd926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hookExistTipObj: {fileID: 1710938257845031345}
+  dashExistTipObj: {fileID: 828593943010593158}
+  protectionExistTipObj: {fileID: 5553688138428016325}
+  isInvert: 1
 --- !u!1 &4223129006173766206
 GameObject:
   m_ObjectHideFlags: 0
@@ -6585,10 +6639,10 @@ RectTransform:
   m_Father: {fileID: 674054790991718728}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: -1820, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4451178396962481887
 GameObject:
@@ -8173,6 +8227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UseHookKeyTip
       objectReference: {fileID: 0}
+    - target: {fileID: 1988839019111636139, guid: 25318eec047f11f40b4b087d9df9bead, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2076849182612586987, guid: 25318eec047f11f40b4b087d9df9bead, type: 3}
       propertyPath: m_text
       value: W
@@ -8361,6 +8419,10 @@ PrefabInstance:
     - target: {fileID: 1988839019111636139, guid: 25318eec047f11f40b4b087d9df9bead, type: 3}
       propertyPath: m_Name
       value: UseDashKeyTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988839019111636139, guid: 25318eec047f11f40b4b087d9df9bead, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2076849182612586987, guid: 25318eec047f11f40b4b087d9df9bead, type: 3}
       propertyPath: m_text
@@ -8928,6 +8990,10 @@ PrefabInstance:
     - target: {fileID: 1988839019111636139, guid: 25318eec047f11f40b4b087d9df9bead, type: 3}
       propertyPath: m_Name
       value: UseProtectionKeyTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988839019111636139, guid: 25318eec047f11f40b4b087d9df9bead, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2076849182612586987, guid: 25318eec047f11f40b4b087d9df9bead, type: 3}
       propertyPath: m_text

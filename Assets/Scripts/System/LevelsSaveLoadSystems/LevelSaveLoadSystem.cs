@@ -185,6 +185,8 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
             
             LoadSuitDatabase();
             
+            LoadTaskService();
+            
             void LoadPlayerMainService()
             {
                 var savePlayerMainService = new PlayerMainService();
@@ -249,6 +251,14 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
                 JsonUtility.FromJsonOverwrite(playerData.jsonSuitInformationDataBase,savedDataBase);
                 
                 FindObjectOfType<SuitInformationDataBase>().Load(savedDataBase);
+            }
+            
+            void LoadTaskService()
+            {
+                var saveLevelTaskService = new LevelTaskService();
+                JsonUtility.FromJsonOverwrite(playerData.jsonLevelTaskService,saveLevelTaskService);
+
+                FindObjectOfType<LevelTaskService>().Load(saveLevelTaskService);
             }
         }
 
@@ -326,7 +336,9 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
             LoadTransformAnimationSystems();
             
             LoadLevelPassageService();
-
+            
+            LoadLevelPassagePointsService();
+            
             void LoadBullets()
             {
                 foreach (var bulletData in levelData.ToSaveBulletData)
@@ -450,9 +462,9 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
                         {
                             newTrigger.isTriggerActive = savedTrigger.isTriggerActive;
                             saveTriggerData = new LevelSaveData.SaveTriggerData(newTrigger.transform, newTrigger);
+                            
+                            break;
                         }
-
-                        break;
                     }
                 }
             }
@@ -524,6 +536,15 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
                 
                 levelData.LevelPassageService.Load(saveLevelPassageService);
             }
+
+            void LoadLevelPassagePointsService()
+            {
+                var savedLevelPointsService = new LevelPassagePointsService();
+                
+                JsonUtility.FromJsonOverwrite(levelSaveData.JsonLevelPassagePointsService,savedLevelPointsService);
+                FindObjectOfType<LevelPassagePointsService>().Load(savedLevelPointsService);
+                
+            }
         }
     }
 
@@ -545,7 +566,8 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
             new PlayerHookService(),
             playerMainService.dashsService,
             playerMainService.immediatelyProtectionService,
-            FindObjectOfType<SuitInformationDataBase>());
+            FindObjectOfType<SuitInformationDataBase>(),
+            new LevelTaskService());
 
         savedPlayerData.jsonPlayerMainService = JsonUtility.ToJson(playerMainService);
         savedPlayerData.jsonPlayerWeaponsManager = JsonUtility.ToJson(playerWeaponsManager);

@@ -187,4 +187,14 @@ Mini-Bot D. Shooter;
 Mini-Bot Shooter;
 Mini-Bot Wizard;
 Mini-Kamikaze;
+Do you really want to delete the;
+save?;
+health units.;
+armor units.;
+plasma units.;
+Added;
+weapon;
+Blue;
+Red;
+Yellow;
 

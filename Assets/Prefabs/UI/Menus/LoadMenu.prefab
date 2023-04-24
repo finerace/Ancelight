@@ -4709,6 +4709,8 @@ MonoBehaviour:
   saveEnemyKilledTextId: 97
   saveSecretsFoundTextId: 98
   saveDateTextId: 101
+  splashWindowTextId1: 190
+  splashWindowTextId2: 191
 --- !u!1 &2800742970167148977
 GameObject:
   m_ObjectHideFlags: 0

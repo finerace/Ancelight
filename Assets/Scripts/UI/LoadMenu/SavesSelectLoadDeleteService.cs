@@ -20,7 +20,7 @@ public class SavesSelectLoadDeleteService : MonoBehaviour
     
     [SerializeField] private Image saveScreenshot;
 
-    private const string saveNotSelectedName = "Save not selected";
+    private const int saveNotSelectedNameTextId = 102;
     private string savesPath;
     
     [Space] 
@@ -36,6 +36,13 @@ public class SavesSelectLoadDeleteService : MonoBehaviour
     [SerializeField] private int saveEnemyKilledTextId;
     [SerializeField] private int saveSecretsFoundTextId;
     [SerializeField] private int saveDateTextId;
+    
+    [Space]
+    
+    [SerializeField] private int splashWindowTextId1;
+    [SerializeField] private int splashWindowTextId2;
+
+    
     
     private void Awake()
     {
@@ -58,7 +65,7 @@ public class SavesSelectLoadDeleteService : MonoBehaviour
         JsonUtility.FromJsonOverwrite(levelSaveData.SavedLevelPassageService,levelPassageService);
         
         saveNameLabel.text = selectedSaveUnitData.SaveName;
-        saveLevelNameLabel.text = CurrentLanguageData.GetText(levelPassageService.LevelData.LevelNameTextId);
+        saveLevelNameLabel.text = CurrentLanguageData.GetText(levelSaveData.LevelNameTextId);
 
         savePassageTimeLabel.text = $"{CurrentLanguageData.GetText(savePassageTimeTextId)} " +
                                     $"{AuxiliaryFunc.ConvertSecondsToTimeSpan((int)levelPassageService.PassageTimeSec)}";
@@ -108,7 +115,7 @@ public class SavesSelectLoadDeleteService : MonoBehaviour
         loadSystem.DeleteSave(selectedSaveUnitData.SaveName);
         File.Delete($"{savesPath}/{selectedSaveUnitData.SaveName}_screenshot.png");
         
-        saveNameLabel.text = saveNotSelectedName;
+        saveNameLabel.text = CurrentLanguageData.GetText(saveNotSelectedNameTextId);
         saveLevelNameLabel.text = String.Empty;
 
         savePassageTimeLabel.text = String.Empty;
@@ -126,7 +133,8 @@ public class SavesSelectLoadDeleteService : MonoBehaviour
 
     public void CallSplashWindowDeleteSave()
     {
-        var splashWindowText = $"Do you really want to delete the {selectedSaveUnitData.SaveName} save?";
+        var splashWindowText = 
+            $"{CurrentLanguageData.GetText(splashWindowTextId1)} \"{selectedSaveUnitData.SaveName}\" {CurrentLanguageData.GetText(splashWindowTextId2)}";
         
         menuSystem.CallSplashWindow(splashWindowText,DeleteSelectedSave);
     }

@@ -26,6 +26,9 @@ public class LevelSaveData : MonoBehaviour
      
      [SerializeField] private SavePlayerData playerData;
      public PlayerMainService playerMainService;
+
+     private LevelPassagePointsService levelPassagePointsService;
+     [SerializeField] private string jsonLevelPassagePointsService;
      
      [SerializeField] private int levelNameTextId;
      [SerializeField] private int levelSceneId;
@@ -56,14 +59,18 @@ public class LevelSaveData : MonoBehaviour
 
      public SavePlayerData PlayerData => playerData;
 
-     public int LevelNameTextId => levelNameTextId;
+     public LevelPassagePointsService LevelPassagePointsService => levelPassagePointsService;
 
-     public void Awake()
+     public string JsonLevelPassagePointsService => jsonLevelPassagePointsService;
+     
+     public int LevelNameTextId => levelNameTextId;
+        
+    public void Awake()
     {
         mainLevelSaveData = this;
     }
      
-     public string SaveToJson()
+    public string SaveToJson()
      {
          SetJsonnedData();
          
@@ -118,9 +125,6 @@ public class LevelSaveData : MonoBehaviour
              }
              
              SavePlayer();
-
-             savedLevelPassageService = JsonUtility.ToJson(levelPassageService);
-             
              void SavePlayer()
              {
                  playerData.jsonPlayerT = FixedJsonUtilityFunc.GetJsonVersion(playerData.PlayerMovement.Body);
@@ -142,6 +146,8 @@ public class LevelSaveData : MonoBehaviour
                  playerData.jsonPlayerWeaponsBulletsManager = JsonUtility.ToJson(playerData.PlayerWeaponsBulletsManager);
 
                  playerData.jsonSuitInformationDataBase = JsonUtility.ToJson(playerData.SuitInformationDataBase);
+
+                 playerData.jsonLevelTaskService = JsonUtility.ToJson(playerData.LevelTaskService);
                  
                  playerData.bulletsCount =
                      FixedJsonUtilityFunc.GetJsonVersion(playerData.PlayerWeaponsBulletsManager.BulletsCount);
@@ -152,6 +158,14 @@ public class LevelSaveData : MonoBehaviour
                      FixedJsonUtilityFunc.GetJsonVersion(playerData.PlayerWeaponsBulletsManager.PlasmaReserves);
                  playerData.plasmaMaxReserves =
                      FixedJsonUtilityFunc.GetJsonVersion(playerData.PlayerWeaponsBulletsManager.PlasmaMaxReserves);
+             }
+
+             savedLevelPassageService = JsonUtility.ToJson(levelPassageService);
+
+             SavePassagePointsService();
+             void SavePassagePointsService()
+             {
+                 jsonLevelPassagePointsService = JsonUtility.ToJson(levelPassagePointsService);
              }
          }
      }
@@ -232,7 +246,8 @@ public class LevelSaveData : MonoBehaviour
             player.hookService,
             player.dashsService,
             player.immediatelyProtectionService,
-            FindObjectOfType<SuitInformationDataBase>());
+            FindObjectOfType<SuitInformationDataBase>(),
+            FindObjectOfType<LevelTaskService>());
     }
     
     public void AddToSaveData(LevelTriggerBase trigger)
@@ -283,6 +298,11 @@ public class LevelSaveData : MonoBehaviour
     public void AddToSaveData(LevelPassageService levelPassageService)
     {
         this.levelPassageService = levelPassageService;
+    }
+
+    public void AddToSaveData(LevelPassagePointsService levelPassagePointsService)
+    {
+        this.levelPassagePointsService = levelPassagePointsService;
     }
 
     [Serializable]
@@ -383,7 +403,8 @@ public class LevelSaveData : MonoBehaviour
         [NonSerialized] private PlayerHookService playerHookService;
         [NonSerialized] private PlayerDashsService playerDashsService;
         [NonSerialized] private PlayerImmediatelyProtectionService playerImmediatelyProtectionService;
-
+        [NonSerialized] private LevelTaskService levelTaskService;
+        
         [NonSerialized] private SuitInformationDataBase suitInformationDataBase;
         public string jsonSuitInformationDataBase;
         
@@ -402,8 +423,9 @@ public class LevelSaveData : MonoBehaviour
         public string jsonPlayerHookService;
         public string jsonPlayerDashsService;
         public string jsonPlayerImmediatelyProtectionService;
+        public string jsonLevelTaskService;
 
-        public SavePlayerData(Transform playerT, Rigidbody playerRb, PlayerMainService playerMainService, PlayerMovement playerMovement, PlayerWeaponsManager playerWeaponsManager, PlayerWeaponsBulletsManager playerWeaponsBulletsManager, PlayerHookService playerHookService, PlayerDashsService playerDashsService, PlayerImmediatelyProtectionService playerImmediatelyProtectionService, SuitInformationDataBase suitInformationDataBase)
+        public SavePlayerData(Transform playerT, Rigidbody playerRb, PlayerMainService playerMainService, PlayerMovement playerMovement, PlayerWeaponsManager playerWeaponsManager, PlayerWeaponsBulletsManager playerWeaponsBulletsManager, PlayerHookService playerHookService, PlayerDashsService playerDashsService, PlayerImmediatelyProtectionService playerImmediatelyProtectionService, SuitInformationDataBase suitInformationDataBase,LevelTaskService levelTaskService)
         {
             this.playerT = playerT;
             this.playerRb = playerRb;
@@ -415,6 +437,7 @@ public class LevelSaveData : MonoBehaviour
             this.playerDashsService = playerDashsService;
             this.playerImmediatelyProtectionService = playerImmediatelyProtectionService;
             this.suitInformationDataBase = suitInformationDataBase;
+            this.levelTaskService = levelTaskService;
         }
 
         public Transform PlayerT => playerT;
@@ -436,6 +459,8 @@ public class LevelSaveData : MonoBehaviour
         public PlayerImmediatelyProtectionService PlayerImmediatelyProtectionService => playerImmediatelyProtectionService;
 
         public SuitInformationDataBase SuitInformationDataBase => suitInformationDataBase;
+
+        public LevelTaskService LevelTaskService => levelTaskService;
     }
     
     [Serializable]
