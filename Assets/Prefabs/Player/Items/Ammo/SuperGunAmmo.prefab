@@ -90,8 +90,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 0}
     priority: 6
-    volumeMin: 0.4
-    volumeMax: 0.45
+    volumeMin: 0.2
+    volumeMax: 0.225
     isLoop: 0
     pitchMin: 2.5
     pitchMax: 2.6

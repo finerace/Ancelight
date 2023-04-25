@@ -316,7 +316,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.35
+      scalar: 0.45
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -755,7 +755,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -0.55
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1014,7 +1014,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 15
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -3768,7 +3768,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -10772,7 +10772,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6133552504984414790}
   serializedVersion: 2
-  m_Mass: 2.5
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -11095,7 +11095,7 @@ MonoBehaviour:
   fovDot: 0.25
   lookingLayerMask:
     serializedVersion: 2
-    m_Bits: 523
+    m_Bits: 11
   isSetTargetPosOnHiddenTarget: 1
   setTargetPosTime: 10
   nowSettesTargetPos: 0
@@ -11190,15 +11190,15 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 0}
     priority: 13
-    volumeMin: 0.5
-    volumeMax: 0.55
+    volumeMin: 1
+    volumeMax: 1
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1
     stereoPan: 0
     spatialBlend: 1
     minDistance: 3
-    maxDistance: 15
+    maxDistance: 20
   enemyHoverSoundData:
     audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
     clips:
@@ -11287,8 +11287,8 @@ MonoBehaviour:
     spatialBlend: 1
     minDistance: 2.5
     maxDistance: 20
-  minNextCastTime: 6
-  maxNextCastTime: 16
+  minNextCastTime: 8
+  maxNextCastTime: 14
   enemyWarningSoundData:
     audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
     clips:
@@ -16400,7 +16400,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6133552506174626233}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 1.3
   m_Speed: 5
   m_Acceleration: 500
   avoidancePriority: 50
@@ -20025,7 +20025,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -21504,7 +21504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8807903653067554838
 Transform:
   m_ObjectHideFlags: 0

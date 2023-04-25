@@ -93,7 +93,7 @@ public class BotSoundService : MonoBehaviour
         hoverSoundData.castParent = botT;
         hoverSoundData.castPos = botT.position;
 
-        enemyHoverSoundSource = audioPoolService.CastAudio(hoverSoundData);
+        //enemyHoverSoundSource = audioPoolService.CastAudio(hoverSoundData);
     }
 
     private void HoverSoundStop()

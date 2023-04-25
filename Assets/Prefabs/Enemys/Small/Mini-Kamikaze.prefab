@@ -346,7 +346,7 @@ MonoBehaviour:
   fovDot: 0.25
   lookingLayerMask:
     serializedVersion: 2
-    m_Bits: 523
+    m_Bits: 11
   isSetTargetPosOnHiddenTarget: 1
   setTargetPosTime: 3
   nowSettesTargetPos: 0
@@ -436,7 +436,7 @@ MonoBehaviour:
     stereoPan: 0
     spatialBlend: 1
     minDistance: 2
-    maxDistance: 15
+    maxDistance: 20
   enemyHoverSoundData:
     audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
     clips:
@@ -525,8 +525,8 @@ MonoBehaviour:
     spatialBlend: 1
     minDistance: 2
     maxDistance: 15
-  minNextCastTime: 3
-  maxNextCastTime: 8
+  minNextCastTime: 8
+  maxNextCastTime: 16
   enemyWarningSoundData:
     audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
     clips:
@@ -20129,7 +20129,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1539869910849528413}
   m_Enabled: 1
   m_AgentTypeID: 1479372276
-  m_Radius: 0.6
+  m_Radius: 0.65
   m_Speed: 4
   m_Acceleration: 150
   avoidancePriority: 50

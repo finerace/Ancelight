@@ -10164,15 +10164,15 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 0}
     priority: 13
-    volumeMin: 0.6
-    volumeMax: 0.65
+    volumeMin: 1
+    volumeMax: 1
     isLoop: 0
     pitchMin: 0.76
     pitchMax: 0.8
     stereoPan: 0
     spatialBlend: 1
     minDistance: 3
-    maxDistance: 15
+    maxDistance: 20
   enemyHoverSoundData:
     audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
     clips:
@@ -10261,8 +10261,8 @@ MonoBehaviour:
     spatialBlend: 1
     minDistance: 1.5
     maxDistance: 20
-  minNextCastTime: 6
-  maxNextCastTime: 13
+  minNextCastTime: 8
+  maxNextCastTime: 14
   enemyWarningSoundData:
     audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
     clips:
@@ -10802,7 +10802,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5001171775108889541}
   m_LocalRotation: {x: -0, y: 0.0000036060806, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.53, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10818,7 +10818,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5001171775108889541}
   m_Enabled: 1
   m_AgentTypeID: -1923039037
-  m_Radius: 1
+  m_Radius: 1.5
   m_Speed: 500
   m_Acceleration: 500
   avoidancePriority: 50
