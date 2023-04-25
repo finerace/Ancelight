@@ -33,10 +33,10 @@ RectTransform:
   m_Father: {fileID: 3890590139377413261}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21.7, y: 17.1}
-  m_SizeDelta: {x: 697.8, y: 65.8}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 65.62497, y: 17.099998}
+  m_SizeDelta: {x: 423.15, y: -34.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3890590138809170262
 CanvasRenderer:
@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -231.20001, y: 17.099998}
-  m_SizeDelta: {x: -63.5, y: -83.7}
+  m_AnchoredPosition: {x: -100.9, y: 17.099998}
+  m_SizeDelta: {x: -69.3323, y: -83.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3890590138812351556
 CanvasRenderer:
@@ -169,10 +169,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6
+  m_fontSize: 5.75
   m_fontSizeBase: 6
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 0
   m_fontSizeMax: 9.9
   m_fontStyle: 0
@@ -246,8 +246,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 62.76, y: 17.099998}
-  m_SizeDelta: {x: 4.91, y: -83.7}
+  m_AnchoredPosition: {x: 123.054245, y: 17.099998}
+  m_SizeDelta: {x: -25.2371, y: -83.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3890590139143881918
 CanvasRenderer:
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.9
+  m_fontSize: 8.4
   m_fontSizeBase: 7.8
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -433,6 +433,36 @@ MonoBehaviour:
           m_StringArgument: sfsfawf
           m_BoolArgument: 0
         m_CallState: 2
+  onClickAudioData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  onEnterExitAudioData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
 --- !u!114 &5114824167544753762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,7 +479,7 @@ MonoBehaviour:
   currentButtonAnimationState: 0
 --- !u!95 &1783518059019905078
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -466,4 +496,4 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0

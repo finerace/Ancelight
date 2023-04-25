@@ -7,11 +7,14 @@ public class LanguageData : ScriptableObject
 {
     [SerializeField] private TextAsset file;
 
-    public string GetText(int textId)
-    {
-        var currentId = 1;
-        var resultText = String.Empty;;
+    [SerializeField] private string[] textlines = new String[500];
 
+    public void InitLines()
+    {
+        var currentId = 0;
+
+        var resultText = String.Empty;
+        
         foreach (var pups in file.text)
         {
             var charIsTrueSymbol =
@@ -27,23 +30,26 @@ public class LanguageData : ScriptableObject
             charIsTrueSymbol = charIsTrueSymbol && pups != '\n';
             
             if(!charIsTrueSymbol)
-                continue; 
-                
-            if (pups != ';')
-                resultText += pups;
-            else
+                continue;
+            
+            if (pups == ';')
             {
-                if (currentId == textId)
-                    return resultText;
-                
+                textlines[currentId] = resultText;
                 resultText = String.Empty;
+                
                 currentId++;
+                
+                continue;
             }
             
-            
+            resultText += pups;
         }
-        
-        throw new Exception($"Entered id {textId} not exist!");
+    }
+    
+    public string GetText(int textId)
+    {
+        Debug.Log(textlines[textId-1] == null);
+        return textlines[textId - 1];
     }
     
 }

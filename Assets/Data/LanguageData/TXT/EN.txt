@@ -197,4 +197,8 @@ weapon;
 Blue;
 Red;
 Yellow;
-
+Ammo;
+Field of View;
+Screen Resolution;
+Screen Format;
+Language;

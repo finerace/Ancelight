@@ -8,10 +8,16 @@ public class StaticTextLanguageAdaptable : MonoBehaviour
     
     private void Start()
     {
-        foreach (var adaptableForm in staticTextAdaptableForms)
+        SetStaticText();
+        void SetStaticText()
         {
-            InitLanguageTextForm(adaptableForm);
+            foreach (var adaptableForm in staticTextAdaptableForms)
+            {
+                InitLanguageTextForm(adaptableForm);
+            }
         }
+
+        CurrentLanguageData.instance.OnLanguageChange += SetStaticText;
     }
 
     private void InitLanguageTextForm(StaticTextLanguageAdaptableForm languageAdaptableForm)

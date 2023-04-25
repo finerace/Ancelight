@@ -704,6 +704,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLanguageData: {fileID: 11400000, guid: cfcba201a26fdb94bb316ab5f2cebe37, type: 2}
+  languageDatas:
+  - {fileID: 11400000, guid: 1a1cb7d713604dc46b0cf5cf217f1162, type: 2}
+  - {fileID: 11400000, guid: cfcba201a26fdb94bb316ab5f2cebe37, type: 2}
 --- !u!1 &1924396131
 GameObject:
   m_ObjectHideFlags: 0

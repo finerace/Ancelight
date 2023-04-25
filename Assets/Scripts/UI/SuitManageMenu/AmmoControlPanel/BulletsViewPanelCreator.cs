@@ -18,6 +18,8 @@ public class BulletsViewPanelCreator : MonoBehaviour
     private static readonly int TargetTexture2 = Shader.PropertyToID("_TargetTexture2");
     private static readonly int MainColor = Shader.PropertyToID("_MainColor");
 
+    [SerializeField] private int bulletTextId;
+    
     private readonly Dictionary<int, Image> bulletCountIndicators = new Dictionary<int, Image>();
 
     public IDictionary<int, Image> BulletCountIndicators => bulletCountIndicators;
@@ -67,7 +69,8 @@ public class BulletsViewPanelCreator : MonoBehaviour
             
             SetIconsAndColors();
             
-            bulletViewPanelData.panelName.text = $"{localWeaponData.NameTextId} Bullet";
+            bulletViewPanelData.panelName.text = 
+                $"{CurrentLanguageData.GetText(localWeaponData.NameTextId)} {CurrentLanguageData.GetText(bulletTextId)}";
             
             void SetBulletSelectService()
             {

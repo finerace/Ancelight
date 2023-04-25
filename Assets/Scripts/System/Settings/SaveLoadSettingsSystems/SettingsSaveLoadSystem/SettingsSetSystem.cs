@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
@@ -11,10 +12,16 @@ using ShadowResolution = UnityEngine.Rendering.Universal.ShadowResolution;
 public class SettingsSetSystem : MonoBehaviour
 {
     [SerializeField] private SettingsSaveLoadSystem settingsSaveLoadSystem;
-    [SerializeField] private UniversalRenderPipelineAsset urpAsset;
     [SerializeField] private PlayerMainService playerMainService;
     [SerializeField] private LevelSaveLoadSystem levelSaveLoadSystem;
-
+    
+    [Space]
+    
+    [SerializeField] private UniversalRenderPipelineAsset urpAsset;
+    [SerializeField] private UniversalRendererData urpData;
+    
+    [Space]
+    
     [SerializeField] private bool isSetSystemInMainMenu = false;
 
     [Space]
@@ -173,13 +180,15 @@ public class SettingsSetSystem : MonoBehaviour
             
             SetSoftShadows();
             
+            SetSsao();
+            
             SetMsaaQuality();
             
             void SetAntiAliasingSettings()
-                    {
-                        var mainCameraRenderData = Camera.main.GetComponent<UniversalAdditionalCameraData>();
+            {
+                var mainCameraRenderData = Camera.main.GetComponent<UniversalAdditionalCameraData>();
                         
-                        switch (settingsData.GraphicsSettingsData.AntiAliasingQuality)
+                switch (settingsData.GraphicsSettingsData.AntiAliasingQuality)
                         {
                             case 0:
                             {
@@ -216,7 +225,7 @@ public class SettingsSetSystem : MonoBehaviour
                                 break;
                             }
                         }
-                    }
+            }
             
             void SetShadowResolution()
             {
@@ -330,6 +339,11 @@ public class SettingsSetSystem : MonoBehaviour
                     }
                 }
             }
+
+            void SetSsao()
+            {
+                urpData.rendererFeatures[0].SetActive(settingsData.GraphicsSettingsData.Ssao);
+            }
         }
 
         void SetControlsSettings()
@@ -435,6 +449,14 @@ public class SettingsSetSystem : MonoBehaviour
             SetGrassSettings();
             
             SetEnemyPartsSettings();
+
+            SetFieldOfView();
+            
+            SetScreenResolutionAndFormat();
+            
+            SetScreenFormat();
+            
+            SetLanguage();
             
             void SetGrassSettings()
             {
@@ -490,6 +512,68 @@ public class SettingsSetSystem : MonoBehaviour
             {
                 enemyPartsQuality = settingsData.GraphicsSettingsData.EnemyPartsQuality;
                 enemyPartsDestroyTime = settingsData.GraphicsSettingsData.TimeOfDestructionOfParts;
+            }
+
+            void SetFieldOfView()
+            {
+                if (settingsData.GraphicsSettingsData.FieldOfView < 75)
+                {
+                    Camera.main.fieldOfView = 75;
+                    
+                    return;
+                }
+
+                Camera.main.fieldOfView = settingsData.GraphicsSettingsData.FieldOfView;
+            }
+
+            void SetScreenResolutionAndFormat()
+            {
+                var resolution = (1920,1080);
+
+                resolution =
+                    settingsData.GraphicsSettingsData.ScreenResolution switch
+                    {
+                        0 => (640,480),
+                        1 => (800,600),
+                        2 => (1024,768),
+                        3 => (1280,720),
+                        4 => (1366,768),
+                        5 => (1280,800),
+                        6 => (1440,900),
+                        7 => (1600,900),
+                        8 => (1680,1050),
+                        9 => (1920,1080),
+                        10 => (2560,1440),
+                        11 => (3840,2160),
+                        12 => (5120,2880),
+                        13 => (7680,4320),
+                        _ => throw new ArgumentOutOfRangeException()
+                    };
+
+                Screen.SetResolution(resolution.Item1,resolution.Item2,Screen.fullScreenMode);
+                print(resolution);
+            }
+
+            void SetScreenFormat()
+            {
+                var screenFormat = FullScreenMode.Windowed;
+
+                screenFormat = settingsData.GraphicsSettingsData.ScreenFormat switch
+                {
+                    0 => FullScreenMode.FullScreenWindow,
+                    1 => FullScreenMode.ExclusiveFullScreen,
+                    2 => FullScreenMode.MaximizedWindow,
+                    3 => FullScreenMode.Windowed,
+                    _ => throw new IndexOutOfRangeException()
+                };
+                
+                Screen.SetResolution(Screen.width,Screen.height,screenFormat);
+                print(screenFormat.ToString());
+            }
+
+            void SetLanguage()
+            {
+                FindObjectOfType<CurrentLanguageData>().SetLanguageData(settingsData.GraphicsSettingsData.Language);
             }
         }
         

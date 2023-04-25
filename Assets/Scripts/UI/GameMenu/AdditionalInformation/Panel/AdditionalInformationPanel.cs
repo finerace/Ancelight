@@ -33,6 +33,9 @@ public class AdditionalInformationPanel : MonoBehaviour
     private float oldDescriptionTextScale = 0;
     
     private float toInformedObjectDistance = 0;
+
+    private int oldInformationNameTextId;
+    private int oldInformationDescTextId;
     
     private void Awake()
     {
@@ -164,23 +167,23 @@ public class AdditionalInformationPanel : MonoBehaviour
         
         void SetNewTexts()
         {
-            panelName.text = CurrentLanguageData.GetText(data.InformationNameTextId);
+            var isNameChanged = oldInformationNameTextId != data.InformationNameTextId;
 
-            var descText = String.Empty;
-            
-            if(data.InformationDescriptionTextId > 0)
-                descText = CurrentLanguageData.GetText(data.InformationDescriptionTextId);
-            
-            var isDescriptionUseless = descText == String.Empty;
-
-            if (!isDescriptionUseless)
+            if (isNameChanged)
             {
+                panelName.text = CurrentLanguageData.GetText(data.InformationNameTextId);
+                oldInformationNameTextId = data.InformationNameTextId;
+            }
+
+            var isDescChanged = oldInformationDescTextId != data.InformationDescriptionTextId;
+
+            if (isDescChanged && data.InformedObjectHealth == null)
+            {
+                var descText = CurrentLanguageData.GetText(data.InformationDescriptionTextId);
+                oldInformationDescTextId = data.InformationDescriptionTextId;
+
                 panelDescription.text = descText;
-
-                if (panelDescription.fontSize != oldDescriptionTextScale) {
-                    panelDescription.fontSize = oldDescriptionTextScale;
-                }                
-
+                
                 return;
             }
 

@@ -5700,7 +5700,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A small yellow plasma reserve. Contain 50 units of plasma.
+  m_text: 18/25
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e46f32281224cc04aa1862e253e45215, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: ba42f083680604941886959bc8cd448a, type: 2}
@@ -5727,12 +5727,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.5
+  m_fontSize: 28
   m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 1
-  m_fontSizeMax: 18
+  m_fontSizeMax: 28
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256

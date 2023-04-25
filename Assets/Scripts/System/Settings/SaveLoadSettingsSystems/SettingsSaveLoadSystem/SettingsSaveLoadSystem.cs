@@ -25,6 +25,7 @@ public class SettingsSaveLoadSystem : MonoBehaviour
     [SerializeField] private TMP_Dropdown shadowsResolutionQuality;
     [SerializeField] private Slider shadowDistance;
     [SerializeField] private Toggle softShadows;
+    [SerializeField] private Toggle ssao;
     
     [SerializeField] private TMP_Dropdown msaaQuality;
     [SerializeField] private TMP_Dropdown antiAliasingQuality;
@@ -37,6 +38,11 @@ public class SettingsSaveLoadSystem : MonoBehaviour
 
     [SerializeField] private Slider drawDistanceCoof;
     [SerializeField] private Toggle vsync;
+
+    [SerializeField] private Slider fieldOfView;
+    [SerializeField] private TMP_Dropdown screenResolution;
+    [SerializeField] private TMP_Dropdown screenFormat;
+    [SerializeField] private TMP_Dropdown language;
 
     [Space] 
     
@@ -140,6 +146,7 @@ public class SettingsSaveLoadSystem : MonoBehaviour
                     shadowsResolutionQuality.value,
                     shadowDistance.value,
                     softShadows.isOn,
+                    ssao.isOn,
                     msaaQuality.value,
                     antiAliasingQuality.value,
                     grassQuality.value,
@@ -148,7 +155,11 @@ public class SettingsSaveLoadSystem : MonoBehaviour
                     enemyPartsQuality.value,
                     timeOfDestructionOfParts.value,
                     drawDistanceCoof.value,
-                    vsync.isOn);
+                    vsync.isOn,
+                    fieldOfView.value,
+                    screenResolution.value,
+                    screenFormat.value,
+                    language.value);
 
             var controlsSettingsData =
                 new SettingsData.SettingsControlsData(
@@ -223,6 +234,7 @@ public class SettingsSaveLoadSystem : MonoBehaviour
             shadowsResolutionQuality.value = settingsData.GraphicsSettingsData.ShadowsResolutionQuality;
             shadowDistance.value = settingsData.GraphicsSettingsData.ShadowDistance;
             softShadows.isOn = settingsData.GraphicsSettingsData.SoftShadows;
+            ssao.isOn = settingsData.GraphicsSettingsData.Ssao;
             
             msaaQuality.value = settingsData.GraphicsSettingsData.MSAAQuality;
             antiAliasingQuality.value = settingsData.GraphicsSettingsData.AntiAliasingQuality;
@@ -236,6 +248,11 @@ public class SettingsSaveLoadSystem : MonoBehaviour
 
             drawDistanceCoof.value = settingsData.GraphicsSettingsData.DrawingDistanceCoof;
             vsync.isOn = settingsData.GraphicsSettingsData.Vsync;
+
+            fieldOfView.value = settingsData.GraphicsSettingsData.FieldOfView;
+            screenResolution.value = settingsData.GraphicsSettingsData.ScreenResolution;
+            screenFormat.value = settingsData.GraphicsSettingsData.ScreenFormat;
+            language.value = settingsData.GraphicsSettingsData.Language;
         }
 
         void LoadControlsSettings()
@@ -500,6 +517,7 @@ public class SettingsData
         private int shadowsResolutionQuality;
         private float shadowDistance;
         private bool softShadows;
+        private bool ssao;
 
         private int msaaQuality;
         private int antiAliasingQuality;
@@ -514,6 +532,11 @@ public class SettingsData
         private float drawingDistanceCoof;
         private bool vsync;
 
+        private float fieldOfView;
+        private int screenResolution;
+        private int screenFormat;
+        private int language;
+        
         public int TexturesQuality => texturesQuality;
 
         public int AnisotropicTexturesQuality => anisotropicTexturesQuality;
@@ -523,7 +546,9 @@ public class SettingsData
         public float ShadowDistance => shadowDistance;
         
         public bool SoftShadows => softShadows;
-        
+
+        public bool Ssao => ssao;
+
         public int MSAAQuality => msaaQuality;
 
         public int AntiAliasingQuality => antiAliasingQuality;
@@ -542,13 +567,22 @@ public class SettingsData
 
         public bool Vsync => vsync;
 
-        public SettingsGraphicsData(int texturesQuality, int anisotropicTexturesQuality, int shadowsResolutionQuality, float shadowDistance, bool softShadows, int msaaQuality, int antiAliasingQuality, int grassQuality, float grassDrawingDistance, int plantsQuality, int enemyPartsQuality, float timeOfDestructionOfParts, float drawingDistanceCoof, bool vsync)
+        public float FieldOfView => fieldOfView;
+
+        public int ScreenResolution => screenResolution;
+
+        public int ScreenFormat => screenFormat;
+
+        public int Language => language;
+
+        public SettingsGraphicsData(int texturesQuality, int anisotropicTexturesQuality, int shadowsResolutionQuality, float shadowDistance, bool softShadows, bool ssao, int msaaQuality, int antiAliasingQuality, int grassQuality, float grassDrawingDistance, int plantsQuality, int enemyPartsQuality, float timeOfDestructionOfParts, float drawingDistanceCoof, bool vsync, float fieldOfView, int screenResolution, int screenFormat, int language)
         {
             this.texturesQuality = texturesQuality;
             this.anisotropicTexturesQuality = anisotropicTexturesQuality;
             this.shadowsResolutionQuality = shadowsResolutionQuality;
             this.shadowDistance = shadowDistance;
             this.softShadows = softShadows;
+            this.ssao = ssao;
             this.msaaQuality = msaaQuality;
             this.antiAliasingQuality = antiAliasingQuality;
             this.grassQuality = grassQuality;
@@ -558,6 +592,10 @@ public class SettingsData
             this.timeOfDestructionOfParts = timeOfDestructionOfParts;
             this.drawingDistanceCoof = drawingDistanceCoof;
             this.vsync = vsync;
+            this.fieldOfView = fieldOfView;
+            this.screenResolution = screenResolution;
+            this.screenFormat = screenFormat;
+            this.language = language;
         }
     }
     [Serializable]

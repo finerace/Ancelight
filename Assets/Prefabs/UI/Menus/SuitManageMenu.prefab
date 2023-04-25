@@ -7184,8 +7184,8 @@ RectTransform:
   m_Father: {fileID: 3657638010846170231}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.8}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11974,7 +11974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3657638010825715213
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14067,6 +14067,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 3657638011374115152}
   bulletViewPanelPrefab: {fileID: 2650584739983471409, guid: 4fce6a844fc5d104595e682531e42874, type: 3}
   viewPanelsScrollService: {fileID: 3657638011374115156}
+  bulletTextId: 200
 --- !u!114 &3657638011374115158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15714,8 +15715,8 @@ RectTransform:
   m_Father: {fileID: 6158175675313832462}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.8}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16220,6 +16221,7 @@ MonoBehaviour:
   hookExistTipObj: {fileID: 3815816775941979348}
   dashExistTipObj: {fileID: 3489723694647484166}
   protectionExistTipObj: {fileID: 2339333894488563185}
+  isInvert: 0
 --- !u!1 &4505972215774102031
 GameObject:
   m_ObjectHideFlags: 0
@@ -20264,7 +20266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &554493479874941760
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20953,6 +20955,7 @@ MonoBehaviour:
   hookExistTipObj: {fileID: 3507363526693153557}
   dashExistTipObj: {fileID: 7157236175867918987}
   protectionExistTipObj: {fileID: 7594999975749014952}
+  isInvert: 0
 --- !u!1 &8226266461235779532
 GameObject:
   m_ObjectHideFlags: 0
@@ -21008,6 +21011,7 @@ MonoBehaviour:
   hookExistTipObj: {fileID: 3558648209389087539}
   dashExistTipObj: {fileID: 7394172259957276856}
   protectionExistTipObj: {fileID: 5366327988667619549}
+  isInvert: 0
 --- !u!1 &8254089724789099640
 GameObject:
   m_ObjectHideFlags: 0
