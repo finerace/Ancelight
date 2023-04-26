@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Its a magick 0_0
   icon: {fileID: 21300000, guid: cf3d8d8abea71ba4cafe20de3a77c07f, type: 3}
   id: 5
-  mainColor: {r: 0.17, g: 0.74800014, b: 0.85, a: 1}
+  mainColor: {r: 0.19815665, g: 0.88018453, b: 1, a: 1}
   damage: 55
   bulletID: 3
   raycast: 0

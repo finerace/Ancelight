@@ -7877,22 +7877,6 @@ MonoBehaviour:
   isWeaponInCooldown: 0
   weaponChangeCooldown: 0.05
   adjustableAttackStartPower: 0.2
-  extraAbilityUseEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  extraAbilityChangeEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  abilityDatas:
-  - {fileID: 11400000, guid: 17f88f3b9a4782249a79ed1c44f6eee1, type: 2}
-  - {fileID: 11400000, guid: 13c4373c88ca05f4d8da6da62c453046, type: 2}
-  abilityUnlockedIDs: 02000000
-  abilityInDelayIDs: 
-  selectedAbilityData: {fileID: 0}
-  selectedAbility: {fileID: 0}
-  selectedAbilityNum: 0
-  nowAbilityPrefab: {fileID: 0}
-  extraAbilityOneClickState: 0
 --- !u!114 &171281704
 MonoBehaviour:
   m_ObjectHideFlags: 0

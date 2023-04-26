@@ -9,6 +9,8 @@ public class NewDataNotification : MonoBehaviour
     [SerializeField] private float notificationTime = 5;
     
     private float vanishTimer;
+
+    [SerializeField] private AudioCastData newDataSound;
     
     private void Awake()
     {
@@ -17,6 +19,7 @@ public class NewDataNotification : MonoBehaviour
         void SetTimerValue()
         {
             vanishTimer = notificationTime;
+            AudioPoolService.audioPoolServiceInstance.CastAudio(newDataSound);
         }
     }
     

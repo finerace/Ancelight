@@ -3903,7 +3903,6 @@ MonoBehaviour:
   weaponIcon: {fileID: 8724764035148915559}
   abilityIcon: {fileID: 8724764035747750835}
   isOnweaponIcon: 1
-  isOnabilityIcon: 1
   weaponIconDisappearSpeed: 2
   abilityIconDisappearSpeed: 2
 --- !u!1 &674054790801554850
@@ -5550,14 +5549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9639c5058ddbefe4badc3268fe9fa407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponsManager: {fileID: 0}
-  mainImage: {fileID: 8724764036079252637}
-  nullIcon: {fileID: 21300000, guid: 0568393ed585bb947ad51457c65ba3e7, type: 3}
-  mainCircle: {fileID: 674054790380067763}
-  dynamicCircle: {fileID: 674054790125831240}
-  effect: {fileID: 674054790083908557}
-  icon: {fileID: 8724764036079252637}
-  inDelayColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &674054791450432557
 GameObject:
   m_ObjectHideFlags: 0
@@ -6276,7 +6267,7 @@ MonoBehaviour:
   - {fileID: 3588287845527616646}
   texts:
   - {fileID: 3425357393600535283}
-  changeSpeed: 5
+  changeSpeed: 10
   isVanish: 0
 --- !u!114 &3724687280114289837
 MonoBehaviour:
@@ -6292,6 +6283,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothVanishUI: {fileID: 7716474166306800449}
   notificationTime: 3
+  newDataSound:
+    audioMixerGroup: {fileID: -6742611630364910418, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
+    clips:
+    - {fileID: 8300000, guid: ac78326d6e866cf40b646292d8feed93, type: 3}
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 5
+    volumeMin: 0.15
+    volumeMax: 0.2
+    isLoop: 0
+    pitchMin: 3
+    pitchMax: 3
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 1
+    maxDistance: 1
 --- !u!1 &3040401455108126213
 GameObject:
   m_ObjectHideFlags: 0
@@ -8201,17 +8208,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8092458257788438941, guid: 08c24fd9152d0684cbe9940f37c56052, type: 3}
   m_PrefabInstance: {fileID: 674054790999932161}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8724764036079252637 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8092458257788438940, guid: 08c24fd9152d0684cbe9940f37c56052, type: 3}
-  m_PrefabInstance: {fileID: 674054790999932161}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &875879531732225306
 PrefabInstance:
   m_ObjectHideFlags: 0

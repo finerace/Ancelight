@@ -6075,7 +6075,6 @@ GameObject:
   - component: {fileID: 3657638009890170101}
   - component: {fileID: 3657638009890170098}
   - component: {fileID: 3657638009890170102}
-  - component: {fileID: 3657638009890170105}
   m_Layer: 5
   m_Name: SuitManageMenu
   m_TagString: Untagged
@@ -6221,20 +6220,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4e6fb3dedab851f4e97c34379216a74d, type: 2}
   - {fileID: 2100000, guid: 8fd19d3fbc4c1be47b414668e51a249c, type: 2}
   - {fileID: 2100000, guid: d62d2e9b77f2c0846a79da6d50cb0fb3, type: 2}
-  unscaledTimeReferenceName: _unscaledTime
---- !u!114 &3657638009890170105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3657638009890170099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 115cdaa1860570d44aa1d47999fb0a2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  images: []
   unscaledTimeReferenceName: _unscaledTime
 --- !u!1 &3657638009904798771
 GameObject:

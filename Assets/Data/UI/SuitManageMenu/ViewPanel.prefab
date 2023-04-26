@@ -58,8 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 42010bba0f218894c975097bf5c3aa63, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.2783019, g: 0.6755667, b: 1, a: 0.8}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -71,9 +71,9 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.267
+  m_FillAmount: 0.309
   m_FillClockwise: 1
-  m_FillOrigin: 1
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2650584739964222894
@@ -346,10 +346,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e41b739a2e7d2fd45a1ea60c62b6a791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabledAnimations: 1
   buttonAnimations: {fileID: 8912023013459430866}
   onClickAction:
     m_PersistentCalls:
       m_Calls: []
+  onClickAudioData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  onEnterExitAudioData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
 --- !u!114 &8912023013459430866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +397,7 @@ MonoBehaviour:
   currentButtonAnimationState: 0
 --- !u!95 &2486129536395063111
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -383,7 +414,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &2650584741033853709
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,8 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 8e98d9496b7723346bfc36c3215f5e13, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.505, g: 0.77671194, b: 1, a: 0.5019608}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -518,8 +549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: c0321f6304205c94db6116a0bfab87c3, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.505, g: 0.77671194, b: 1, a: 0.5019608}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -594,15 +625,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 13f300e61abc4834db0a25f634ec093b, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7372549}
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.2783019, g: 0.6755667, b: 1, a: 0.101960786}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1c54293851e47014f9497ac104ea4b7c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -670,8 +701,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 42010bba0f218894c975097bf5c3aa63, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.34901962}
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.2783019, g: 0.6755667, b: 1, a: 0.4}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

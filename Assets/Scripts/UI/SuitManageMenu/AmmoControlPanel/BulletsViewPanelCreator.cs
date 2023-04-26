@@ -98,14 +98,27 @@ public class BulletsViewPanelCreator : MonoBehaviour
             
             void SetIconsAndColors()
             {
-                bulletViewPanelData.bulletImage.material.SetTexture(TargetTexture2, localBulletData.Icon.texture);
-                bulletViewPanelData.weaponImage.material.SetTexture(TargetTexture2,localWeaponData.Icon.texture);
-            
-                bulletViewPanelData.bulletImage.material.SetColor(MainColor, localWeaponData.MainColor);
-                bulletViewPanelData.weaponImage.material.SetColor(MainColor, localWeaponData.MainColor);
-            
-                bulletViewPanelData.bulletImage.material = new Material(bulletViewPanelData.bulletImage.material);
-                bulletViewPanelData.weaponImage.material = new Material(bulletViewPanelData.weaponImage.material);
+                bulletViewPanelData.bulletImage.sprite = localBulletData.Icon;
+                bulletViewPanelData.weaponImage.sprite = localWeaponData.Icon;
+
+                SetColorWithoutAlpha(bulletViewPanelData.bulletImage, localWeaponData.MainColor);
+                SetColorWithoutAlpha(bulletViewPanelData.weaponImage, localWeaponData.MainColor);
+
+                void SetColorWithoutAlpha(Image image, Color newColor)
+                {
+                    var resultColor = newColor;
+                    resultColor.a = image.color.a;
+
+                    var H = 1f;
+                    var S = 1f;
+                    var V = 1f;
+                    
+                    Color.RGBToHSV(resultColor, out H, out S, out V);
+                    resultColor = Color.HSVToRGB(H, 0.45f, V);
+                    
+                    image.color = resultColor;
+                }
+                
             }
 
         }

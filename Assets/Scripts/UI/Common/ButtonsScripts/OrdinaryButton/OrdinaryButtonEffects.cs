@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
@@ -16,6 +17,33 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
     private static readonly int UnscaledTimeReferenceID = Shader.PropertyToID("_unscaledTime");
     private static readonly int MainColorReferenceID = Shader.PropertyToID("_MainColor");
 
+    private void Start()
+    {
+        SetColors();
+        void SetColors()
+        {
+        
+            ImageMaterialSetNewIntensity(buttonBodyEmissionEffect);
+            ImageMaterialSetNewIntensity(buttonTriangleEmissionEffect);
+            ImageMaterialSetNewIntensity(buttonLinkEffect);
+
+            void ImageMaterialSetNewIntensity(Image item)
+            {
+                if(item == null)
+                    return;
+            
+                var newColor = buttonColor * effectsIntensity;
+
+                var newMaterial = new Material(item.material);
+
+                newMaterial.SetColor(MainColorReferenceID, newColor);
+
+                item.material = newMaterial;
+            }
+
+        }
+    }
+
     private void Update()
     {
         if(isUnscaledDeltaTimeButtonShadersAnimationOn)
@@ -25,8 +53,6 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
 
         DynamicEffectsIntensity();
     }
-
-    
     
     public void SetButtonColor()
     {
@@ -58,9 +84,9 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
             var newColor = color * effectsIntensity;
             
             var newMaterial = new Material(image.material);
-            
+
             newMaterial.SetColor(MainColorReferenceID, newColor);
-            
+
             AssetDatabase.CreateAsset(newMaterial, materialAssetCreatePath);
 
             image.material = newMaterial;
@@ -84,7 +110,7 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
         {
             var effectSetTime = mat.GetFloat(UnscaledTimeReferenceID) + Time.unscaledDeltaTime;
 
-            //mat.SetFloat(UnscaledTimeReferenceID, effectSetTime);
+            mat.SetFloat(UnscaledTimeReferenceID, effectSetTime);
         }
     }
 
@@ -102,11 +128,7 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
             
             var newColor = buttonColor * effectsIntensity;
 
-            var newMaterial = new Material(item.material);
-
-            newMaterial.SetColor(MainColorReferenceID, newColor);
-
-            item.material = newMaterial;
+            item.material.SetColor(MainColorReferenceID, newColor);
         }
 
     }

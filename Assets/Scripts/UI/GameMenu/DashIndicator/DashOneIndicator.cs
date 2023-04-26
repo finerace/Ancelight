@@ -47,7 +47,7 @@ public class DashOneIndicator : MonoBehaviour
 
     public void SetFillZoneEffectIntensity(float intensity)
     {
-        //dashDynamicElementMat.SetFloat("_Intensity", intensity);
+        dashDynamicElementMat.SetFloat("_Intensity", intensity);
     }
 
     public float GetFillZoneEffectIntensity()

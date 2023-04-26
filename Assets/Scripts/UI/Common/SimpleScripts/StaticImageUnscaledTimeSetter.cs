@@ -7,29 +7,24 @@ public class StaticImageUnscaledTimeSetter : MonoBehaviour
     [SerializeField] private string unscaledTimeReferenceName = "_unscaledTime";
     private bool oneUpdateBlock = false;
     
-    private void Update()
+    /*private void Update()
     {
                
         foreach (var localImage in images)
         {
-            // if (oneUpdateBlock)
-            // {
-            //     oneUpdateBlock = false;
-            //     return;
-            // }
+             if (oneUpdateBlock)
+             {
+                 oneUpdateBlock = false;
+                return;
+            }
 
-            var newMat = new Material(localImage.material);
-            
-            newMat.SetFloat(unscaledTimeReferenceName,Time.unscaledTime);
-            
-            Destroy(localImage.material);
-            
-            localImage.material = newMat;
+            localImage.material = new Material(localImage.material);
+            localImage.material.SetFloat(unscaledTimeReferenceName,Time.unscaledTime);
             
             oneUpdateBlock = true;
         }
         
-    }
+    }*/
     
     
 }

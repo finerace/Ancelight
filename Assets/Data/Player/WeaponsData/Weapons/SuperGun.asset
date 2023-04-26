@@ -16,7 +16,7 @@ MonoBehaviour:
   description: SUPER MEGA GUN
   icon: {fileID: 21300000, guid: 687451153fa9a6342a4e7b9b32600cd6, type: 3}
   id: 7
-  mainColor: {r: 0.4941435, g: 0.8509804, b: 0.16862743, a: 1}
+  mainColor: {r: 0.5806451, g: 1, b: 0.19815665, a: 1}
   damage: 10
   bulletID: 5
   raycast: 0
