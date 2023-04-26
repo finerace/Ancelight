@@ -58,9 +58,9 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
             var newColor = color * effectsIntensity;
             
             var newMaterial = new Material(image.material);
-
+            
             newMaterial.SetColor(MainColorReferenceID, newColor);
-
+            
             AssetDatabase.CreateAsset(newMaterial, materialAssetCreatePath);
 
             image.material = newMaterial;
@@ -84,7 +84,7 @@ public class OrdinaryButtonEffects : MonoBehaviour , ButtonEffects
         {
             var effectSetTime = mat.GetFloat(UnscaledTimeReferenceID) + Time.unscaledDeltaTime;
 
-            mat.SetFloat(UnscaledTimeReferenceID, effectSetTime);
+            //mat.SetFloat(UnscaledTimeReferenceID, effectSetTime);
         }
     }
 

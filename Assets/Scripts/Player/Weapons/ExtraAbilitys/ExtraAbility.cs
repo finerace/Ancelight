@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public abstract class ExtraAbility : MonoBehaviour
 {
-    internal PlayerWeaponsManager weaponsManager;
+    /*internal PlayerWeaponsManager weaponsManager;
     [SerializeField] internal bool isDelay;
     [SerializeField] internal bool isAttack;
     private float delayTime;
@@ -52,6 +52,6 @@ public abstract class ExtraAbility : MonoBehaviour
     internal void OnDestroy()
     {
         UnsubAbility();
-    }
+    }*/
 
 }

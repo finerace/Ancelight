@@ -162,11 +162,6 @@ public class PlayerSoundsService : MonoBehaviour
             playerMainService.immediatelyProtectionService.UseEvent += ImmediatelyProtectionUseSoundCast;
         }
 
-        AbilityUseSoundCastToEvent();
-        void AbilityUseSoundCastToEvent()
-        {
-            playerWeaponsManager.AbilityUseEvent += AbilityUseSoundCast;
-        }
     }
 
     private void Update()
@@ -548,16 +543,6 @@ public class PlayerSoundsService : MonoBehaviour
         audioPoolService.CastAudio(soundData);
     }
 
-    private void AbilityUseSoundCast()
-    {
-        var abilitySoundData = playerWeaponsManager.SelectedAbilityData.AbilityUseSound;
-        
-        abilitySoundData.castParent = playerMovement.Body;
-        abilitySoundData.castPos = playerMovement.Body.position;
-
-        audioPoolService.CastAudio(abilitySoundData);
-    }
-    
     public void SetNewWalkZone(PlayerWalkZone newWalkZone)
     {
         playerWalkZone = newWalkZone;

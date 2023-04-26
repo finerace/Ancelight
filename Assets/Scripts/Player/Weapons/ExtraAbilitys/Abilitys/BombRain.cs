@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BombRain : ExtraAbility
 {
-    [SerializeField] private GameObject miniBombPrefab;
+    /*[SerializeField] private GameObject miniBombPrefab;
     [SerializeField] private Transform[] miniBombsDirections;
     [SerializeField] private int bombsAttackCount = 3;
     [SerializeField] private float bombsFlyPower = 3f;
@@ -56,5 +56,6 @@ public class BombRain : ExtraAbility
 
         base.LaunchAbility();
     }
+    */
 
 }

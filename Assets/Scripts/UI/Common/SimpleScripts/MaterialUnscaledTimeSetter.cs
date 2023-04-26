@@ -15,11 +15,9 @@ public class MaterialUnscaledTimeSetter : MonoBehaviour
         {
             var unscaledTime = Time.unscaledTime;
 
-            var newLocalMaterial = new Material(localMaterial);
-
+            //var newLocalMaterial = new Material(localMaterial);
             
-            
-            localMaterial.SetFloat(unscaledTimeReferenceName, unscaledTime);
+            //localMaterial.SetFloat(unscaledTimeReferenceName, unscaledTime);
         }
     }
 
@@ -27,7 +25,7 @@ public class MaterialUnscaledTimeSetter : MonoBehaviour
     {
         foreach (var localMaterial in materials)
         {
-            localMaterial.SetFloat(unscaledTimeReferenceName, 0);
+            //localMaterial.SetFloat(unscaledTimeReferenceName, 0);
         }
     }
 }

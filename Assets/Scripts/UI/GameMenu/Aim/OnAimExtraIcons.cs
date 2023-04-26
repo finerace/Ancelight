@@ -11,7 +11,6 @@ public class OnAimExtraIcons : MonoBehaviour
     private Material weaponIconMaterial;
     private Material abilityIconMaterial;
     [SerializeField] private bool isOnweaponIcon;
-    [SerializeField] private bool isOnabilityIcon;
     [Space]
     [SerializeField] private float weaponIconDisappearSpeed;
     [SerializeField] private float abilityIconDisappearSpeed;
@@ -27,7 +26,6 @@ public class OnAimExtraIcons : MonoBehaviour
         abilityIcon.material = abilityIconMaterial;
 
         weaponsManager.SubWeaponChangeUseButtonEvent(UpdateWeaponIcon);
-        weaponsManager.extraAbilityChangeEvent.AddListener(UpdateAbilityIcon);
 
     }
 
@@ -77,19 +75,6 @@ public class OnAimExtraIcons : MonoBehaviour
                 setColor = nowWeaponData.MainColor;
 
             weaponIconMaterial.SetColor("_MainColor", setColor);
-        }
-    }
-
-    private void UpdateAbilityIcon()
-    {
-        if (isOnabilityIcon)
-        {
-            ExtraAbilityData newAbilityData = weaponsManager.SelectedAbilityData;
-
-            abilityIcon.sprite = newAbilityData.Icon;
-
-            abilityIcon.color =
-                new Color(abilityIcon.color.r, abilityIcon.color.g, abilityIcon.color.b, 1f);
         }
     }
 

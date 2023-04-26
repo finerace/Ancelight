@@ -68,15 +68,13 @@ public class SettingsSetSystem : MonoBehaviour
             await Task.Delay(100);
             SetSoundSettings();
         }
-        
-        if(mainMenuMode)
-            return;
 
         SetBuildInSettings();
         
         SetUrpAssetSettings();
         
-        SetControlsSettings();
+        if(!mainMenuMode)
+            SetControlsSettings();
         
         SetOtherSettings();
 
@@ -446,15 +444,14 @@ public class SettingsSetSystem : MonoBehaviour
         
         void SetOtherSettings()
         {
-            SetGrassSettings();
+            if(!mainMenuMode)
+                SetGrassSettings();
             
             SetEnemyPartsSettings();
 
             SetFieldOfView();
             
             SetScreenResolutionAndFormat();
-            
-            SetScreenFormat();
             
             SetLanguage();
             
@@ -529,7 +526,18 @@ public class SettingsSetSystem : MonoBehaviour
             void SetScreenResolutionAndFormat()
             {
                 var resolution = (1920,1080);
+                
+                var screenFormat = FullScreenMode.FullScreenWindow;
 
+                screenFormat = settingsData.GraphicsSettingsData.ScreenFormat switch
+                {
+                    0 => FullScreenMode.FullScreenWindow,
+                    1 => FullScreenMode.ExclusiveFullScreen,
+                    2 => FullScreenMode.MaximizedWindow,
+                    3 => FullScreenMode.Windowed,
+                    _ => throw new IndexOutOfRangeException()
+                };
+                
                 resolution =
                     settingsData.GraphicsSettingsData.ScreenResolution switch
                     {
@@ -550,27 +558,9 @@ public class SettingsSetSystem : MonoBehaviour
                         _ => throw new ArgumentOutOfRangeException()
                     };
 
-                Screen.SetResolution(resolution.Item1,resolution.Item2,Screen.fullScreenMode);
-                print(resolution);
+                Screen.SetResolution(resolution.Item1,resolution.Item2,screenFormat);
             }
-
-            void SetScreenFormat()
-            {
-                var screenFormat = FullScreenMode.Windowed;
-
-                screenFormat = settingsData.GraphicsSettingsData.ScreenFormat switch
-                {
-                    0 => FullScreenMode.FullScreenWindow,
-                    1 => FullScreenMode.ExclusiveFullScreen,
-                    2 => FullScreenMode.MaximizedWindow,
-                    3 => FullScreenMode.Windowed,
-                    _ => throw new IndexOutOfRangeException()
-                };
-                
-                Screen.SetResolution(Screen.width,Screen.height,screenFormat);
-                print(screenFormat.ToString());
-            }
-
+            
             void SetLanguage()
             {
                 FindObjectOfType<CurrentLanguageData>().SetLanguageData(settingsData.GraphicsSettingsData.Language);

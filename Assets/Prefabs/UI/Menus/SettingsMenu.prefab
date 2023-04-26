@@ -1507,7 +1507,7 @@ MonoBehaviour:
     m_Options:
     - m_Text: Fullscreen Window
       m_Image: {fileID: 0}
-    - m_Text: Exclusive Window
+    - m_Text: Exclusive Fullscreen
       m_Image: {fileID: 0}
     - m_Text: Maximized Window
       m_Image: {fileID: 0}
@@ -3990,11 +3990,11 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: 1680x1050 (16:10) WSXGA+
       m_Image: {fileID: 0}
-    - m_Text: 1920x1080 (16:9) Full HD/1080p
+    - m_Text: 1920x1080 (16:9) 1080p
       m_Image: {fileID: 0}
-    - m_Text: 2560x1440 (16:9) 1440p/WQHD
+    - m_Text: 2560x1440 (16:9) 1440p
       m_Image: {fileID: 0}
-    - m_Text: 3840x2160 (16:9) 4K/Ultra HD
+    - m_Text: 3840x2160 (16:9) 4K
       m_Image: {fileID: 0}
     - m_Text: 5120x2880 (16:9) 5K
       m_Image: {fileID: 0}
@@ -7890,7 +7890,7 @@ MonoBehaviour:
       - m_Target: {fileID: 7383893246926256903}
         m_TargetAssemblyTypeName: SettingsSaveLoadSystem, Assembly-CSharp
         m_MethodName: SaveSettings
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -35107,6 +35107,75 @@ MonoBehaviour:
   openSuitManageMenuButton: {fileID: 208233545930422466}
   saveLevelButton: {fileID: 7469511434364805512}
   mouseSensitivity: {fileID: 8369136376849117019}
+  defaultSettings:
+    soundsSettingsData:
+      masterVolumeValue: 35
+      musicVolumeValue: 50
+      effectsVolumeValue: 50
+      ambientVolumeValue: 50
+      uiVolumeValue: 30
+      musicQuality: 1
+      maxSoundsCountValue: 128
+    graphicsSettingsData:
+      texturesQuality: 2
+      anisotropicTexturesQuality: 1
+      shadowsResolutionQuality: 3
+      shadowDistance: 50
+      softShadows: 1
+      ssao: 1
+      msaaQuality: 2
+      antiAliasingQuality: 1
+      grassQuality: 1
+      grassDrawingDistance: 128
+      plantsQuality: 2
+      enemyPartsQuality: 0
+      timeOfDestructionOfParts: 60
+      drawingDistanceCoof: 1
+      vsync: 0
+      fieldOfView: 85
+      screenResolution: 9
+      screenFormat: 1
+      language: 0
+    controlsSettingsData:
+      forwardButton: 119
+      forwardButtonMouseWheelMove: 0
+      backButton: 115
+      backButtonMouseWheelMove: 0
+      leftButton: 97
+      leftButtonMouseWheelMove: 0
+      rightButton: 100
+      rightButtonMouseWheelMove: 0
+      jumpButton: 32
+      jumpButtonMouseWheelMove: 0
+      crouchButton: 306
+      crouchButtonMouseWheelMove: 0
+      dashButton: 304
+      dashButtonMouseWheelMove: 0
+      shootingButton: 323
+      shootingButtonMouseWheelMove: 0
+      useProtectionButton: 113
+      useProtectionButtonMouseWheelMove: 0
+      nextWeaponButton: 0
+      nextButtonMouseWheelMove: 1
+      previousWeaponButton: 0
+      previousButtonMouseWheelMove: 0
+      useHookButton: 324
+      useHookButtonMouseWheelMove: 0
+      useItemButton: 102
+      useItemButtonMouseWheelMove: 0
+      nextAbilityButton: 0
+      nextAbilityButtonMouseWheelMove: 0
+      previousAbilityButton: 0
+      previousAbilityButtonMouseWheelMove: 0
+      useAbilityButton: 0
+      useAbilityButtonMouseWheelMove: 0
+      useEnemyCleanerButton: 325
+      useEnemyCleanerButtonMouseWheelMove: 0
+      openSuitManageMenuButton: 101
+      openSuitManageMenuButtonMouseWheelMove: 0
+      saveLevelButton: 287
+      saveLevelButtonMouseWheelMove: 0
+      mouseSensitivity: 1
 --- !u!114 &5974552489306054602
 MonoBehaviour:
   m_ObjectHideFlags: 0

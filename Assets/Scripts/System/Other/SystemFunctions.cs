@@ -32,7 +32,7 @@ public class SystemFunctions : MonoBehaviour
         {
             while (true)
             {
-                Resources.UnloadUnusedAssets();
+                //Resources.UnloadUnusedAssets();
                 
                 yield return waitCooldown;
             }

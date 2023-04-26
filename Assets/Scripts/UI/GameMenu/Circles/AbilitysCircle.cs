@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AbilitysCircle : MonoBehaviour
 {
-    [SerializeField] private PlayerWeaponsManager weaponsManager;
+    /*[SerializeField] private PlayerWeaponsManager weaponsManager;
     [SerializeField] private Image mainImage;
     [SerializeField] private Sprite nullIcon;
     [SerializeField] private Image mainCircle;
@@ -106,6 +106,6 @@ public class AbilitysCircle : MonoBehaviour
         effectMaterial.SetColor(name,color);
         effectMaterial.SetFloat("_Brightness", 0.2f);
         iconMaterial.SetColor(name, color);
-    }
+    }*/
 
 }

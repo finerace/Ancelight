@@ -48,7 +48,6 @@ public class LanguageData : ScriptableObject
     
     public string GetText(int textId)
     {
-        Debug.Log(textlines[textId-1] == null);
         return textlines[textId - 1];
     }
     

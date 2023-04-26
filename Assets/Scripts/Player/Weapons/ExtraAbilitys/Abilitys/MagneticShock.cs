@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MagneticShock : ExtraAbility
 {
-    [SerializeField] private Transform shockPosition;
+    /*[SerializeField] private Transform shockPosition;
     [SerializeField] private MeshRenderer shockEffectRenderer;
     [SerializeField] private float shockEffectStartFresnelEffect;
     [SerializeField] private float shockEffectEndFresnelEffect;
@@ -81,6 +81,6 @@ public class MagneticShock : ExtraAbility
         Destroy(shockWaveParticls.gameObject);
         Destroy(shockPosition.gameObject);
         base.OnDestroy();
-    }
+    }*/
 
 }

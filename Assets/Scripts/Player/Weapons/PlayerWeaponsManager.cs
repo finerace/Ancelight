@@ -110,23 +110,6 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
      }*/
      
     [Space]
-    [HideInInspector] public UnityEvent extraAbilityUseEvent;
-    [HideInInspector] public UnityEvent extraAbilityChangeEvent;
-    [SerializeField] private List<ExtraAbilityData> abilityDatas = new List<ExtraAbilityData>();
-    public List<ExtraAbilityData> AbilityDatas { get { return abilityDatas; } }
-
-    [SerializeField] private List<int> abilityUnlockedIDs = new List<int>(32);
-    [SerializeField] private List<int> abilityInDelayIDs = new List<int>(16);
-    [SerializeField] private ExtraAbilityData selectedAbilityData;
-    [HideInInspector] [SerializeField] private ExtraAbility selectedAbility;
-    public ExtraAbility SelectedAbility { get { return selectedAbility; } }
-
-    public ExtraAbilityData SelectedAbilityData { get { return selectedAbilityData; } }
-
-    [HideInInspector] [SerializeField] private int selectedAbilityNum;
-    [HideInInspector] [SerializeField] private GameObject nowAbilityPrefab;
-
-    [HideInInspector] [SerializeField] private bool extraAbilityOneClickState = false;
     private bool isThereAnyBullets;
 
     private bool isManageActive = true;
@@ -148,14 +131,12 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     
     private void Start()
     {
-        abilityUnlockedIDs.Sort();
         ShotEvent += () => {bulletsManager.SubtractOneBullet(selectedWeaponData.BulletsID);};
 
         layerMaskRayCastMode = 
             GameObject.Find("LayerMasks").GetComponent<LayerMasks>().PlayerShootingLayerMask;
 
         SetSelectedWeapon(selectedWeaponID);
-        SetSelectedAbility(selectedAbilityNum);
     }
     
     private void Update()
@@ -252,36 +233,8 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
         }
 
         currentBulletsCount = bulletsManager.GetBulletsCount(selectedWeaponData.BulletsID);
-
-        if (AbilityDelayTest(selectedAbilityData.Id))
-        {
-            if (useAbility && !extraAbilityOneClickState)
-            {
-                extraAbilityUseEvent.Invoke();
-                AbilityDelay();
-
-                extraAbilityOneClickState = true;
-                
-                if(abilityUseEvent != null)
-                    abilityUseEvent.Invoke();
-            }
-            else if (!useAbility) extraAbilityOneClickState = false;
-        }
-
-        if (!selectedAbility.isAttack)
-        {
-            if (nextAbilityButton.IsGetButtonDown())
-            {
-                NextAbility();
-            }
-
-            if (previousAbilityButton.IsGetButtonDown())
-            {
-                PreviousAbility();
-            }
-        }
         
-        if (!isWeaponInCooldown && !IsAttacking)
+        if (!isWeaponInCooldown)
         {
             if (mouseWheel < 0)
                 PreviousWeapon();
@@ -431,9 +384,6 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
             if (selectedWeapon >= weaponsUnlockedIDs.Count)
                 selectedWeapon = 0;
 
-            if (selectedAbilityNum <= 0)
-                selectedAbilityNum = weaponsUnlockedIDs.Count-1;
-
             var oldWeaponDataId = 0;
             if(selectedWeaponData != null)
                 oldWeaponDataId = selectedWeaponData.Id;
@@ -461,95 +411,6 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
         }
 
         throw new Exception($"?????? ??? ???? {id} ?? ???????!");
-    }
-
-    private void InitializedAbilitysFields() //????????????? ????? ??? ????? ???. ????????????
-    {
-        abilityUnlockedIDs.Sort();
-        Destroy(nowAbilityPrefab);
-        nowAbilityPrefab = Instantiate(selectedAbilityData.AbilityPrefab, transform);
-        selectedAbility = nowAbilityPrefab.GetComponent<ExtraAbility>();
-
-        extraAbilityChangeEvent.Invoke();
-    }
-
-    private void NextAbility()
-    {
-        return;
-        if (abilityUnlockedIDs.Count >= 1)
-        {
-            selectedAbilityNum++;
-
-            if (selectedAbilityNum >= abilityUnlockedIDs.Count)
-                selectedAbilityNum = 0;
-
-            selectedAbilityData = FindAbilityID(abilityUnlockedIDs[selectedAbilityNum]);
-            InitializedAbilitysFields();
-        }
-    }
-
-    private void PreviousAbility()
-    {
-        return;
-        if (abilityUnlockedIDs.Count >= 1)
-        {
-            --selectedAbilityNum;
-
-            if (selectedAbilityNum < 0)
-                selectedAbilityNum = abilityUnlockedIDs.Count - 1;
-
-            selectedAbilityData = FindAbilityID(abilityUnlockedIDs[selectedAbilityNum]);
-            InitializedAbilitysFields();
-        }
-    }
-
-    private void SetSelectedAbility(int num)
-    {
-        if (abilityUnlockedIDs.Count >= 1)
-        {
-            selectedAbilityNum = num;
-
-            if (selectedAbilityNum < 0)
-                selectedAbilityNum = abilityUnlockedIDs.Count - 1;
-
-            if (selectedAbilityNum >= abilityUnlockedIDs.Count)
-                selectedAbilityNum = 0;
-
-            selectedAbilityData = FindAbilityID(abilityUnlockedIDs[selectedAbilityNum]);
-            InitializedAbilitysFields();
-        }
-    }
-
-    public ExtraAbilityData FindAbilityID(int id)
-    {
-        for (int i = 0; i < abilityDatas.Count; i++)
-        {
-            if (abilityDatas[i].Id == id)
-                return abilityDatas[i];
-        }
-
-        throw new Exception($"??????????? ??? ???? {id} ?? ???????!");
-    }
-
-    private void AbilityDelay()
-    {
-        abilityInDelayIDs.Add(selectedAbilityData.Id);
-        int abilityDeleteId = selectedAbilityData.Id;
-        StartCoroutine(DelayTimer(selectedAbilityData.DelayTime));
-
-        IEnumerator DelayTimer(float time)
-        {
-            yield return new WaitForSeconds(time);
-            abilityInDelayIDs.Remove(abilityDeleteId);
-        }
-    }
-
-    public bool AbilityDelayTest(int id)
-    {
-        foreach (var item in abilityInDelayIDs)
-            if (id == item)
-                return false;
-        return true;
     }
 
     public void StartAttack()

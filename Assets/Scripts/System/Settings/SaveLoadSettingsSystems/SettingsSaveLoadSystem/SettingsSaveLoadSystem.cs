@@ -73,12 +73,16 @@ public class SettingsSaveLoadSystem : MonoBehaviour
     private const string saveFileName = "SettingsSave.bob";
     private string saveFilePath;
 
+    [Space] 
+    
+    [SerializeField] private SettingsData defaultSettings;
+
     public void Awake()
     {
         saveFilePath = Application.persistentDataPath + "/";
     }
 
-    public void SaveSettings()
+    public void SaveSettings(bool isFirstSave = false)
     {
         SettingsData.SettingsSoundsData soundsData;
         SettingsData.SettingsGraphicsData graphicsData;
@@ -87,7 +91,16 @@ public class SettingsSaveLoadSystem : MonoBehaviour
         (soundsData, graphicsData, controlsData) = CreateSettingsData();
 
         var mainSettingsData = new SettingsData(soundsData, graphicsData, controlsData);
-        
+
+        if (isFirstSave)
+        {
+            mainSettingsData = defaultSettings;   
+            SaveToFile();
+            LoadSettings();
+            
+            return;
+        }
+
         SaveToFile();
         
         void SaveToFile()
@@ -112,7 +125,7 @@ public class SettingsSaveLoadSystem : MonoBehaviour
 
         if (!saveFileIsExists)
         {
-            SaveSettings();
+            SaveSettings(true);
         }
 
         var binaryFormatter = new BinaryFormatter();
@@ -456,11 +469,11 @@ public class SettingsSaveLoadSystem : MonoBehaviour
 [Serializable]
 public class SettingsData
 {
-    private SettingsSoundsData soundsSettingsData;
+    [SerializeField] private SettingsSoundsData soundsSettingsData;
 
-    private SettingsGraphicsData graphicsSettingsData;
+    [SerializeField] private SettingsGraphicsData graphicsSettingsData;
 
-    private SettingsControlsData controlsSettingsData;
+    [SerializeField] private SettingsControlsData controlsSettingsData;
 
     public SettingsSoundsData SoundsSettingsData => soundsSettingsData;
 
@@ -481,13 +494,13 @@ public class SettingsData
     [Serializable]
     public class SettingsSoundsData
     {
-        private float masterVolumeValue;
-        private float musicVolumeValue;
-        private float effectsVolumeValue;
-        private float ambientVolumeValue;
-        private float uiVolumeValue;
-        private int musicQuality;
-        private float maxSoundsCountValue;
+        [SerializeField] private float masterVolumeValue;
+        [SerializeField] private float musicVolumeValue;
+        [SerializeField] private float effectsVolumeValue;
+        [SerializeField] private float ambientVolumeValue;
+        [SerializeField] private float uiVolumeValue;
+        [SerializeField] private int musicQuality;
+        [SerializeField] private float maxSoundsCountValue;
 
         public float MasterVolumeValue => masterVolumeValue;
         public float MusicVolumeValue => musicVolumeValue;
@@ -511,31 +524,31 @@ public class SettingsData
     [Serializable]
     public class SettingsGraphicsData
     {
-        private int texturesQuality;
-        private int anisotropicTexturesQuality;
+        [SerializeField] private int texturesQuality;
+        [SerializeField] private int anisotropicTexturesQuality;
 
-        private int shadowsResolutionQuality;
-        private float shadowDistance;
-        private bool softShadows;
-        private bool ssao;
+        [SerializeField] private int shadowsResolutionQuality;
+        [SerializeField] private float shadowDistance;
+        [SerializeField] private bool softShadows;
+        [SerializeField] private bool ssao;
 
-        private int msaaQuality;
-        private int antiAliasingQuality;
+        [SerializeField] private int msaaQuality;
+        [SerializeField] private int antiAliasingQuality;
 
-        private int grassQuality;
-        private float grassDrawingDistance;
+        [SerializeField] private int grassQuality;
+        [SerializeField] private float grassDrawingDistance;
 
-        private int plantsQuality;
-        private int enemyPartsQuality;
-        private float timeOfDestructionOfParts;
+        [SerializeField] private int plantsQuality;
+        [SerializeField] private int enemyPartsQuality;
+        [SerializeField] private float timeOfDestructionOfParts;
 
-        private float drawingDistanceCoof;
-        private bool vsync;
+        [SerializeField] private float drawingDistanceCoof;
+        [SerializeField] private bool vsync;
 
-        private float fieldOfView;
-        private int screenResolution;
-        private int screenFormat;
-        private int language;
+        [SerializeField] private float fieldOfView;
+        [SerializeField] private int screenResolution;
+        [SerializeField] private int screenFormat;
+        [SerializeField] private int language;
         
         public int TexturesQuality => texturesQuality;
 
@@ -601,64 +614,64 @@ public class SettingsData
     [Serializable]
     public class SettingsControlsData
     {
-        private KeyCode forwardButton;
-        private bool forwardButtonMouseWheelMove;
-        
-        private KeyCode backButton;
-        private bool backButtonMouseWheelMove;
+        [SerializeField] private KeyCode forwardButton;
+        [SerializeField] private bool forwardButtonMouseWheelMove;
 
-        private KeyCode leftButton;
-        private bool leftButtonMouseWheelMove;
+        [SerializeField] private KeyCode backButton;
+        [SerializeField] private bool backButtonMouseWheelMove;
 
-        private KeyCode rightButton;
-        private bool rightButtonMouseWheelMove;
+        [SerializeField] private KeyCode leftButton;
+        [SerializeField] private bool leftButtonMouseWheelMove;
 
-        private KeyCode jumpButton;
-        private bool jumpButtonMouseWheelMove;
+        [SerializeField] private KeyCode rightButton;
+        [SerializeField] private bool rightButtonMouseWheelMove;
 
-        private KeyCode crouchButton;
-        private bool crouchButtonMouseWheelMove;
+        [SerializeField] private KeyCode jumpButton;
+        [SerializeField] private bool jumpButtonMouseWheelMove;
 
-        private KeyCode dashButton;
-        private bool dashButtonMouseWheelMove;
+        [SerializeField] private KeyCode crouchButton;
+        [SerializeField] private bool crouchButtonMouseWheelMove;
 
-        private KeyCode shootingButton;
-        private bool shootingButtonMouseWheelMove;
+        [SerializeField] private KeyCode dashButton;
+        [SerializeField] private bool dashButtonMouseWheelMove;
         
-        private KeyCode useProtectionButton;
-        private bool useProtectionButtonMouseWheelMove;
-        
-        private KeyCode nextWeaponButton;
-        private bool nextButtonMouseWheelMove;
+        [SerializeField] private KeyCode shootingButton;
+        [SerializeField] private bool shootingButtonMouseWheelMove;
 
-        private KeyCode previousWeaponButton;
-        private bool previousButtonMouseWheelMove;
-        
-        private KeyCode useHookButton;
-        private bool useHookButtonMouseWheelMove;
+        [SerializeField] private KeyCode useProtectionButton;
+        [SerializeField] private bool useProtectionButtonMouseWheelMove;
 
-        private KeyCode useItemButton;
-        private bool useItemButtonMouseWheelMove;
-        
-        private KeyCode nextAbilityButton;
-        private bool nextAbilityButtonMouseWheelMove;
-        
-        private KeyCode previousAbilityButton;
-        private bool previousAbilityButtonMouseWheelMove;
-        
-        private KeyCode useAbilityButton;
-        private bool useAbilityButtonMouseWheelMove;
-        
-        private KeyCode useEnemyCleanerButton;
-        private bool useEnemyCleanerButtonMouseWheelMove;
-        
-        private KeyCode openSuitManageMenuButton;
-        private bool openSuitManageMenuButtonMouseWheelMove;
-        
-        private KeyCode saveLevelButton;
-        private bool saveLevelButtonMouseWheelMove;
+        [SerializeField] private KeyCode nextWeaponButton;
+        [SerializeField] private bool nextButtonMouseWheelMove;
 
-        private float mouseSensitivity;
+        [SerializeField] private KeyCode previousWeaponButton;
+        [SerializeField] private bool previousButtonMouseWheelMove;
+
+        [SerializeField] private KeyCode useHookButton;
+        [SerializeField] private bool useHookButtonMouseWheelMove;
+
+        [SerializeField] private KeyCode useItemButton;
+        [SerializeField] private bool useItemButtonMouseWheelMove;
+
+        [SerializeField] private KeyCode nextAbilityButton;
+        [SerializeField] private bool nextAbilityButtonMouseWheelMove;
+
+        [SerializeField] private KeyCode previousAbilityButton;
+        [SerializeField] private bool previousAbilityButtonMouseWheelMove;
+
+        [SerializeField] private KeyCode useAbilityButton;
+        [SerializeField] private bool useAbilityButtonMouseWheelMove;
+
+        [SerializeField] private KeyCode useEnemyCleanerButton;
+        [SerializeField] private bool useEnemyCleanerButtonMouseWheelMove;
+
+        [SerializeField] private KeyCode openSuitManageMenuButton;
+        [SerializeField] private bool openSuitManageMenuButtonMouseWheelMove;
+
+        [SerializeField] private KeyCode saveLevelButton;
+        [SerializeField] private bool saveLevelButtonMouseWheelMove;
+
+        [SerializeField] private float mouseSensitivity;
 
         public KeyCode ForwardButton => forwardButton;
 

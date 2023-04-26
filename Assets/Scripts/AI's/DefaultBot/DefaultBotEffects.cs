@@ -75,7 +75,7 @@ public class DefaultBotEffects : MonoBehaviour
         }
 
         nowBright = Mathf.Lerp(nowBright, botCurrentBright, stepBright);
-        mainMaterial.SetFloat("Brightness", nowBright);
+        //mainMaterial.SetFloat("Brightness", nowBright);
     }
 
     public virtual void PlayHitParticle(Vector3 pos)

@@ -22,6 +22,8 @@ public class StaticImageUnscaledTimeSetter : MonoBehaviour
             
             newMat.SetFloat(unscaledTimeReferenceName,Time.unscaledTime);
             
+            Destroy(localImage.material);
+            
             localImage.material = newMat;
             
             oneUpdateBlock = true;
