@@ -160,6 +160,14 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
         else
             fire1 = 0;
 
+        if (!isWeaponInCooldown && !isAttacking)
+        {
+            if (mouseWheel < 0)
+                PreviousWeapon();
+
+            else if (mouseWheel > 0)
+                NextWeapon();
+        }
     }
 
     private void FixedUpdate()
@@ -245,15 +253,6 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
         }
 
         currentBulletsCount = bulletsManager.GetBulletsCount(selectedWeaponData.BulletsID);
-        
-        if (!isWeaponInCooldown && !isAttacking)
-        {
-            if (mouseWheel < 0)
-                PreviousWeapon();
-
-            else if (mouseWheel > 0)
-                NextWeapon();
-        }
     }
 
     private void InitializedWeaponsFields()
