@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 6667428153909992911}
   - component: {fileID: 5634615654857053979}
   - component: {fileID: 6667428153909992910}
+  - component: {fileID: 5353523992396884047}
   m_Layer: 16
   m_Name: LargeBluePlasmaTank
   m_TagString: Untagged
@@ -301,6 +302,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &5353523992396884047
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667428153909992913}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.020929337, y: 0.28121063, z: -0.08539975}
+  m_Size: 2.1843767
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.017332219
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6667428153664310651}
+    - renderer: {fileID: 6667428155595670792}
+    - renderer: {fileID: 6667428154788391300}
+  - screenRelativeHeight: 0.0023671417
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6667428154713585262}
+  m_Enabled: 1
 --- !u!1 &6667428154251307976
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +336,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6667428154251307972}
-  - component: {fileID: 6667428154251307975}
   m_Layer: 16
   m_Name: TankMesh
   m_TagString: Untagged
@@ -335,29 +360,6 @@ Transform:
   m_Father: {fileID: 6667428153594893965}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -10, y: 0, z: 0}
---- !u!205 &6667428154251307975
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6667428154251307976}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 0.8
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.017332219
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 6667428153664310651}
-  - screenRelativeHeight: 0.0023671417
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 6667428154713585262}
-  m_Enabled: 1
 --- !u!1 &6667428154713585265
 GameObject:
   m_ObjectHideFlags: 0

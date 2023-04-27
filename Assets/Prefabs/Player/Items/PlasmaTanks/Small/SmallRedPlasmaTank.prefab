@@ -73,7 +73,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9005370535082448150}
-  - component: {fileID: 9005370535082448149}
   m_Layer: 16
   m_Name: TankMesh
   m_TagString: Untagged
@@ -98,29 +97,6 @@ Transform:
   m_Father: {fileID: 9005370536235968192}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -10, y: 0, z: 0}
---- !u!205 &9005370535082448149
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9005370535082448146}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 0.8
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.017332219
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 9005370535207985314}
-  - screenRelativeHeight: 0.0023671417
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 9005370535626610374}
-  m_Enabled: 1
 --- !u!1 &9005370535207985313
 GameObject:
   m_ObjectHideFlags: 0
@@ -10031,6 +10007,7 @@ GameObject:
   - component: {fileID: 9005370536926214341}
   - component: {fileID: 2443459217135228541}
   - component: {fileID: 9005370536926214340}
+  - component: {fileID: 72025926170328244}
   m_Layer: 16
   m_Name: SmallRedPlasmaTank
   m_TagString: Untagged
@@ -10139,3 +10116,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &72025926170328244
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9005370536926214339}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0756225, y: 0.24680138, z: -0.09308162}
+  m_Size: 1.4546883
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.017332219
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 9005370535207985314}
+    - renderer: {fileID: 9005370535888972055}
+    - renderer: {fileID: 9005370536133697959}
+  - screenRelativeHeight: 0.0023671417
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 9005370535626610374}
+  m_Enabled: 1

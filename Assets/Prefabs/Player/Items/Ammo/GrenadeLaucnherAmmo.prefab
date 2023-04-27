@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 8683555808550683561}
   - component: {fileID: 8683555808550683560}
   - component: {fileID: 8683555808550683563}
+  - component: {fileID: 2527950935065951678}
   m_Layer: 16
   m_Name: GrenadeLaucnherAmmo
   m_TagString: Untagged
@@ -235,6 +236,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &2527950935065951678
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8683555808550683562}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.01349926, y: 0.25083998, z: -0.052502573}
+  m_Size: 2
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.027663637
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8683555808536038476}
+    - renderer: {fileID: 8683555809872824307}
+  - screenRelativeHeight: 0.00390625
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8683555810228387316}
+  m_Enabled: 1
 --- !u!1 &8683555809852182031
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +269,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8683555809852182028}
-  - component: {fileID: 8683555809852182029}
   m_Layer: 16
   m_Name: AmmoMesh
   m_TagString: Untagged
@@ -269,29 +293,6 @@ Transform:
   m_Father: {fileID: 8683555808336791488}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &8683555809852182029
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8683555809852182031}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.0000038146973, y: 0.39999977, z: 0}
-  m_Size: 0.80000055
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.021292148
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 8683555808536038476}
-  - screenRelativeHeight: 0.00390625
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 8683555810228387316}
-  m_Enabled: 1
 --- !u!1 &8683555809872824269
 GameObject:
   m_ObjectHideFlags: 0

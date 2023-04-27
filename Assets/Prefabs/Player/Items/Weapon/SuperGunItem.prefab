@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 2873122594748301342}
   - component: {fileID: -1153062798401308406}
   - component: {fileID: 2873122594748301341}
+  - component: {fileID: 6620854272388510922}
   m_Layer: 16
   m_Name: SuperGunItem
   m_TagString: Untagged
@@ -321,6 +322,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &6620854272388510922
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2873122594748301340}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.06434941, y: 0.13910306, z: -0.03780222}
+  m_Size: 2.5571823
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.005616148
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 912714941991776994}
+    - renderer: {fileID: 912714941725700043}
+    - renderer: {fileID: 2873122594848762130}
+    - renderer: {fileID: 2873122595475381744}
+    - renderer: {fileID: 2873122596652904661}
+  m_Enabled: 1
 --- !u!1 &2873122594848762128
 GameObject:
   m_ObjectHideFlags: 0

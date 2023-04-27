@@ -9952,6 +9952,7 @@ GameObject:
   - component: {fileID: 8971180476906227827}
   - component: {fileID: -4493678770378796508}
   - component: {fileID: 8971180476906227836}
+  - component: {fileID: 1093892418066952399}
   m_Layer: 16
   m_Name: VintovkaItem
   m_TagString: Untagged
@@ -10061,6 +10062,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &1093892418066952399
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8971180476906227824}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.02049756, y: 0.19917172, z: -0.027667046}
+  m_Size: 2.5195656
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.005616148
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7215117842566080626}
+    - renderer: {fileID: 8971180475947261622}
+    - renderer: {fileID: 8971180476433227205}
+    - renderer: {fileID: 8971180477807367789}
+  m_Enabled: 1
 --- !u!1 &8971180477807367778
 GameObject:
   m_ObjectHideFlags: 0

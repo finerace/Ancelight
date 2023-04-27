@@ -5030,6 +5030,7 @@ MonoBehaviour:
   lifeTime: 6
   isDestruction: 0
   isFly: 0
+  gravityScale: 0.25
   damage: 0
   inCollisionAddForce: 1
   collisionForce: 5

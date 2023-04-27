@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 4246167517954506620}
   - component: {fileID: 5512089351447189061}
   - component: {fileID: 4246167517954506623}
+  - component: {fileID: 8991302611400077638}
   m_Layer: 16
   m_Name: BpjCollapserItem
   m_TagString: Untagged
@@ -353,6 +354,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &8991302611400077638
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246167517954506622}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.096033275, y: 0.25686997, z: 0.06957173}
+  m_Size: 2.2890892
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.009582404
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8598498447729063053}
+    - renderer: {fileID: 8598498447895639180}
+    - renderer: {fileID: 8598498447913289962}
+    - renderer: {fileID: 8598498448023844991}
+    - renderer: {fileID: 8598498449125533252}
+    - renderer: {fileID: 4246167517958164631}
+    - renderer: {fileID: 4246167517990427960}
+  m_Enabled: 1
 --- !u!1 &4246167517958164625
 GameObject:
   m_ObjectHideFlags: 0

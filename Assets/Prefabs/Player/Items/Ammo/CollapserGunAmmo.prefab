@@ -25,8 +25,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2847699470401688177}
-  m_LocalRotation: {x: -0.5000005, y: 0.49999997, z: 0.49999955, w: 0.5000001}
-  m_LocalPosition: {x: -0, y: -0.187, z: 0.003}
+  m_LocalRotation: {x: -0.5000004, y: 0.49999997, z: 0.49999955, w: 0.5000001}
+  m_LocalPosition: {x: 0, y: -0.18700004, z: 0.0030002594}
   m_LocalScale: {x: 1.2652, y: 1.2652, z: 1.2652}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4945,7 +4945,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2847699470638793111}
-  - component: {fileID: 2847699470638793110}
   m_Layer: 16
   m_Name: AmmoMesh
   m_TagString: Untagged
@@ -4970,29 +4969,6 @@ Transform:
   m_Father: {fileID: 2847699470857887361}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &2847699470638793110
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2847699470638793108}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.0000038146973, y: 0.39999977, z: 0}
-  m_Size: 0.80000055
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.021292148
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 2847699470435903950}
-  - screenRelativeHeight: 0.00390625
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 2847699470877827648}
-  m_Enabled: 1
 --- !u!1 &2847699470857887422
 GameObject:
   m_ObjectHideFlags: 0
@@ -5186,6 +5162,7 @@ GameObject:
   - component: {fileID: 2847699471483301763}
   - component: {fileID: 2847699471483301760}
   - component: {fileID: 2847699471483301761}
+  - component: {fileID: 3918222705216985469}
   m_Layer: 16
   m_Name: CollapserGunAmmo
   m_TagString: Untagged
@@ -5292,3 +5269,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &3918222705216985469
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847699471483301822}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: -0.060547233, z: 0.0030018091}
+  m_Size: 2
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.027663637
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2847699470435903950}
+    - renderer: {fileID: 2847699470401688179}
+  - screenRelativeHeight: 0.00390625
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2847699470877827648}
+  m_Enabled: 1

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -9,18 +10,18 @@ public class Bullet : MonoBehaviour
     [SerializeField] internal Rigidbody rigidbody_;
     [SerializeField] internal Transform body_;
     [SerializeField] private GameObject colliders;
-
+    
     [Space]
     [HideInInspector] [SerializeField] private float destructionTime = 2;
     [HideInInspector] [SerializeField] private float currentTime;
-
+    
     public float CurrentTime => currentTime;
     
     [SerializeField] private float lifeTime;
     
     [HideInInspector] [SerializeField] internal bool isDestruction = false;
     [SerializeField] private bool isFly = true;
-
+    [SerializeField] private float gravityScale;
     [SerializeField] internal float damage;
 
     [Space]
@@ -55,13 +56,29 @@ public class Bullet : MonoBehaviour
     protected void Update()
     {
         currentTime += Time.deltaTime;
+    }
+
+    private void FixedUpdate()
+    {
+        if (!isFly && gravityScale != 0)
+        {
+            var smooth = 100;
+
+            rigidbody_.AddForce(Physics.gravity*gravityScale*Time.fixedDeltaTime * smooth);
+        }
         
         if (!isDestruction && isFly)
         {
-            body_.position += body_.forward * Time.deltaTime * speed;
+            body_.position += body_.forward * Time.fixedDeltaTime * speed;
         }
     }
-    
+
+    public void OnDrawGizmos()
+    {
+        
+        Gizmos.DrawSphere(body_.position,0.5f);
+    }
+
     private void DestroyProcess(Transform colliderT)
     {
         if (isDestruction != true)

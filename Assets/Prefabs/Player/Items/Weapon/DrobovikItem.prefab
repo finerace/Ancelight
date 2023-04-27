@@ -9887,6 +9887,7 @@ GameObject:
   - component: {fileID: 1100785540793588572}
   - component: {fileID: 6464954527854361840}
   - component: {fileID: 1100785540793588563}
+  - component: {fileID: 3745590606719030205}
   m_Layer: 16
   m_Name: DrobovikItem
   m_TagString: Untagged
@@ -9996,6 +9997,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &3745590606719030205
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100785540793588575}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: -0.23707157, z: 0.041839838}
+  m_Size: 1.6088017
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.005616148
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8472156756157269379}
+    - renderer: {fileID: 8472156756274717598}
+    - renderer: {fileID: 8472156757003358957}
+    - renderer: {fileID: 1100785539600649625}
+    - renderer: {fileID: 1100785538978402026}
+    - renderer: {fileID: 1100785539816719682}
+  m_Enabled: 1
 --- !u!1 &1722610306399391989
 GameObject:
   m_ObjectHideFlags: 0

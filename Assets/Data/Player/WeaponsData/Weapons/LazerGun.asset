@@ -17,12 +17,12 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 06b7da5bb818fa745acf635246a41944, type: 3}
   id: 8
   mainColor: {r: 0.19815665, g: 1, b: 0.64976954, a: 1}
-  damage: 30
+  damage: 20
   bulletID: 6
   raycast: 1
   isMelee: 0
   oneClick: 0
-  rateOfFire: 0.04
+  rateOfFire: 0.08
   endTimeShoot: 1
   shootingMode: 2
   shootingEffects: {fileID: 0}

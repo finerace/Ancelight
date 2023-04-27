@@ -5100,6 +5100,7 @@ GameObject:
   - component: {fileID: 2113921308375549020}
   - component: {fileID: 3150467627909835476}
   - component: {fileID: 2113921308375549023}
+  - component: {fileID: 5225533534241821970}
   m_Layer: 16
   m_Name: LaserGunItem
   m_TagString: Untagged
@@ -5209,6 +5210,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &5225533534241821970
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113921308375549022}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: -0.15114525, z: 0.015630484}
+  m_Size: 1.8976829
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.005616148
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7164502243318706656}
+    - renderer: {fileID: 7164502243868494507}
+    - renderer: {fileID: 7164502243172106327}
+    - renderer: {fileID: 821902810156497844}
+    - renderer: {fileID: 2113921307479961962}
+    - renderer: {fileID: 2113921308836951932}
+    - renderer: {fileID: 2113921308738749264}
+  m_Enabled: 1
 --- !u!1 &2113921308738749266
 GameObject:
   m_ObjectHideFlags: 0

@@ -5066,6 +5066,7 @@ GameObject:
   - component: {fileID: 27591924656962085}
   - component: {fileID: 27591924656962084}
   - component: {fileID: 5813455733752902513}
+  - component: {fileID: 4668787876213341445}
   m_Layer: 16
   m_Name: DashService
   m_TagString: Untagged
@@ -5172,6 +5173,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &4668787876213341445
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813455733752902512}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.09457564, y: 0.2853756, z: 0.06238109}
+  m_Size: 2.56813
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.006835215
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6576343957298683896}
+    - renderer: {fileID: 5813455734031615026}
+    - renderer: {fileID: 5813455732424037394}
+  m_Enabled: 1
 --- !u!1 &5813455734031614988
 GameObject:
   m_ObjectHideFlags: 0

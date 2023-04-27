@@ -4899,6 +4899,7 @@ GameObject:
   - component: {fileID: 8111008119224514027}
   - component: {fileID: 8111008119224514024}
   - component: {fileID: 1996874228323322479}
+  - component: {fileID: 2486206391228893369}
   m_Layer: 16
   m_Name: ShotGunAmmo
   m_TagString: Untagged
@@ -5005,6 +5006,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &2486206391228893369
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996874228323322478}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: -0.060537577, z: 0.003000617}
+  m_Size: 2
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.027663637
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1996874228796155191}
+    - renderer: {fileID: 1996874227726029758}
+  m_Enabled: 1
 --- !u!1 &1996874228796155190
 GameObject:
   m_ObjectHideFlags: 0
@@ -5097,7 +5118,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1996874228833109114}
-  - component: {fileID: 1996874228833109109}
   m_Layer: 16
   m_Name: AmmoMesh
   m_TagString: Untagged
@@ -5121,25 +5141,6 @@ Transform:
   m_Father: {fileID: 1996874226972515143}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &1996874228833109109
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996874228833109110}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.0000038146973, y: 0.39999977, z: 0}
-  m_Size: 0.80000055
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.0065352037
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1996874228796155191}
-  m_Enabled: 1
 --- !u!1 &8767901343458433952
 GameObject:
   m_ObjectHideFlags: 0

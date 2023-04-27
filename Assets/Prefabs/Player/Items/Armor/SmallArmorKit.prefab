@@ -5014,6 +5014,7 @@ GameObject:
   - component: {fileID: 4827681855425953842}
   - component: {fileID: 8803480125650204998}
   - component: {fileID: 4827681855425953845}
+  - component: {fileID: 4479668821874349382}
   m_Layer: 16
   m_Name: SmallArmorKit
   m_TagString: Untagged
@@ -5121,6 +5122,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &4479668821874349382
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4827681855425953846}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.14715132, y: 0.30583233, z: -0.06668821}
+  m_Size: 2
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.0015383069
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4827681855024773438}
+    - renderer: {fileID: 4827681855828103500}
+    - renderer: {fileID: 4827681855012132469}
+  - screenRelativeHeight: 0.00021173111
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4827681855938813091}
+  m_Enabled: 1
 --- !u!1 &4827681855823507737
 GameObject:
   m_ObjectHideFlags: 0
@@ -5130,7 +5156,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4827681855823507815}
-  - component: {fileID: 4827681855823507736}
   m_Layer: 0
   m_Name: SmalArmorKitMesh
   m_TagString: Untagged
@@ -5155,29 +5180,6 @@ Transform:
   m_Father: {fileID: 4827681856229796444}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -10, y: 0, z: 0}
---- !u!205 &4827681855823507736
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4827681855823507737}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: -0.025000006}
-  m_Size: 0.9
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.0035653757
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 4827681855024773438}
-  - screenRelativeHeight: 0.00049073494
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 4827681855938813091}
-  m_Enabled: 1
 --- !u!1 &4827681855828103502
 GameObject:
   m_ObjectHideFlags: 0

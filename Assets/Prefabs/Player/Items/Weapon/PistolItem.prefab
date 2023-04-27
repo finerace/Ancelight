@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 2398454916777494618}
   - component: {fileID: -1042992814031666936}
   - component: {fileID: 2398454916777494621}
+  - component: {fileID: 4238784674460839725}
   m_Layer: 16
   m_Name: PistolItem
   m_TagString: Untagged
@@ -186,6 +187,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &4238784674460839725
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398454916777494620}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: -0.25938654, z: 0}
+  m_Size: 1.5641718
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.005616148
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3848657557477085524}
+    - renderer: {fileID: 2398454917441978142}
+    - renderer: {fileID: 2398454917964803902}
+    - renderer: {fileID: 2398454918129982098}
+  m_Enabled: 1
 --- !u!1 &2398454917441978144
 GameObject:
   m_ObjectHideFlags: 0

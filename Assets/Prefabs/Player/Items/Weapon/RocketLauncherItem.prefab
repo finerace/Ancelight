@@ -5066,6 +5066,7 @@ GameObject:
   - component: {fileID: 572097465866903424}
   - component: {fileID: 3261701755352181368}
   - component: {fileID: 572097465866903425}
+  - component: {fileID: 6997710036414849790}
   m_Layer: 16
   m_Name: RocketLauncherItem
   m_TagString: Untagged
@@ -5175,6 +5176,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &6997710036414849790
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572097465866903426}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.030050755, y: 0.18998826, z: 0.06951678}
+  m_Size: 2.5085464
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.005616148
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1381389301833295076}
+    - renderer: {fileID: 572097465101308084}
+    - renderer: {fileID: 572097466035751888}
+    - renderer: {fileID: 572097465352019882}
+  m_Enabled: 1
 --- !u!1 &572097466019533531
 GameObject:
   m_ObjectHideFlags: 0

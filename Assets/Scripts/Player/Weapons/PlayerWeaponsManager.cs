@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.Events;
 
 public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
 {
@@ -114,6 +113,11 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
 
     private bool isManageActive = true;
 
+    private float weaponCooldownTimer;
+
+    private int mouseWheel;
+    private int fire1;
+    
     private DeviceButton fireButton = new DeviceButton();
     private DeviceButton nextWeaponButton = new DeviceButton();
     private DeviceButton previousWeaponButton = new DeviceButton();
@@ -144,9 +148,6 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
         if (!isManageActive)
             return;
 
-        float mouseWheel = 0;
-        float fire1 = 0;
-
         if (nextWeaponButton.IsGetButton())
             mouseWheel = 1;
         else if (previousWeaponButton.IsGetButton())
@@ -158,9 +159,20 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
             fire1 = 1;
         else
             fire1 = 0;
-            
-        bool useAbility = false;
 
+    }
+
+    private void FixedUpdate()
+    {
+        WeaponCooldownWork();
+        void WeaponCooldownWork()
+        {
+            if (weaponCooldownTimer > 0)
+                weaponCooldownTimer -= Time.fixedDeltaTime;
+            else
+                isWeaponInCooldown = false;
+        }
+        
         isThereAnyBullets = bulletsManager.CheckBullets(selectedWeaponData.BulletsID);
 
         if (OneClick && fire1 <= 0) oneClickState = false;
@@ -234,7 +246,7 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
 
         currentBulletsCount = bulletsManager.GetBulletsCount(selectedWeaponData.BulletsID);
         
-        if (!isWeaponInCooldown)
+        if (!isWeaponInCooldown && !isAttacking)
         {
             if (mouseWheel < 0)
                 PreviousWeapon();
@@ -310,14 +322,8 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
 
     private void ChangeWeaponCooldown(float time)
     {
-        StartCoroutine(weaponCooldown(time));
-        IEnumerator weaponCooldown(float time)
-        {
-            isWeaponInCooldown = true;
-            yield return new WaitForSeconds(time);
-            isWeaponInCooldown = false;
-        }
-        
+        weaponCooldownTimer = time;
+        isWeaponInCooldown = true;
     }
 
     private void NextWeapon()
@@ -608,10 +614,10 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
                 Ray shotRay = new Ray(currentShotPoint.position, currentShotPoint.forward);
                 RaycastHit raycastHit;
                 
-                if (Physics.Raycast(shotRay, out raycastHit,layerMaskRayCastMode))
+                if (Physics.Raycast(shotRay, out raycastHit,300,layerMaskRayCastMode))
                 {
-                    float smoothness = 4f;
-                    Vector3 truePos = raycastHit.point - (currentShotPoint.forward / smoothness);
+                    var smooth = 2f;
+                    Vector3 truePos = raycastHit.point - (currentShotPoint.forward / smooth);
 
                     Instantiate(bulletPrefab, truePos, currentShotPoint.rotation)
                     .GetComponent<Bullet>().SetDamage(damage);

@@ -4913,7 +4913,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6577086332625860289}
-  - component: {fileID: 6577086332625860290}
   m_Layer: 16
   m_Name: AmmoMesh
   m_TagString: Untagged
@@ -4938,29 +4937,6 @@ Transform:
   m_Father: {fileID: 6577086333065578433}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &6577086332625860290
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6577086332625860288}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.0000038146973, y: 0.39999977, z: 0}
-  m_Size: 0.80000055
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.021292148
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 6577086333207272135}
-  - screenRelativeHeight: 0.00390625
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 6577086332099377921}
-  m_Enabled: 1
 --- !u!1 &6577086333065578432
 GameObject:
   m_ObjectHideFlags: 0
@@ -5186,6 +5162,7 @@ GameObject:
   - component: {fileID: 6577086333713408927}
   - component: {fileID: 6577086333713408926}
   - component: {fileID: 6577086333713408925}
+  - component: {fileID: 4274040956645905794}
   m_Layer: 16
   m_Name: MachineGunAmmo
   m_TagString: Untagged
@@ -5292,3 +5269,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &4274040956645905794
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6577086333713408924}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.013499379, y: 0.16600004, z: -0.05249977}
+  m_Size: 2
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.027663637
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6577086333207272135}
+    - renderer: {fileID: 6577086332210623602}
+  - screenRelativeHeight: 0.00390625
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6577086332099377921}
+  m_Enabled: 1

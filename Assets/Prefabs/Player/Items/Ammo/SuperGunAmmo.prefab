@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7794369330439602564}
   - component: {fileID: 7794369330439602565}
   - component: {fileID: 7794369330439602570}
+  - component: {fileID: 3194677890725474014}
   m_Layer: 16
   m_Name: SuperGunAmmo
   m_TagString: Untagged
@@ -119,6 +120,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!205 &3194677890725474014
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7794369330439602571}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.013500214, y: 0.16600004, z: -0.052498817}
+  m_Size: 2
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.027663637
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7794369330970904383}
+    - renderer: {fileID: 7794369330552494942}
+  - screenRelativeHeight: 0.00390625
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7794369331142429854}
+  m_Enabled: 1
 --- !u!1 &7794369330552494940
 GameObject:
   m_ObjectHideFlags: 0
@@ -5244,7 +5269,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7794369332116140237}
-  - component: {fileID: 7794369332116140236}
   m_Layer: 16
   m_Name: AmmoMesh
   m_TagString: Untagged
@@ -5269,26 +5293,3 @@ Transform:
   m_Father: {fileID: 7794369331182108764}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &7794369332116140236
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7794369332116140274}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.0000038146973, y: 0.39999977, z: 0}
-  m_Size: 0.80000055
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.021292148
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 7794369330970904383}
-  - screenRelativeHeight: 0.00390625
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 7794369331142429854}
-  m_Enabled: 1
