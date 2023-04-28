@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +8,7 @@ public class LevelTaskVisualizer : MonoBehaviour
     [Space]
     
     [SerializeField] private float animationSpeed = 1;
+    [SerializeField] private float animationTime = 0.5f;
     
     [SerializeField] private TMP_Text levelTaskLabel;
     [SerializeField] private float levelTaskLabelMaxAlpha = 0.6f;
@@ -18,7 +17,10 @@ public class LevelTaskVisualizer : MonoBehaviour
     [SerializeField] private Transform taskIconT;
     [SerializeField] private float onNewTaskIconScaleFactor = 2;
     private Vector3 taskIconDefaultScale;
-        
+    
+    private float taskLabelTimer;
+    private string bufferTaskText;
+    
     private void Awake()
     {
         levelTaskService = FindObjectOfType<LevelTaskService>();
@@ -44,30 +46,40 @@ public class LevelTaskVisualizer : MonoBehaviour
 
             if (!taskLabelIsVisible)
                 targetAlpha = 0;
-                
+                    
             var resultColor = levelTaskLabel.color;
             resultColor.a = Mathf.Lerp(resultColor.a,targetAlpha,timeStep);
             levelTaskLabel.color = resultColor;
         }
+
+        AnimationTimerWork();
+        void AnimationTimerWork()
+        {
+            if (taskLabelTimer > 0)
+            {
+                taskLabelIsVisible = false;
+                taskLabelTimer -= Time.deltaTime;
+            }
+            else
+            {
+                levelTaskLabel.text = bufferTaskText;
+                taskLabelIsVisible = true;
+            }
+        }
+
     }
 
     private void SetNewTask(string task)
     {
-        StartCoroutine(StartTaskSetLabelAnimation(task));
+        StartTaskSetLabelAnimation(task);
         
         taskIconT.localScale = onNewTaskIconScaleFactor * taskIconDefaultScale;
     }
 
-    private IEnumerator StartTaskSetLabelAnimation(string task)
+    private void StartTaskSetLabelAnimation(string task)
     {
-        var waitHalfSecond = new WaitForSeconds(0.5f);
-
-        taskLabelIsVisible = false;
-        
-        yield return waitHalfSecond;
-        
-        levelTaskLabel.text = task;
-        taskLabelIsVisible = true;
+        taskLabelTimer = animationTime;
+        bufferTaskText = task;
     }
     
 }

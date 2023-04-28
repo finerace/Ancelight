@@ -12,8 +12,9 @@ public class PlayerUseService : MonoBehaviour,IUsePlayerDevicesButtons
     [Space]
     
     [SerializeField] private float allowUseDistance;
-
-    [Space] 
+    
+    private bool isButtonClose;
+    public bool IsButtonClose => isButtonClose;
     
     private DeviceButton useButton = new DeviceButton();
     
@@ -28,29 +29,42 @@ public class PlayerUseService : MonoBehaviour,IUsePlayerDevicesButtons
 
     private void CheckPlayerUsesItem()
     {
-        if (useButton.IsGetButtonDown())
+        if (!playerLookService.IsCameraHit)
         {
-            if(!playerLookService.IsCameraHit)
-                return;
+            isButtonClose = false;
+            return;
+        }
             
-            var useItemRayHit = playerLookService.GetCameraRayHit();
-            
-            if(!IsDistanceAllow(useItemRayHit.point))
-                return;
+        var useItemRayHit = playerLookService.GetCameraRayHit();
 
-            if (useItemRayHit.collider.gameObject.
-                TryGetComponent(out IPlayerUsesItem usesItem))
-            {
-                usesItem.PlayerUse();
-            }
+        if (useItemRayHit.collider == null)
+        {
+            isButtonClose = false;
+            return;
+        }
+        
+        if (!IsDistanceAllow(useItemRayHit.point))
+        {
+            isButtonClose = false;
+            
+            return;
         }
 
+        if (useItemRayHit.collider.gameObject.TryGetComponent(out IPlayerUsesItem usesItem))
+        {
+            isButtonClose = true;
+
+            if (useButton.IsGetButtonDown())
+                usesItem.PlayerUse();
+        }
+        else
+            isButtonClose = false;
+        
         bool IsDistanceAllow(Vector3 point)
         {
             return
                 Vector3.Distance(point, playerMovement.Body.position) <= allowUseDistance;
         }
-        
     }
 
     public void SetManageActive(bool state)

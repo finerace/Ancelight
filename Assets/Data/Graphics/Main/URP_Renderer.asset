@@ -101,6 +101,45 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 16.5
+--- !u!114 &-2174471521990750227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: Red Planet
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: Red Planet
+    Event: 250
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 1048576
+      PassNames: []
+    overrideMaterial: {fileID: 2100000, guid: 0af5d63b3df1d3148a671c80d1596bc6, type: 2}
+    overrideMaterialPassIndex: 0
+    overrideDepthState: 0
+    depthCompareFunction: 4
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +160,8 @@ MonoBehaviour:
   - {fileID: 1045007977465215761}
   - {fileID: -3215665463291474294}
   - {fileID: 3400813155815140958}
-  m_RendererFeatureMap: ad5e86acb027a6cd9a62ce56a6ac658b117b4304389d800e8a0e05684ca95fd35e2ed6038c1d322f
+  - {fileID: -2174471521990750227}
+  m_RendererFeatureMap: ad5e86acb027a6cd9a62ce56a6ac658b117b4304389d800e8a0e05684ca95fd35e2ed6038c1d322fedcf89edabb9d2e1
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}

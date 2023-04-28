@@ -202,3 +202,5 @@ Field of View;
 Screen Resolution;
 Screen Format;
 Language;
+Skip;
+Use;

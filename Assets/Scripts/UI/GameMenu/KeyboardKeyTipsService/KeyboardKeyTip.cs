@@ -29,7 +29,7 @@ public abstract class KeyboardKeyTip : MonoBehaviour
     [SerializeField] private Sprite mouseWheelForwardIcon;
     [SerializeField] private Sprite mouseWheelBackIcon;
 
-    private void Start()
+    protected void Start()
     {
         devicesButtons = GetDevicesButton();
         defaultLocalPos = keyT.localPosition;

@@ -36,9 +36,13 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     [SerializeField] private Transform shootingPoint;
     [SerializeField] private Transform weaponPoint;
     [SerializeField] private Transform meleeAttackPoint;
-
+    
     [SerializeField] private int suitImprovementPoints;
 
+    [Space]
+    
+    [SerializeField] private Transform playerHands;
+    
     public int SuitImprovementPoints
     {
         get => suitImprovementPoints;
@@ -69,7 +73,6 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     public event Action<(int, string,float)> AddPlasmaEvent;
 
     private DeviceButton openSuitManageMenuButton = new DeviceButton();
-    
     
     private void Awake()
     {
@@ -155,8 +158,6 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     {
         if(godModeEnabled)
             return;
-        
-        print(damage);
         
         if(armor >= damage)
         {
@@ -271,6 +272,11 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     public DeviceButton[] GetUsesDevicesButtons()
     {
         return new DeviceButton[] {openSuitManageMenuButton} ;
+    }
+
+    public void SetPlayerHandsActive(bool state)
+    {
+        playerHands.gameObject.SetActive(state);
     }
 }
 
