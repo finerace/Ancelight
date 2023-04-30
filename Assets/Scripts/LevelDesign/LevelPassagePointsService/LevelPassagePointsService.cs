@@ -14,12 +14,12 @@ public class LevelPassagePointsService : MonoBehaviour
     [SerializeField] private LevelPassagePointsZone currentPassageZone;
     [SerializeField] private bool currentZoneIsNonLinear;
 
-    [SerializeField] private int currentZoneId;
-    [SerializeField] private int currentPointId;
-    [SerializeField] private int currentNonLinearZoneId;
+    [HideInInspector] [SerializeField] private int currentZoneId;
+    [HideInInspector] [SerializeField] private int currentPointId;
+    [HideInInspector] [SerializeField] private int currentNonLinearZoneId;
 
-    [SerializeField] private List<int> blockedNonLinearZoneZoneId;
-    [SerializeField] private List<int> blockedNonLinearZoneNonLinearZoneId;
+    [HideInInspector] [SerializeField] private List<int> blockedNonLinearZoneZoneId;
+    [HideInInspector] [SerializeField] private List<int> blockedNonLinearZoneNonLinearZoneId;
 
     public LevelPassagePoint CurrentPassagePoint => currentPassagePoint;
     public LevelPassagePointsZone CurrentPassageZone => currentPassageZone;
