@@ -59,8 +59,8 @@ MonoBehaviour:
     Source: 1
     NormalSamples: 2
     Intensity: 2
-    DirectLightingStrength: 0.5
-    Radius: 0.75
+    DirectLightingStrength: 0.35
+    Radius: 0.5
     SampleCount: 8
 --- !u!114 &-3215665463291474294
 MonoBehaviour:
@@ -186,7 +186,7 @@ MonoBehaviour:
     m_Bits: 2147483647
   m_DefaultStencilState:
     overrideStencilState: 0
-    stencilReference: 0
+    stencilReference: 1
     stencilCompareFunction: 8
     passOperation: 2
     failOperation: 0
