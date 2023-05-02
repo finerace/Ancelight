@@ -58,10 +58,10 @@ MonoBehaviour:
     AfterOpaque: 0
     Source: 1
     NormalSamples: 2
-    Intensity: 2
-    DirectLightingStrength: 0.35
-    Radius: 0.5
-    SampleCount: 8
+    Intensity: 0.35
+    DirectLightingStrength: 0.371
+    Radius: 1
+    SampleCount: 7
 --- !u!114 &-3215665463291474294
 MonoBehaviour:
   m_ObjectHideFlags: 0
