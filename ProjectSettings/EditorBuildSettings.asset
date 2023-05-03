@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScenes/TestLevel/TestLevel.unity
     guid: cd2e80153cf06cc41aef0c32cf542938
+  - enabled: 1
+    path: Assets/Scenes/SecretLevels/OnTheOutskirts/OnTheOutskirts.unity
+    guid: 7eba8a61dd19533479a887919afef9fd
   m_configObjects: {}

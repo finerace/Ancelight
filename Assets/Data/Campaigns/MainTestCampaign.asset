@@ -17,5 +17,5 @@ MonoBehaviour:
   nextCampaignData: {fileID: 0}
   campaignLevels:
   - {fileID: 11400000, guid: 884248bd4e4b16b41a723a7c90fd965f, type: 2}
-  - {fileID: 11400000, guid: 8ab8a6c53db31a3499176267fe79bbcd, type: 2}
+  - {fileID: 11400000, guid: 0b375b52aee291048b844c009b63a7aa, type: 2}
   isCampaignUnlocked: 1
