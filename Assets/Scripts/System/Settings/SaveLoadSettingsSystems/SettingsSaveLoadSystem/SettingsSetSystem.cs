@@ -340,7 +340,7 @@ public class SettingsSetSystem : MonoBehaviour
 
             void SetSsao()
             {
-                urpData.rendererFeatures[0].SetActive(settingsData.GraphicsSettingsData.Ssao);
+                //urpData.rendererFeatures[4].SetActive(settingsData.GraphicsSettingsData.Ssao);
             }
         }
 
