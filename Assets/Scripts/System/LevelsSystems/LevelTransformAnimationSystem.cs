@@ -243,6 +243,16 @@ public class LevelTransformAnimationSystem : MonoBehaviour
         }
     }
 
+    public void SetScenarioState(int stateId)
+    {
+        var targetScenarioState = globalScenarioStates[stateId];
+
+        for (int i = 0; i < targetScenarioState.ScenarioStates.Length; i++)
+        {
+            transformScenarios[i].SetScenarioUnitId(targetScenarioState.ScenarioStates[i]);
+        }
+    }
+
     [Serializable]
     public class TransformAnimationData
     {
@@ -289,6 +299,14 @@ public class LevelTransformAnimationSystem : MonoBehaviour
         public TransformAnimationUnitData StartTransformUnitData => startTransformUnitData;
 
         public TransformAnimationUnitData[] TransformScenarioUnits => transformScenarioUnits;
+
+        public void SetScenarioUnitId(int id)
+        {
+            if (id < 0)
+                throw new ArgumentException("Id not be could less than a zero!");
+            
+            currentScenarioUnitId = id;
+        }
     }
     
     [Serializable]

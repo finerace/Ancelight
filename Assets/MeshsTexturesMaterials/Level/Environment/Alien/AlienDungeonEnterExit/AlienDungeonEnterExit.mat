@@ -77,7 +77,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WaveEmissionMap:
-        m_Texture: {fileID: 2800000, guid: 447a05cc72a4e894e95071e1f4d5b798, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -121,16 +121,16 @@ Material:
     - _Surface: 0
     - _WaveIntensity: 10
     - _WaveMax: 0
-    - _WaveScale: 0.09
-    - _WaveSpeed: -15
+    - _WaveScale: 0.025
+    - _WaveSpeed: -10
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _AlienMicrochipsColor: {r: 0.026315784, g: 0.07631581, b: 0.1, a: 1}
-    - _AlienMicrochipsTile: {r: 0.5, g: 0.3, b: 0, a: 0}
+    - _AlienMicrochipsColor: {r: 0.012047619, g: 0.01807143, b: 0.023, a: 1}
+    - _AlienMicrochipsTile: {r: 0.3, g: 0.25, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.022473, g: 0.06917333, b: 0.099, a: 1}
+    - _EmissionColor: {r: 0.8627451, g: 2.1490197, b: 2.9960785, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3373867189417034582

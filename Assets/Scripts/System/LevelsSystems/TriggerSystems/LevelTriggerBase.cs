@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(BoxCollider))]
 public class LevelTriggerBase : LevelTrigger
 {
-    [SerializeField] private bool isSingleTrigger = true;
+    [SerializeField] protected bool isSingleTrigger = true;
 
     [Space]
 
