@@ -195,7 +195,7 @@ public class MenuSystem : MonoBehaviour
         menusPath += $"/{menuData.menuID}";
         menusDataPath.Add(menuData);
 
-        menuData.menu.GetComponent<Canvas>().planeDistance = 0.055f;
+        menuData.menu.GetComponent<Canvas>().planeDistance = 0.075f;
         SetMenuSpecialSettings(menuData);
 
         UpdateMenuPath();
