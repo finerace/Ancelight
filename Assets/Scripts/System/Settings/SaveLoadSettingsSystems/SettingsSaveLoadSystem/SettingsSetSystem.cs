@@ -474,7 +474,7 @@ public class SettingsSetSystem : MonoBehaviour
                 foreach (var grassMaterial in levelGrassData.LevelUsedGrassMaterials)
                 {
                     grassMaterial.SetFloat("_MaxDist",settingsData.GraphicsSettingsData.GrassDrawingDistance);
-                    grassMaterial.SetFloat("_MinDist",settingsData.GraphicsSettingsData.GrassDrawingDistance/4);
+                    grassMaterial.SetFloat("_MinDist",settingsData.GraphicsSettingsData.GrassDrawingDistance/1.25f);
                 }
                 
                 foreach (var grassMesh in levelGrassData.LevelUsedGrassMeshes)

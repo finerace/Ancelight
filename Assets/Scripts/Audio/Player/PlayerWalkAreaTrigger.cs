@@ -18,7 +18,7 @@ public class PlayerWalkAreaTrigger : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out PlayerSoundsService playerSoundsService))
         {
-            playerSoundsService.SetNewWalkZone(0);
+            playerSoundsService.SetNewWalkZone(playerSoundsService.DefaultWalkZone);
         }
     }
 }

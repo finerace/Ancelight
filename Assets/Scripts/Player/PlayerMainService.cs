@@ -195,6 +195,14 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
 
         maxArmor = newMaxArmor;
     }
+
+    public void AddImprovementPoint(int value)
+    {
+        if (value <= 0)
+            throw new ArgumentException("Added improvement points not be could less than a one!");
+
+        suitImprovementPoints += value;
+    }
     
     public void SetArmorDamageResistance(float newResistanceValue)
     {

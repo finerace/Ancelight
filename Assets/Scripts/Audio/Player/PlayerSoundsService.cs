@@ -12,13 +12,15 @@ public class PlayerSoundsService : MonoBehaviour
     [Space] 
     
     [SerializeField] private PlayerWalkZone playerWalkZone;
+    [SerializeField] private PlayerWalkZone defaultWalkZone;
+    public PlayerWalkZone DefaultWalkZone => defaultWalkZone;
     private PlayerMovement playerMovement;
     private float playerWalkTime = 0;
     private float nextStepSoundCastTime = 0;
     [SerializeField] private float playerStepsTimeCastSmooth = 2;
-    
+
     [Space]
-    
+
     [SerializeField] private AudioCastData hardMatStepSounds;
     [SerializeField] private AudioCastData grassStepSounds;
     [SerializeField] private AudioCastData waterStepSounds;
