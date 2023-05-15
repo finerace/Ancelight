@@ -78,7 +78,7 @@ public class AdditionalInformationPanel : MonoBehaviour
         
         var informedObjectPos = data.InformedObjectT.position;
 
-        var informedObjectScaledHight = data.InformedObjectHight + (toInformedObjectDistance / hightScaleCoof);
+        var informedObjectScaledHight = (data.InformedObjectHight+0.5f) + (toInformedObjectDistance / hightScaleCoof);
         var informedObjectPosHightScaled = informedObjectPos + (Vector3.up * informedObjectScaledHight);
 
         Vector2 panelPos = playerCamera.WorldToScreenPoint(informedObjectPosHightScaled);

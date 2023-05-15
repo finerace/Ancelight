@@ -5490,11 +5490,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff7c5ba9f574f844bf9402715bf0c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health_: 100
+  health_: 60
   maxHealth_: 100
   isDie: 0
   maxArmor: 100
-  armor: 100
+  armor: 0
   armorDamageResistance: 2.5
   playerMovement: {fileID: 1076857625449862247}
   weaponsManager: {fileID: 1076857625449862250}
@@ -5506,7 +5506,7 @@ MonoBehaviour:
   immediatelyProtectionService: {fileID: 1076857625449862252}
   playerUseService: {fileID: 1076857625449862253}
   playerCleaner: {fileID: 1076857627110363193}
-  godModeEnabled: 1
+  godModeEnabled: 0
   menuSystem: {fileID: 0}
   shootingPoint: {fileID: 1076857626701794789}
   weaponPoint: {fileID: 1076857626245914308}
@@ -5525,15 +5525,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a1981c2123bbd42a31d8bfb0d21888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.85
   jumpForce: 1
   playerRb: {fileID: 1076857625449862241}
   playerT: {fileID: 1076857625449862269}
   FallingSpeed: 1.25
   SprintSpeedMultiply: 0.6
-  OnFlySpeedMultiply: 0.1
-  OnGroundMaxSpeed: 40
-  OnFlyMaxSpeed: 60
+  OnFlySpeedMultiply: 0.2
+  OnGroundMaxSpeed: 30
+  OnFlyMaxSpeed: 12.5
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 3
@@ -5553,6 +5553,8 @@ MonoBehaviour:
   crouchPlayerHeight: 0.5
   crouchSpeedMultiplier: 0.4
   isPlayerCrouch: 0
+  minNormalY: 0.6
+  minNormalFinePower: 100
   GroundNormal: {x: 0, y: 0, z: 0}
   IsJumpingButtonPressed: 0
   isManageActive: 1
@@ -5663,7 +5665,7 @@ MonoBehaviour:
   yellowPlasmaMaxReserve: 100
   redPlasmaMaxReserve: 50
   bluePlasmaMaxReserve: 50
-  infinityAmmoMode: 1
+  infinityAmmoMode: 0
 --- !u!114 &1076857625449862248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5826,6 +5828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMainService: {fileID: 1076857625449862246}
   playerWalkZone: 0
+  defaultWalkZone: 0
   playerStepsTimeCastSmooth: 1.75
   hardMatStepSounds:
     audioMixerGroup: {fileID: -7837699071047195676, guid: ec6b479afb208fc45a576af6805510ce, type: 2}
@@ -5839,8 +5842,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 1076857625449862269}
     priority: 10
-    volumeMin: 0.1
-    volumeMax: 0.125
+    volumeMin: 0.14
+    volumeMax: 0.15
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1.1
@@ -5860,8 +5863,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 1076857625449862269}
     priority: 10
-    volumeMin: 0.1
-    volumeMax: 0.12
+    volumeMin: 0.15
+    volumeMax: 0.16
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1.1
@@ -5897,8 +5900,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 1076857625449862269}
     priority: 13
-    volumeMin: 0.075
-    volumeMax: 0.1
+    volumeMin: 0.1
+    volumeMax: 0.11
     isLoop: 1
     pitchMin: 0.9
     pitchMax: 1.1
@@ -5913,8 +5916,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 1076857625449862269}
     priority: 7
-    volumeMin: 0.25
-    volumeMax: 0.3
+    volumeMin: 0.5
+    volumeMax: 0.54
     isLoop: 0
     pitchMin: 0.8
     pitchMax: 1.2
@@ -5950,8 +5953,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 1076857625449862269}
     priority: 5
-    volumeMin: 0.1
-    volumeMax: 0.11
+    volumeMin: 0.2
+    volumeMax: 0.21
     isLoop: 0
     pitchMin: 0.9
     pitchMax: 1.15

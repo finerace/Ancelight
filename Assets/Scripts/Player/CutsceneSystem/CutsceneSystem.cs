@@ -15,6 +15,8 @@ public class CutsceneSystem : MonoBehaviour
 
     private Camera playerCamera;
     private float cameraFOV;
+
+    [SerializeField] private SpriteRenderer cutsceneBlackScreen;
     
     private void Start()
     {
@@ -61,6 +63,11 @@ public class CutsceneSystem : MonoBehaviour
         playerCameraT.localRotation = Quaternion.Euler(Vector3.zero);
         cutscenePlayer.stopped -= StopCutscene;
         playerMainService.OnDamageEvent -= StopCutsceneOnDamage;
+
+        var newBlackScreenColor = Color.black;
+        newBlackScreenColor.a = 0;
+
+        cutsceneBlackScreen.color = newBlackScreenColor;
     }
 
     private void Update()

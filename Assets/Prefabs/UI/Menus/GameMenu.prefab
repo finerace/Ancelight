@@ -5424,8 +5424,8 @@ MonoBehaviour:
   searchDistance: 45
   hightScaleCoof: 20
   toMinScaleDistance: 15
-  maxPanelScale: 1
-  minPanelScale: 0.5
+  maxPanelScale: 0.9
+  minPanelScale: 0.35
   panelColorImage: {fileID: 674054790002307195}
   healthIndicator: {fileID: 674054791328847673}
   panelName: {fileID: 674054789940817896}

@@ -37,8 +37,6 @@ public class AIManager : MonoBehaviour
     public static void RemoveAI(DefaultBot AI_T)
     {
         if (AI_T != null) Bots.Remove(AI_T);
-        
-        
     }
 
     private IEnumerator AI_LinksCheckUpdate()
@@ -67,7 +65,7 @@ public class AIManager : MonoBehaviour
                     continue;
 
                 firstBot.GetAannoyed();
-
+                
                 for (int j = 0; j < Bots.Count; j++)
                 {
 
@@ -83,8 +81,8 @@ public class AIManager : MonoBehaviour
                     
                     if (firstBot.TargetOldLookTimer < secondBot.TargetOldLookTimer)
                     {
-                        if(secondBot.isBotGoToWayPoints)
-                            continue;
+                        // if (secondBot.isBotGoToWayPoints)
+                        //     continue;
                         
                         secondBot.SetDestination(firstBot.Destination);
                         secondBot.nowSetTargetPosHiddenTimer = 2.5f;

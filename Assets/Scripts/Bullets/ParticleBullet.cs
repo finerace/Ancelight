@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class ParticleBullet : MonoBehaviour
 {
-#pragma warning disable CS0649 // ѕолю "ParticleBullet.damage" нигде не присваиваетс€ значение, поэтому оно всегда будет иметь значение по умолчанию 0.
+    private float damageReserve;
     [SerializeField] private float damage;
-#pragma warning restore CS0649 // ѕолю "ParticleBullet.damage" нигде не присваиваетс€ значение, поэтому оно всегда будет иметь значение по умолчанию 0.
     [SerializeField] private PlayerWeaponsManager weaponsManager;
-    [SerializeField] private Vector3 forceDirection; //¬ектор силы от партиклов
+    [SerializeField] private Vector3 forceDirection;
     [SerializeField] private float forcePower = 1f;
-
+    
     private void Start()
     {
-        weaponsManager = GameObject.Find("Player").GetComponent<PlayerWeaponsManager>();
+        weaponsManager = FindObjectOfType<PlayerWeaponsManager>();
 
-        forceDirectionUpdate();
-        weaponsManager.SubscribeShotEvent(forceDirectionUpdate);
+        ForceDirectionUpdate();
+        weaponsManager.SubscribeShotEvent(ForceDirectionUpdate);
     }
 
     private void OnParticleCollision(GameObject other)
@@ -26,6 +25,11 @@ public class ParticleBullet : MonoBehaviour
 
         if(other.TryGetComponent<Health>(out health))
         {
+            if(damageReserve <= 0)
+                return;
+
+            damageReserve -= damage;
+            
             health.GetDamage(damage);
         }
 
@@ -35,8 +39,10 @@ public class ParticleBullet : MonoBehaviour
         }
     }
 
-    private void forceDirectionUpdate()
+    private void ForceDirectionUpdate()
     {
+        damageReserve = weaponsManager.selectedWeaponData.Damage;
+        
         forceDirection = weaponsManager.shootingPoint.forward;
     }
 

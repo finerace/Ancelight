@@ -46,7 +46,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isScenarioActive: 0
   repeatCounts: 0
-  spawnScenario: []
+  spawnScenario:
+  - toNextScenarioUnitTime: 0
+    isMustBeDestroy: 0
+    spawnObject: {fileID: 0}
+    spawnPoints: []
+    objectsSpawnCooldown: 0.025
+    wayPoint: {fileID: 0}
+    repeatCounts: 0
+    repeatCooldown: 0
+    isQuietSpawn: 0
+    onCompleteScenarioUnitEvent:
+      m_PersistentCalls:
+        m_Calls: []
   onKillAllEnemiesEvent:
     m_PersistentCalls:
       m_Calls: []

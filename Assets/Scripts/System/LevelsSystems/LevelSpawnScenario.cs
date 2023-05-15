@@ -435,7 +435,7 @@ public class SpawnScenarioUnit
 
     [SerializeField] private GameObject spawnObject;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField,Range(0,240)] private float objectsSpawnCooldown = 1;
+    [SerializeField,Range(0.025f,240)] private float objectsSpawnCooldown = 1;
     [SerializeField] private Transform wayPoint;
 
     [Space]

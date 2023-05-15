@@ -67,6 +67,8 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
     [Range(0.05f,1f)] [SerializeField] private float crouchPlayerHeight = 0.65f;
     [SerializeField] private float crouchSpeedMultiplier = 0.4f;
     [SerializeField] private bool isPlayerCrouch = false;
+    [SerializeField] private float minNormalY = 0.25f;
+    [SerializeField] private float minNormalFinePower = 50;
     public bool IsPlayerCrouch => isPlayerCrouch;
     
     [Space]
@@ -138,7 +140,7 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
     {
         if(!isFlies)
             GroundNormalUpdate();
-        
+
         float horizontal = 0;
         float vertical = 0;
         bool isJumping = jumpButton.IsGetButton();
@@ -198,6 +200,8 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
         if (isPlayerCrouch)
             resultDirection *= crouchSpeedMultiplier;
 
+        var isGroundDegreeToMany = GroundNormal.y <= minNormalY;
+        
         InFlyPlayerMovementAlgorithm();
         void InFlyPlayerMovementAlgorithm()
         {
@@ -213,6 +217,9 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
             else
             {
                 maxSpeedTemp = OnGroundMaxSpeed;
+                
+                if(isGroundDegreeToMany)
+                    resultDirection += Vector3.down*minNormalFinePower*speedMultiply;
 
                 float Dot;
                 Dot = Vector3.Dot(resultDirection, GroundNormal);
@@ -227,6 +234,9 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
         JumpAlgorithm();
         void JumpAlgorithm()
         {
+            if(isGroundDegreeToMany)
+                return;
+            
             if (!IsFlies && isJumping && IsJumpingButtonPressed == false)
             {
                 float additionalJumpBoost = 750f;
@@ -383,15 +393,15 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
         var rayOriginPoint = playerT.position;
         var ratDirection = Vector3.down;
         
-        var rayCheckLength = 1.25f; 
+        var rayCheckLength = 2f; 
         
         var checkNormalRay = new Ray(rayOriginPoint, ratDirection);
 
         var isRayHit = Physics.Raycast(checkNormalRay, out RaycastHit hitInfo, rayCheckLength, groundLayerMask);
-
+    
         if (isRayHit)
             resultNormal = hitInfo.normal;
-
+        
         GroundNormal = resultNormal;
     }
 
