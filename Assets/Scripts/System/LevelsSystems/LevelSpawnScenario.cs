@@ -245,7 +245,7 @@ public class LevelSpawnScenario : MonoBehaviour
             if (!isFirstLoadLoopSpawn && timeFromActivate < waitTime)
             {
                 var spawnedObject =
-                    SpawnObject(toSpawnObject, point.position);
+                    SpawnObject(toSpawnObject, point.position,point.rotation,!scenarioUnit.IsQuietSpawn);
                 
                 if (scenarioUnit.WayPoint != null)
                     SetWayPoint(spawnedObject);
@@ -365,13 +365,16 @@ public class LevelSpawnScenario : MonoBehaviour
             isMainCurrentScenarioUnitCompletedRepeating = true;
     }
     
-    private GameObject SpawnObject(GameObject obj, Vector3 pos)
+    private GameObject SpawnObject(GameObject obj, Vector3 pos,Quaternion rotation,bool withEffects)
     {
-        var spawnedObject = Instantiate(obj, pos, Quaternion.identity);
+        var spawnedObject = Instantiate(obj, pos, rotation);
 
-        var teleportationEffect = Instantiate(teleportationEffectPrefab, pos, Quaternion.identity);
-        Destroy(teleportationEffect,2);
-        
+        if (withEffects)
+        {
+            var teleportationEffect = Instantiate(teleportationEffectPrefab, pos, rotation);
+            Destroy(teleportationEffect, 2);
+        }
+
         return spawnedObject;
     }
 

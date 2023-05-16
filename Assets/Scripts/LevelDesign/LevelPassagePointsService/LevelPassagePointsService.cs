@@ -16,7 +16,7 @@ public class LevelPassagePointsService : MonoBehaviour
 
     [HideInInspector] [SerializeField] private int currentZoneId;
     [HideInInspector] [SerializeField] private int currentPointId;
-    [HideInInspector] [SerializeField] private int currentNonLinearZoneId;
+    [SerializeField] private int currentNonLinearZoneId = -1;
 
     [HideInInspector] [SerializeField] private List<int> blockedNonLinearZoneZoneId;
     [HideInInspector] [SerializeField] private List<int> blockedNonLinearZoneNonLinearZoneId;

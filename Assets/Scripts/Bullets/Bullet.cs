@@ -58,7 +58,7 @@ public class Bullet : MonoBehaviour
         currentTime += Time.deltaTime;
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         if (!isFly && gravityScale != 0)
         {

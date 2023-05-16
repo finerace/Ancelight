@@ -13,11 +13,13 @@ public class BulletHoming : Bullet
         base.Start();
 
         if (isEnemyBullet && target == null)
-            target = GameObject.Find("Player").transform;
+            target = FindObjectOfType<PlayerMainService>().transform;
     }
     
-    private void FixedUpdate()
+    protected new void FixedUpdate()
     {
+        base.FixedUpdate();
+        
         Homing(target,homingSpeed);
     }
 

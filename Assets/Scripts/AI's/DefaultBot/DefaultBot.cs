@@ -481,6 +481,8 @@ public abstract class DefaultBot : Health
         GetAannoyed();
         targetOldLookTimer = 0;
 
+        isBotGoToWayPoints = false;
+        
         if (agent.isOnNavMesh)
             SetDestination(target.position);
 

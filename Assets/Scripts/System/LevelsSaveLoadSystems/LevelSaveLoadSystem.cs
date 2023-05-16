@@ -478,7 +478,6 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
                 {
                     allSpawnersInLevel[i] = levelSaveData.LevelSpawnScenarios[i];
                 }
-
                 
                 for (var i = 0; i < allSpawnersInLevel.Length; i++)
                 {
@@ -497,7 +496,6 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
                             break;
                         }
                     }
-                    
                 }
             }
 

@@ -110,11 +110,10 @@ public class LevelSaveData : MonoBehaviour
                  triggerData.jsonTriggerT = FixedJsonUtilityFunc.GetJsonVersion(triggerData.TriggerT);
                  triggerData.jsonLevelTrigger = JsonUtility.ToJson(triggerData.LevelTrigger);
              }
-
+            
+             savedLevelSpawnScenarios.Clear();
              foreach (var levelSpawnScenario in levelSpawnScenarios)
              {
-                 savedLevelSpawnScenarios.Clear();
-                 
                  var jsonSpawnScenario = JsonUtility.ToJson(levelSpawnScenario);
                  savedLevelSpawnScenarios.Add(jsonSpawnScenario);
              }

@@ -5219,7 +5219,7 @@ MonoBehaviour:
   isOneUsesItem: 1
   itemId: 31
   bulletId: 2
-  bulletCount: 10
+  bulletCount: 16
 --- !u!114 &6577086333713408926
 MonoBehaviour:
   m_ObjectHideFlags: 0

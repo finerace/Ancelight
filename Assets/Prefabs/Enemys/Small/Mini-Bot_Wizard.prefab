@@ -14860,8 +14860,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193e9edc0dcb56447b7ac56da7c41236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health_: 20
-  maxHealth_: 20
+  health_: 30
+  maxHealth_: 30
   isDie: 0
   agent: {fileID: 5846294311807173933}
   agentT: {fileID: 5846294311807173922}

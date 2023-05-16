@@ -14581,10 +14581,11 @@ MonoBehaviour:
   colliders: {fileID: 6571646158332862438}
   destructionTime: 2
   currentTime: 0
-  lifeTime: 3
+  lifeTime: 4
   isDestruction: 0
   isFly: 1
-  damage: 5
+  gravityScale: 0
+  damage: 7.5
   inCollisionAddForce: 1
   collisionForce: 2
   speed: 20
