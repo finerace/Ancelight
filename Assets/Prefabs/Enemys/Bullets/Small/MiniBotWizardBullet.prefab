@@ -14581,16 +14581,16 @@ MonoBehaviour:
   colliders: {fileID: 6571646158332862438}
   destructionTime: 2
   currentTime: 0
-  lifeTime: 4
+  lifeTime: 8
   isDestruction: 0
   isFly: 1
   gravityScale: 0
-  damage: 7.5
+  damage: 10
   inCollisionAddForce: 1
   collisionForce: 2
   speed: 20
   bulletId: 22
-  homingSpeed: 1
+  homingSpeed: 2.5
   target: {fileID: 0}
   isEnemyBullet: 1
 --- !u!114 &-6348164806429053230

@@ -123,6 +123,8 @@ MonoBehaviour:
   botAttack: {fileID: 776609140344810134}
   botAnimations: {fileID: 0}
   startAgentSpeed: 0
+  killScoreValue: 120
+  isTrueEnemy: 1
   shieldObj: {fileID: 7418399079138544087}
   attackComp: {fileID: 776609140344810134}
   shieldHP: 100
@@ -143,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c38141a00a5452b4a9b949066a2d4eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1539869909391741079, guid: 6d7697e349ff25c4685248bdc175bfc3, type: 3}
+  bullet: {fileID: 7188070948176496396, guid: db3d0459ec7907b41aa3c9b6ea439604, type: 3}
   shotPoints:
   - {fileID: 776609141656955986}
   - {fileID: 776609142309008494}

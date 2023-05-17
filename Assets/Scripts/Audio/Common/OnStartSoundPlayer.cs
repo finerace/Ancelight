@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class OnStartSoundPlayer : MonoBehaviour
@@ -5,8 +6,26 @@ public class OnStartSoundPlayer : MonoBehaviour
     [SerializeField] private AudioCastData soundData;
     [Space]
     [SerializeField] private Transform soundParent;
+
+    [Space] 
+    
+    [SerializeField] private bool onEnableMod;
     
     private void Start()
+    {
+        if(onEnableMod)
+            return;
+        
+        PlaySound();
+    }
+
+    private void OnEnable()
+    {
+        if(onEnableMod)
+            PlaySound();
+    }
+
+    private void PlaySound()
     {
         var audioPool = AudioPoolService.audioPoolServiceInstance;
         var soundData = this.soundData;
@@ -18,4 +37,5 @@ public class OnStartSoundPlayer : MonoBehaviour
         
         audioPool.CastAudio(soundData);
     }
+    
 }

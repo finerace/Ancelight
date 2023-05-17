@@ -5361,6 +5361,7 @@ MonoBehaviour:
   botAttack: {fileID: 620626361877919511}
   botAnimations: {fileID: 0}
   startAgentSpeed: 0
+  killScoreValue: 20
 --- !u!114 &620626361877919511
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -82,6 +82,12 @@ public abstract class DefaultBot : Health
     
     [SerializeField] internal float startAgentSpeed;
 
+    [Space] 
+    
+    [SerializeField] private int killScoreValue = 10;
+    [SerializeField] private bool isTrueEnemy = true;
+    public bool IsTrueEnemy => isTrueEnemy;
+
     protected event Action botPlayerLookEvent;
     
     public DefaultBotParts BotParts => botParts;
@@ -155,19 +161,20 @@ public abstract class DefaultBot : Health
             agentT = agent.transform;
 
         if (target == null)
-            target = AIManager.mainTarget;
+            target = EnemysAiManager.mainTarget;
 
         if(bodyRB == null)
             bodyRB = GetComponent<Rigidbody>();
 
         if(isSmart) 
-            AIManager.AddAI(this);
+            EnemysAiManager.AddAI(this);
 
         if (isStaticBot)
         {
             agent.enabled = false;
+            agent.updateRotation = false;
             bodyRB.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
-            bodyRB.isKinematic = true;
+            bodyRB.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
         }
 
         agentT.parent = null;
@@ -220,7 +227,7 @@ public abstract class DefaultBot : Health
     public void OnDestroy()
     {
         if (isSmart) 
-            AIManager.RemoveAI(this);
+            EnemysAiManager.RemoveAI(this,killScoreValue);
 
         if(agent != null) 
             Destroy(agent.gameObject);
@@ -228,7 +235,7 @@ public abstract class DefaultBot : Health
 
     internal virtual void WalkBotToNavAgent()
     {
-        body.rotation = agentT.rotation;
+        BotRotateToAgent();
         float allowedBotAgentDistance = 0.3f;
 
         if (!agent.isOnNavMesh)
@@ -259,6 +266,11 @@ public abstract class DefaultBot : Health
 
     }
 
+    protected virtual void BotRotateToAgent()
+    {
+        body.rotation = agentT.rotation;
+    }
+    
     internal virtual void NavAgentDistanceControl()
     {
         float distance = Vector3.Distance(body.position, agentT.position);

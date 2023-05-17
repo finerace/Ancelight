@@ -251,6 +251,7 @@ MonoBehaviour:
   botAttack: {fileID: 8810049108534697796}
   botAnimations: {fileID: 0}
   startAgentSpeed: 0
+  killScoreValue: 50
   circlePlasmaMainPivot: {fileID: 3160013899716349391}
   circlePlasmaSimplePivot: {fileID: 8810049109208050256}
   circlePlasmaMainAllowedRotationAngles: {x: 30, y: 360, z: 360}

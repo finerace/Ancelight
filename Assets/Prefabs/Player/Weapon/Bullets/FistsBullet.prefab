@@ -71,9 +71,10 @@ MonoBehaviour:
   lifeTime: 0.15
   isDestruction: 0
   isFly: 1
+  gravityScale: 0
   damage: 0
   inCollisionAddForce: 1
-  collisionForce: 6
+  collisionForce: 15
   speed: 20
   bulletId: 2
 --- !u!1 &6571646158332862438

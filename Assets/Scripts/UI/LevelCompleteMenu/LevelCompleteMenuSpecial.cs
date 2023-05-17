@@ -39,14 +39,14 @@ public class LevelCompleteMenuSpecial : MonoBehaviour
         
         mainLevelCompleteLabel.text 
             = $"{CurrentLanguageData.GetText(mainLevelTextId1)} " +
-              $"{CurrentLanguageData.GetText(levelPassageService.LevelData.LevelNameTextId)} " +
+              $"\"{CurrentLanguageData.GetText(levelPassageService.LevelData.LevelNameTextId)}\" " +
               $"{CurrentLanguageData.GetText(mainLevelTextId2)}";
 
         scoreLabel.text = $"{CurrentLanguageData.GetText(scoreTextId)} {levelPassageService.Score}";
         passageTimeLabel.text = $"{CurrentLanguageData.GetText(passageTimeTextId)} " +
                                 $"{new TimeSpan(0,0,(int)levelPassageService.PassageTimeSec)}";
         enemyKilledLabel.text = $"{CurrentLanguageData.GetText(enemyKilledTextId)} {levelPassageService.EnemyKilled}";
-        secretsFoundLabel.text = $"{CurrentLanguageData.GetText(secretsFoundTextId)} {levelPassageService.SecretsFound}";
+        secretsFoundLabel.text = $"{CurrentLanguageData.GetText(secretsFoundTextId)} {levelPassageService.SecretsFound}/{levelPassageService.LevelData.LevelMaxSecretsCountInLevel}";
     }
 
     public void LoadNextLevel()

@@ -24784,6 +24784,7 @@ MonoBehaviour:
   botAttack: {fileID: 1745694421628653159}
   botAnimations: {fileID: 0}
   startAgentSpeed: 0
+  killScoreValue: 50
   maxTeleportDistance: 30
   minTeleportDistance: 2
   lookTargetTeleportColdown: 4

@@ -71,6 +71,24 @@ public class LevelPassageService : MonoBehaviour
 
         CampaignsLevelsSaveUtility.Save(levelCampaignData);
     }
+
+    public void AddScore(int scoreValue)
+    {
+        if (scoreValue < 0)
+            throw new ArgumentException("Added score not be could less than a zero!");
+
+        score += scoreValue;
+    }
+
+    public void AddDiedEnemy()
+    {
+        enemyKilled += 1;
+    }
+
+    public void SecretFind()
+    {
+        secretsFound += 1;
+    }
     
     public static int FindLevelNumInCampaign(LevelData levelData)
     {

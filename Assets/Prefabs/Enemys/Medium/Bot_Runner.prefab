@@ -11089,7 +11089,7 @@ MonoBehaviour:
   body: {fileID: 6133552505256046035}
   head: {fileID: 6133552504984414791}
   bodyRB: {fileID: 6133552505256046033}
-  botSpeed: 6
+  botSpeed: 8
   target: {fileID: 0}
   lookingRadius: 60
   isPathLong: 60
@@ -11120,6 +11120,8 @@ MonoBehaviour:
   botAttack: {fileID: 6133552505256046062}
   botAnimations: {fileID: 1199825348364051493}
   startAgentSpeed: 0
+  killScoreValue: 40
+  isTrueEnemy: 1
   headJoint: {fileID: 6133552504984414786}
   effects: {fileID: 0}
   botRunnerAttack: {fileID: 6133552505256046062}
@@ -11151,9 +11153,10 @@ MonoBehaviour:
   botRunner: {fileID: 6133552505256046063}
   jerkForce: 28.5
   getDamageDistance: 1.75
-  damage: 25
-  hammerDot: 0.5
+  damage: 30
+  hammerDot: 0.6
   idleTime: 1.5
+  targetImpulsePower: 1.25
 --- !u!114 &1199825348364051493
 MonoBehaviour:
   m_ObjectHideFlags: 0

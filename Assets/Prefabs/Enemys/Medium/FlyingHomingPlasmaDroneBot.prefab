@@ -14673,6 +14673,7 @@ MonoBehaviour:
   botAttack: {fileID: 63402761584809368}
   botAnimations: {fileID: 0}
   startAgentSpeed: 0
+  killScoreValue: 25
   flyPoint: {fileID: 63402760593601264}
   currentDroneState: 0
   maxFlyHight: 7

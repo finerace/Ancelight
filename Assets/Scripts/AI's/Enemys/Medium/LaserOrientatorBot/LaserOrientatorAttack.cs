@@ -10,6 +10,8 @@ public class LaserOrientatorAttack : DefaultBotAttack
     [SerializeField] private LayerMask laserLayerMask;
     [SerializeField] private LaserOrientatorBotEffects effects2;
 
+    public float AttackTime => attackTime;
+    
     private void Start()
     {
         effects2.laserHitEvent += TargetGetDamage;
@@ -104,7 +106,6 @@ public class LaserOrientatorAttack : DefaultBotAttack
             ActivateLoopShotStopEvent();
             isAttack = false;
         }
-
     }
 
     public override void StartMeleeAttack(Transform target)

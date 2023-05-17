@@ -19,6 +19,7 @@ MonoBehaviour:
   levelPassageTimeMinutes: 0
   levelEnemyCount: 0
   levelSecretsCount: 0
+  levelMaxSecretsCountInLevel: 0
   isLevelUnlocked: 1
   levelMaxScore: 0
   levelSecretsFounded: 0

@@ -4956,7 +4956,7 @@ MonoBehaviour:
   isOneUsesItem: 1
   itemId: 33
   bulletId: 1
-  bulletCount: 8
+  bulletCount: 7
 --- !u!114 &8111008119224514024
 MonoBehaviour:
   m_ObjectHideFlags: 0

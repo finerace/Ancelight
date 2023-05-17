@@ -14584,12 +14584,13 @@ MonoBehaviour:
   lifeTime: 3
   isDestruction: 0
   isFly: 1
-  damage: 25
+  gravityScale: 0
+  damage: 30
   inCollisionAddForce: 1
   collisionForce: 2
   speed: 30
   bulletId: 11
-  homingSpeed: 1
+  homingSpeed: 2
   target: {fileID: 0}
   isEnemyBullet: 1
 --- !u!114 &792970287525632310

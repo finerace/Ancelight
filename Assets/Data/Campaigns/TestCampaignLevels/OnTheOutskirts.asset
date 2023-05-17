@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: OnTheOutskirts
   m_EditorClassIdentifier: 
   levelCampaignData: {fileID: 11400000, guid: 1e71b38d4d6b0df48aca32a339c28640, type: 2}
-  levelNameTextId: 99
+  levelNameTextId: 207
   levelSceneId: 3
   levelPassageTimeHours: 0
-  levelPassageTimeMinutes: 0
+  levelPassageTimeMinutes: 20
   levelEnemyCount: 0
   levelSecretsCount: 0
+  levelMaxSecretsCountInLevel: 7
   isLevelUnlocked: 1
-  levelMaxScore: 0
-  levelSecretsFounded: 0
+  levelMaxScore: 230
+  levelSecretsFounded: 1

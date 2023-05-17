@@ -333,7 +333,7 @@ MonoBehaviour:
   body: {fileID: 1539869909391741076}
   head: {fileID: 1539869909391741076}
   bodyRB: {fileID: 1539869909391741077}
-  botSpeed: 5
+  botSpeed: 8
   target: {fileID: 0}
   lookingRadius: 40
   isPathLong: 40
@@ -364,6 +364,7 @@ MonoBehaviour:
   botAttack: {fileID: 1539869909391741072}
   botAnimations: {fileID: 0}
   startAgentSpeed: 0
+  killScoreValue: 5
 --- !u!114 &1539869909391741072
 MonoBehaviour:
   m_ObjectHideFlags: 0

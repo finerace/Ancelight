@@ -5511,7 +5511,7 @@ MonoBehaviour:
   shootingPoint: {fileID: 1076857626701794789}
   weaponPoint: {fileID: 1076857626245914308}
   meleeAttackPoint: {fileID: 1076857626686282405}
-  suitImprovementPoints: 80
+  suitImprovementPoints: 0
   playerHands: {fileID: 1076857625344682426}
 --- !u!114 &1076857625449862247
 MonoBehaviour:

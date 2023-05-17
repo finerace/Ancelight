@@ -186,6 +186,7 @@ MonoBehaviour:
   botAttack: {fileID: 3298547892854114161}
   botAnimations: {fileID: 0}
   startAgentSpeed: 0
+  killScoreValue: 100
   gunLeft: {fileID: 3298547894864932926}
   gunRight: {fileID: 3298547894016237561}
   allowedRotationEuler: {x: 40, y: 40, z: 360}

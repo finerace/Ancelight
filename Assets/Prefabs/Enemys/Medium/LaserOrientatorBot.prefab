@@ -10101,6 +10101,8 @@ MonoBehaviour:
   botAttack: {fileID: 5001171774041041259}
   botAnimations: {fileID: 0}
   startAgentSpeed: 0
+  killScoreValue: 60
+  aimTimeCof: 1.15
   mainGunT: {fileID: 5001171774827122766}
   headAndGunRotationSpeed: 4
   headAllowedRotation: {x: 45, y: 360, z: 360}

@@ -49601,6 +49601,7 @@ MonoBehaviour:
   botAttack: {fileID: 3454785966935620437}
   botAnimations: {fileID: 0}
   startAgentSpeed: 0
+  killScoreValue: 50
   headRotationSpeed: 4
   gunsRotationSpeed: 16
   gunsAllowedRotationAngles: {x: 360, y: 30, z: 360}

@@ -11,7 +11,7 @@ public class BotRunnerAttack : DefaultBotAttack
     [SerializeField] private float damage;
     [SerializeField] private float hammerDot = 0.4f;
     [SerializeField] private float idleTime = 2f;
-
+    [SerializeField] private float targetImpulsePower = 1.25f;
 
     private bool isJerkingToTarget = false;
 
@@ -57,11 +57,7 @@ public class BotRunnerAttack : DefaultBotAttack
 
                             if (botRunner.target.TryGetComponent<Rigidbody>(out Rigidbody targetRB))
                             {
-                                float velocitySmoothness = (targetRB.drag + 1f) / 2f;
-
-                                targetRB.AddForce(Vector3.up * velocitySmoothness,ForceMode.Acceleration);
-                            
-                                targetRB.velocity += botRunner.bodyRB.velocity * velocitySmoothness;
+                                targetRB.velocity += botRunner.bodyRB.velocity * targetImpulsePower;
                             }
 
                             if (botRunner.target.TryGetComponent<Health>(out Health targetHealth))

@@ -97,7 +97,8 @@ public class LevelSaveData : MonoBehaviour
 
              foreach (var saveBulletData in toSaveBulletData)
              {
-                 saveBulletData.jsonBulletT = FixedJsonUtilityFunc.GetJsonVersion(saveBulletData.BulletT);
+                 if(saveBulletData.BulletT != null)
+                    saveBulletData.jsonBulletT = FixedJsonUtilityFunc.GetJsonVersion(saveBulletData.BulletT);
                  
                  if(saveBulletData.BulletRb != null)
                     saveBulletData.jsonBulletRb = FixedJsonUtilityFunc.GetJsonVersion(saveBulletData.BulletRb);

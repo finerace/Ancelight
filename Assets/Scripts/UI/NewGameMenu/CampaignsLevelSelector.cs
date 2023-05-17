@@ -9,7 +9,6 @@ public class CampaignsLevelSelector : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI levelPassageTimeLabel;
     [SerializeField] private TextMeshProUGUI levelEnemyCountLabel;
-    [SerializeField] private TextMeshProUGUI levelSecretCountLabel;
     
     [SerializeField] private TextMeshProUGUI levelMaxScoreLabel;
     [SerializeField] private TextMeshProUGUI levelSecretsFoundLabel;
@@ -44,10 +43,9 @@ public class CampaignsLevelSelector : MonoBehaviour
                                          $"{AuxiliaryFunc.ConvertNumCharacters(levelData.LevelPassageTimeMinutes)}:00";
             
             levelEnemyCountLabel.text = $"{CurrentLanguageData.GetText(levelEnemyCountTextId)} " + levelData.LevelEnemyCount.ToString();
-            levelSecretCountLabel.text = $"{CurrentLanguageData.GetText(levelSecretCountTextId)} " + levelData.LevelSecretsCount.ToString();
 
             levelMaxScoreLabel.text = $"{CurrentLanguageData.GetText(levelMaxScoreTextId)} " + levelData.LevelMaxScore.ToString();
-            levelSecretsFoundLabel.text = $"{CurrentLanguageData.GetText(levelSecretsFoundTextId)} {levelData.LevelSecretsFounded}/{levelData.LevelSecretsCount}";
+            levelSecretsFoundLabel.text = $"{CurrentLanguageData.GetText(levelSecretsFoundTextId)} {levelData.LevelSecretsFounded}/{levelData.LevelMaxSecretsCountInLevel}";
             levelMinimumPassageTimeLabel.text = $"{CurrentLanguageData.GetText(levelMinimumPassageTimeTextId)} " + levelData.LevelMinimumPassageTime.ToString();
         }
     }

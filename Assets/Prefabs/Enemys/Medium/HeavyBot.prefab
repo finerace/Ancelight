@@ -1198,6 +1198,7 @@ MonoBehaviour:
   botAttack: {fileID: 3445271179239089294}
   botAnimations: {fileID: 122936149319088809}
   startAgentSpeed: 0
+  killScoreValue: 40
   headJoint: {fileID: 3936717055448591390}
   handWeapon: {fileID: 5278477474757689304}
   handAimingSpeed: 25

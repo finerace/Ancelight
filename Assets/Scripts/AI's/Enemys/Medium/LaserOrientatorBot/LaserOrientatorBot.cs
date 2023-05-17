@@ -5,6 +5,9 @@ using UnityEngine;
 public class LaserOrientatorBot : DefaultBot
 {
     private Rigidbody targetRB;
+
+    [SerializeField] protected float aimTimeCof = 1;
+
     private Vector3 smartTargetPos
     {
         get
@@ -13,7 +16,7 @@ public class LaserOrientatorBot : DefaultBot
 
             if(targetRB != null)
             {
-                float smoothness = 0.5f;
+                float smoothness = aimTimeCof;
 
                 resultPos += targetRB.velocity * smoothness;
             }
@@ -36,7 +39,7 @@ public class LaserOrientatorBot : DefaultBot
     private new void Update()
     {
         base.Update();
-
+        
         if(!botAttack.isShoot)
         {
             Vector3 smartTargetPosLocal = smartTargetPos;
@@ -44,6 +47,12 @@ public class LaserOrientatorBot : DefaultBot
             RotateToTargetClamp(mainGunT, smartTargetPosLocal, headAndGunRotationSpeed, headAllowedRotation);
             RotateToTargetClamp(head, smartTargetPosLocal, headAndGunRotationSpeed, headAllowedRotation);
         }
+    }
+
+    protected override void BotRotateToAgent()
+    {
+        if(!botAttack.isAttack)
+            base.BotRotateToAgent();
     }
 
     internal override IEnumerator IsAttacksAllowChecker(float time)
@@ -59,9 +68,6 @@ public class LaserOrientatorBot : DefaultBot
             {
                 botAttack.StartAttack();
             }
-
-            
-
         }
     }
 
@@ -84,4 +90,10 @@ public class LaserOrientatorBot : DefaultBot
         return Mathf.Abs(angle);
     }
 
+    protected override void StaticBotRotation()
+    {
+        if(!botAttack.isAttack)
+            base.StaticBotRotation();
+    }
+    
 }

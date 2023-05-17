@@ -14,7 +14,7 @@ public class LevelData : ScriptableObject
     [SerializeField] private int levelPassageTimeMinutes;
     [Space]
     [SerializeField] private int levelEnemyCount;
-    [SerializeField] private int levelSecretsCount;
+    [SerializeField] private int levelMaxSecretsCountInLevel;
     [Space] 
     [SerializeField] private bool isLevelUnlocked;
     [SerializeField] private int levelMaxScore;
@@ -33,8 +33,6 @@ public class LevelData : ScriptableObject
 
     public int LevelEnemyCount => levelEnemyCount;
 
-    public int LevelSecretsCount => levelSecretsCount;
-    
     public bool IsLevelUnlocked => isLevelUnlocked;
     
     public int LevelMaxScore => levelMaxScore;
@@ -42,6 +40,8 @@ public class LevelData : ScriptableObject
     public int LevelSecretsFounded => levelSecretsFounded;
     
     public TimeSpan LevelMinimumPassageTime => levelMinimumPassageTime;
+
+    public int LevelMaxSecretsCountInLevel => levelMaxSecretsCountInLevel;
 
     public void SetEndLevelData(int endLevelScore, int endLevelSecretsFound, TimeSpan endLevelPassageTime)
     {

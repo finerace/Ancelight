@@ -14860,8 +14860,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193e9edc0dcb56447b7ac56da7c41236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health_: 30
-  maxHealth_: 30
+  health_: 40
+  maxHealth_: 40
   isDie: 0
   agent: {fileID: 5846294311807173933}
   agentT: {fileID: 5846294311807173922}
@@ -14899,6 +14899,7 @@ MonoBehaviour:
   botAttack: {fileID: 9160820280697506715}
   botAnimations: {fileID: 0}
   startAgentSpeed: 0
+  killScoreValue: 20
   specialEffects: {fileID: 5846294311926004484}
 --- !u!114 &9160820280697506715
 MonoBehaviour:
