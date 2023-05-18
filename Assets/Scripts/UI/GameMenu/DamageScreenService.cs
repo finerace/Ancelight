@@ -9,7 +9,8 @@ public class DamageScreenService : MonoBehaviour
     [SerializeField] private PlayerMainService playerMain;
     [SerializeField] private Image damageScreen;
     [SerializeField] private float screenDisappearSpeed;
-
+    [SerializeField] private float disappearPower = 1;
+    
     private float damageScreenIntensity { get => damageScreen.color.a; }
 
     private void Awake()
@@ -28,7 +29,7 @@ public class DamageScreenService : MonoBehaviour
 
     private void DamageScreenIntensityTrackerAndSetter(float damage)
     {
-        const float smooth = 0.05f;
+        float smooth = 0.05f * disappearPower;
         float resultScreenIntensity = (damage * smooth) + damageScreenIntensity;
 
         SetDamageScreenIntensity(resultScreenIntensity);

@@ -70,6 +70,12 @@ public class EnemysAiManager : MonoBehaviour
                     continue;
 
                 var firstBot = Bots[i];
+                
+                if (firstBot == null)
+                {
+                    Bots.Remove(firstBot);
+                    continue;
+                }
 
                 if (!firstBot.isAnnoyed)
                     continue;
@@ -81,12 +87,17 @@ public class EnemysAiManager : MonoBehaviour
                 
                 for (int j = 0; j < Bots.Count; j++)
                 {
-
                     if (j >= Bots.Count || j == i)
                         continue;
 
                     var secondBot = Bots[j];
 
+                    if (secondBot == null)
+                    {
+                        Bots.Remove(secondBot);
+                        continue;
+                    }
+                    
                     float distance = Vector3.Distance(firstBot.body.position, secondBot.body.position);
 
                     if (distance > linkDistance)
@@ -96,7 +107,8 @@ public class EnemysAiManager : MonoBehaviour
                     {
                         // if (secondBot.isBotGoToWayPoints)
                         //     continue;
-                        
+
+                        secondBot.isBotGoToWayPoints = false;
                         secondBot.SetDestination(firstBot.Destination);
                         secondBot.nowSetTargetPosHiddenTimer = 2.5f;
 

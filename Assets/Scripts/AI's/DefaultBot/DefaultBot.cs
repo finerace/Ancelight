@@ -224,15 +224,6 @@ public abstract class DefaultBot : Health
         }
     }
 
-    public void OnDestroy()
-    {
-        if (isSmart) 
-            EnemysAiManager.RemoveAI(this,killScoreValue);
-
-        if(agent != null) 
-            Destroy(agent.gameObject);
-    }
-
     internal virtual void WalkBotToNavAgent()
     {
         BotRotateToAgent();
@@ -302,14 +293,10 @@ public abstract class DefaultBot : Health
 
     internal virtual void SetDestination(Vector3 pos)
     {
-        if (agent.destination == pos)
-            return;
-
-        if (agent.isOnNavMesh)
+        if(agent.isOnNavMesh)
             agent.destination = pos;
 
         //targetOldLookTimer = 0;
-
     }
 
     internal virtual Vector3 GetDestination()
@@ -536,6 +523,13 @@ public abstract class DefaultBot : Health
 
             botEffects.Destruct();
             gameObject.SetActive(false);
+            
+            if (isSmart) 
+                EnemysAiManager.RemoveAI(this,killScoreValue);
+
+            if(agent != null) 
+                Destroy(agent.gameObject);
+            
             Destroy(gameObject, 5);
         }
     }

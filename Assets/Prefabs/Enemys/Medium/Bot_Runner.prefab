@@ -11089,7 +11089,7 @@ MonoBehaviour:
   body: {fileID: 6133552505256046035}
   head: {fileID: 6133552504984414791}
   bodyRB: {fileID: 6133552505256046033}
-  botSpeed: 8
+  botSpeed: 7
   target: {fileID: 0}
   lookingRadius: 60
   isPathLong: 60
@@ -11200,8 +11200,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 0}
     priority: 13
-    volumeMin: 1
-    volumeMax: 1
+    volumeMin: 0.75
+    volumeMax: 0.75
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1

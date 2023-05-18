@@ -246,3 +246,5 @@ Analysis of unknown opponents 6;
 Everything suggests that humanity has been attacked by these creatures. And we, by a "lucky" chance, got here and crashed, right behind enemy lines.;
 Environment Report 5;
 At the opposite end of the valley, an entrance to an unknown structure of enormous size was discovered. It seems that this is their main complex, from where the space warps are produced.;
+The secret is found!;
+Game saved;

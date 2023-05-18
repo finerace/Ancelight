@@ -24785,6 +24785,7 @@ MonoBehaviour:
   botAnimations: {fileID: 0}
   startAgentSpeed: 0
   killScoreValue: 50
+  isTrueEnemy: 1
   maxTeleportDistance: 30
   minTeleportDistance: 2
   lookTargetTeleportColdown: 4
@@ -24855,8 +24856,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 0}
     priority: 13
-    volumeMin: 1
-    volumeMax: 1
+    volumeMin: 0.75
+    volumeMax: 0.75
     isLoop: 0
     pitchMin: 1.15
     pitchMax: 1.25

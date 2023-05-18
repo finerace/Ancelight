@@ -5,6 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Exception = System.Exception;
+using Random = UnityEngine.Random;
 
 public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
 {
@@ -29,6 +30,8 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
     
     private DeviceButton saveButton = new DeviceButton();
     
+    public event Action OnSaveEvent;
+
     private void Awake()
     {
         savesPath = $"{Application.persistentDataPath}/Saves";
@@ -86,13 +89,15 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
             
         if (saveButton.IsGetButtonDown())
         {
-            var levelName = SceneManager.GetActiveScene().name;
+            var levelName = CurrentLanguageData.GetText(levelSaveData.LevelNameTextId);
 
             var saveDate = DateTime.Now;
-            var saveDateTxt = $"{saveDate.Millisecond}";
+            var saveDateTxt = $"{saveDate.Second}{saveDate.Millisecond+Random.Range(0,100)}";
             var saveName = $"{levelName}_{saveDateTxt}";
-            
+
             SaveLevel(saveName);
+            
+            OnSaveEvent?.Invoke();
         }
 
         // if (Input.GetKeyDown(KeyCode.J))

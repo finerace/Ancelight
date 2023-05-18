@@ -37,6 +37,11 @@ public abstract class LevelTrigger : MonoBehaviour
 
     public LayerMask activateLayerMask = 1 << 3;
 
+    public void SetNewID(int mewId)
+    {
+        triggerId = mewId;
+    }
+    
     protected virtual void OnTriggerEnter(Collider other)
     {
         if(!isTriggerActive || other.isTrigger)

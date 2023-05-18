@@ -372,7 +372,7 @@ public class LevelSpawnScenario : MonoBehaviour
         if (withEffects)
         {
             var teleportationEffect = Instantiate(teleportationEffectPrefab, pos, rotation);
-            Destroy(teleportationEffect, 2);
+            Destroy(teleportationEffect, 1.25f);
         }
 
         return spawnedObject;
@@ -425,6 +425,11 @@ public class LevelSpawnScenario : MonoBehaviour
         
         if(isScenarioActive)
             StartCoroutine(StartScenario());
+    }
+
+    public void SetNewID(int newId)
+    {
+        spawnerId = newId;
     }
 }
 

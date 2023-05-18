@@ -253,6 +253,11 @@ public class LevelTransformAnimationSystem : MonoBehaviour
         }
     }
 
+    public void SetNewID(int newId)
+    {
+        id = newId;
+    }
+
     [Serializable]
     public class TransformAnimationData
     {

@@ -1199,6 +1199,7 @@ MonoBehaviour:
   botAnimations: {fileID: 122936149319088809}
   startAgentSpeed: 0
   killScoreValue: 40
+  isTrueEnemy: 1
   headJoint: {fileID: 3936717055448591390}
   handWeapon: {fileID: 5278477474757689304}
   handAimingSpeed: 25
@@ -1290,8 +1291,8 @@ MonoBehaviour:
     castPos: {x: 0, y: 0, z: 0}
     castParent: {fileID: 0}
     priority: 13
-    volumeMin: 1
-    volumeMax: 1
+    volumeMin: 0.75
+    volumeMax: 0.75
     isLoop: 0
     pitchMin: 0.95
     pitchMax: 1

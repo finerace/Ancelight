@@ -14,7 +14,10 @@ public class LevelPassageService : MonoBehaviour
     [SerializeField] private float passageTimeSec;
     
     [SerializeField] private MenuSystem menuSystem;
-    
+
+    public event Action OnSecretFind;
+    public event Action<int> OnScoreAdd;
+
     public LevelData LevelData => levelData;
 
     public int SecretsFound => secretsFound;
@@ -78,6 +81,7 @@ public class LevelPassageService : MonoBehaviour
             throw new ArgumentException("Added score not be could less than a zero!");
 
         score += scoreValue;
+        OnScoreAdd?.Invoke(score);
     }
 
     public void AddDiedEnemy()
@@ -88,6 +92,8 @@ public class LevelPassageService : MonoBehaviour
     public void SecretFind()
     {
         secretsFound += 1;
+        
+        OnSecretFind?.Invoke();
     }
     
     public static int FindLevelNumInCampaign(LevelData levelData)

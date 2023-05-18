@@ -53,6 +53,7 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
                 throw new Exception("Improvement points cannot be less than zero!");
 
             suitImprovementPoints = value;
+            OnImprovementPointsValueChange?.Invoke(suitImprovementPoints);
         }
     }
     
@@ -71,6 +72,7 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     public event Action<float> AddArmorEvent;
     public event Action<WeaponData> UnlockWeaponEvent; 
     public event Action<(int, string,float)> AddPlasmaEvent;
+    public event Action<int> OnImprovementPointsValueChange; 
 
     private DeviceButton openSuitManageMenuButton = new DeviceButton();
     
@@ -249,7 +251,7 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
         immediatelyProtectionService.SetManageActive(state);
         playerUseService.SetManageActive(state);
     }
-    
+
     public override void Died()
     {
         menuSystem.OpenLocalMenu("DiedMenu");
@@ -284,7 +286,8 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
 
     public void SetPlayerHandsActive(bool state)
     {
-        playerHands.gameObject.SetActive(state);
+        if(playerHands != null)
+            playerHands.gameObject.SetActive(state);
     }
 }
 
