@@ -125,6 +125,7 @@ MonoBehaviour:
   startAgentSpeed: 0
   killScoreValue: 120
   isTrueEnemy: 1
+  isBotOnlyRun: 0
   shieldObj: {fileID: 7418399079138544087}
   attackComp: {fileID: 776609140344810134}
   shieldHP: 100

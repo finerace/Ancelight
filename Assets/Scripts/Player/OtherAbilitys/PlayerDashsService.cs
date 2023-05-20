@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
 {
     [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private PlayerLookService playerLook;
     [SerializeField] private ParticleSystem dashEffect;
     [Space]
     [SerializeField] private int dashsCount = 3;
@@ -59,6 +58,9 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
         remove => onDashSeviceUnlock -= value;
     }
 
+    [SerializeField] private float postDashStopForcePower = 1;
+    [SerializeField] private float postDashStopForceDotActivate = 0.25f;
+    
     public void Load(PlayerDashsService savedDashService)
     {
         dashCurrentEnergy = savedDashService.dashCurrentEnergy;
@@ -186,7 +188,6 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
     
     private IEnumerator DashProcess(Vector3 currentPlayerXYDirection)
     {
-
         Vector3 resultDashForce = 
             currentPlayerXYDirection * dashPower;
 
@@ -196,15 +197,19 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
 
         for (int i = 0; i < dashStopDeltaTimeTicks; i++)
         {
-            FlyDeshForceAdjustment();
+            FlyDashForceAdjustment();
 
+            if (!playerMovement.isFlies)
+                i++;
+                
             yield return waitFixedUpdate;
-
         }
 
-        void FlyDeshForceAdjustment()
+        void FlyDashForceAdjustment()
         {
-            if(playerMovement.isFlies)
+            var isCurrentMoveVectorIsDash = Vector3.Dot(playerMovement.PlayerRb.velocity.normalized,resultDashForce.normalized) >= postDashStopForceDotActivate; 
+            
+            if(playerMovement.isFlies && isCurrentMoveVectorIsDash)
             {
                 Vector3 adjustmentForce =
                     (resultDashForce / dashStopDeltaTimeTicks) * (1f - flyDashResidualForceAmount);
@@ -212,7 +217,7 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
                 Vector3 playerVelocity = playerMovement.PlayerRb.velocity;
 
                 bool isPlayerVelocityContainAdjustmentForceXY =
-                    IsVectorContainVectorXZ(playerVelocity, currentPlayerXYDirection);
+                    Math.Abs(playerVelocity.x) + Math.Abs(playerVelocity.z) >= postDashStopForcePower;
 
                 if (isPlayerVelocityContainAdjustmentForceXY)
                 {

@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.4000244}
-  m_SizeDelta: {x: 99.100006, y: -31.32}
+  m_AnchoredPosition: {x: 0, y: -0.12960052}
+  m_SizeDelta: {x: 99.1, y: -23.3285}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5723069494449904888
 CanvasRenderer:
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15.15
+  m_fontSize: 18
   m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   improvementSelectBuyService: {fileID: 0}
-  improvementPointCost: 2
+  improvementPointCost: 3
   itemIcon: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
   itemNameTextId: 77
   itemDescTextId: 80
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a016d50cc167f9445a255089f4f7011f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b2d8e0ec02273943b072520a9c91da8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -690,7 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   improvementSelectBuyService: {fileID: 0}
-  improvementPointCost: 2
+  improvementPointCost: 3
   itemIcon: {fileID: 21300000, guid: 651e0d7f2f9f3404eb866abb57716cb9, type: 3}
   itemNameTextId: 83
   itemDescTextId: 84
@@ -863,8 +863,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 629.999}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -42.7, y: -0}
-  m_SizeDelta: {x: 33.350502, y: 36.6423}
+  m_AnchoredPosition: {x: -39.4, y: -0.6}
+  m_SizeDelta: {x: 33.350502, y: 32.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5331662937069799820
 CanvasRenderer:
@@ -894,7 +894,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 104e8363630dcaf46be5447fc8ebd4e4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8251d78cb418a243a04f74a1e4d2246, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1641,9 +1641,9 @@ MonoBehaviour:
     spatialBlend: 0
     minDistance: 1
     maxDistance: 1
-  minDamageToBuy: 13.4
-  maxDamageToBuy: 13.6
-  toSetDamage: 16
+  minDamageToBuy: 29
+  maxDamageToBuy: 31
+  toSetDamage: 40
   toSetRadius: 18
 --- !u!1 &1317365319757080962
 GameObject:
@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a016d50cc167f9445a255089f4f7011f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b2d8e0ec02273943b072520a9c91da8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1999,7 +1999,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a016d50cc167f9445a255089f4f7011f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b2d8e0ec02273943b072520a9c91da8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2164,7 +2164,7 @@ MonoBehaviour:
     maxDistance: 1
   minDamageToBuy: 9.5
   maxDamageToBuy: 10.5
-  toSetDamage: 11
+  toSetDamage: 20
   toSetRadius: 15
 --- !u!1 &1836750167335919342
 GameObject:
@@ -2232,7 +2232,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 541a572bf3ad43041b3e2f6c29714ff5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2836,7 +2836,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -42, y: -43.6}
-  m_SizeDelta: {x: -238.215, y: 87.12}
+  m_SizeDelta: {x: -238.215, y: 78.8784}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2616385890848452759
 CanvasRenderer:
@@ -2866,7 +2866,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 104e8363630dcaf46be5447fc8ebd4e4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8251d78cb418a243a04f74a1e4d2246, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3403,7 +3403,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a016d50cc167f9445a255089f4f7011f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b2d8e0ec02273943b072520a9c91da8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3832,7 +3832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   improvementSelectBuyService: {fileID: 0}
-  improvementPointCost: 1
+  improvementPointCost: 3
   itemIcon: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
   itemNameTextId: 77
   itemDescTextId: 78
@@ -7171,8 +7171,8 @@ RectTransform:
   m_Father: {fileID: 3657638010846170231}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.8}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8887,8 +8887,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.8000507, y: -1.8001709}
-  m_SizeDelta: {x: 89.100006, y: -25.32}
+  m_AnchoredPosition: {x: 2.8000526, y: -0.6195984}
+  m_SizeDelta: {x: 89.1, y: -16.1957}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3657638010313376198
 CanvasRenderer:
@@ -11961,7 +11961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3657638010825715213
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14248,7 +14248,7 @@ RectTransform:
   m_GameObject: {fileID: 3657638011459713749}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3657638009759326731}
@@ -15406,8 +15406,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.4000244}
-  m_SizeDelta: {x: 89.100006, y: -31.32}
+  m_AnchoredPosition: {x: 0, y: -0.09149933}
+  m_SizeDelta: {x: 89.1, y: -23.3692}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1804961751155085309
 CanvasRenderer:
@@ -15464,7 +15464,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15.1
+  m_fontSize: 17.1
   m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15702,8 +15702,8 @@ RectTransform:
   m_Father: {fileID: 6158175675313832462}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.8}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -15838,7 +15838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   improvementSelectBuyService: {fileID: 0}
-  improvementPointCost: 2
+  improvementPointCost: 3
   itemIcon: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
   itemNameTextId: 77
   itemDescTextId: 80
@@ -16651,9 +16651,9 @@ MonoBehaviour:
     spatialBlend: 0
     minDistance: 1
     maxDistance: 1
-  minDamageToBuy: 12.4
-  maxDamageToBuy: 12.6
-  toSetDamage: 13.5
+  minDamageToBuy: 24
+  maxDamageToBuy: 26
+  toSetDamage: 30
   toSetRadius: 17
 --- !u!1 &4795389726861389804
 GameObject:
@@ -16900,7 +16900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   improvementSelectBuyService: {fileID: 0}
-  improvementPointCost: 1
+  improvementPointCost: 2
   itemIcon: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
   itemNameTextId: 77
   itemDescTextId: 78
@@ -18788,7 +18788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   improvementSelectBuyService: {fileID: 0}
-  improvementPointCost: 1
+  improvementPointCost: 2
   itemIcon: {fileID: 21300000, guid: 651e0d7f2f9f3404eb866abb57716cb9, type: 3}
   itemNameTextId: 83
   itemDescTextId: 84
@@ -20230,9 +20230,9 @@ MonoBehaviour:
     spatialBlend: 0
     minDistance: 1
     maxDistance: 1
-  minDamageToBuy: 10.9
-  maxDamageToBuy: 11.1
-  toSetDamage: 12.5
+  minDamageToBuy: 14
+  maxDamageToBuy: 16
+  toSetDamage: 25
   toSetRadius: 16.5
 --- !u!1 &7828937674216074128
 GameObject:
@@ -20254,7 +20254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &554493479874941760
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21546,7 +21546,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 733e36ba20a99c7439adc06ec2d2b8d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 541a572bf3ad43041b3e2f6c29714ff5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21786,12 +21786,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.6
+  m_fontSize: 25
   m_fontSizeBase: 24.6
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 1
+  m_fontSizeMax: 25
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -21822,7 +21822,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.6335983, y: -0.29802275, z: -0.2683525, w: 0.27179718}
+  m_margin: {x: 4.1489944, y: -0.29802275, z: -2.3897877, w: 0.27179718}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -21921,7 +21921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   improvementSelectBuyService: {fileID: 0}
-  improvementPointCost: 3
+  improvementPointCost: 4
   itemIcon: {fileID: 21300000, guid: 651e0d7f2f9f3404eb866abb57716cb9, type: 3}
   itemNameTextId: 83
   itemDescTextId: 84

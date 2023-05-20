@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aafa4f540456a7c4bbbfa9a8d7b41b9b, type: 3}
-  m_Name: OnTheOutskirts
+  m_Name: Hive
   m_EditorClassIdentifier: 
   levelCampaignData: {fileID: 11400000, guid: 1e71b38d4d6b0df48aca32a339c28640, type: 2}
-  levelNameTextId: 207
-  levelSceneId: 3
+  levelNameTextId: 256
+  levelSceneId: 4
   levelPassageTimeHours: 0
   levelPassageTimeMinutes: 20
   levelEnemyCount: 0
-  levelSecretsCount: 0
   levelMaxSecretsCountInLevel: 7
-  isLevelUnlocked: 1
-  levelMaxScore: 230
-  levelSecretsFounded: 1
+  isLevelUnlocked: 0
+  levelMaxScore: 0
+  levelSecretsFounded: 0

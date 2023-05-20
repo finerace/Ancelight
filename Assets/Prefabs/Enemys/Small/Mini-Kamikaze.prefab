@@ -366,6 +366,7 @@ MonoBehaviour:
   startAgentSpeed: 0
   killScoreValue: 5
   isTrueEnemy: 1
+  isBotOnlyRun: 1
 --- !u!114 &1539869909391741072
 MonoBehaviour:
   m_ObjectHideFlags: 0

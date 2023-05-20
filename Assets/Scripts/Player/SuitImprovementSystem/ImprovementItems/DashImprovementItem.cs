@@ -6,12 +6,12 @@ public class DashImprovementItem : ImprovementItem
     
     [SerializeField] private int minDashToBuy;
     [SerializeField] private int itemDashBuy;
-    
-    protected new void Start()
+
+    protected new void Awake()
     {
-        playerDashsService = FindObjectOfType<PlayerDashsService>();
+        base.Awake();
         
-        base.Start();
+        playerDashsService = FindObjectOfType<PlayerDashsService>();
     }
     
     protected override void ImprovementEffect()

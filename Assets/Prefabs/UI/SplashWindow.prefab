@@ -469,6 +469,7 @@ GameObject:
   - component: {fileID: 5545735300822842712}
   - component: {fileID: 5545735300822842718}
   - component: {fileID: 2691640377548158498}
+  - component: {fileID: 8275835122600632102}
   m_Layer: 5
   m_Name: SplashWindow
   m_TagString: Untagged
@@ -566,6 +567,27 @@ MonoBehaviour:
   splashWindowMainLabel: {fileID: 5545735300859335358}
   yesButtonService: {fileID: 5545735302391787495}
   noButtonService: {fileID: 5545735301396033920}
+--- !u!114 &8275835122600632102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545735300822842714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66facce4812e0b64e8c6a52740a40b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staticTextAdaptableForms:
+  - targetTexts:
+    - {fileID: 5545735301913992183}
+    - {fileID: 5545735300839306437}
+    languageDataTextId: 254
+  - targetTexts:
+    - {fileID: 5545735301553810482}
+    - {fileID: 5545735300593844091}
+    languageDataTextId: 255
 --- !u!1 &5545735300832081953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,6 +1083,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onClickAudioData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  onEnterExitAudioData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
 --- !u!114 &5545735301396033921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,7 +1147,7 @@ MonoBehaviour:
   currentButtonAnimationState: 0
 --- !u!95 &5545735301396033923
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1112,7 +1164,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &5545735301406157575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1843,6 +1895,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onClickAudioData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+  onEnterExitAudioData:
+    audioMixerGroup: {fileID: 0}
+    clips: []
+    castPos: {x: 0, y: 0, z: 0}
+    castParent: {fileID: 0}
+    priority: 0
+    volumeMin: 0
+    volumeMax: 0
+    isLoop: 0
+    pitchMin: 0
+    pitchMax: 0
+    stereoPan: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
 --- !u!114 &5545735302391787488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,7 +1959,7 @@ MonoBehaviour:
   currentButtonAnimationState: 0
 --- !u!95 &5545735302391787490
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1894,7 +1976,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &5545735302422037140
 GameObject:
   m_ObjectHideFlags: 0

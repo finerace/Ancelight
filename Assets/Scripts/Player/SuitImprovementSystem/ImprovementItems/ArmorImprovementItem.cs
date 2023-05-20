@@ -12,14 +12,14 @@ public class ArmorImprovementItem : ImprovementItem
     [SerializeField] private float itemNewArmor;
 
     [SerializeField] private bool isArmorValueItsResistance;
-    
-    protected new void Start()
+
+    protected new void Awake()
     {
-        playerMainService = FindObjectOfType<PlayerMainService>();
+        base.Awake();
         
-        base.Start();
+        playerMainService = FindObjectOfType<PlayerMainService>();
     }
-    
+
     protected override void ImprovementEffect()
     {
         if (!isArmorValueItsResistance)

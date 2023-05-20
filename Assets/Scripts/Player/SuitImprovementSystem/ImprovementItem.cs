@@ -47,6 +47,16 @@ public abstract class ImprovementItem : MonoBehaviour, IPointerClickHandler,IPoi
     [SerializeField] private AudioCastData onMouseClickComplete;
     [SerializeField] private AudioCastData onMouseClickDefeat;
 
+    protected void Awake()
+    {
+        Init();
+        void Init()
+        {
+            if (improvementSelectBuyService == null)
+                improvementSelectBuyService = FindObjectOfType<ImprovementSelectBuyService>();
+        }
+    }
+
     protected void Start()
     {
         improvementSelectBuyService = ImprovementSelectBuyService.instance;

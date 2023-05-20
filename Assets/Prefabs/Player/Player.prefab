@@ -5756,18 +5756,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1076857625449862247}
-  playerLook: {fileID: 1076857625449862248}
   dashEffect: {fileID: 1076857625270694708}
-  dashsCount: 1
+  dashsCount: 0
   oneDashEnergySpend: 3
   dashsRegenerationSpeed: 3
   dashPower: 35
   dashColdown: 0.25
   dashCurrentColdownTimer: 0
   dashStopDeltaTimeTicks: 30
-  flyDashResidualForceAmount: 0.2
+  flyDashResidualForceAmount: 0
   dashCurrentEnergy: 0
   isDashServiceExist: 0
+  postDashStopForcePower: 1
+  postDashStopForceDotActivate: 0
 --- !u!114 &1076857625449862252
 MonoBehaviour:
   m_ObjectHideFlags: 0

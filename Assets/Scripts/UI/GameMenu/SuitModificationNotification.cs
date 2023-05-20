@@ -13,19 +13,10 @@ public class SuitModificationNotification : MonoBehaviour
 
         allImprovementItems = FindObjectsOfType<ImprovementItem>(true);
         
-        FindObjectOfType<PlayerMainService>().OnImprovementPointsValueChange += UpdateModificationPossibleState;
+        var playerMainService = FindObjectOfType<PlayerMainService>();
 
-        StartCoroutine(WaitFrame());
-        IEnumerator WaitFrame()
-        {
-            yield return null;
-            yield return null;
-            yield return null;
-            yield return null;
-
-            
-            UpdateModificationPossibleState();
-        }
+        playerMainService.OnImprovementPointsValueChange += UpdateModificationPossibleState;
+        playerMainService.OnSpecialModuleUnlock += UpdateModificationPossibleState;
     }
 
     private void UpdateModificationPossibleState(int value = 0)
@@ -44,4 +35,8 @@ public class SuitModificationNotification : MonoBehaviour
         }
     }
     
+    private void UpdateModificationPossibleState(PlayerModules playerModule = 0)
+    {
+        UpdateModificationPossibleState(0);
+    }
 }

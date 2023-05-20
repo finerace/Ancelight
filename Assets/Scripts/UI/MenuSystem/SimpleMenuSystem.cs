@@ -7,7 +7,7 @@ public class SimpleMenuSystem : MonoBehaviour
     [SerializeField] private MenuData[] menuDatas = new MenuData[2];
     private MenuData currentMenuData;
 
-    private void Awake()
+    private void Start()
     {
         AwakeMenuFix();
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public abstract class DefaultBot : Health
 {
@@ -86,8 +87,12 @@ public abstract class DefaultBot : Health
     
     [SerializeField] private int killScoreValue = 10;
     [SerializeField] private bool isTrueEnemy = true;
+
     public bool IsTrueEnemy => isTrueEnemy;
 
+    private float antiStuckPower = 8;
+    [SerializeField] private bool isBotOnlyRun = false;
+    
     protected event Action botPlayerLookEvent;
     
     public DefaultBotParts BotParts => botParts;
@@ -188,6 +193,7 @@ public abstract class DefaultBot : Health
         StartCoroutine(LookingChecker(lookingUpdateTime));
         StartCoroutine(AgentDestinationUpdater(agentDestinationUpdateTime));
         StartCoroutine(IsAttacksAllowChecker(attackCheckerUpdateTime));
+        StartCoroutine(StuckChecker(0.35f));
     }
 
     protected void Update()
@@ -386,6 +392,31 @@ public abstract class DefaultBot : Health
 
         }
     }
+    
+    internal virtual IEnumerator StuckChecker(float time)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(time);
+            
+            if(!agent.isOnNavMesh || isBotGoToWayPoints)
+                continue;
+                
+            var isBotStuck = !agent.isStopped && bodyRB.velocity.magnitude < 0.01f;
+
+            if (isBotStuck && !isBotOnlyRun)
+                isBotStuck = !isLookingTarget;
+                
+            
+            if (isBotStuck)
+            {
+                bodyRB.velocity += 
+                    new Vector3(Random.Range(-1f,1f),Random.Range(0.15f,1f),Random.Range(-1f,1f)) * antiStuckPower;
+            }
+
+        }
+    }
+
 
     internal virtual bool CheckIsLookingTarget()
     {
@@ -398,6 +429,7 @@ public abstract class DefaultBot : Health
 
         if (wallsCheck && botTargetDistance <= targetVeryCloselyRadius)
         {
+            isBotGoToWayPoints = false;
             isTargetVeryClosely = true;
             GetAannoyed();
         }

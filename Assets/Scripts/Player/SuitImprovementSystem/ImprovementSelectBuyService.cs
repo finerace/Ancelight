@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ImprovementSelectBuyService : MonoBehaviour
@@ -29,8 +30,8 @@ public class ImprovementSelectBuyService : MonoBehaviour
     
     [SerializeField] private AudioCastData onSellSound;
     [SerializeField] private AudioCastData onSellDefeatSound;
-    
-    private void Awake()
+
+    protected void Awake()
     {
         playerMainService = FindObjectOfType<PlayerMainService>();
         

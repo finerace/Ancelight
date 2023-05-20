@@ -29,7 +29,7 @@ public class BulletsViewPanelCreator : MonoBehaviour
         playerMainService = FindObjectOfType<PlayerMainService>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
         if(IsPlayerHasNewWeapon())
             CreateNewViewPanels();
@@ -130,7 +130,6 @@ public class BulletsViewPanelCreator : MonoBehaviour
                 Destroy(item.transform.parent.gameObject);
             }
         }
-
     }
 
     private bool IsPlayerHasNewWeapon()

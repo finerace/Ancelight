@@ -10,7 +10,7 @@ public class TriggersSpawnersRandomIdSetter : MonoBehaviour
         SetTriggers();
         void SetTriggers()
         {
-            var allTriggers = FindObjectsOfType<LevelTrigger>();
+            var allTriggers = FindObjectsOfType<LevelTrigger>(true);
             var randomIDs = GetRandomIDs(allTriggers.Length);
             
             for (int i = 0; i < allTriggers.Length; i++)
@@ -22,7 +22,7 @@ public class TriggersSpawnersRandomIdSetter : MonoBehaviour
         SetSpawners();
         void SetSpawners()
         {
-            var allSpawners = FindObjectsOfType<LevelSpawnScenario>();
+            var allSpawners = FindObjectsOfType<LevelSpawnScenario>(true);
             var randomIDs = GetRandomIDs(allSpawners.Length);
             
             for (int i = 0; i < allSpawners.Length; i++)
@@ -34,7 +34,7 @@ public class TriggersSpawnersRandomIdSetter : MonoBehaviour
         SetTransformScenarios();
         void SetTransformScenarios()
         {
-            var allScenarios = FindObjectsOfType<LevelTransformAnimationSystem>();
+            var allScenarios = FindObjectsOfType<LevelTransformAnimationSystem>(true);
             var randomIDs = GetRandomIDs(allScenarios.Length);
             
             for (int i = 0; i < allScenarios.Length; i++)

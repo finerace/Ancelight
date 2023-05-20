@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using ShadowResolution = UnityEngine.Rendering.Universal.ShadowResolution;
@@ -37,7 +38,7 @@ public class SettingsSetSystem : MonoBehaviour
 
     [Space] 
     
-    [SerializeField] private SettingsLevelGrassData grassOnLevelData;
+    [SerializeField] private SettingsSetReferences settingsSetReferences;
 
     public static int enemyPartsQuality = 0;
     public static float enemyPartsDestroyTime = 90;
@@ -46,13 +47,17 @@ public class SettingsSetSystem : MonoBehaviour
     
     [SerializeField] private bool mainMenuMode;
 
+    private Light mainLight;
+    
     private void Awake()
     {
         playerMainService = FindObjectOfType<PlayerMainService>();
         levelSaveLoadSystem = FindObjectOfType<LevelSaveLoadSystem>();
+        settingsSetReferences = FindObjectOfType<SettingsSetReferences>();
         
         settingsSaveLoadSystem.LoadSettings();
         audioPoolService = FindObjectOfType<AudioPoolService>();
+        mainLight = settingsSetReferences.MainLight; 
         
         SetNewSettings();
     }
@@ -302,6 +307,17 @@ public class SettingsSetSystem : MonoBehaviour
             void SetSoftShadows()
             {
                 UnityGraphicsBullshit.SoftShadowsEnabled = settingsData.GraphicsSettingsData.SoftShadows;
+
+                if (settingsData.GraphicsSettingsData.ScreenResolution == 0)
+                {
+                    mainLight.shadows = LightShadows.None;
+                    return;
+                }
+                
+                if (settingsData.GraphicsSettingsData.SoftShadows)
+                    mainLight.shadows = LightShadows.Soft;
+                else
+                    mainLight.shadows = LightShadows.Hard;
             }
             
             void SetMsaaQuality()
@@ -460,10 +476,10 @@ public class SettingsSetSystem : MonoBehaviour
                 if(isSetSystemInMainMenu)
                     return;
                     
-                var levelGrassData = grassOnLevelData;
+                var levelGrassData = settingsSetReferences;
 
                 if(levelGrassData == null)
-                    levelGrassData = FindObjectOfType<SettingsLevelGrassData>();
+                    levelGrassData = FindObjectOfType<SettingsSetReferences>();
 
                 if (levelGrassData == null)
                 {

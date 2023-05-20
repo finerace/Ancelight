@@ -25012,6 +25012,8 @@ MonoBehaviour:
   botAnimations: {fileID: 0}
   startAgentSpeed: 0
   killScoreValue: 100
+  isTrueEnemy: 1
+  isBotOnlyRun: 0
 --- !u!114 &1612392535287401843
 MonoBehaviour:
   m_ObjectHideFlags: 0

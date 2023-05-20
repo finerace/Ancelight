@@ -11,12 +11,12 @@ public class ImmediatelyProtectionImprovementItem : ImprovementItem
 
     [SerializeField] private float toSetDamage;
     [SerializeField] private float toSetRadius;
-    
-    protected new void Start()
+
+    protected new void Awake()
     {
-        playerProtection = FindObjectOfType<PlayerImmediatelyProtectionService>();
+        base.Awake();
         
-        base.Start();
+        playerProtection = FindObjectOfType<PlayerImmediatelyProtectionService>();
     }
     
     protected override void ImprovementEffect()

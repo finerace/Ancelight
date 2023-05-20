@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SecretLevels/OnTheOutskirts/OnTheOutskirts.unity
     guid: 7eba8a61dd19533479a887919afef9fd
+  - enabled: 1
+    path: Assets/Scenes/SecretLevels/Hive/Hive.unity
+    guid: 0660703e9d4b0174592e290cb222db45
   m_configObjects: {}

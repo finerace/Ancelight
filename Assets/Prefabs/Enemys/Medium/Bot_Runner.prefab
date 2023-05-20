@@ -11122,6 +11122,7 @@ MonoBehaviour:
   startAgentSpeed: 0
   killScoreValue: 40
   isTrueEnemy: 1
+  isBotOnlyRun: 1
   headJoint: {fileID: 6133552504984414786}
   effects: {fileID: 0}
   botRunnerAttack: {fileID: 6133552505256046062}

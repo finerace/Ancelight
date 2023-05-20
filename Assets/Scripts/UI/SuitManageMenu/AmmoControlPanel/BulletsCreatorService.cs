@@ -48,9 +48,9 @@ public class BulletsCreatorService : MonoBehaviour
     {
         selectedBulletId = bulletId;
         
-        var selectedBulletData = playerMainService.weaponsBulletsManager.FindData(bulletId);
+        //var selectedBulletData = playerMainService.weaponsBulletsManager.FindData(bulletId);
         
-        bulletIcon.material.SetTexture(TargetTexturePropId,selectedBulletData.Icon.texture);
+        //bulletIcon.material.SetTexture(TargetTexturePropId,selectedBulletData.Icon.texture);
         
         BulletsCurrentMaxIndicatorUpdate();
         
@@ -59,6 +59,9 @@ public class BulletsCreatorService : MonoBehaviour
 
     private void BulletsCostUpdate(string value)
     {   
+        if(selectedBulletId <= 0)
+            return;
+        
         var selectedBulletData = playerMainService.weaponsBulletsManager.FindData(selectedBulletId);
 
         var createBulletsCount = 0;

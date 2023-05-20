@@ -109,7 +109,7 @@ Material:
     - Vector1_cdea67384fbe4b94baa4476968e9f762: 1.77
     - _AlphaClip: 0
     - _Blend: 0
-    - _Brightness: 0.37
+    - _Brightness: 0.4
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -147,7 +147,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 3.9999995, g: 2.57732, b: 0, a: 1}
+    - _MainColor: {r: 2.9960785, g: 1.6941177, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &746199492815016537

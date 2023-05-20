@@ -9,7 +9,8 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
     
     [SerializeField] private BulletData[] bulletDatas = new BulletData[1];
     [SerializeField] private List<int> unlockedBulletsID = new List<int>();
-    
+    [SerializeField] private int[] unlockedBulletsStartCount;
+
     public BulletData[] BulletDatas { get { return bulletDatas; } }
     public List<int> UnlockedBulletsID { get { return unlockedBulletsID; } }
 
@@ -59,6 +60,8 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
         
         InitializePlasmaReserves();
         
+        InitStartBullets();
+        
         void InitializeUnlockedBullets()
         {
             foreach (var item in bulletDatas)
@@ -83,6 +86,16 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
             {
                 plasmaMaxReserves.Add(plasmaId,plasmaMaxReserve);
                 plasmaReserves.Add(plasmaId,0);
+            }
+        }
+
+        void InitStartBullets()
+        {
+            for (int i = 0; i < unlockedBulletsStartCount.Length; i++)
+            {
+                var bulletId = i;
+                
+                AddBullets(bulletId+1,unlockedBulletsStartCount[bulletId]);
             }
         }
     }

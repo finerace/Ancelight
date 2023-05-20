@@ -73,7 +73,10 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     public event Action<WeaponData> UnlockWeaponEvent; 
     public event Action<(int, string,float)> AddPlasmaEvent;
     public event Action<int> OnImprovementPointsValueChange; 
+    
+    public event Action<PlayerModules> OnSpecialModuleUnlock; 
 
+    
     private DeviceButton openSuitManageMenuButton = new DeviceButton();
     
     private void Awake()
@@ -203,7 +206,7 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
         if (value <= 0)
             throw new ArgumentException("Added improvement points not be could less than a one!");
 
-        suitImprovementPoints += value;
+        SuitImprovementPoints += value;
     }
     
     public void SetArmorDamageResistance(float newResistanceValue)
@@ -237,6 +240,8 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
             default:
                 throw new ArgumentOutOfRangeException(nameof(module), module, null);
         }
+        
+        OnSpecialModuleUnlock?.Invoke(module);
     }
     
     public void SetManageActive(bool state)
