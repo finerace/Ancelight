@@ -23,14 +23,14 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
     
     [SerializeField] private float dashPower = 2f;
     [SerializeField] private float dashColdown = 0.5f;
-    [HideInInspector] [SerializeField] private float dashCurrentColdownTimer = 0;
+    [SerializeField] private float dashCurrentColdownTimer = 0;
     
     public float DashPower => dashPower;
 
     [SerializeField] private int dashStopDeltaTimeTicks = 30;
     [SerializeField] private float flyDashResidualForceAmount = 0.2f;
     
-    [HideInInspector] [SerializeField] private float dashCurrentEnergy;
+    [SerializeField] private float dashCurrentEnergy;
     private float dashMaxEnergy;
 
     private bool isManageBlocked;
@@ -182,6 +182,9 @@ public class PlayerDashsService : MonoBehaviour,IUsePlayerDevicesButtons
     public void Unlock()
     {
         isDashServiceExist = true;
+        
+        if(dashsCount <= 0)
+            SetNewDashCount(1);
         
         onDashSeviceUnlock?.Invoke();
     }

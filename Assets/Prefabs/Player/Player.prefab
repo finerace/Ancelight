@@ -5531,14 +5531,14 @@ MonoBehaviour:
   playerT: {fileID: 1076857625449862269}
   FallingSpeed: 1.25
   SprintSpeedMultiply: 0.6
-  OnFlySpeedMultiply: 0.2
+  OnFlySpeedMultiply: 0.15
   OnGroundMaxSpeed: 30
-  OnFlyMaxSpeed: 12.5
+  OnFlyMaxSpeed: 13
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 3
   OnGroundRbDrag: 8
-  OnFlyRbDrag: 0.05
+  OnFlyRbDrag: 0.02
   IsFlies: 0
   isSprint: 0
   cameraT: {fileID: 1076857626512059685}
@@ -5662,6 +5662,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e940b104b0abf324d892a89ef95c9490, type: 2}
   - {fileID: 11400000, guid: 4cda8b560fe560d48926e70fb40fed10, type: 2}
   unlockedBulletsID: 
+  unlockedBulletsStartCount: 
   yellowPlasmaMaxReserve: 100
   redPlasmaMaxReserve: 50
   bluePlasmaMaxReserve: 50
