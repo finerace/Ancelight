@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WallsMat
+  m_Name: LightFloor
   m_Shader: {fileID: -6465566751694194690, guid: 59deb870979d67f4786986b6cef85f13, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 0c0d0bcff406033479338c7068ca795e, type: 3}
+        m_Texture: {fileID: 2800000, guid: ef4e5892c333a9f48abbd72ec5bb4d2a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -45,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 447a05cc72a4e894e95071e1f4d5b798, type: 3}
+        m_Texture: {fileID: 2800000, guid: ef4e5892c333a9f48abbd72ec5bb4d2a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -121,16 +121,16 @@ Material:
     - _Surface: 0
     - _WaveIntensity: 10
     - _WaveMax: 0
-    - _WaveScale: 0.05
-    - _WaveSpeed: -5
+    - _WaveScale: 0.0005
+    - _WaveSpeed: -1000
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _AlienMicrochipsColor: {r: 0.025925925, g: 0.042592593, b: 0.05, a: 1}
-    - _AlienMicrochipsTile: {r: 0.3, g: 0.3, b: 0, a: 0}
+    - _AlienMicrochipsColor: {r: 0.07647058, g: 0.18235293, b: 0.25, a: 0}
+    - _AlienMicrochipsTile: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 1.2201058, g: 3.039173, b: 4.237095, a: 1}
+    - _EmissionColor: {r: 7.0100627, g: 13.044041, b: 16.94838, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3373867189417034582
