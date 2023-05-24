@@ -17,7 +17,7 @@ public class LevelTriggerBase : LevelTrigger
         LevelSaveData.mainLevelSaveData.AddToSaveData(this);
     }
     
-    protected override void ActivateTrigger()
+    public override void ActivateTrigger()
     {
         triggerEvent.Invoke();
         
@@ -53,5 +53,5 @@ public abstract class LevelTrigger : MonoBehaviour
         }
     }
     
-    protected abstract void ActivateTrigger();
+    public abstract void ActivateTrigger();
 }

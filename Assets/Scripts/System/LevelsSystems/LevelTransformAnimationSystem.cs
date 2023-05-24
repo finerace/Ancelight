@@ -258,6 +258,14 @@ public class LevelTransformAnimationSystem : MonoBehaviour
         id = newId;
     }
 
+    public void SetScenariosRepeat(TransformScenarioState transformScenarioState)
+    {
+        foreach (var scenario in transformScenarios)
+        {
+            scenario.scenarioState = transformScenarioState;
+        }
+    }
+
     [Serializable]
     public class TransformAnimationData
     {
@@ -266,7 +274,7 @@ public class LevelTransformAnimationSystem : MonoBehaviour
         [HideInInspector] [SerializeField] public LevelTranslateScenarioCorrectPhysicService physicService;
         [SerializeField] public JsonTransform savedObjectT;
         [SerializeField] private int currentScenarioUnitId;
-        [SerializeField] private TransformScenarioState scenarioState;
+        [SerializeField] public TransformScenarioState scenarioState;
         
         [Space] 
         
@@ -329,8 +337,8 @@ public class LevelTransformAnimationSystem : MonoBehaviour
         [Space]
         [SerializeField] private float animationSpeed = 1;
         [SerializeField] private float animationTime = 5;
-        [SerializeField] public float currentAnimationEndTime;
-        [SerializeField] private float animationStartEndSmoothness = 1;
+        [HideInInspector] [SerializeField] public float currentAnimationEndTime;
+        [HideInInspector] [SerializeField] private float animationStartEndSmoothness = 1;
         [SerializeField] private bool lerpAnimationEnabled = true;
 
         public Vector3 Position => position;

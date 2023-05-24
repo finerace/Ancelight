@@ -11154,7 +11154,7 @@ MonoBehaviour:
   botRunner: {fileID: 6133552505256046063}
   jerkForce: 28.5
   getDamageDistance: 1.75
-  damage: 30
+  damage: 20
   hammerDot: 0.6
   idleTime: 1.5
   targetImpulsePower: 1.25

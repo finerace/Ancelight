@@ -14,6 +14,8 @@ public class LevelTaskService : MonoBehaviour
     [SerializeField] private TextAlignment counterAlignment;
 
     public event Action<string> OnLevelTaskUpdate;
+    
+    public event Action<int> OnLevelTaskCounterUpdate;
 
     public void Load(LevelTaskService savedLevelTaskService)
     {
@@ -70,6 +72,7 @@ public class LevelTaskService : MonoBehaviour
             throw new Exception("Task counter cannot be more than Task counter max!");
 
         taskCounter++;
+        OnLevelTaskCounterUpdate?.Invoke(taskCounter);
         
         UpdateTask();
     }
