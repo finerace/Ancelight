@@ -19,6 +19,9 @@ public class LevelTriggerBase : LevelTrigger
     
     public override void ActivateTrigger()
     {
+        if(!isTriggerActive)
+            return;
+            
         triggerEvent.Invoke();
         
         if (isSingleTrigger)

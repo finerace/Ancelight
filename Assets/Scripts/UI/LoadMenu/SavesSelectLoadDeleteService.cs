@@ -133,6 +133,9 @@ public class SavesSelectLoadDeleteService : MonoBehaviour
 
     public void CallSplashWindowDeleteSave()
     {
+        if(selectedSaveUnitData == null)
+            return;
+        
         var splashWindowText = 
             $"{CurrentLanguageData.GetText(splashWindowTextId1)} \"{selectedSaveUnitData.SaveName}\" {CurrentLanguageData.GetText(splashWindowTextId2)}";
         

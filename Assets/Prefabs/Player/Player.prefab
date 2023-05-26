@@ -5538,7 +5538,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3
   OnGroundRbDrag: 8
-  OnFlyRbDrag: 0.02
+  OnFlyRbDrag: 0.01
   IsFlies: 0
   isSprint: 0
   cameraT: {fileID: 1076857626512059685}
@@ -5708,7 +5708,7 @@ MonoBehaviour:
   hookStrengthRegenerationAfterUseTime: 1
   hookAfterUseTimer: 0
   hookForce: 30
-  hookMaxActionRange: 30
+  hookMaxActionRange: 50
   hookDistanceDivider: 20
   hookDamage: 0
   isHookOnlyPointMode: 1

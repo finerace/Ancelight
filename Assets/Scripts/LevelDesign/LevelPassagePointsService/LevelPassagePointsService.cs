@@ -14,8 +14,8 @@ public class LevelPassagePointsService : MonoBehaviour
     [SerializeField] private LevelPassagePointsZone currentPassageZone;
     [SerializeField] private bool currentZoneIsNonLinear;
 
-    [HideInInspector] [SerializeField] private int currentZoneId;
-    [HideInInspector] [SerializeField] private int currentPointId;
+    [SerializeField] private int currentZoneId;
+    [SerializeField] private int currentPointId;
     [SerializeField] private int currentNonLinearZoneId = -1;
 
     [HideInInspector] [SerializeField] private List<int> blockedNonLinearZoneZoneId;
@@ -191,6 +191,7 @@ public class LevelPassagePointsService : MonoBehaviour
             if (!currentPassageZone.NonLinearPassage)
             {
                 currentPassagePoint = currentPassageZone.PassagePoints[0];
+                currentPointId = 0;
                 currentZoneIsNonLinear = false;
                 currentNonLinearZoneId = -1;
             }

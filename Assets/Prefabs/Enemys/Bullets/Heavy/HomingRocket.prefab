@@ -5065,7 +5065,8 @@ MonoBehaviour:
   lifeTime: 18
   isDestruction: 0
   isFly: 1
-  damage: 40
+  gravityScale: 0
+  damage: 25
   inCollisionAddForce: 1
   collisionForce: 2
   speed: 10

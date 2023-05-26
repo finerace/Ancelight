@@ -25,24 +25,24 @@ public class LevelSpawnScenario : MonoBehaviour
     [HideInInspector] [SerializeField] private int nowDestroyedObjectsCount;
 
     private bool isScenarioLoaded = false;
-    [HideInInspector] [SerializeField] private float timeFromActivate = 0;
+     [SerializeField] private float timeFromActivate = 0;
     
-    [HideInInspector] [SerializeField] private int mainLoopCount;
-    [HideInInspector] [SerializeField] private float mainScenarioUnitWaitTime;
+     [SerializeField] private int mainLoopCount;
+     [SerializeField] private float mainScenarioUnitWaitTime;
     
-    [HideInInspector] [SerializeField] private int mainCurrentScenarioUnitLoopCount;
-    [HideInInspector] [SerializeField] private bool isMainCurrentScenarioUnitCompleted;
+     [SerializeField] private int mainCurrentScenarioUnitLoopCount;
+     [SerializeField] private bool isMainCurrentScenarioUnitCompleted;
     
-    [HideInInspector] [SerializeField] private int mainCurrentScenarioRepeatCounts;
-    [HideInInspector] [SerializeField] private int mainRepeatScenarioUnitCurrentRepeatCounts;
-    [HideInInspector] [SerializeField] private int mainRepeatScenarioUnitLoopCount;
-    [HideInInspector] [SerializeField] private float mainRepeatScenarioUnitWaitTime;
-    [HideInInspector] [SerializeField] private float mainRepeatWaitCooldownTime;
-    [HideInInspector] [SerializeField] private bool isMainRepeatScenarioUnitCompleted;
+     [SerializeField] private int mainCurrentScenarioRepeatCounts;
+     [SerializeField] private int mainRepeatScenarioUnitCurrentRepeatCounts;
+     [SerializeField] private int mainRepeatScenarioUnitLoopCount;
+     [SerializeField] private float mainRepeatScenarioUnitWaitTime;
+     [SerializeField] private float mainRepeatWaitCooldownTime;
+     [SerializeField] private bool isMainRepeatScenarioUnitCompleted;
 
-    [HideInInspector] [SerializeField] private float mainToNextScenarioWaitTime;
+     [SerializeField] private float mainToNextScenarioWaitTime;
     
-    [HideInInspector] [SerializeField] private bool isMainCurrentScenarioUnitCompletedRepeating;
+     [SerializeField] private bool isMainCurrentScenarioUnitCompletedRepeating;
 
     [Space] 
     

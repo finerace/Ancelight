@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelCampaignData: {fileID: 11400000, guid: 1e71b38d4d6b0df48aca32a339c28640, type: 2}
   levelNameTextId: 207
-  levelSceneId: 3
+  levelSceneId: 2
   levelPassageTimeHours: 0
   levelPassageTimeMinutes: 20
   levelEnemyCount: 0

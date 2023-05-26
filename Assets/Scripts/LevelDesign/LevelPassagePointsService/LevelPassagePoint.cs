@@ -6,7 +6,7 @@ public class LevelPassagePoint : MonoBehaviour
 {
     public event Action<int> OnPlayerInPoint;
     public Transform pointT;
-    private int id;
+    [SerializeField] private int id;
 
     private void Awake()
     {

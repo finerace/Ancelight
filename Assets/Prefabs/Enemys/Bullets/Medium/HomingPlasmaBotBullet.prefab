@@ -14585,7 +14585,7 @@ MonoBehaviour:
   isDestruction: 0
   isFly: 1
   gravityScale: 0
-  damage: 5
+  damage: 4
   inCollisionAddForce: 1
   collisionForce: 2
   speed: 15

@@ -150,7 +150,7 @@ public class Bullet : MonoBehaviour
 
     virtual public void SetStartImpulsPower(float power)
     {
-        startRBPower = power;
+        startRBPower = power/1.5f;
     }
     
     private IEnumerator AutoDestruction(float time)

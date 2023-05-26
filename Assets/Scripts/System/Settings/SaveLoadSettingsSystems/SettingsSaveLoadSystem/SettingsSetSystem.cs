@@ -307,7 +307,10 @@ public class SettingsSetSystem : MonoBehaviour
             void SetSoftShadows()
             {
                 UnityGraphicsBullshit.SoftShadowsEnabled = settingsData.GraphicsSettingsData.SoftShadows;
-
+                
+                if(mainLight == null)
+                    return;
+                
                 if (settingsData.GraphicsSettingsData.ScreenResolution == 0)
                 {
                     mainLight.shadows = LightShadows.None;

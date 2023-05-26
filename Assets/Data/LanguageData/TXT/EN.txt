@@ -254,3 +254,7 @@ The suit can be modified;
 Yes;
 No;
 The Hive;
+Go deep into the complex;
+Find and click the activator buttons;
+Get out of the complex;
+Demo Levels;

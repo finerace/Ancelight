@@ -11155,7 +11155,7 @@ MonoBehaviour:
   jerkForce: 28.5
   getDamageDistance: 1.75
   damage: 20
-  hammerDot: 0.6
+  hammerDot: 0.75
   idleTime: 1.5
   targetImpulsePower: 1.25
 --- !u!114 &1199825348364051493

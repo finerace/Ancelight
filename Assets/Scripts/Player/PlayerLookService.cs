@@ -37,12 +37,6 @@ public class PlayerLookService : MonoBehaviour
     private void FixedUpdate()
     {
         UpdatePoints();
-
-        if(Input.GetKey(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-
     }
 
     private void UpdatePoints()

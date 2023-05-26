@@ -9848,7 +9848,7 @@ MonoBehaviour:
   damage: 0
   inCollisionAddForce: 1
   collisionForce: 5
-  speed: 80
+  speed: 75
   bulletId: 8
 --- !u!114 &276501960061066024
 MonoBehaviour:

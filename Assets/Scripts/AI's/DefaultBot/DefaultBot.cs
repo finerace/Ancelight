@@ -248,7 +248,7 @@ public abstract class DefaultBot : Health
 
             float bot_AgentYpos = agentT.position.y - body.position.y;
             if (bot_AgentYpos > 0)
-                heightSpeedSmoothness += bot_AgentYpos;
+                heightSpeedSmoothness += bot_AgentYpos*2f;
 
             speedSmoothness *= heightSpeedSmoothness;
 
@@ -402,7 +402,7 @@ public abstract class DefaultBot : Health
             if(!agent.isOnNavMesh || isBotGoToWayPoints)
                 continue;
                 
-            var isBotStuck = !agent.isStopped && bodyRB.velocity.magnitude < 0.01f;
+            var isBotStuck = !agent.isStopped && bodyRB.velocity.magnitude < 0.01f && isAnnoyed;
 
             if (isBotStuck && !isBotOnlyRun)
                 isBotStuck = !isLookingTarget;

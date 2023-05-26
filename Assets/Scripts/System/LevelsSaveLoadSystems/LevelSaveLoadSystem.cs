@@ -513,7 +513,7 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
                 {
                     var savedJsonTranslateSystem = levelData.LevelTransformTranslateSavedSystems[i];
                     allSavesTranslateSystems[i] = new LevelTransformAnimationSystem();
-
+                    
                     JsonUtility.FromJsonOverwrite(savedJsonTranslateSystem, allSavesTranslateSystems[i]);
                 }
                 
@@ -522,8 +522,8 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
                     foreach (var existTranslateSystem in levelData.LevelTransformTranslateSystems)
                     {
                         if (existTranslateSystem.Id != savedTransformSystem.Id)
-                            return;
-
+                            continue;
+                        
                         existTranslateSystem.Load(savedTransformSystem);
                         
                         break;

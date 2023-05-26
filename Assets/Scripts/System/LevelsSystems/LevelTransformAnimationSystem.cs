@@ -21,6 +21,8 @@ public class LevelTransformAnimationSystem : MonoBehaviour
         {
             var scenarioData = transformScenarios[i];
             FixedJsonUtilityFunc.JsonToNormal(savedTransformAnimationSystem.transformScenarios[i].savedObjectT, scenarioData.ObjectT);
+            
+            scenarioData.scenarioState = savedTransformAnimationSystem.transformScenarios[i].scenarioState;
         }
 
         globalScenarioStates = savedTransformAnimationSystem.globalScenarioStates;
@@ -258,11 +260,11 @@ public class LevelTransformAnimationSystem : MonoBehaviour
         id = newId;
     }
 
-    public void SetScenariosRepeat(TransformScenarioState transformScenarioState)
+    public void SetScenariosRepeat(int transformScenarioState)
     {
         foreach (var scenario in transformScenarios)
         {
-            scenario.scenarioState = transformScenarioState;
+            scenario.scenarioState = (TransformScenarioState)transformScenarioState;
         }
     }
 
