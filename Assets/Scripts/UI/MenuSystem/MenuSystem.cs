@@ -137,7 +137,7 @@ public class MenuSystem : MonoBehaviour
         
         if(foundChildMenuData == null && foundParentMenuData == null)
         {
-            throw new InvalidDataException
+            print
                 ($"Open menu has failed! \n" + $"The given ID {menuID} is not found!");
         }
 

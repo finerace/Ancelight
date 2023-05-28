@@ -4947,9 +4947,9 @@ MonoBehaviour:
   isDestruction: 0
   isFly: 1
   gravityScale: 0
-  damage: 2.5
+  damage: 2
   inCollisionAddForce: 1
-  collisionForce: 2
+  collisionForce: 1
   speed: 50
   bulletId: 20
 --- !u!114 &7166541181815299327

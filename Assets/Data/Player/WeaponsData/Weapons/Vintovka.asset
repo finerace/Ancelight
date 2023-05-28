@@ -17,7 +17,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: e85de782461ac144d96f5e2f6e4798ed, type: 3}
   id: 4
   mainColor: {r: 1, g: 0.85253453, b: 0.19815665, a: 1}
-  damage: 7.5
+  damage: 10
   bulletID: 2
   raycast: 0
   isMelee: 0

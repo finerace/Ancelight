@@ -9744,7 +9744,7 @@ MonoBehaviour:
   isDestruction: 0
   isFly: 1
   gravityScale: 0
-  damage: 8
+  damage: 5
   inCollisionAddForce: 1
   collisionForce: 1
   speed: 35

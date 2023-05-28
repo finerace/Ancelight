@@ -10017,7 +10017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2a208a14b5f07c45812ea74b773f97e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2.5
+  damage: 4
   weaponsManager: {fileID: 0}
   forceDirection: {x: 0, y: 0, z: 0}
   forcePower: 1000

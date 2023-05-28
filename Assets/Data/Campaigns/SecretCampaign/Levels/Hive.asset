@@ -16,9 +16,9 @@ MonoBehaviour:
   levelNameTextId: 256
   levelSceneId: 3
   levelPassageTimeHours: 0
-  levelPassageTimeMinutes: 20
-  levelEnemyCount: 0
-  levelMaxSecretsCountInLevel: 7
+  levelPassageTimeMinutes: 30
+  levelEnemyCount: -1
+  levelMaxSecretsCountInLevel: 0
   isLevelUnlocked: 0
   levelMaxScore: 0
   levelSecretsFounded: 0

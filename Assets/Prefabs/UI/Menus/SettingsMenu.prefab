@@ -35135,7 +35135,7 @@ MonoBehaviour:
       fieldOfView: 85
       screenResolution: 9
       screenFormat: 1
-      language: 0
+      language: 1
     controlsSettingsData:
       forwardButton: 119
       forwardButtonMouseWheelMove: 0

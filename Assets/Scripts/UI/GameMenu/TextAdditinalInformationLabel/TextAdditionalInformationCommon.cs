@@ -9,7 +9,8 @@ public class TextAdditionalInformationCommon : MonoBehaviour
     [SerializeField] private SmoothVanishUI smoothVanishUI;
     [SerializeField] private float existTime;
     [SerializeField] private TMP_Text label;
-
+    private float timer;
+    
     private void Start()
     {
         smoothVanishUI.SetVanish(true);
@@ -19,16 +20,16 @@ public class TextAdditionalInformationCommon : MonoBehaviour
     public void SetInformation(int textId)
     {
         label.text = CurrentLanguageData.GetText(textId);
-
-        StartCoroutine(WaitExist());
+        
+        smoothVanishUI.SetVanish(false);
+        timer = existTime;
     }
 
-    private IEnumerator WaitExist()
+    private void Update()
     {
-        smoothVanishUI.SetVanish(false);
-        
-        yield return new WaitForSeconds(existTime);
-        
-        smoothVanishUI.SetVanish(true);
+        if (timer > 0)
+            timer -= Time.deltaTime;
+        else
+            smoothVanishUI.SetVanish(true);
     }
 }

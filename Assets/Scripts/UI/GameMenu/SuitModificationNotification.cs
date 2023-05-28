@@ -17,6 +17,8 @@ public class SuitModificationNotification : MonoBehaviour
 
         playerMainService.OnImprovementPointsValueChange += UpdateModificationPossibleState;
         playerMainService.OnSpecialModuleUnlock += UpdateModificationPossibleState;
+        
+        UpdateModificationPossibleState(0);
     }
 
     private void UpdateModificationPossibleState(int value = 0)

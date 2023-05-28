@@ -10103,6 +10103,7 @@ MonoBehaviour:
   startAgentSpeed: 0
   killScoreValue: 60
   isTrueEnemy: 1
+  isBotOnlyRun: 0
   aimTimeCof: 1.15
   mainGunT: {fileID: 5001171774827122766}
   headAndGunRotationSpeed: 4
@@ -10130,7 +10131,7 @@ MonoBehaviour:
   onAttackTime: 0
   currentWaitTime: 0
   attackPhase: 0
-  damagePerSecond: 200
+  damagePerSecond: 100
   startAttackColdownTime: 3
   attackTime: 1
   laserLayerMask:

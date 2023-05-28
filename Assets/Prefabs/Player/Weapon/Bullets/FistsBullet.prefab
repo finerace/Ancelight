@@ -48,7 +48,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!114 &6571646158022850674
 MonoBehaviour:
@@ -68,13 +68,13 @@ MonoBehaviour:
   colliders: {fileID: 6571646158332862438}
   destructionTime: 2
   currentTime: 0
-  lifeTime: 0.15
+  lifeTime: 0.1
   isDestruction: 0
   isFly: 1
   gravityScale: 0
   damage: 0
   inCollisionAddForce: 1
-  collisionForce: 15
+  collisionForce: 10
   speed: 20
   bulletId: 2
 --- !u!1 &6571646158332862438

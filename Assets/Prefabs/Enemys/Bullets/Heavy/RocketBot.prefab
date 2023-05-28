@@ -5066,7 +5066,7 @@ MonoBehaviour:
   isDestruction: 0
   isFly: 0
   gravityScale: 0
-  damage: 30
+  damage: 25
   inCollisionAddForce: 0
   collisionForce: 0
   speed: 25

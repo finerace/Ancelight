@@ -9844,11 +9844,11 @@ MonoBehaviour:
   lifeTime: 10
   isDestruction: 0
   isFly: 0
-  gravityScale: 0.25
+  gravityScale: 0.35
   damage: 0
   inCollisionAddForce: 1
   collisionForce: 5
-  speed: 75
+  speed: 95
   bulletId: 8
 --- !u!114 &276501960061066024
 MonoBehaviour:

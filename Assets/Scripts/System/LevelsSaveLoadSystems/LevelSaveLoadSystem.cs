@@ -79,6 +79,9 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
             playerMainService.immediatelyProtectionService.Load
                 (savedProtectionService);
 
+            var oldDataBase = new SuitInformationDataBase();
+            JsonUtility.FromJsonOverwrite(savedPlayerData.jsonSuitInformationDataBase,oldDataBase);
+            FindObjectOfType<SuitInformationDataBase>().Load(oldDataBase);
         }
     }
 
@@ -588,6 +591,7 @@ public class LevelSaveLoadSystem : MonoBehaviour,IUsePlayerDevicesButtons
         savedPlayerData.jsonPlayerDashsService = JsonUtility.ToJson(playerMainService.dashsService);
         savedPlayerData.jsonPlayerImmediatelyProtectionService =
             JsonUtility.ToJson(playerMainService.immediatelyProtectionService);
+        savedPlayerData.jsonSuitInformationDataBase = JsonUtility.ToJson(savedPlayerData.SuitInformationDataBase);
         
         _toNextLevelSavedPlayerData = JsonUtility.ToJson(savedPlayerData);
         
