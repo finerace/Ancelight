@@ -33,7 +33,12 @@ public class BulletsViewPanelCreator : MonoBehaviour
     {
         if(IsPlayerHasNewWeapon())
             CreateNewViewPanels();
-    }  
+    }
+
+    private void OnEnable()
+    {
+        CreateNewViewPanels();
+    }
 
     private void CreateNewViewPanels()
     {

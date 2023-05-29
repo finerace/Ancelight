@@ -14,9 +14,12 @@ public class RocketBotAttack : DefaultBotAttack
 
         IEnumerator StartAttack()
         {
+            isAttack = true;
+            attackPhase = 0;
+            
+            
             if (attackPhase == 0)
             {
-                isAttack = true;
                 ActivatePreShotEvent();
                 
                 yield return WaitTime(1);
@@ -46,11 +49,11 @@ public class RocketBotAttack : DefaultBotAttack
             if (attackPhase == 2)
             {
                 yield return new WaitForSeconds(2.5f);
-
-                isAttack = false;
-
-                attackPhase = 0;
             }
+            
+            isAttack = false;
+            attackPhase = 0;
+            
         }
 
     }

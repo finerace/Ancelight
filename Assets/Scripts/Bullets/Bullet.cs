@@ -30,6 +30,7 @@ public class Bullet : MonoBehaviour
     protected float startRBPower = 1f;
     [Range(0, 1000)] [SerializeField] private float speed;
     [SerializeField] private int bulletId;
+    private bool isLoaded = false;
     
     private event Action onDestroyEvent;
     
@@ -38,6 +39,7 @@ public class Bullet : MonoBehaviour
     public void Load(float currentTime)
     {
         this.currentTime = currentTime;
+        isLoaded = true;
     }
     
     protected virtual void Start()
@@ -46,7 +48,7 @@ public class Bullet : MonoBehaviour
         
         body_ = transform;
 
-        if(rigidbody_ != null) 
+        if(rigidbody_ != null && !isLoaded) 
             rigidbody_.velocity += body_.forward * startRBPower * speed;
 
         StartCoroutine(AutoDestruction(lifeTime)) ;

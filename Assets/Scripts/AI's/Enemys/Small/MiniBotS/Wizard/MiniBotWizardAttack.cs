@@ -14,10 +14,11 @@ public class MiniBotWizardAttack : DefaultBotAttack
 
         IEnumerator Attack()
         {
+            isAttack = true;
+            attackPhase = 0;
+            
             if (attackPhase == 0)
             {
-                isAttack = true;
-                
                 if(!isRecentlyLoad)
                     effects.PlayPreShootParticls();
                 

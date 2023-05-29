@@ -10,6 +10,7 @@ public class BulletsCreatorService : MonoBehaviour
     [SerializeField] private TMP_InputField bulletCountInputField;
 
     [SerializeField] private Image bulletIcon;
+    [SerializeField] private Sprite defaultBulletIcon;
     [SerializeField] private TextMeshProUGUI bulletsCurrentMaxIndicator;
     
     [SerializeField] private TextMeshProUGUI yellowPlasmaCreateCostText;
@@ -32,6 +33,9 @@ public class BulletsCreatorService : MonoBehaviour
         bulletCountInputField.onValueChanged.AddListener(BulletsCostUpdate);
         
         audioPoolService = AudioPoolService.audioPoolServiceInstance;
+
+        selectedBulletId = 0;
+        bulletIcon.material.SetTexture(TargetTexturePropId,defaultBulletIcon.texture);
     }
 
     private void OnEnable()
@@ -46,11 +50,13 @@ public class BulletsCreatorService : MonoBehaviour
 
     public void InitializeNewSelectedBullet(int bulletId)
     {
+        if(bulletId <= 0)
+            return;
+        
         selectedBulletId = bulletId;
         
-        //var selectedBulletData = playerMainService.weaponsBulletsManager.FindData(bulletId);
-        
-        //bulletIcon.material.SetTexture(TargetTexturePropId,selectedBulletData.Icon.texture);
+        var selectedBulletData = playerMainService.weaponsBulletsManager.FindData(bulletId);
+        bulletIcon.material.SetTexture(TargetTexturePropId,selectedBulletData.Icon.texture);
         
         BulletsCurrentMaxIndicatorUpdate();
         

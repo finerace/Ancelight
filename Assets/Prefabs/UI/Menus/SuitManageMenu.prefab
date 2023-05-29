@@ -5869,6 +5869,7 @@ MonoBehaviour:
   playerMainService: {fileID: 0}
   bulletCountInputField: {fileID: 3657638010497839046}
   bulletIcon: {fileID: 3657638011459713751}
+  defaultBulletIcon: {fileID: 21300000, guid: 0568393ed585bb947ad51457c65ba3e7, type: 3}
   bulletsCurrentMaxIndicator: {fileID: 3657638010229361804}
   yellowPlasmaCreateCostText: {fileID: 3657638009936459443}
   redPlasmaCreateCostText: {fileID: 3657638009671493130}
