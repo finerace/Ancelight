@@ -16,6 +16,9 @@ public class DashsIndicatorService : MonoBehaviour
     private float currentIndicatorsTransparency = 1f;
     private float currentIndicatorsFillAmount = 1f;
     
+    [SerializeField] private float readyDashIndicatorIntensity = 0.3f;
+    [SerializeField] private float notReadyDashIndicatorIntensity = 0.1f;
+
     private event Action dashUnitReadyEvent;
     public event Action DashUnitReadyEvent
     {
@@ -265,8 +268,6 @@ public class DashsIndicatorService : MonoBehaviour
 
         void SetIndicatorsEffectIntensity()
         {
-            const float readyDashIndicatorIntensity = 0.3f;
-            const float notReadyDashIndicatorIntensity = 0.1f;
             currentReadyDashUnits = 0;
             
             for (int i = 0; i < dashIndicators.Count; i += 2)

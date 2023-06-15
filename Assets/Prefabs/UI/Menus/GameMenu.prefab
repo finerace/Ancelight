@@ -695,7 +695,7 @@ MonoBehaviour:
   playerMain: {fileID: 0}
   damageScreen: {fileID: 674054789603491661}
   screenDisappearSpeed: 1
-  disappearPower: 2
+  disappearPower: 1
 --- !u!1 &674054789604526064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,7 +2651,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 166.8, y: -163.8}
+  m_AnchoredPosition: {x: 146.8, y: -163.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &674054790258508622
@@ -2970,6 +2970,8 @@ MonoBehaviour:
   dashIndicatorPrefab: {fileID: 9118058273702385359, guid: 5d689aa3a71e48b488cf28551f347f7e, type: 3}
   dashsService: {fileID: 0}
   dashIndicators: []
+  readyDashIndicatorIntensity: 0.3
+  notReadyDashIndicatorIntensity: 0.15
   afterActiveWorkTime: 2
   onMouseEnter:
     audioMixerGroup: {fileID: 0}
@@ -3436,7 +3438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 372.2, y: -298.2}
+  m_AnchoredPosition: {x: 398.2, y: -298.2}
   m_SizeDelta: {x: 419.19, y: 419.19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &674054790626645832
@@ -4687,7 +4689,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674054791026720629}
   m_LocalRotation: {x: 0.0000018775462, y: -1.677547e-12, z: 1, w: 0.0000019520521}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.175, y: 0.175, z: 0.175}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4701,7 +4703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 395, y: -391.2}
+  m_AnchoredPosition: {x: 421, y: -391.2}
   m_SizeDelta: {x: 419.19, y: 419.19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &674054791026720635
@@ -5339,7 +5341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -157, y: -160.8}
+  m_AnchoredPosition: {x: -132, y: -160.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &674054791282166776
@@ -5761,7 +5763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 59.5, y: -194.1}
+  m_AnchoredPosition: {x: 59.5, y: -170.6}
   m_SizeDelta: {x: 307.8, y: 50}
   m_Pivot: {x: 0.49000782, y: 0.5}
 --- !u!222 &674054791450432562
