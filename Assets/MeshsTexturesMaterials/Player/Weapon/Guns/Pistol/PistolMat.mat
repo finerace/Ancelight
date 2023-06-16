@@ -202,7 +202,7 @@ Material:
     m_Ints: []
     m_Floats:
     - Brightness: 3
-    - EmissionMovement: 1.2379832
+    - EmissionMovement: 1
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -357,7 +357,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - BaseColor: {r: 1, g: 1, b: 1, a: 0}
-    - EmissionColor: {r: 4, g: 4, b: 4, a: 0}
+    - EmissionColor: {r: 2.9960785, g: 2.9960785, b: 2.9960785, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
