@@ -1,8 +1,10 @@
-# MagicaVoxel @ Ephtracy
+# Blender MTL File: 'MachineGun.blend'
+# Material Count: 1
 
-newmtl palette
-illum 1
-Ka 0.000 0.000 0.000
-Kd 1.000 1.000 1.000
-Ks 0.000 0.000 0.000
-map_Kd vintovka.png
+newmtl None
+Ns 500
+Ka 0.8 0.8 0.8
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2

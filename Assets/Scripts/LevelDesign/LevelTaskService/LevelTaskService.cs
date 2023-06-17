@@ -68,8 +68,6 @@ public class LevelTaskService : MonoBehaviour
 
     public void AddToTaskCounter()
     {
-        print($"{taskCounter} {taskCounterMax}");
-        
         if (taskCounter > taskCounterMax)
             throw new Exception("Task counter cannot be more than Task counter max!");
 
