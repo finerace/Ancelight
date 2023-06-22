@@ -110,9 +110,9 @@ Material:
     - _GlossyReflections: 0
     - _GrassHeight: 1
     - _GrassWidth: 0.2
-    - _MaxDist: 60
+    - _MaxDist: 256
     - _Metallic: 0
-    - _MinDist: 48
+    - _MinDist: 204.8
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
