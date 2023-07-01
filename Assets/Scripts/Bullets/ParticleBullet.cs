@@ -35,10 +35,19 @@ public class ParticleBullet : MonoBehaviour
 
         if (other.TryGetComponent<Rigidbody>(out rb))
         {
-            rb.AddForce(forceDirection*forcePower);
+            StartCoroutine(AddForceTimer(rb,forceDirection*forcePower));
         }
     }
 
+    private IEnumerator AddForceTimer(Rigidbody targetRb, Vector3 force)
+    {
+        yield return null;
+        yield return null;
+        yield return null;
+
+        targetRb.AddForce(force);
+    }
+    
     private void ForceDirectionUpdate()
     {
         damageReserve = weaponsManager.selectedWeaponData.Damage;

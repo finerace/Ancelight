@@ -42,7 +42,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6571646158022850639}
   serializedVersion: 2
-  m_Mass: 4
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
   gravityScale: 0
   damage: 1.5
   inCollisionAddForce: 1
-  collisionForce: 0.15
+  collisionForce: 3
   speed: 50
   bulletId: 4
 --- !u!1 &6571646158332862438

@@ -97,7 +97,7 @@ public class Bullet : MonoBehaviour
                     float smoothness = 1000f;
                     Vector3 direction = body_.forward * collisionForce * smoothness;
 
-                    rb.AddForceAtPosition(direction, body_.position);
+                    StartCoroutine(ForceAddTimer(rb,direction,body_.position));
                 }
             }
 
@@ -105,6 +105,15 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    private IEnumerator ForceAddTimer(Rigidbody targetRb,Vector3 direction,Vector3 forcePosition)
+    {
+        yield return null;
+        yield return null;
+        yield return null;
+
+        targetRb.AddForceAtPosition(direction,forcePosition);
+    }
+    
     private void OnCollisionEnter(Collision other)
     {
         if (other.collider.isTrigger)
@@ -150,7 +159,7 @@ public class Bullet : MonoBehaviour
         this.damage = damage;
     }
 
-    virtual public void SetStartImpulsPower(float power)
+    virtual public void SetStartImpulsePower(float power)
     {
         startRBPower = power/1.5f;
     }

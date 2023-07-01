@@ -642,7 +642,7 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
 
             if (ShotEvent != null) ShotEvent();
             nowBullet.SetDamage(damage);
-            nowBullet.SetStartImpulsPower(adjustableAttackStartPower);
+            nowBullet.SetStartImpulsePower(adjustableAttackStartPower);
         }
     }
 

@@ -162,8 +162,6 @@ public class LevelPassagePointsService : MonoBehaviour
             blockedNonLinearZoneZoneId.Add(zoneId);
             blockedNonLinearZoneNonLinearZoneId.Add(nonLinearZoneId);
             
-            print((zoneId,nonLinearZoneId));
-            
             foreach (var nonLinearPassageZone in goingZone.NonLinearPassageZones)
             {
                 if (!nonLinearPassageZone.zoneIsBlocked)

@@ -10020,4 +10020,4 @@ MonoBehaviour:
   damage: 4
   weaponsManager: {fileID: 0}
   forceDirection: {x: 0, y: 0, z: 0}
-  forcePower: 1000
+  forcePower: 3000

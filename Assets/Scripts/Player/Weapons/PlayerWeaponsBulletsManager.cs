@@ -184,11 +184,6 @@ public class PlayerWeaponsBulletsManager : MonoBehaviour
             if (data.Id != bulletID) 
                 continue;
 
-            foreach (var item in unlockedBulletsID.Where(item => item == bulletID))
-            {
-                print($"BulletID {bulletID} now then added!");
-            }
-            
             if(IsIdUnlocked(bulletID))
                 return;
             

@@ -74,7 +74,7 @@ MonoBehaviour:
   gravityScale: 0
   damage: 0
   inCollisionAddForce: 1
-  collisionForce: 10
+  collisionForce: 4
   speed: 20
   bulletId: 2
 --- !u!1 &6571646158332862438

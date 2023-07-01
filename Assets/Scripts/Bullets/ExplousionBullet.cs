@@ -98,7 +98,7 @@ public static class Explosions
             bool forceAllow = forceLayerMask.IsLayerInMask(colliderLayer);
             bool damageAllow = damageLayerMask.IsLayerInMask(colliderLayer);
 
-            if (!forceAllow && !damageAllow)
+            if ((!forceAllow && !damageAllow) || collider.isTrigger)
                 continue;
 
             Rigidbody bodyRb;
@@ -129,7 +129,7 @@ public static class Explosions
             if (raycastTest)
             {
                 if (damageAllow)
-                    if (collider.gameObject.TryGetComponent<Health>(out health))
+                    if (collider.gameObject.TryGetComponent(out health))
                     {
                         //?????? ?????
                         Vector3 healthPos = health.transform.position;
@@ -166,7 +166,10 @@ public static class Explosions
         {
             Rigidbody body;
             Health health;
-
+            
+            if(collider.isTrigger)
+                continue;
+            
             //?????? ???????? ?? ??????? ????
             Vector3 trueBulletPos = explousionPos;
 
@@ -191,12 +194,9 @@ public static class Explosions
                 raycastTest = (hitObjHash == colliderObjHash);
             }
             else raycastTest = true;
-            //????? ???????? ?? ?????
 
-            //???? ???????? ???????? ????..
             if (raycastTest)
             {
-                //?????? ???????? ?? ???????????? ??????????? ??????
                 bool explousionDirectedTest = false;
 
                 Vector3 localObjPos = (collider.transform.position - explousionPos).normalized;
@@ -205,7 +205,6 @@ public static class Explosions
                 if (dot >= minDot)
                     explousionDirectedTest = true;
 
-                //????? ???????? ?? ???????????? ??????????? ??????
 
                 if (explousionDirectedTest)
                 {

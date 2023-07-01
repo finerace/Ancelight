@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
     [SerializeField] private float OnFlySpeedMultiply = 0.15f;
     [SerializeField] private float OnGroundMaxSpeed = 15f;
     [SerializeField] private float OnFlyMaxSpeed = 15f;
+    [SerializeField] private float InBarierSpeedMultiplier = 0.5f;
     [SerializeField] private LayerMask groundLayerMask;
     [Space]
 
@@ -178,22 +179,18 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
                 isWalked = false;
         }
         
-        //??? ?????????? ??????? ???????? ?????? ???????????
         resultDirection += playerT.forward * vertical;
         resultDirection += playerT.right * horizontal;
 
         currentMovementDirection = resultDirection;
 
-        //??????? ?????? ???????? ???????
         float additionalSpeedBoost = 80f;
         resultDirection *= speed * additionalSpeedBoost;
 
-        //??????? ??????? ? ?????? ??????? ???? ?????? ?????
         float speedMultiply = 0.75f;
         if (horizontal != 0 && vertical != 0)
             resultDirection *= speedMultiply;
 
-        //????????? ?????????? ??????? ?? ????????? ???????
         if (isSprint)
             resultDirection *= SprintSpeedMultiply;
 
@@ -258,18 +255,13 @@ public class PlayerMovement : MonoBehaviour, IUsePlayerDevicesButtons
                 IsJumpingButtonPressed = false;
         }
         
-        //???????? ??????????? ???????? ? ?????????? ????
-        if ((playerRb.velocity + (resultDirection / 80f)).LengthXZ() <= maxSpeedTemp)
-            playerRb.AddForce(resultDirection, ForceMode.Acceleration);
-        /*else if (isWalked)
+        if ((playerRb.velocity + (resultDirection / 1000f)).LengthXZ() > maxSpeedTemp)
         {
-            Vector3 walkDirection = resultDirection / 4f;
-            walkDirection.y = 0f;
-
-            rigidbody_.AddForce(walkDirection, ForceMode.Acceleration);
-        }*/
-
+            resultDirection *= InBarierSpeedMultiplier;
+        }
         
+        playerRb.AddForce(resultDirection, ForceMode.Acceleration);
+
 
     }
     
