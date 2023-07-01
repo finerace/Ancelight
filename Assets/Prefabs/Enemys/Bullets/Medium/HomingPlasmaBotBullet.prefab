@@ -14581,7 +14581,7 @@ MonoBehaviour:
   colliders: {fileID: 6571646158332862438}
   destructionTime: 2
   currentTime: 0
-  lifeTime: 8
+  lifeTime: 5
   isDestruction: 0
   isFly: 1
   gravityScale: 0
@@ -14590,7 +14590,7 @@ MonoBehaviour:
   collisionForce: 2
   speed: 15
   bulletId: 17
-  homingSpeed: 2.5
+  homingSpeed: 2
   target: {fileID: 0}
   isEnemyBullet: 1
 --- !u!114 &-4923924998042737672

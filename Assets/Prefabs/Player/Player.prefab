@@ -5531,10 +5531,10 @@ MonoBehaviour:
   playerT: {fileID: 1076857625449862269}
   FallingSpeed: 1.25
   SprintSpeedMultiply: 0.6
-  OnFlySpeedMultiply: 0.15
+  OnFlySpeedMultiply: 0.125
   OnGroundMaxSpeed: 16
-  OnFlyMaxSpeed: 14
-  InBarierSpeedMultiplier: 0.25
+  OnFlyMaxSpeed: 13
+  InBarierSpeedMultiplier: 0.2
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 3
