@@ -18,6 +18,7 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     [SerializeField] private int selectedWeapon = 0;
     [SerializeField] internal WeaponData selectedWeaponData;
     [SerializeField] internal Transform shootingPoint;
+    [SerializeField] protected Transform[] shotGunShootingPoints;
     [SerializeField] internal Transform meleeShootingPoint;
     [SerializeField] internal Transform weaponPoint;
 
@@ -129,6 +130,7 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     public void Load(PlayerMainService playerMainService)
     {
         shootingPoint = playerMainService.ShootingPoint;
+        shotGunShootingPoints = playerMainService.ShotGunPoints;
         meleeShootingPoint = playerMainService.MeleeAttackPoint;
         weaponPoint = playerMainService.WeaponPoint;
     }
@@ -239,7 +241,7 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
 
                     break;
 
-                case WeaponData.ShootingMode.Particle:
+                case WeaponData.ShootingMode.Shotgun:
 
                     if (fire1 > 0 && !isAttacking && !oneClickState && animatorAttackAllowed)
                     {
@@ -579,7 +581,12 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
     {
         if (bulletPrefab != null)
         {
-            ShotEvent?.Invoke();
+            if (shootingMode == WeaponData.ShootingMode.Shotgun)
+            {
+                ShotGunShoot(shotGunShootingPoints);
+                
+                return;
+            }
 
             if (!isRaycastShot && !isMelee)
             {
@@ -623,12 +630,20 @@ public class PlayerWeaponsManager : MonoBehaviour,IUsePlayerDevicesButtons
                 }
             }
 
-        }
-        else if(shootingMode == WeaponData.ShootingMode.Particle)
-        {
+            void ShotGunShoot(Transform[] shotStartPoints)
+            {
+                foreach (var shotPoint in shotStartPoints)
+                {
+                    Instantiate(bulletPrefab, shotPoint.position, shotPoint.rotation)
+                        .GetComponent<Bullet>().SetDamage(damage/shotStartPoints.Length);
+                }
+                
+                ShotEvent?.Invoke();
+            }
+            
             ShotEvent?.Invoke();
-        }
 
+        }
     }
 
     private void AdjustableShot()

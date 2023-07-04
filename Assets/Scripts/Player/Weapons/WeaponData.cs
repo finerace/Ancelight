@@ -59,6 +59,6 @@ public class WeaponData : ScriptableObject
         Normal,
         Adjustable,
         Lazer,
-        Particle
+        Shotgun
     }
 }

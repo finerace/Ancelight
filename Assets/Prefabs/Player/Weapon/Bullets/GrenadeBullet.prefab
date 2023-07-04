@@ -9775,7 +9775,7 @@ MonoBehaviour:
   collisionForce: 0
   speed: 60
   bulletId: 3
-  explosionForce: 40
+  explosionForce: 25
   explosionRadius: 8
   detectBoom: 1
   wallsLayerMask:

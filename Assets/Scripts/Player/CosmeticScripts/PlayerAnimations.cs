@@ -14,6 +14,7 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField] private Transform head;
     [SerializeField] private Transform camera_;
 
+    [SerializeField] private float inWalkHandsSpeed = 8;
     private float startHandsSpeed;
     private float handsSpeedColdownTimer = 0;
     private bool isHandsColdown = false;
@@ -55,7 +56,7 @@ public class PlayerAnimations : MonoBehaviour
         if (!IsAttacking && !isHandsColdown)
         {
             if (IsWalked)
-                handsAnimator.speed = startHandsSpeed * 3f;
+                handsAnimator.speed = startHandsSpeed * inWalkHandsSpeed;
             else 
                 handsAnimator.speed = startHandsSpeed;
         }

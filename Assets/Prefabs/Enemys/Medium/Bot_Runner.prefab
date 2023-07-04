@@ -10214,7 +10214,7 @@ MonoBehaviour:
   maxHealth_: 0
   isDie: 0
   importer: {fileID: 6133552505256046063}
-  damageMultiply: 0.5
+  damageMultiply: 1
 --- !u!1 &6133552504652141630
 GameObject:
   m_ObjectHideFlags: 0
@@ -11152,10 +11152,10 @@ MonoBehaviour:
   attackPhase: 0
   isJerk: 0
   botRunner: {fileID: 6133552505256046063}
-  jerkForce: 28.5
+  jerkForce: 24
   getDamageDistance: 1.75
   damage: 15
-  hammerDot: 0.75
+  hammerDot: 0.3
   idleTime: 1.5
   targetImpulsePower: 1.25
 --- !u!114 &1199825348364051493
@@ -11492,7 +11492,7 @@ MonoBehaviour:
   maxHealth_: 0
   isDie: 0
   importer: {fileID: 6133552505256046063}
-  damageMultiply: 0.5
+  damageMultiply: 1
 --- !u!1 &6133552505650506309
 GameObject:
   m_ObjectHideFlags: 0

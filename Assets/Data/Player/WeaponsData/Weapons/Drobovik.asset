@@ -17,7 +17,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 19861cd67cb48864cb46541ffeeb5dc6, type: 3}
   id: 3
   mainColor: {r: 1, g: 0.19815665, b: 0.94470054, a: 1}
-  damage: 51
+  damage: 55
   bulletID: 1
   raycast: 0
   isMelee: 0
@@ -26,5 +26,5 @@ MonoBehaviour:
   endTimeShoot: 0
   shootingMode: 3
   shootingEffects: {fileID: 0}
-  bulletPrefab: {fileID: 6571646158022850639, guid: ff83e8bb5e44aa04ab2e06a15797c047, type: 3}
+  bulletPrefab: {fileID: 6571646158022850639, guid: 9ce6f84dea017c945b865c3040037808, type: 3}
   weaponPrefab: {fileID: 1680118816390253003, guid: 059d96cc6d80e3949b08da67d50c41db, type: 3}

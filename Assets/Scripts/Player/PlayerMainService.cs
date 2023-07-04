@@ -34,6 +34,7 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     [SerializeField] private MenuSystem menuSystem;
     
     [SerializeField] private Transform shootingPoint;
+    [SerializeField] private Transform[] shotGunPoints;
     [SerializeField] private Transform weaponPoint;
     [SerializeField] private Transform meleeAttackPoint;
     
@@ -59,6 +60,8 @@ public class PlayerMainService : Health,IUsePlayerDevicesButtons
     
     public Transform ShootingPoint => shootingPoint;
 
+    public Transform[] ShotGunPoints => shotGunPoints;
+    
     public Transform WeaponPoint => weaponPoint;
 
     public Transform MeleeAttackPoint => meleeAttackPoint;
