@@ -32,8 +32,8 @@
 
 <p align="center">
   <!-- Вставь сюда гифки, демонстрирующие геймплей, AI, систему сохранений -->
-  <img src="docs/dem (1).png" width="400" alt="Gameplay Demo">
-  <img src="docs/dem (2).png" width="400" alt="Save-Load System">
+  <img src="docs/doc (1).png" width="400" alt="Gameplay Demo">
+  <img src="docs/doc (2).png" width="400" alt="Save-Load System">
 </p>
 
 ---
@@ -53,8 +53,8 @@
 
 <p align="center">
   <!-- Вставь сюда гифки, демонстрирующие геймплей, AI, систему сохранений -->
-  <img src="docs/dem (3).png" width="400" alt="Gameplay Demo">
-  <img src="docs/dem (4).png" width="400" alt="Save-Load System">
+  <img src="docs/doc (3).png" width="400" alt="Gameplay Demo">
+  <img src="docs/doc (4).png" width="400" alt="Save-Load System">
 </p>
 
 ---
@@ -281,8 +281,8 @@ Ancelight — это динамичный FPS-шутер, созданный к�
 
 <p align="center">
   <!-- Insert GIFs demonstrating gameplay, AI, save system, etc. -->
-  <img src="docs/dem (1).png" width="400" alt="Gameplay Demo">
-  <img src="docs/dem (2).png" width="400" alt="Save-Load System">
+  <img src="docs/doc (1).png" width="400" alt="Gameplay Demo">
+  <img src="docs/doc (2).png" width="400" alt="Save-Load System">
 </p>
 
 ---
@@ -302,8 +302,8 @@ Ancelight — это динамичный FPS-шутер, созданный к�
 
 <p align="center">
   <!-- Insert GIFs demonstrating gameplay, AI, save system, etc. -->
-  <img src="docs/dem (3).png" width="400" alt="Gameplay Demo">
-  <img src="docs/dem (4).png" width="400" alt="Save-Load System">
+  <img src="docs/doc (3).png" width="400" alt="Gameplay Demo">
+  <img src="docs/doc (4).png" width="400" alt="Save-Load System">
 </p>
 
 ---
