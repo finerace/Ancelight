@@ -47,7 +47,7 @@
 *   🔫 **Data-driven система оружия:** Арсенал из 10+ видов оружия полностью настраивается через `ScriptableObject`. Реализованы различные режимы стрельбы (автоматический, зарядка, дробовик, лазер), система боеприпасов и кастомная процедурная отдача (`PlayerWeaponRecoil`).
 *   🎨 **Продвинутая работа с шейдерами:** Написаны с нуля комплексные шейдеры для визуальных эффектов, включая энергетический щит с эффектом искажения, динамическую воду, а также анимированные UI-шейдеры с переливающимися линиями.
 *   🖌️ **Создание ассетов с нуля:** Значительная часть игровых ассетов, включая 3D-модели, текстуры, иконки и элементы UI, была создана самостоятельно, что демонстрирует комплексный подход к разработке и понимание всего пайплайна создания контента.
-*   🎯 **Динамическая система заданий:** На уровнях работает система задач (`LevelTaskService`), которая ставит перед игроком цели (например, "уничтожить всех врагов в зоне") и отслеживает их выполнение, направляя геймплей.```
+*   🎯 **Динамическая система заданий:** На уровнях работает система задач (`LevelTaskService`), которая ставит перед игроком цели (например, "уничтожить всех врагов в зоне") и отслеживает их выполнение, направляя геймплей.
 
 ---
 
@@ -110,12 +110,8 @@ Ancelight — это динамичный FPS-шутер, созданный к�
 >   *   **🤖 Тактический ИИ с командным взаимодействием**
 >       *   **Ответственные классы:** `DefaultBot.cs` (базовый класс), `EnemysAiManager.cs`, `FlyingDroneBot.cs`, `TeleporterBot.cs` и др.
 >       *   **Суть:** Основа поведения врагов (более 15 типов). AI построен на базе конечного автомата (FSM), реализованного на корутинах. Каждый тип врага наследуется от `DefaultBot` и имеет уникальную логику атаки и передвижения.
->           <details>
->           <summary><strong>🧠 Особенности реализации...</strong></summary>
->           <br>
->           *   **Командная работа:** `EnemysAiManager` отслеживает всех "умных" ботов на сцене. Если один из них замечает игрока, он может "поднять тревогу", и все боты в радиусе также станут агрессивными и получат последнее известное местоположение игрока.
->           *   **Стрельба на упреждение:** Некоторые враги используют метод `CalculateSmartTargetPos`, который рассчитывает будущую позицию игрока на основе его текущей скорости и скорости полета снаряда.
->           </details>
+>       *   **Командная работа:** `EnemysAiManager` отслеживает всех "умных" ботов на сцене. Если один из них замечает игрока, он может "поднять тревогу", и все боты в радиусе также станут агрессивными и получат последнее известное местоположение игрока.
+>       *   **Стрельба на упреждение:** Некоторые враги используют метод `CalculateSmartTargetPos`, который рассчитывает будущую позицию игрока на основе его текущей скорости и скорости полета снаряда.
 >
 >   *   **🎬 Система спавна врагов по сценариям**
 >       *   **Ответственный класс:** `LevelSpawnScenario.cs`.
@@ -146,12 +142,12 @@ Ancelight — это динамичный FPS-шутер, созданный к�
 >
 >   #### IV. UI и Обратная связь
 >
->   *   ** HUD и Индикаторы**
+>   *   **💻 HUD и Индикаторы**
 >       *   **Ответственные классы:** `MainCircleUI.cs`, `DashsIndicatorService.cs`, `HookCircle.cs`, `BulletsIndicators.cs`.
 >       *   **Суть:** Комплексный игровой интерфейс, который в реальном времени отображает всю важную информацию: здоровье, броню, выбранное оружие (в виде анимированного "колеса"), количество патронов, доступные рывки и энергию крюка-кошки.
 >
 >   *   **🎯 Контекстные подсказки и информация**
->       *   **Ответственные классы:** `AdditionalInformationPanel.cs`, `KeyboardKeyTip.cs`, `LevelTaskService.cs`.
+>       *   **Ответственные классы**: `AdditionalInformationPanel.cs`, `KeyboardKeyTip.cs`, `LevelTaskService.cs`.
 >       *   **Суть:** Система предоставляет игроку обратную связь:
 >           *   При наведении на интерактивный объект или врага появляется панель с информацией о нём (`AdditionalInformationPanel`).
 >           *   Наэкранные подсказки по управлению (`KeyboardKeyTip`) автоматически обновляются при изменении раскладки в настройках.
@@ -164,13 +160,9 @@ Ancelight — это динамичный FPS-шутер, созданный к�
 >   *   **⚙️ Комплексное меню настроек**
 >       *   **Ответственные классы:** `SettingsSaveLoadSystem.cs`, `SettingsSetSystem.cs`.
 >       *   **Суть:** Полнофункциональное меню настроек, позволяющее игроку кастомизировать практически все аспекты игры. Все настройки сохраняются и загружаются из файла.
->           <details>
->           <summary><strong>🧠 Поддерживаемые опции...</strong></summary>
->           <br>
->           *   **Графика:** Качество текстур, анизотропная фильтрация, разрешение и дистанция теней, SSAO, MSAA, качество растительности, дистанция прорисовки, VSync, FOV, разрешение и формат экрана.
->           *   **Управление:** Полная перенастройка всех клавиш (`InputButtonField.cs`), включая действия мыши и колеса прокрутки, а также настройка чувствительности.
->           *   **Звук:** Раздельная регулировка громкости (мастер, музыка, эффекты, окружение, UI), настройка максимального количества звуковых источников.
->           </details>
+>         *   **Графика:** Качество текстур, анизотропная фильтрация, разрешение и дистанция теней, SSAO, MSAA, качество растительности, дистанция прорисовки, VSync, FOV, разрешение и формат экрана.
+>         *   **Управление:** Полная перенастройка всех клавиш (`InputButtonField.cs`), включая действия мыши и колеса прокрутки, а также настройка чувствительности.
+>         *   **Звук:** Раздельная регулировка громкости (мастер, музыка, эффекты, окружение, UI), настройка максимального количества звуковых источников.
 >
 >   *   **🌍 Система локализации**
 >       *   **Ответственные классы:** `CurrentLanguageData.cs`, `StaticTextLanguageAdaptable.cs`.
@@ -359,12 +351,8 @@ The project is built on several fundamental systems, written from scratch to ens
 >   *   **🤖 Tactical AI with Team Interaction**
 >       *   **Responsible Classes:** `DefaultBot.cs` (base class), `EnemysAiManager.cs`, `FlyingDroneBot.cs`, `TeleporterBot.cs`, etc.
 >       *   **Essence:** The foundation of enemy behavior (over 15 types). The AI is built on a finite-state machine (FSM) implemented with coroutines. Each enemy type inherits from `DefaultBot` and has unique attack and movement logic.
->           <details>
->           <summary><strong>🧠 Implementation Details...</strong></summary>
->           <br>
 >           *   **Teamwork:** `EnemysAiManager` tracks all "smart" bots on the scene. If one of them spots the player, it can "raise an alarm," and all bots within a certain radius will also become aggressive and receive the player's last known location.
 >           *   **Predictive Shooting:** Some enemies use the `CalculateSmartTargetPos` method, which calculates the player's future position based on their current velocity and the projectile's speed.
->           </details>
 >
 >   *   **🎬 Enemy Spawning System via Scenarios**
 >       *   **Responsible Class:** `LevelSpawnScenario.cs`.
@@ -377,11 +365,7 @@ The project is built on several fundamental systems, written from scratch to ens
 >   *   **💾 Comprehensive Save System**
 >       *   **Responsible Classes:** `LevelSaveLoadSystem.cs`, `LevelSaveData.cs`, `FixedJsonUtilityFunc.cs`.
 >       *   **Essence:** Allows serializing and deserializing the state of the entire game scene at any moment. It saves the state of the player, every enemy, flying projectile, item, and trigger.
->           <details>
->           <summary><strong>🧠 Implementation Details...</strong></summary>
->           <br>
 >           To serialize non-serializable Unity types by default (`Dictionary`, `Rigidbody`, `Transform`), a custom helper class `FixedJsonUtilityFunc` was written to convert them into formats understandable by `JsonUtility` and back. This demonstrates the ability to work around the limitations of standard tools.
->           </details>
 >
 >   *   **🎶 Audio System with Object Pooling**
 >       *   **Responsible Class:** `AudioPoolService.cs`.
@@ -413,13 +397,9 @@ The project is built on several fundamental systems, written from scratch to ens
 >   *   **⚙️ Comprehensive Settings Menu**
 >       *   **Responsible Classes:** `SettingsSaveLoadSystem.cs`, `SettingsSetSystem.cs`.
 >       *   **Essence:** A fully functional settings menu that allows the player to customize almost every aspect of the game. All settings are saved to and loaded from a file.
->           <details>
->           <summary><strong>🧠 Supported Options...</strong></summary>
->           <br>
 >           *   **Graphics:** Texture quality, anisotropic filtering, shadow resolution and distance, SSAO, MSAA, vegetation quality, draw distance, VSync, FOV, screen resolution, and display mode.
 >           *   **Controls:** Full rebinding of all keys (`InputButtonField.cs`), including mouse actions and scroll wheel, as well as sensitivity settings.
 >           *   **Sound:** Separate volume controls (master, music, effects, ambient, UI), and configuration of the maximum number of sound sources.
->           </details>
 >
 >   *   **🌍 Localization System**
 >       *   **Responsible Classes:** `CurrentLanguageData.cs`, `StaticTextLanguageAdaptable.cs`.
