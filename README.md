@@ -1,6 +1,8 @@
 <p align="right">
   <img src="https://flagpedia.net/data/flags/w20/gb.png" width="20" alt="English">
   <a href="#hi-this-is-ancelightmy-old-project-where-i-implemented-all-the-mechanics-of-a-classic-fps-from-scratch"> English Version</a>
+  <a href="https://github.com/FineRace">
+  <img src="https://i.postimg.cc/nzjMnxmF/mini-icon.png" width="30" alt="icon" align="left">
 </p>
 
 <p align="center">
@@ -242,6 +244,8 @@ Ancelight — это динамичный FPS-шутер, созданный к�
 <p align="right">
   <img src="https://flagpedia.net/data/flags/w20/ru.png" width="20" alt="Russian">
   <a href="#привет-это-ancelight--мой-старый-проект-в-котором-я-с-нуля-реализовал-все-механики-классического-fps-шутера">Русская версия</a>
+  <a href="https://github.com/FineRace">
+  <img src="https://i.postimg.cc/nzjMnxmF/mini-icon.png" width="30" alt="icon" align="left">
 </p>
 
 <p align="center">
